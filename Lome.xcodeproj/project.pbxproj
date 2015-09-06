@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135CB251B9CC3E000C6B78A /* SignInViewController.swift */; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
 		11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27431B9C6E8D00DF00E1 /* Main.storyboard */; };
 		11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27461B9C6E8D00DF00E1 /* Images.xcassets */; };
 		11AB274A1B9C6E8D00DF00E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27481B9C6E8D00DF00E1 /* LaunchScreen.xib */; };
 		11AB27561B9C6E8E00DF00E1 /* LomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB27551B9C6E8E00DF00E1 /* LomeTests.swift */; };
+		11AB27601B9CB17400DF00E1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB275F1B9CB17400DF00E1 /* Login.storyboard */; };
+		11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */; };
+		8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.debug.xcconfig"; sourceTree = "<group>"; };
+		1135CB251B9CC3E000C6B78A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB273E1B9C6E8D00DF00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +40,10 @@
 		11AB274F1B9C6E8E00DF00E1 /* LomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB27541B9C6E8E00DF00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AB27551B9C6E8E00DF00E1 /* LomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LomeTests.swift; sourceTree = "<group>"; };
+		11AB275F1B9CB17400DF00E1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.release.xcconfig"; sourceTree = "<group>"; };
+		78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +71,8 @@
 				11AB273C1B9C6E8D00DF00E1 /* Lome */,
 				11AB27521B9C6E8E00DF00E1 /* LomeTests */,
 				11AB273B1B9C6E8D00DF00E1 /* Products */,
+				80EF483C39A78F043D9DDBE7 /* Pods */,
+				82674B60D4124E892A6E70C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,11 +88,13 @@
 		11AB273C1B9C6E8D00DF00E1 /* Lome */ = {
 			isa = PBXGroup;
 			children = (
+				11AB27611B9CB4F000DF00E1 /* Controller */,
 				11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */,
 				11AB27431B9C6E8D00DF00E1 /* Main.storyboard */,
 				11AB27461B9C6E8D00DF00E1 /* Images.xcassets */,
 				11AB27481B9C6E8D00DF00E1 /* LaunchScreen.xib */,
 				11AB273D1B9C6E8D00DF00E1 /* Supporting Files */,
+				11AB275F1B9CB17400DF00E1 /* Login.storyboard */,
 			);
 			path = Lome;
 			sourceTree = "<group>";
@@ -109,6 +124,40 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		11AB27611B9CB4F000DF00E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11AB27621B9CB50000DF00E1 /* Login */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		11AB27621B9CB50000DF00E1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */,
+				1135CB251B9CC3E000C6B78A /* SignInViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		80EF483C39A78F043D9DDBE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */,
+				3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		82674B60D4124E892A6E70C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11AB27591B9C6E8E00DF00E1 /* Build configuration list for PBXNativeTarget "Lome" */;
 			buildPhases = (
+				10CC41E3BDB0C8A1F8290461 /* Check Pods Manifest.lock */,
 				11AB27361B9C6E8D00DF00E1 /* Sources */,
 				11AB27371B9C6E8D00DF00E1 /* Frameworks */,
 				11AB27381B9C6E8D00DF00E1 /* Resources */,
+				90E0988BD9B845ED2338E55A /* Embed Pods Frameworks */,
+				2541BF80D328E93563BE6F68 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AB27601B9CB17400DF00E1 /* Login.storyboard in Resources */,
 				11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */,
 				11AB274A1B9C6E8D00DF00E1 /* LaunchScreen.xib in Resources */,
 				11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */,
@@ -204,12 +257,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10CC41E3BDB0C8A1F8290461 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2541BF80D328E93563BE6F68 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lome/Pods-Lome-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90E0988BD9B845ED2338E55A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lome/Pods-Lome-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		11AB27361B9C6E8D00DF00E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
+				11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */,
+				1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +437,7 @@
 		};
 		11AB275A1B9C6E8E00DF00E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Lome/Info.plist;
@@ -344,6 +448,7 @@
 		};
 		11AB275B1B9C6E8E00DF00E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Lome/Info.plist;
@@ -405,6 +510,7 @@
 				11AB275B1B9C6E8E00DF00E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11AB275C1B9C6E8E00DF00E1 /* Build configuration list for PBXNativeTarget "LomeTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +519,7 @@
 				11AB275E1B9C6E8E00DF00E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
