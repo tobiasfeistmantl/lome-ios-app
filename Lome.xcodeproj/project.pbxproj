@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
+		11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */; };
 		1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135CB251B9CC3E000C6B78A /* SignInViewController.swift */; };
+		114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */; };
+		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
 		11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27431B9C6E8D00DF00E1 /* Main.storyboard */; };
 		11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27461B9C6E8D00DF00E1 /* Images.xcassets */; };
@@ -30,7 +34,11 @@
 
 /* Begin PBXFileReference section */
 		00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.debug.xcconfig"; sourceTree = "<group>"; };
+		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
+		11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidationError.swift; sourceTree = "<group>"; };
 		1135CB251B9CC3E000C6B78A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
+		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB273E1B9C6E8D00DF00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +73,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11036EC81B9D6DD800319E6B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11036EC91B9D6DE900319E6B /* TFTextField.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		11036ECB1B9D719000319E6B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		114C002A1B9CE9EA0053ECC4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				114C002B1B9CE9FC0053ECC4 /* Utilities.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		11AB27311B9C6E8D00DF00E1 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +120,9 @@
 		11AB273C1B9C6E8D00DF00E1 /* Lome */ = {
 			isa = PBXGroup;
 			children = (
+				11036ECB1B9D719000319E6B /* Enums */,
+				11036EC81B9D6DD800319E6B /* Classes */,
+				114C002A1B9CE9EA0053ECC4 /* Helper */,
 				11AB27611B9CB4F000DF00E1 /* Controller */,
 				11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */,
 				11AB27431B9C6E8D00DF00E1 /* Main.storyboard */,
@@ -137,6 +172,7 @@
 			children = (
 				11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */,
 				1135CB251B9CC3E000C6B78A /* SignInViewController.swift */,
+				114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -310,9 +346,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */,
+				114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */,
+				11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */,
 				1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */,
+				114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

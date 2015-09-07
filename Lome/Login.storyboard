@@ -50,6 +50,9 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="me0-QV-1h9" kind="show" id="jsk-i5-co0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ib-J0-VQ9" customClass="DesignableButton" customModule="Spring">
                                 <rect key="frame" x="16" y="452" width="568" height="55"/>
@@ -110,6 +113,219 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWa-i3-G02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="666" y="531"/>
+        </scene>
+        <!--Sign Up Table View Controller-->
+        <scene sceneID="b0F-gD-6D3">
+            <objects>
+                <tableViewController id="akL-G7-f0d" customClass="SignUpTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6y2-hb-2Zw">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With signing up for Lome, you accept our terms of service." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M1U-O6-ze7">
+                            <rect key="frame" x="0.0" y="-21" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <sections>
+                            <tableViewSection id="ZsJ-Ii-oNh">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="RCE-or-3z5">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RCE-or-3z5" id="Rwo-ha-Hyb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLL-eB-ROr" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="akL-G7-f0d" id="Shc-Xy-wuM"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JLL-eB-ROr" firstAttribute="bottom" secondItem="Rwo-ha-Hyb" secondAttribute="bottomMargin" id="AZg-UU-301"/>
+                                                <constraint firstItem="JLL-eB-ROr" firstAttribute="leading" secondItem="Rwo-ha-Hyb" secondAttribute="leadingMargin" id="HRc-iS-FUF"/>
+                                                <constraint firstItem="JLL-eB-ROr" firstAttribute="trailing" secondItem="Rwo-ha-Hyb" secondAttribute="trailingMargin" id="Km8-xW-VjY"/>
+                                                <constraint firstItem="JLL-eB-ROr" firstAttribute="top" secondItem="Rwo-ha-Hyb" secondAttribute="topMargin" id="q45-C9-fFx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="W0M-jH-XDx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W0M-jH-XDx" id="efV-ja-q77">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzM-TR-cMg" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumLength">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="akL-G7-f0d" id="tBj-Fd-WeW"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nzM-TR-cMg" firstAttribute="leading" secondItem="efV-ja-q77" secondAttribute="leadingMargin" id="78F-mo-Zaa"/>
+                                                <constraint firstItem="nzM-TR-cMg" firstAttribute="bottom" secondItem="efV-ja-q77" secondAttribute="bottomMargin" id="V09-NQ-5Ru"/>
+                                                <constraint firstItem="nzM-TR-cMg" firstAttribute="trailing" secondItem="efV-ja-q77" secondAttribute="trailingMargin" id="aFA-5p-zUy"/>
+                                                <constraint firstItem="nzM-TR-cMg" firstAttribute="top" secondItem="efV-ja-q77" secondAttribute="topMargin" id="qyH-Ug-3Ze"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="lDc-eR-ScY">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lDc-eR-ScY" id="RC4-AP-LkC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suk-Qo-qyg" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumLength">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="akL-G7-f0d" id="Qx7-X0-g0h"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="suk-Qo-qyg" firstAttribute="trailing" secondItem="RC4-AP-LkC" secondAttribute="trailingMargin" id="6ZQ-Wo-8yK"/>
+                                                <constraint firstItem="suk-Qo-qyg" firstAttribute="top" secondItem="RC4-AP-LkC" secondAttribute="topMargin" id="qbb-kg-aPv"/>
+                                                <constraint firstItem="suk-Qo-qyg" firstAttribute="bottom" secondItem="RC4-AP-LkC" secondAttribute="bottomMargin" id="tNb-mJ-GbT"/>
+                                                <constraint firstItem="suk-Qo-qyg" firstAttribute="leading" secondItem="RC4-AP-LkC" secondAttribute="leadingMargin" id="uZa-QQ-EFK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Optional" id="lxZ-Jw-QRm">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="zm6-Ol-VLJ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zm6-Ol-VLJ" id="nwY-kS-cUI">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Firstname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-3X-QKs" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="akL-G7-f0d" id="fRH-PS-lrF"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fex-3X-QKs" firstAttribute="top" secondItem="nwY-kS-cUI" secondAttribute="topMargin" id="5GQ-Ze-shu"/>
+                                                <constraint firstItem="Fex-3X-QKs" firstAttribute="trailing" secondItem="nwY-kS-cUI" secondAttribute="trailingMargin" id="MKt-8H-ElI"/>
+                                                <constraint firstItem="Fex-3X-QKs" firstAttribute="bottom" secondItem="nwY-kS-cUI" secondAttribute="bottomMargin" id="Pd9-JL-fog"/>
+                                                <constraint firstItem="Fex-3X-QKs" firstAttribute="leading" secondItem="nwY-kS-cUI" secondAttribute="leadingMargin" id="rtx-XW-EIS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="fSe-EA-sxY">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fSe-EA-sxY" id="Acc-mV-e7n">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lastname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Wx-ew-Upm" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="akL-G7-f0d" id="0Zk-fH-HkP"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5Wx-ew-Upm" firstAttribute="top" secondItem="Acc-mV-e7n" secondAttribute="topMargin" id="Aah-5h-A3a"/>
+                                                <constraint firstItem="5Wx-ew-Upm" firstAttribute="leading" secondItem="Acc-mV-e7n" secondAttribute="leadingMargin" id="ToO-xK-32d"/>
+                                                <constraint firstItem="5Wx-ew-Upm" firstAttribute="bottom" secondItem="Acc-mV-e7n" secondAttribute="bottomMargin" id="hWG-Ey-lzY"/>
+                                                <constraint firstItem="5Wx-ew-Upm" firstAttribute="trailing" secondItem="Acc-mV-e7n" secondAttribute="trailingMargin" id="orw-fV-CJS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="YeI-QS-guY">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YeI-QS-guY" id="p6n-qU-MBj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKE-zn-dJ8" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEmailAddress" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="akL-G7-f0d" id="uXg-kU-cHv"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jKE-zn-dJ8" firstAttribute="top" secondItem="p6n-qU-MBj" secondAttribute="topMargin" id="kWw-HC-zwQ"/>
+                                                <constraint firstItem="jKE-zn-dJ8" firstAttribute="bottom" secondItem="p6n-qU-MBj" secondAttribute="bottomMargin" id="kdN-jf-2cc"/>
+                                                <constraint firstItem="jKE-zn-dJ8" firstAttribute="leading" secondItem="p6n-qU-MBj" secondAttribute="leadingMargin" id="sXe-WQ-sxN"/>
+                                                <constraint firstItem="jKE-zn-dJ8" firstAttribute="trailing" secondItem="p6n-qU-MBj" secondAttribute="trailingMargin" id="t3Q-38-b0K"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="akL-G7-f0d" id="zbT-YK-AZb"/>
+                            <outlet property="delegate" destination="akL-G7-f0d" id="9bF-dX-hIy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JJS-U0-mwy">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Dr5-jY-oJO">
+                            <connections>
+                                <segue destination="FKS-7k-TZu" kind="presentation" id="E79-aU-xyP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Join" style="done" id="v0X-Rv-HYd">
+                            <connections>
+                                <action selector="signUpButtonDidTouch:" destination="akL-G7-f0d" id="j3k-7V-Ose"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="jKE-zn-dJ8" id="ocM-sW-L46"/>
+                        <outlet property="firstnameTextField" destination="Fex-3X-QKs" id="1ww-Dr-LzP"/>
+                        <outlet property="lastnameTextField" destination="5Wx-ew-Upm" id="QJp-2R-oSY"/>
+                        <outlet property="passwordConfirmationTextField" destination="suk-Qo-qyg" id="bBE-RZ-72G"/>
+                        <outlet property="passwordTextField" destination="nzM-TR-cMg" id="c4v-Wv-MPR"/>
+                        <outlet property="signUpButton" destination="v0X-Rv-HYd" id="2sz-nl-0QG"/>
+                        <outlet property="usernameTextField" destination="JLL-eB-ROr" id="kYY-Qh-bwW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZbU-KU-AXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2336" y="-263"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="DM8-mg-19d">
@@ -270,6 +486,26 @@
                 <exit id="LgA-iQ-gDx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="666" y="1337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rdg-xY-ebG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="me0-QV-1h9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IjQ-lQ-BQC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="akL-G7-f0d" kind="relationship" relationship="rootViewController" id="rjB-LA-xqs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pnq-Qr-bos" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1632" y="531"/>
         </scene>
     </scenes>
     <resources>
