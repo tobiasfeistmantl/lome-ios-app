@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+let usernameRegex = "(?=.{1,30}$)(?![-_.])(?!.*[-_.]{2})[a-zA-Z0-9._-]+(?<![-_.])"
+
+
+
+
+
+
 func setTitleImage(with image: UIImage, rect: CGRect, navigationItem: UINavigationItem) {
     let navigationRectangle = rect
     
@@ -22,9 +30,9 @@ func setTitleImage(with image: UIImage, rect: CGRect, navigationItem: UINavigati
 }
 
 func isValidEmail(testString: String) -> Bool {
-    return NSPredicate(format:"SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}").evaluateWithObject(testString)
+    return NSPredicate(format:"SELF MATCHES %@", emailRegex).evaluateWithObject(testString)
 }
 
 func isValidUsername(testString: String) -> Bool {
-    return NSPredicate(format: "SELF MATCHES %@", "^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$").evaluateWithObject(testString)
+    return NSPredicate(format: "SELF MATCHES %@", usernameRegex).evaluateWithObject(testString)
 }

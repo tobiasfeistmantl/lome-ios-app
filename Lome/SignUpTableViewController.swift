@@ -29,24 +29,18 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func requiredTextFieldChanged(textField: DesignableTextField) {
-        if usernameTextField.valid && passwordTextField.valid && passwordTextField.hasEqualValue(passwordConfirmationTextField) {
-            signUpButton.enabled = true
-        }
+        signUpButton.enabled = requiredFieldsValid
     }
     
     func optionalTextFieldChanged(textField: DesignableTextField) {
-        if firstnameTextField.filled && lastnameTextField.filled {
-            signUpButton.enabled = true
-        } else {
-            signUpButton.enabled = false
-        }
-        
-        if firstnameTextField.empty && lastnameTextField.empty {
-            signUpButton.enabled = true
-        }
-        
-        if emailAddressTextField.invalid {
-            signUpButton.enabled = false
+        if requiredFieldsValid {
+            if firstnameTextField.filled {
+                signUpButton.enabled = firstnameTextField.valid && lastnameTextField.filled && lastnameTextField.valid && emailAddressTextField.valid
+            } else if lastnameTextField.filled {
+                signUpButton.enabled = firstnameTextField.valid && firstnameTextField.filled && lastnameTextField.valid && emailAddressTextField.valid
+            } else {
+                signUpButton.enabled = firstnameTextField.valid && lastnameTextField.valid && emailAddressTextField.valid
+            }
         }
     }
     
@@ -68,6 +62,9 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
         // TODO: IMPLEMENTATION PENDING
     }
     
+    var requiredFieldsValid: Bool {
+        return usernameTextField.valid && passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
+    }
     
     
     
