@@ -14,8 +14,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var signInView: DesignableView!
     
-    @IBOutlet weak var usernameTextField: DesignableTextField!
-    @IBOutlet weak var passwordTextField: DesignableTextField!
+    @IBOutlet weak var usernameTextField: TFTextField!
+    @IBOutlet weak var passwordTextField: TFTextField!
     @IBOutlet weak var signInButton: DesignableButton!
 
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldChanged(textField: DesignableTextField) {
-        if usernameTextField.text != "" && passwordTextField.text != "" {
+        if usernameTextField.valid && passwordTextField.valid {
             signInButton.enabled = true
         } else {
             signInButton.enabled = false

@@ -12,5 +12,6 @@ enum TextFieldValidationError {
     case Empty
     case TooShort
     case TooLong
+    case InvalidUsername
     case InvalidEmailAddress
 }

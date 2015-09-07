@@ -13,6 +13,7 @@ import Spring
     @IBInspectable var mustBePresent: Bool = false
     @IBInspectable var minimumLength: Int = 0
     @IBInspectable var maximumLength: Int = 0
+    @IBInspectable var isUsername: Bool = false
     @IBInspectable var isEmailAddress: Bool = false
     
     var validationError: TextFieldValidationError? {
@@ -37,6 +38,18 @@ import Spring
         if maximumLength != 0 {
             if text.length > maximumLength {
                 return .TooLong
+            }
+        }
+        
+        if isUsername {
+            if !isValidUsername(text) {
+                if mustBePresent {
+                    return .InvalidUsername
+                } else {
+                    if filled {
+                        return .InvalidUsername
+                    }
+                }
             }
         }
         
