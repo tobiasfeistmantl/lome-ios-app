@@ -29,10 +29,23 @@ func setTitleImage(with image: UIImage, rect: CGRect, navigationItem: UINavigati
     navigationItem.titleView = workaroundImageView
 }
 
+
+
 func isValidEmail(testString: String) -> Bool {
     return NSPredicate(format:"SELF MATCHES %@", emailRegex).evaluateWithObject(testString)
 }
 
+
+
 func isValidUsername(testString: String) -> Bool {
     return NSPredicate(format: "SELF MATCHES %@", usernameRegex).evaluateWithObject(testString)
+}
+
+
+
+func showSimpleAlertWithTitle(title: String!, #message: String, #viewController: UIViewController) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+    alert.addAction(action)
+    viewController.presentViewController(alert, animated: true, completion: nil)
 }

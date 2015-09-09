@@ -18,6 +18,10 @@
 		113CE3D11BA0AA1B00ED434A /* UserSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D01BA0AA1B00ED434A /* UserSearchTableViewController.swift */; };
 		113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */; };
 		113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D51BA0BD8300ED434A /* ProfileTableViewController.swift */; };
+		113CE3D91BA0D3A200ED434A /* EditNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D81BA0D3A200ED434A /* EditNameTableViewController.swift */; };
+		113CE3DB1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DA1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift */; };
+		113CE3DD1BA0D6F100ED434A /* EditPasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DC1BA0D6F100ED434A /* EditPasswordTableViewController.swift */; };
+		113CE3DF1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DE1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift */; };
 		114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */; };
 		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
@@ -53,6 +57,10 @@
 		113CE3D01BA0AA1B00ED434A /* UserSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewController.swift; sourceTree = "<group>"; };
 		113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		113CE3D51BA0BD8300ED434A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		113CE3D81BA0D3A200ED434A /* EditNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNameTableViewController.swift; sourceTree = "<group>"; };
+		113CE3DA1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmailAddressTableViewController.swift; sourceTree = "<group>"; };
+		113CE3DC1BA0D6F100ED434A /* EditPasswordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordTableViewController.swift; sourceTree = "<group>"; };
+		113CE3DE1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileDashboardTableViewController.swift; sourceTree = "<group>"; };
 		114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +116,7 @@
 		11036ECE1B9E335600319E6B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				113CE3D71BA0D37200ED434A /* Settings */,
 				113CE3D21BA0AF9000ED434A /* Cells */,
 				11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */,
 				11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */,
@@ -133,6 +142,17 @@
 				113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		113CE3D71BA0D37200ED434A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				113CE3D81BA0D3A200ED434A /* EditNameTableViewController.swift */,
+				113CE3DA1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift */,
+				113CE3DC1BA0D6F100ED434A /* EditPasswordTableViewController.swift */,
+				113CE3DE1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		114C002A1B9CE9EA0053ECC4 /* Helper */ = {
@@ -396,6 +416,7 @@
 			files = (
 				11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */,
 				114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */,
+				113CE3DD1BA0D6F100ED434A /* EditPasswordTableViewController.swift in Sources */,
 				113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
@@ -407,7 +428,10 @@
 				11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */,
 				11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */,
 				11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */,
+				113CE3DB1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift in Sources */,
 				1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */,
+				113CE3D91BA0D3A200ED434A /* EditNameTableViewController.swift in Sources */,
+				113CE3DF1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift in Sources */,
 				114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

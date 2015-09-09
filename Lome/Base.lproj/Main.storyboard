@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="1504" y="1266"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Profile Dashboard Table View Controller-->
         <scene sceneID="w4l-Os-33W">
             <objects>
-                <tableViewController id="NrT-wc-IXh" sceneMemberID="viewController">
+                <tableViewController id="NrT-wc-IXh" customClass="EditProfileDashboardTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Jne-7E-Ddu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +277,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Danger Zone" id="ceF-Q2-ggu">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="4EQ-xh-L24" rowHeight="55" style="IBUITableViewCellStyleDefault" id="Jbz-6b-0Vn">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deleteAccountIdentifier" textLabel="4EQ-xh-L24" rowHeight="55" style="IBUITableViewCellStyleDefault" id="Jbz-6b-0Vn">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jbz-6b-0Vn" id="NyJ-oa-lAc">
@@ -300,15 +300,18 @@
                             <outlet property="delegate" destination="NrT-wc-IXh" id="bfs-x2-EeK"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="deleteAccountCell" destination="Jbz-6b-0Vn" id="QPk-RW-FxO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxA-Qa-U5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504" y="2010"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Password Table View Controller-->
         <scene sceneID="Usb-kE-SgZ">
             <objects>
-                <tableViewController id="2tq-x2-7mX" sceneMemberID="viewController">
+                <tableViewController id="2tq-x2-7mX" customClass="EditPasswordTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="APt-H9-uXl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,15 +319,23 @@
                         <sections>
                             <tableViewSection headerTitle="Change Password" id="lYo-W7-Vxb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zxh-Jj-Whj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="zxh-Jj-Whj">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zxh-Jj-Whj" id="I06-mV-SZr">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zi-H4-Ab6">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zi-H4-Ab6" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumLength">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="2tq-x2-7mX" id="CGW-fC-AHi"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -335,15 +346,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qdq-Or-GCX">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="qdq-Or-GCX">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qdq-Or-GCX" id="5t1-IP-fo2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7E-Kh-XLq">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7E-Kh-XLq" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumLength">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="2tq-x2-7mX" id="Emw-rF-DCB"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -363,17 +382,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="7bm-CP-9gl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="t7B-L7-ocx"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="t7B-L7-ocx"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="passwordConfirmationTextField" destination="C7E-Kh-XLq" id="gHY-6Z-tFQ"/>
+                        <outlet property="passwordTextField" destination="3zi-H4-Ab6" id="zcL-Ej-J4R"/>
+                        <outlet property="saveButton" destination="t7B-L7-ocx" id="doD-2g-19f"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CvU-xq-hoa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504" y="2731"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Name Table View Controller-->
         <scene sceneID="gmB-ny-A1C">
             <objects>
-                <tableViewController id="S2l-Vk-AaI" sceneMemberID="viewController">
+                <tableViewController id="S2l-Vk-AaI" customClass="EditNameTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jvu-MN-XGW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,15 +405,21 @@
                         <sections>
                             <tableViewSection headerTitle="Change your Name" id="gcZ-bs-Gxs">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KO6-oS-138">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KO6-oS-138">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KO6-oS-138" id="1H2-ki-BiY">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Firstname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBq-fh-NKw">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Firstname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBq-fh-NKw" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="S2l-Vk-AaI" id="TSn-kd-82w"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -400,15 +430,21 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gXa-xo-hn9">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="gXa-xo-hn9">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gXa-xo-hn9" id="2ne-kX-7Bb">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lastname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VIu-oH-oAv">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lastname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VIu-oH-oAv" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="S2l-Vk-AaI" id="HDB-Y6-agJ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -428,17 +464,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fvB-Ni-EDX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ze6-c5-YCS"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Ze6-c5-YCS"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="firstnameTextField" destination="zBq-fh-NKw" id="wI8-pj-HS4"/>
+                        <outlet property="lastnameTextField" destination="VIu-oH-oAv" id="ZEt-tc-zCB"/>
+                        <outlet property="saveButton" destination="Ze6-c5-YCS" id="5Rb-6A-wkV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEt-Sv-5D7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2277" y="2010"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Email Address Table View Controller-->
         <scene sceneID="UqP-dH-RBA">
             <objects>
-                <tableViewController id="3f9-XU-9iE" sceneMemberID="viewController">
+                <tableViewController id="3f9-XU-9iE" customClass="EditEmailAddressTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="aWM-NG-80a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -446,15 +487,22 @@
                         <sections>
                             <tableViewSection headerTitle="Change your Email Address" id="JCw-l5-ViY">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="enz-eg-ax8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="enz-eg-ax8">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="enz-eg-ax8" id="x0d-Yp-cgq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06g-vX-2Ns">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06g-vX-2Ns" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isEmailAddress" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="3f9-XU-9iE" id="BDF-rK-LCa"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -474,8 +522,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4TY-ec-A5s">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AY8-Rq-zmG"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="AY8-Rq-zmG"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="06g-vX-2Ns" id="rV0-Am-Ldv"/>
+                        <outlet property="saveButton" destination="AY8-Rq-zmG" id="dQj-M0-IRo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7t-Gr-MVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
