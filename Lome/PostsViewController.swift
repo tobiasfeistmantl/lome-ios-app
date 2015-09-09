@@ -12,10 +12,13 @@ import Spring
 class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     var currentScrollPosition: CGPoint?
 
+    @IBOutlet weak var postsTableView: UITableView!
     @IBOutlet weak var newPostButton: DesignableButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postsTableView.rowHeight = UITableViewAutomaticDimension
         
         navigationItem.setTitleImage(with: UIImage(named: "Lome Red")!, rect: CGRectMake(0, 0, 91, 32))
     }
