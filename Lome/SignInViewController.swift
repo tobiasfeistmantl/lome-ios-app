@@ -71,16 +71,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         if up {
             let screen = UIScreen.mainScreen().bounds
-            let orientation = UIDevice.currentDevice().orientation
             
-            if orientation == .Portrait {
-                switch screen.height {
-                case 480: signInViewCenterYConstraint.constant = 135
-                case 568: signInViewCenterYConstraint.constant = 100
-                default: signInViewCenterYConstraint.constant = 75
-                }
-            } else {
-                signInViewCenterYConstraint.constant = 120
+            switch screen.height {
+            case 480: signInViewCenterYConstraint.constant = 135
+            case 568: signInViewCenterYConstraint.constant = 100
+            default: signInViewCenterYConstraint.constant = 75
             }
             
         } else {

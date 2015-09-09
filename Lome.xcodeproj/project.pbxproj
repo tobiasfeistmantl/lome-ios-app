@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
 		11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */; };
+		11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */; };
+		11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE51BA0356D00BD1A64 /* UITextView.swift */; };
+		11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */; };
+		11355FEA1BA0601F00BD1A64 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE91BA0601F00BD1A64 /* PostsViewController.swift */; };
 		1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135CB251B9CC3E000C6B78A /* SignInViewController.swift */; };
 		114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */; };
 		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
@@ -36,6 +40,10 @@
 		00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.debug.xcconfig"; sourceTree = "<group>"; };
 		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
 		11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidationError.swift; sourceTree = "<group>"; };
+		11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposerViewController.swift; sourceTree = "<group>"; };
+		11355FE51BA0356D00BD1A64 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsNavigationViewController.swift; sourceTree = "<group>"; };
+		11355FE91BA0601F00BD1A64 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		1135CB251B9CC3E000C6B78A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -92,8 +100,19 @@
 		11036ECE1B9E335600319E6B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */,
+				11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */,
+				11355FE91BA0601F00BD1A64 /* PostsViewController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		11355FE41BA0355800BD1A64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				11355FE51BA0356D00BD1A64 /* UITextView.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		114C002A1B9CE9EA0053ECC4 /* Helper */ = {
@@ -127,6 +146,7 @@
 		11AB273C1B9C6E8D00DF00E1 /* Lome */ = {
 			isa = PBXGroup;
 			children = (
+				11355FE41BA0355800BD1A64 /* Extensions */,
 				11036ECB1B9D719000319E6B /* Enums */,
 				11036EC81B9D6DD800319E6B /* Classes */,
 				114C002A1B9CE9EA0053ECC4 /* Helper */,
@@ -356,8 +376,12 @@
 			files = (
 				11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */,
 				114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */,
+				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
+				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
+				11355FEA1BA0601F00BD1A64 /* PostsViewController.swift in Sources */,
 				11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */,
+				11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */,
 				11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */,
 				1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */,
 				114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */,

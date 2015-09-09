@@ -98,15 +98,6 @@
                             <constraint firstItem="nUA-nL-yZw" firstAttribute="top" secondItem="hxo-MD-7Sx" secondAttribute="top" id="xNI-L2-glZ"/>
                             <constraint firstItem="66G-UU-Jbq" firstAttribute="top" secondItem="4Ib-J0-VQ9" secondAttribute="bottom" constant="8" id="zhQ-Sq-LE6"/>
                         </constraints>
-                        <variation key="heightClass=compact">
-                            <mask key="subviews">
-                                <exclude reference="bnz-oC-Uwp"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="XaF-vk-dgf"/>
-                                <exclude reference="m3y-Hq-EOs"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
@@ -308,7 +299,7 @@
                     <navigationItem key="navigationItem" id="JJS-U0-mwy">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Dr5-jY-oJO">
                             <connections>
-                                <segue destination="FKS-7k-TZu" kind="presentation" id="E79-aU-xyP"/>
+                                <action selector="cancelButtonDidTouch:" destination="akL-G7-f0d" id="rBF-uO-7c9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Join" style="done" id="v0X-Rv-HYd">
@@ -451,10 +442,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="320"/>
                                                 </constraint>
                                                 <constraint firstAttribute="trailing" secondItem="lHk-Gf-zOW" secondAttribute="trailing" constant="8" id="fhD-z1-xaQ"/>
-                                                <constraint firstAttribute="width" constant="310" id="jAp-u8-qe7">
-                                                    <variation key="heightClass=compact" constant="350"/>
-                                                    <variation key="heightClass=compact-widthClass=regular" constant="400"/>
-                                                </constraint>
+                                                <constraint firstAttribute="width" constant="310" id="jAp-u8-qe7"/>
                                                 <constraint firstItem="yBk-G4-cW8" firstAttribute="leading" secondItem="nNF-Jx-Jd4" secondAttribute="leading" constant="8" id="kPn-sE-UkZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="yBk-G4-cW8" secondAttribute="trailing" constant="8" id="onB-6U-cBf"/>
                                                 <constraint firstItem="lHk-Gf-zOW" firstAttribute="top" secondItem="a4d-Y9-0qe" secondAttribute="bottom" constant="10" id="qYG-o6-iDl">

@@ -71,7 +71,10 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     var requiredFieldsValid: Bool {
         return usernameTextField.valid && passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
     }
-    
+
+    @IBAction func cancelButtonDidTouch(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     func setupRequiredTextFieldTargets() {
