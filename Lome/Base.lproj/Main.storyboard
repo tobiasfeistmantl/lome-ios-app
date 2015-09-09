@@ -171,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="1504" y="1266"/>
         </scene>
-        <!--Edit Profile Dashboard Table View Controller-->
+        <!--Settings-->
         <scene sceneID="w4l-Os-33W">
             <objects>
                 <tableViewController id="NrT-wc-IXh" customClass="EditProfileDashboardTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
@@ -300,6 +300,7 @@
                             <outlet property="delegate" destination="NrT-wc-IXh" id="bfs-x2-EeK"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="Bsu-3e-S1d"/>
                     <connections>
                         <outlet property="deleteAccountCell" destination="Jbz-6b-0Vn" id="QPk-RW-FxO"/>
                     </connections>
@@ -308,7 +309,7 @@
             </objects>
             <point key="canvasLocation" x="1504" y="2010"/>
         </scene>
-        <!--Edit Password Table View Controller-->
+        <!--Password-->
         <scene sceneID="Usb-kE-SgZ">
             <objects>
                 <tableViewController id="2tq-x2-7mX" customClass="EditPasswordTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
@@ -381,7 +382,7 @@
                             <outlet property="delegate" destination="2tq-x2-7mX" id="dbn-zk-jOv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7bm-CP-9gl">
+                    <navigationItem key="navigationItem" title="Password" id="7bm-CP-9gl">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="t7B-L7-ocx"/>
                     </navigationItem>
                     <connections>
@@ -394,7 +395,7 @@
             </objects>
             <point key="canvasLocation" x="1504" y="2731"/>
         </scene>
-        <!--Edit Name Table View Controller-->
+        <!--Name-->
         <scene sceneID="gmB-ny-A1C">
             <objects>
                 <tableViewController id="S2l-Vk-AaI" customClass="EditNameTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
@@ -463,7 +464,7 @@
                             <outlet property="delegate" destination="S2l-Vk-AaI" id="a1z-eb-3D4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fvB-Ni-EDX">
+                    <navigationItem key="navigationItem" title="Name" id="fvB-Ni-EDX">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Ze6-c5-YCS"/>
                     </navigationItem>
                     <connections>
@@ -476,7 +477,7 @@
             </objects>
             <point key="canvasLocation" x="2277" y="2010"/>
         </scene>
-        <!--Edit Email Address Table View Controller-->
+        <!--Email Address-->
         <scene sceneID="UqP-dH-RBA">
             <objects>
                 <tableViewController id="3f9-XU-9iE" customClass="EditEmailAddressTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
@@ -521,7 +522,7 @@
                             <outlet property="delegate" destination="3f9-XU-9iE" id="ayo-oX-osa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4TY-ec-A5s">
+                    <navigationItem key="navigationItem" title="Email Address" id="4TY-ec-A5s">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="AY8-Rq-zmG"/>
                     </navigationItem>
                     <connections>
@@ -987,10 +988,6 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textShadowColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
