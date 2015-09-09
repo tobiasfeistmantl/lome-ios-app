@@ -45,14 +45,20 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        switch textField {
-        case usernameTextField: passwordTextField.becomeFirstResponder()
-        case passwordTextField: passwordConfirmationTextField.becomeFirstResponder()
-        case passwordConfirmationTextField: firstnameTextField.becomeFirstResponder()
-        case firstnameTextField: lastnameTextField.becomeFirstResponder()
-        case lastnameTextField: emailAddressTextField.becomeFirstResponder()
-        case emailAddressTextField: emailAddressTextField.resignFirstResponder()
-        default: textField.resignFirstResponder()
+        let textField = textField as! TFTextField
+        
+        if textField.valid {
+            switch textField {
+            case usernameTextField: passwordTextField.becomeFirstResponder()
+            case passwordTextField: passwordConfirmationTextField.becomeFirstResponder()
+            case passwordConfirmationTextField: firstnameTextField.becomeFirstResponder()
+            case firstnameTextField: lastnameTextField.becomeFirstResponder()
+            case lastnameTextField: emailAddressTextField.becomeFirstResponder()
+            case emailAddressTextField: emailAddressTextField.resignFirstResponder()
+            default: textField.resignFirstResponder()
+            }
+        } else {
+            textField.setInlineErrorMessageByValidationError()
         }
         
         return true

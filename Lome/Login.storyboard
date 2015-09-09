@@ -144,6 +144,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="mustBePresent" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isUsername" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="maximumLength">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <outlet property="delegate" destination="akL-G7-f0d" id="Shc-Xy-wuM"/>

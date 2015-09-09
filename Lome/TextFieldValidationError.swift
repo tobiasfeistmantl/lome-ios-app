@@ -8,10 +8,10 @@
 
 import Foundation
 
-enum TextFieldValidationError {
-    case Empty
-    case TooShort
-    case TooLong
-    case InvalidUsername
-    case InvalidEmailAddress
+enum TextFieldValidationError: String {
+    case Empty = "The field is empty"
+    case TooShort = "The value is too short"
+    case TooLong = "The value is too long"
+    case InvalidUsername = "This isn't a valid username"
+    case InvalidEmailAddress = "This isn't a valid email address"
 }

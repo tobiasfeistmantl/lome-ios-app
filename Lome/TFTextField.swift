@@ -16,62 +16,42 @@ import Spring
     @IBInspectable var isUsername: Bool = false
     @IBInspectable var isEmailAddress: Bool = false
     
+    var errorLabel: UILabel?
+    
     var validationError: TextFieldValidationError? {
-        if mustBePresent {
-            if text == "" {
-                return .Empty
-            }
+        if mustBePresent && empty {
+            return .Empty
         }
         
-        if minimumLength != 0 {
-            if text.length < minimumLength {
-                if mustBePresent {
-                    return .TooShort
-                } else {
-                    if filled {
-                        return .TooShort
-                    }
-                }
-            }
+        if minimumLength != 0 && text.length < minimumLength && (mustBePresent || filled) {
+            return .TooShort
         }
         
-        if maximumLength != 0 {
-            if text.length > maximumLength {
-                return .TooLong
-            }
+        if maximumLength != 0 && text.length > maximumLength {
+            return .TooLong
         }
         
-        if isUsername {
-            if !isValidUsername(text) {
-                if mustBePresent {
-                    return .InvalidUsername
-                } else {
-                    if filled {
-                        return .InvalidUsername
-                    }
-                }
-            }
+        if isUsername && !isValidUsername(text) && (mustBePresent || filled) {
+            return .InvalidUsername
         }
         
-        if isEmailAddress {
-            if !isValidEmail(text) {
-                if mustBePresent {
-                    return .InvalidEmailAddress
-                } else {
-                    if filled {
-                        return .InvalidEmailAddress
-                    }
-                }
-            }
+        if isEmailAddress && !isValidEmail(text) && (mustBePresent || filled) {
+            return .InvalidEmailAddress
         }
         
         return nil
     }
     
     
-    
     var valid: Bool {
-        return validationError == nil
+        if validationError == nil {
+            // Always remove error messages if value is valid
+            resetError()
+        
+            return true
+        } else {
+            return false
+        }
     }
     
     var invalid: Bool {
@@ -79,6 +59,40 @@ import Spring
     }
     
     
+    func setInlineErrorMessage(value: String) {
+        if errorLabel == nil {
+            let errorColor = UIColor(hex: "AA0000")
+            
+            self.textColor = errorColor
+            
+            self.errorLabel = UILabel()
+            errorLabel!.textColor = errorColor
+            errorLabel!.font = self.font
+            errorLabel!.textAlignment = .Right
+            errorLabel!.setTranslatesAutoresizingMaskIntoConstraints(false)
+            
+            errorLabel!.text = value
+            
+            self.addSubview(errorLabel!)
+            
+            let centerConstraint = NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: errorLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+            let rightConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: errorLabel, attribute: .Trailing, multiplier: 1, constant: 0)
+            
+            self.addConstraints([centerConstraint, rightConstraint])
+        }
+    }
+    
+    func setInlineErrorMessageByValidationError() {
+        if let error = validationError {
+            setInlineErrorMessage(error.rawValue)
+        }
+    }
+    
+    func resetError() {
+        self.textColor = .blackColor()
+        errorLabel?.removeFromSuperview()
+        errorLabel = nil
+    }
     
     
     func hasEqualValue(textField: UITextField) -> Bool {
