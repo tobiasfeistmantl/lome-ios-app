@@ -16,6 +16,8 @@ class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.setTitleImage(with: UIImage(named: "Lome Red")!, rect: CGRectMake(0, 0, 91, 32))
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

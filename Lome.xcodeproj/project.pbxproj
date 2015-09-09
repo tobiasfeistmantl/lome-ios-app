@@ -13,6 +13,7 @@
 		11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE51BA0356D00BD1A64 /* UITextView.swift */; };
 		11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */; };
 		11355FEA1BA0601F00BD1A64 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE91BA0601F00BD1A64 /* PostsViewController.swift */; };
+		11355FEC1BA0784800BD1A64 /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */; };
 		1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135CB251B9CC3E000C6B78A /* SignInViewController.swift */; };
 		114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */; };
 		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
@@ -44,6 +45,7 @@
 		11355FE51BA0356D00BD1A64 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsNavigationViewController.swift; sourceTree = "<group>"; };
 		11355FE91BA0601F00BD1A64 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		1135CB251B9CC3E000C6B78A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				11355FE51BA0356D00BD1A64 /* UITextView.swift */,
+				11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
 				11355FEA1BA0601F00BD1A64 /* PostsViewController.swift in Sources */,
+				11355FEC1BA0784800BD1A64 /* UINavigationItem.swift in Sources */,
 				11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */,
 				11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */,
 				11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */,
