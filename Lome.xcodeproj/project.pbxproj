@@ -35,6 +35,7 @@
 		11CFA4241BA1AC5F001FD262 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA4231BA1AC5F001FD262 /* String.swift */; };
 		11CFA4281BA1B6CB001FD262 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA4271BA1B6CB001FD262 /* Array.swift */; };
 		11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA42B1BA1B985001FD262 /* Constants.swift */; };
+		11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */; };
 		8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		11CFA4231BA1AC5F001FD262 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		11CFA4271BA1B6CB001FD262 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		11CFA42B1BA1B985001FD262 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFImageView.swift; sourceTree = "<group>"; };
 		3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.release.xcconfig"; sourceTree = "<group>"; };
 		78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				11036EC91B9D6DE900319E6B /* TFTextField.swift */,
+				11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */,
 				113CE3DD1BA0D6F100ED434A /* EditPasswordTableViewController.swift in Sources */,
 				113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */,
+				11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */,

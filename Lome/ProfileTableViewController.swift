@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Spring
 
 class ProfileTableViewController: UITableViewController {
+    @IBOutlet weak var profileImageView: TFImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
