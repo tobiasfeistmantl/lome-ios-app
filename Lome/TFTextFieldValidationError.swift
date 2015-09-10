@@ -1,5 +1,5 @@
 //
-//  TextFieldValidationError.swift
+//  TFTextFieldValidationError.swift
 //  Lome
 //
 //  Created by Tobias Feistmantl on 07/09/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TextFieldValidationError: String {
+enum TFTextFieldValidationError: String {
     case Empty = "The field is empty"
     case TooShort = "The value is too short"
     case TooLong = "The value is too long"

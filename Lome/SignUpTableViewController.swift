@@ -22,10 +22,10 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitleImage(with: UIImage(named: "Sign Up")!, CGRectMake(0, 0, 117.5, 30), navigationItem)
+        navigationItem.setTitleImage(with: UIImage(named: "Sign Up")!, rect: CGRectMake(0, 0, 117.5, 30))
         
-        setupRequiredTextFieldTargets()
-        setupOptionalTextFieldTargets()
+        [usernameTextField, passwordTextField, passwordConfirmationTextField].addTarget(self, action: "requiredTextFieldChanged:", forControlEvents: .EditingChanged)
+        [firstnameTextField, lastnameTextField, emailAddressTextField].addTarget(self, action: "optionalTextFieldChanged:", forControlEvents: .EditingChanged)
     }
     
     func requiredTextFieldChanged(textField: DesignableTextField) {
@@ -74,24 +74,5 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBAction func cancelButtonDidTouch(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
-    func setupRequiredTextFieldTargets() {
-        let action: Selector = "requiredTextFieldChanged:"
-        let forControlEvents = UIControlEvents.EditingChanged
-        
-        usernameTextField.addTarget(self, action: action, forControlEvents: forControlEvents)
-        passwordTextField.addTarget(self, action: action, forControlEvents: forControlEvents)
-        passwordConfirmationTextField.addTarget(self, action: action, forControlEvents: forControlEvents)
-    }
-    
-    func setupOptionalTextFieldTargets() {
-        let action: Selector = "optionalTextFieldChanged:"
-        let forControlEvents = UIControlEvents.EditingChanged
-        
-        firstnameTextField.addTarget(self, action: action, forControlEvents: forControlEvents)
-        lastnameTextField.addTarget(self, action: action, forControlEvents: forControlEvents)
-        emailAddressTextField.addTarget(self, action: action, forControlEvents: forControlEvents)
     }
 }

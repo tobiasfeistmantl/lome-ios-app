@@ -17,8 +17,7 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstnameTextField.addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
-        lastnameTextField.addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        [firstnameTextField, lastnameTextField].addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -40,4 +39,9 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     func textFieldChanged(sender: TFTextField) {
         saveButton.enabled = firstnameTextField.valid && lastnameTextField.valid
     }
+    
+    @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
+        // TODO: IMPLEMENTATION PENDING
+    }
+    
 }

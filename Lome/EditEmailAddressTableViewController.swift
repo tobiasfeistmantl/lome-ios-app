@@ -34,4 +34,8 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
         saveButton.enabled = emailAddressTextField.valid
     }
     
+    @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
+        // TODO: IMPLEMENTATION PENDING
+    }
+    
 }

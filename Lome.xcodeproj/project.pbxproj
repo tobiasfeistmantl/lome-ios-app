@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
-		11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */; };
+		11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */; };
 		11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */; };
 		11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE51BA0356D00BD1A64 /* UITextView.swift */; };
 		11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */; };
@@ -31,6 +31,10 @@
 		11AB27561B9C6E8E00DF00E1 /* LomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB27551B9C6E8E00DF00E1 /* LomeTests.swift */; };
 		11AB27601B9CB17400DF00E1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB275F1B9CB17400DF00E1 /* Login.storyboard */; };
 		11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */; };
+		11CFA4211BA1A882001FD262 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA4201BA1A882001FD262 /* UIViewController.swift */; };
+		11CFA4241BA1AC5F001FD262 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA4231BA1AC5F001FD262 /* String.swift */; };
+		11CFA4281BA1B6CB001FD262 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA4271BA1B6CB001FD262 /* Array.swift */; };
+		11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA42B1BA1B985001FD262 /* Constants.swift */; };
 		8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -47,7 +51,7 @@
 /* Begin PBXFileReference section */
 		00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.debug.xcconfig"; sourceTree = "<group>"; };
 		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
-		11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidationError.swift; sourceTree = "<group>"; };
+		11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextFieldValidationError.swift; sourceTree = "<group>"; };
 		11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposerViewController.swift; sourceTree = "<group>"; };
 		11355FE51BA0356D00BD1A64 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,10 @@
 		11AB27551B9C6E8E00DF00E1 /* LomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LomeTests.swift; sourceTree = "<group>"; };
 		11AB275F1B9CB17400DF00E1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		11CFA4201BA1A882001FD262 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		11CFA4231BA1AC5F001FD262 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		11CFA4271BA1B6CB001FD262 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		11CFA42B1BA1B985001FD262 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.release.xcconfig"; sourceTree = "<group>"; };
 		78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,7 +116,7 @@
 		11036ECB1B9D719000319E6B /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				11036ECC1B9D719D00319E6B /* TextFieldValidationError.swift */,
+				11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -132,6 +140,9 @@
 			children = (
 				11355FE51BA0356D00BD1A64 /* UITextView.swift */,
 				11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */,
+				11CFA4201BA1A882001FD262 /* UIViewController.swift */,
+				11CFA4231BA1AC5F001FD262 /* String.swift */,
+				11CFA4271BA1B6CB001FD262 /* Array.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -159,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				114C002B1B9CE9FC0053ECC4 /* Utilities.swift */,
+				11CFA42B1BA1B985001FD262 /* Constants.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -414,12 +426,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11036ECD1B9D719D00319E6B /* TextFieldValidationError.swift in Sources */,
+				11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */,
 				114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */,
 				113CE3DD1BA0D6F100ED434A /* EditPasswordTableViewController.swift in Sources */,
 				113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
+				11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */,
 				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
 				113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */,
 				11355FEA1BA0601F00BD1A64 /* PostsViewController.swift in Sources */,
@@ -428,9 +441,12 @@
 				11AB27641B9CB51C00DF00E1 /* WelcomeViewController.swift in Sources */,
 				11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */,
 				11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */,
+				11CFA4211BA1A882001FD262 /* UIViewController.swift in Sources */,
 				113CE3DB1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift in Sources */,
 				1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */,
+				11CFA4281BA1B6CB001FD262 /* Array.swift in Sources */,
 				113CE3D91BA0D3A200ED434A /* EditNameTableViewController.swift in Sources */,
+				11CFA4241BA1AC5F001FD262 /* String.swift in Sources */,
 				113CE3DF1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift in Sources */,
 				114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */,
 			);

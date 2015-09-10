@@ -10,13 +10,33 @@ import UIKit
 
 class EditProfileDashboardTableViewController: UITableViewController {
 
-    @IBOutlet weak var deleteAccountCell: UITableViewCell!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        if let identifier = cell?.reuseIdentifier {
+            switch identifier {
+            case "deleteSessionCell":
+                break // TODO: IMPLEMENTATION PENDING
+            case "deleteAccountCell":
+                presentViewController(destroyAccountAlertController(), animated: true, completion: nil)
+            default: break
+            }
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    
+    func destroyAccountAlertController() -> UIAlertController {
+        let alert = UIAlertController(title: "Delete Account", message: "Do you really want to delete your account? This action is irreversible!", preferredStyle: .ActionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete my Account 😢", style: .Destructive, handler: nil) // TODO: IMPLEMENTATION PENDING
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        for action in [deleteAction, cancelAction] {
+            alert.addAction(action)
+        }
+        
+        return alert
+    }
 }

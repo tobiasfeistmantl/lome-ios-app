@@ -18,7 +18,7 @@ import Spring
     
     var errorLabel: UILabel?
     
-    var validationError: TextFieldValidationError? {
+    var validationError: TFTextFieldValidationError? {
         if mustBePresent && empty {
             return .Empty
         }
@@ -31,11 +31,11 @@ import Spring
             return .TooLong
         }
         
-        if isUsername && !isValidUsername(text) && (mustBePresent || filled) {
+        if isUsername && !text.usernameFormat && (mustBePresent || filled) {
             return .InvalidUsername
         }
         
-        if isEmailAddress && !isValidEmail(text) && (mustBePresent || filled) {
+        if isEmailAddress && !text.emailFormat && (mustBePresent || filled) {
             return .InvalidEmailAddress
         }
         
