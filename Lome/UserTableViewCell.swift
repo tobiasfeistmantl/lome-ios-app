@@ -9,6 +9,7 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
+    @IBOutlet weak var userProfileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!

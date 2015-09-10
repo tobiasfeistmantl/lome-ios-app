@@ -9,7 +9,7 @@
 import UIKit
 import Spring
 
-class PostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
+class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     var currentScrollPosition: CGPoint?
 
     @IBOutlet weak var postsTableView: UITableView!
