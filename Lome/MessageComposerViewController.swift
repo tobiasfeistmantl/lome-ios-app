@@ -10,20 +10,31 @@ import UIKit
 import MapKit
 import Spring
 
-class MessageComposerViewController: UIViewController, UITextViewDelegate {
+class MessageComposerViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var postPositionMapView: MKMapView!
     @IBOutlet weak var messageTextView: DesignableTextView!
-    @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var postButton: DesignableButton!
     
     @IBOutlet weak var messageComposerView: UIView!
     @IBOutlet weak var messageComposerViewCenterYConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var takeImageButton: UIButton!
+    
+    var postImage: UIImage?
+    
     var placeholderSetInMessageTextView = true
     var placeholderText = "Your message here..."
+    
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            takeImageButton.enabled = true
+        }
+        
+        imagePicker.delegate = self
         
         setupObserversForKeyboard()
         messageTextView.placeholder = placeholderText
@@ -76,7 +87,23 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    @IBAction func takePhotoButtonDidTouch(sender: UIButton) {
+        imagePicker.sourceType = .Camera
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
     
+    @IBAction func chooseImageButtonDidTouch(sender: UIButton) {
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        dismissViewControllerAnimated(true, completion: nil)
+        postImage = image
+        println("Image taked! \(postImage)")
+    }
     
     
     func setupObserversForKeyboard() {
