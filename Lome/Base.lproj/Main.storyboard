@@ -373,15 +373,15 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Session" id="ceF-Q2-ggu">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deleteSessionCell" textLabel="W7Q-rX-1Me" style="IBUITableViewCellStyleDefault" id="eME-SG-wql">
-                                        <rect key="frame" x="0.0" y="472.5" width="600" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deleteSessionCell" textLabel="W7Q-rX-1Me" rowHeight="55" style="IBUITableViewCellStyleDefault" id="eME-SG-wql">
+                                        <rect key="frame" x="0.0" y="472.5" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eME-SG-wql" id="B8p-f6-ibv">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W7Q-rX-1Me">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="54.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -398,7 +398,7 @@
                             <tableViewSection headerTitle="Danger Zone" id="Ppp-ga-Ilk">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="deleteAccountCell" textLabel="la0-FY-2uA" rowHeight="55" style="IBUITableViewCellStyleDefault" id="zWH-pz-79E">
-                                        <rect key="frame" x="0.0" y="558.5" width="600" height="55"/>
+                                        <rect key="frame" x="0.0" y="569.5" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zWH-pz-79E" id="LbS-19-VsA">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
