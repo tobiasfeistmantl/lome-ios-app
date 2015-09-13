@@ -17,6 +17,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: TFTextField!
     @IBOutlet weak var passwordTextField: TFTextField!
     @IBOutlet weak var signInButton: DesignableButton!
+    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
