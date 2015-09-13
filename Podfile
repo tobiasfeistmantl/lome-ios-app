@@ -3,7 +3,8 @@
 use_frameworks!
 
 target 'Lome' do
-	pod 'Spring'
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+	pod 'Alamofire'
 end
 
 target 'LomeTests' do

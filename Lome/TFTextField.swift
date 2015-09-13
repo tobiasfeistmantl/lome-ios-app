@@ -23,19 +23,19 @@ import Spring
             return .Empty
         }
         
-        if minimumLength != 0 && text.length < minimumLength && (mustBePresent || filled) {
+        if minimumLength != 0 && text!.length < minimumLength && (mustBePresent || filled) {
             return .TooShort
         }
         
-        if maximumLength != 0 && text.length > maximumLength {
+        if maximumLength != 0 && text!.length > maximumLength {
             return .TooLong
         }
         
-        if isUsername && !text.usernameFormat && (mustBePresent || filled) {
+        if isUsername && !text!.usernameFormat && (mustBePresent || filled) {
             return .InvalidUsername
         }
         
-        if isEmailAddress && !text.emailFormat && (mustBePresent || filled) {
+        if isEmailAddress && !text!.emailFormat && (mustBePresent || filled) {
             return .InvalidEmailAddress
         }
         
@@ -69,7 +69,7 @@ import Spring
             errorLabel!.textColor = errorColor
             errorLabel!.font = self.font
             errorLabel!.textAlignment = .Right
-            errorLabel!.setTranslatesAutoresizingMaskIntoConstraints(false)
+            errorLabel!.translatesAutoresizingMaskIntoConstraints = false
             
             errorLabel!.text = value
             

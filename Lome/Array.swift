@@ -15,7 +15,7 @@ extension Array {
             if let textField = textField as? UITextField {
                 textField.addTarget(target, action: action, forControlEvents: controlEvents)
             } else {
-                println("ERROR: Value not type of UITextField. Cannot add target!")
+                print("ERROR: Value not type of UITextField. Cannot add target!")
             }
         }
     }

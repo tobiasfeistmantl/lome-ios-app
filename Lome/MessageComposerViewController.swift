@@ -66,7 +66,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         moveMessageComposerView(up: false)
     }
     
-    func moveMessageComposerView(#up: Bool) {
+    func moveMessageComposerView(up up: Bool) {
         view.layoutIfNeeded()
         
         if up {
@@ -102,7 +102,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         dismissViewControllerAnimated(true, completion: nil)
         postImage = image
-        println("Image taked! \(postImage)")
+        print("Image taked! \(postImage)")
     }
     
     

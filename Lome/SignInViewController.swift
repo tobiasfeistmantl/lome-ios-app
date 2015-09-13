@@ -66,7 +66,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         moveSignInView(up: false)
     }
 
-    func moveSignInView(#up: Bool) {
+    func moveSignInView(up up: Bool) {
         view.layoutIfNeeded()
         
         if up {
