@@ -5,6 +5,8 @@ use_frameworks!
 target 'Lome' do
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 	pod 'Alamofire'
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git', :branch => 'swift-2.0'
 end
 
 target 'LomeTests' do

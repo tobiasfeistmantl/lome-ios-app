@@ -1,23 +1,41 @@
 PODS:
   - Alamofire (2.0.0)
+  - KeychainAccess (1.2.1)
   - Spring (1.0.3)
+  - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
   - Alamofire
+  - KeychainAccess (from `https://github.com/kishikawakatsumi/KeychainAccess.git`,
+    branch `swift-2.0`)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
+  KeychainAccess:
+    :branch: swift-2.0
+    :git: https://github.com/kishikawakatsumi/KeychainAccess.git
   Spring:
     :branch: swift2
     :git: https://github.com/MengTo/Spring.git
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  KeychainAccess:
+    :commit: d1799b703b6b58e2d6ad7becb3cde620a20fcce2
+    :git: https://github.com/kishikawakatsumi/KeychainAccess.git
   Spring:
     :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
     :git: https://github.com/MengTo/Spring.git
+  SwiftyJSON:
+    :commit: 50583adf21de1f84a4a06f6dff1b2bb09fe0b03b
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  KeychainAccess: 2ffa8b1b7130263bb7fe90b359d778696fc2d8ce
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
 COCOAPODS: 0.38.2

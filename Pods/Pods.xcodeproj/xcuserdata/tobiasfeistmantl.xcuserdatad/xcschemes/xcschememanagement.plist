@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KeychainAccess.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Lome.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,20 +24,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3E223EC4699A252C7BF0DFF14D1CDED1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4ADDC830F1F3957A877DC0A28F0CBD4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64980E2041CC5E1F2AA83992B6D4C967</key>
+		<key>90B411B54450195CB79D819CD7DE7156</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6AE7106CB4D5C72B419F8E6318DC13A2</key>
+		<key>B10D0AC97668D8F525D33469BE256B69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9A04D3C9B208813656510FDA8ADAE02</key>
 		<dict>
 			<key>primary</key>
 			<true/>

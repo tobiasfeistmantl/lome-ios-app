@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FKS-7k-TZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FKS-7k-TZu">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -14,14 +15,16 @@
                         <viewControllerLayoutGuide type="bottom" id="ZLL-Zm-sdV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hxo-MD-7Sx">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="nUA-nL-yZw">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-0J-wa9">
                                 <rect key="frame" x="217" y="50" width="165" height="126"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="Cbc-OY-FeK"/>
                                     <constraint firstAttribute="height" constant="126" id="s1q-34-YfJ"/>
@@ -29,13 +32,15 @@
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Lome" translatesAutoresizingMaskIntoConstraints="NO" id="bnz-oC-Uwp">
                                 <rect key="frame" x="178" y="206" width="244" height="73"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="VhO-Ot-XTg"/>
                                     <constraint firstAttribute="width" constant="244" id="b61-ib-s3m"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66G-UU-Jbq" customClass="DesignableButton" customModule="Spring">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66G-UU-Jbq" customClass="DesignableButton" customModule="Spring">
                                 <rect key="frame" x="16" y="515" width="568" height="55"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Esd-sK-vCU"/>
@@ -54,8 +59,9 @@
                                     <segue destination="me0-QV-1h9" kind="show" id="jsk-i5-co0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ib-J0-VQ9" customClass="DesignableButton" customModule="Spring">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ib-J0-VQ9" customClass="DesignableButton" customModule="Spring">
                                 <rect key="frame" x="16" y="452" width="568" height="55"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,6 +83,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8AV-0J-wa9" firstAttribute="top" secondItem="RIV-dp-TGh" secondAttribute="bottom" constant="30" id="0vF-77-Ias">
@@ -110,12 +117,14 @@
             <objects>
                 <tableViewController id="akL-G7-f0d" customClass="SignUpTableViewController" customModule="Lome" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="6y2-hb-2Zw">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With signing up for Lome, you accept our terms of service." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M1U-O6-ze7">
-                            <rect key="frame" x="0.0" y="-21" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="481" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
@@ -124,12 +133,15 @@
                             <tableViewSection id="ZsJ-Ii-oNh">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="RCE-or-3z5">
+                                        <rect key="frame" x="0.0" y="99" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RCE-or-3z5" id="Rwo-ha-Hyb">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLL-eB-ROr" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -144,6 +156,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="JLL-eB-ROr" firstAttribute="bottom" secondItem="Rwo-ha-Hyb" secondAttribute="bottomMargin" id="AZg-UU-301"/>
                                                 <constraint firstItem="JLL-eB-ROr" firstAttribute="leading" secondItem="Rwo-ha-Hyb" secondAttribute="leadingMargin" id="HRc-iS-FUF"/>
@@ -151,14 +164,18 @@
                                                 <constraint firstItem="JLL-eB-ROr" firstAttribute="top" secondItem="Rwo-ha-Hyb" secondAttribute="topMargin" id="q45-C9-fFx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="W0M-jH-XDx">
+                                        <rect key="frame" x="0.0" y="154" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W0M-jH-XDx" id="efV-ja-q77">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzM-TR-cMg" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -172,6 +189,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="nzM-TR-cMg" firstAttribute="leading" secondItem="efV-ja-q77" secondAttribute="leadingMargin" id="78F-mo-Zaa"/>
                                                 <constraint firstItem="nzM-TR-cMg" firstAttribute="bottom" secondItem="efV-ja-q77" secondAttribute="bottomMargin" id="V09-NQ-5Ru"/>
@@ -179,14 +197,18 @@
                                                 <constraint firstItem="nzM-TR-cMg" firstAttribute="top" secondItem="efV-ja-q77" secondAttribute="topMargin" id="qyH-Ug-3Ze"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="lDc-eR-ScY">
+                                        <rect key="frame" x="0.0" y="209" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lDc-eR-ScY" id="RC4-AP-LkC">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suk-Qo-qyg" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -200,6 +222,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="suk-Qo-qyg" firstAttribute="trailing" secondItem="RC4-AP-LkC" secondAttribute="trailingMargin" id="6ZQ-Wo-8yK"/>
                                                 <constraint firstItem="suk-Qo-qyg" firstAttribute="top" secondItem="RC4-AP-LkC" secondAttribute="topMargin" id="qbb-kg-aPv"/>
@@ -207,18 +230,22 @@
                                                 <constraint firstItem="suk-Qo-qyg" firstAttribute="leading" secondItem="RC4-AP-LkC" secondAttribute="leadingMargin" id="uZa-QQ-EFK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Optional" id="lxZ-Jw-QRm">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="zm6-Ol-VLJ">
+                                        <rect key="frame" x="0.0" y="306" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zm6-Ol-VLJ" id="nwY-kS-cUI">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Firstname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-3X-QKs" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
                                                     <userDefinedRuntimeAttributes>
@@ -229,6 +256,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="Fex-3X-QKs" firstAttribute="top" secondItem="nwY-kS-cUI" secondAttribute="topMargin" id="5GQ-Ze-shu"/>
                                                 <constraint firstItem="Fex-3X-QKs" firstAttribute="trailing" secondItem="nwY-kS-cUI" secondAttribute="trailingMargin" id="MKt-8H-ElI"/>
@@ -236,14 +264,18 @@
                                                 <constraint firstItem="Fex-3X-QKs" firstAttribute="leading" secondItem="nwY-kS-cUI" secondAttribute="leadingMargin" id="rtx-XW-EIS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="fSe-EA-sxY">
+                                        <rect key="frame" x="0.0" y="361" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fSe-EA-sxY" id="Acc-mV-e7n">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lastname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Wx-ew-Upm" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
                                                     <userDefinedRuntimeAttributes>
@@ -254,6 +286,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="5Wx-ew-Upm" firstAttribute="top" secondItem="Acc-mV-e7n" secondAttribute="topMargin" id="Aah-5h-A3a"/>
                                                 <constraint firstItem="5Wx-ew-Upm" firstAttribute="leading" secondItem="Acc-mV-e7n" secondAttribute="leadingMargin" id="ToO-xK-32d"/>
@@ -261,14 +294,18 @@
                                                 <constraint firstItem="5Wx-ew-Upm" firstAttribute="trailing" secondItem="Acc-mV-e7n" secondAttribute="trailingMargin" id="orw-fV-CJS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="55" id="YeI-QS-guY">
+                                        <rect key="frame" x="0.0" y="416" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YeI-QS-guY" id="p6n-qU-MBj">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKE-zn-dJ8" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert"/>
                                                     <userDefinedRuntimeAttributes>
@@ -280,6 +317,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="jKE-zn-dJ8" firstAttribute="top" secondItem="p6n-qU-MBj" secondAttribute="topMargin" id="kWw-HC-zwQ"/>
                                                 <constraint firstItem="jKE-zn-dJ8" firstAttribute="bottom" secondItem="p6n-qU-MBj" secondAttribute="bottomMargin" id="kdN-jf-2cc"/>
@@ -287,6 +325,7 @@
                                                 <constraint firstItem="jKE-zn-dJ8" firstAttribute="trailing" secondItem="p6n-qU-MBj" secondAttribute="trailingMargin" id="t3Q-38-b0K"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -342,6 +381,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yya-Ec-RbK">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                            <animations/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -354,6 +394,7 @@
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Sign In" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-L0-0Tn">
                                                     <rect key="frame" x="24" y="20" width="262" height="79"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="79" id="aYp-Yv-bvU"/>
                                                         <constraint firstAttribute="width" constant="262" id="b1b-nQ-QYn"/>
@@ -361,6 +402,7 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHk-Gf-zOW" customClass="DesignableButton" customModule="Spring">
                                                     <rect key="frame" x="8" y="237" width="294" height="55"/>
+                                                    <animations/>
                                                     <color key="backgroundColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="z4t-8t-hOf"/>
@@ -380,6 +422,7 @@
                                                 </button>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4d-Y9-0qe" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="172" width="294" height="55"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -406,6 +449,7 @@
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBk-G4-cW8" customClass="TFTextField" customModule="Lome" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="109" width="294" height="55"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                                                     <userDefinedRuntimeAttributes>
@@ -429,6 +473,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="yBk-G4-cW8" firstAttribute="height" secondItem="a4d-Y9-0qe" secondAttribute="height" id="5FV-Oy-FWq"/>
@@ -454,8 +499,10 @@
                                         </view>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Sjc-4C-Iyx">
                                             <rect key="frame" x="282" y="470" width="37" height="37"/>
+                                            <animations/>
                                         </activityIndicatorView>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="Sjc-4C-Iyx" secondAttribute="centerX" id="Cws-Lw-SEF"/>
                                         <constraint firstItem="yya-Ec-RbK" firstAttribute="leading" secondItem="Ahe-4F-LA5" secondAttribute="leading" id="S0e-L1-Zi9"/>
@@ -467,9 +514,11 @@
                                         <constraint firstAttribute="centerY" secondItem="nNF-Jx-Jd4" secondAttribute="centerY" id="ue0-Ce-lyt"/>
                                     </constraints>
                                 </view>
+                                <animations/>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                         </subviews>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eRf-K5-jPx" secondAttribute="trailing" id="HtP-P7-21A"/>
                             <constraint firstItem="eRf-K5-jPx" firstAttribute="leading" secondItem="UxL-mL-8cm" secondAttribute="leading" id="Iua-Ci-pJF"/>
@@ -500,6 +549,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IjQ-lQ-BQC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                         <color key="tintColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

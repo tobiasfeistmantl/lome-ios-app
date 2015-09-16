@@ -20,6 +20,8 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     
     @IBOutlet weak var takeImageButton: UIButton!
     
+    @IBOutlet weak var chosenImageView: UIImageView!
+
     var postImage: UIImage?
     
     var placeholderSetInMessageTextView = true
@@ -102,7 +104,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         dismissViewControllerAnimated(true, completion: nil)
         postImage = image
-        print("Image taked! \(postImage)")
+        chosenImageView.image = postImage
     }
     
     
