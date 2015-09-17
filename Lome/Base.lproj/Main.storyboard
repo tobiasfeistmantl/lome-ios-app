@@ -224,7 +224,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62h-Bm-rh7">
-                                                    <rect key="frame" x="15" y="18" width="95" height="20"/>
+                                                    <rect key="frame" x="18" y="18" width="95" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -246,7 +246,7 @@
                                             <constraints>
                                                 <constraint firstItem="62h-Bm-rh7" firstAttribute="top" secondItem="0yw-eo-gFh" secondAttribute="top" constant="18" id="PFD-IW-vou"/>
                                                 <constraint firstItem="Z4o-Jo-dFh" firstAttribute="top" secondItem="0yw-eo-gFh" secondAttribute="top" constant="13" id="Xek-oc-dbX"/>
-                                                <constraint firstItem="62h-Bm-rh7" firstAttribute="leading" secondItem="0yw-eo-gFh" secondAttribute="leading" constant="15" id="j9c-F6-eMH"/>
+                                                <constraint firstItem="62h-Bm-rh7" firstAttribute="leading" secondItem="0yw-eo-gFh" secondAttribute="leading" constant="18" id="j9c-F6-eMH"/>
                                                 <constraint firstAttribute="trailing" secondItem="Z4o-Jo-dFh" secondAttribute="trailing" constant="2" id="ymk-WM-4Y7"/>
                                             </constraints>
                                         </tableViewCellContentView>

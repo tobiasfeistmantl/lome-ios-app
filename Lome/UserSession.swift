@@ -70,4 +70,16 @@ struct UserSession {
             keychain["token"] = newValue
         }
     }
+    
+    static var signedIn: Bool {
+        return id != nil && token != nil
+    }
+    
+    static func delete() {
+        id = nil
+        token = nil
+        
+        User.id = nil
+        User.username = nil
+    }
 }

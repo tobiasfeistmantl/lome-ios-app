@@ -8,10 +8,9 @@
 
 import UIKit
 import Spring
+import CoreLocation
 
 class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
-    var currentScrollPosition: CGPoint?
-
     @IBOutlet weak var postsTableView: UITableView!
     @IBOutlet weak var newPostButton: DesignableButton!
     

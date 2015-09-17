@@ -38,19 +38,21 @@ struct User {
         self.followerCount = followerCount
     }
     
-    init(data: JSON, profileImageVersion: ProfileImageVersion) {
+    init(data: JSON, profileImageVersion: ProfileImageVersion? = nil) {
         self.id = data["id"].int!
         self.firstname = data["firstname"].string
         self.lastname = data["lastname"].string
         self.username = data["username"].string!
         self.email = data["email"].string
-        self.followerCount = data["followerCount"].int!
+        self.followerCount = data["follower_count"].int!
         self.profileImageVersion = profileImageVersion
         
-        if let imageURL = data["profile_image"][profileImageVersion.rawValue].string {
-            Alamofire.request(.GET, imageURL).responseJSON { (_, _, result) in
-                if let value = result.value {
-                    self.profileImage = UIImage(data: value as! NSData)
+        if let profileImageVersion = profileImageVersion {
+            if let imageURL = data["profile_image"][profileImageVersion.rawValue].string {
+                Alamofire.request(.GET, imageURL).responseJSON { (_, _, result) in
+                    if let value = result.value {
+                        self.profileImage = UIImage(data: value as! NSData)
+                    }
                 }
             }
         }

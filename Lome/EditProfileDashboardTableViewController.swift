@@ -16,7 +16,11 @@ class EditProfileDashboardTableViewController: UITableViewController {
         if let identifier = cell?.reuseIdentifier {
             switch identifier {
             case "deleteSessionCell":
-                break // TODO: IMPLEMENTATION PENDING
+                signOutUser(nil)
+                
+                let viewController = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                
+                presentViewController(viewController!, animated: true, completion: nil)
             case "deleteAccountCell":
                 presentViewController(destroyAccountAlertController(), animated: true, completion: nil)
             default: break

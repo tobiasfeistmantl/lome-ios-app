@@ -8,6 +8,8 @@
 
 import UIKit
 import Spring
+import Alamofire
+import SwiftyJSON
 
 class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpButton: UIBarButtonItem!
@@ -19,7 +21,7 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var firstnameTextField: TFTextField!
     @IBOutlet weak var lastnameTextField: TFTextField!
     @IBOutlet weak var emailAddressTextField: TFTextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setTitleImage(with: UIImage(named: "Sign Up")!, rect: CGRectMake(0, 0, 117.5, 30))
@@ -65,13 +67,38 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpButtonDidTouch(sender: UIBarButtonItem) {
-        // TODO: IMPLEMENTATION PENDING
+        let parameters = [
+            "firstname": firstnameTextField.text!,
+            "lastname": lastnameTextField.text!,
+            "username": usernameTextField.text!,
+            "password": passwordTextField.text!
+        ]
+        
+        signUpUser(parameters) { successful, APIError in
+            if successful {
+            signInUser(self.usernameTextField.text!, password: self.passwordTextField.text!) { successful in
+                if successful {
+                    let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                    
+                    self.presentViewController(viewController!, animated: true, completion: nil)
+                }
+            }
+            } else {
+                if let error = APIError {
+                    if let usernameError = error["error"]["specific"]["username"][0].string {
+                        self.usernameTextField.setInlineErrorMessage(usernameError)
+                    }
+                } else {
+                    self.simpleAlert(title: "An error occurred!", message: "Please check your inserted data")
+                }
+            }
+        }
     }
     
     var requiredFieldsValid: Bool {
         return usernameTextField.valid && passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
     }
-
+    
     @IBAction func cancelButtonDidTouch(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }

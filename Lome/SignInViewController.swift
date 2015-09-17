@@ -8,6 +8,8 @@
 
 import UIKit
 import Spring
+import Alamofire
+import SwiftyJSON
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signInViewCenterYConstraint: NSLayoutConstraint!
@@ -33,8 +35,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInButtonDidTouch(sender: DesignableButton) {
-        // TODO: IMPLEMENTATION PENDING
-        shakeSignInView()
+        signInUser(usernameTextField.text!, password: passwordTextField.text!) { successful in
+            if successful {
+                let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                
+                self.presentViewController(viewController!, animated: true, completion: nil)
+            } else {
+                self.shakeSignInView()
+            }
+        }
     }
     
     func textFieldChanged(textField: DesignableTextField) {
