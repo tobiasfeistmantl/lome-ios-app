@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1100594B1BA9B1A300D2563A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100594A1BA9B1A300D2563A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
 		11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */; };
+		112CF9B81BAA964C001BF796 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CF9B71BAA964C001BF796 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
 		11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */; };
 		11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE51BA0356D00BD1A64 /* UITextView.swift */; };
 		11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */; };
 		11355FEA1BA0601F00BD1A64 /* PostsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE91BA0601F00BD1A64 /* PostsFeedViewController.swift */; };
 		11355FEC1BA0784800BD1A64 /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */; };
 		1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135CB251B9CC3E000C6B78A /* SignInViewController.swift */; };
+		1138D1811BA9FC3B00AA1CB1 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1138D1801BA9FC3B00AA1CB1 /* UserSession.swift */; settings = {ASSET_TAGS = (); }; };
 		113CE3D11BA0AA1B00ED434A /* UserSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D01BA0AA1B00ED434A /* UserSearchTableViewController.swift */; };
 		113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */; };
 		113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D51BA0BD8300ED434A /* ProfileTableViewController.swift */; };
@@ -53,14 +56,17 @@
 
 /* Begin PBXFileReference section */
 		00E0B740EFD0221B4AC991A6 /* Pods-Lome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.debug.xcconfig"; sourceTree = "<group>"; };
+		1100594A1BA9B1A300D2563A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
 		11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextFieldValidationError.swift; sourceTree = "<group>"; };
+		112CF9B71BAA964C001BF796 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposerViewController.swift; sourceTree = "<group>"; };
 		11355FE51BA0356D00BD1A64 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsNavigationViewController.swift; sourceTree = "<group>"; };
 		11355FE91BA0601F00BD1A64 /* PostsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsFeedViewController.swift; sourceTree = "<group>"; };
 		11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		1135CB251B9CC3E000C6B78A /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		1138D1801BA9FC3B00AA1CB1 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		113CE3D01BA0AA1B00ED434A /* UserSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewController.swift; sourceTree = "<group>"; };
 		113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		113CE3D51BA0BD8300ED434A /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +117,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110059491BA9B18800D2563A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1138D1801BA9FC3B00AA1CB1 /* UserSession.swift */,
+				1100594A1BA9B1A300D2563A /* User.swift */,
+				112CF9B71BAA964C001BF796 /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		11036EC81B9D6DD800319E6B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +223,7 @@
 		11AB273C1B9C6E8D00DF00E1 /* Lome */ = {
 			isa = PBXGroup;
 			children = (
+				110059491BA9B18800D2563A /* Model */,
 				11355FE41BA0355800BD1A64 /* Extensions */,
 				11036ECB1B9D719000319E6B /* Enums */,
 				11036EC81B9D6DD800319E6B /* Classes */,
@@ -441,8 +458,10 @@
 				11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */,
 				114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */,
 				113CE3DD1BA0D6F100ED434A /* EditPasswordTableViewController.swift in Sources */,
+				1138D1811BA9FC3B00AA1CB1 /* UserSession.swift in Sources */,
 				113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */,
 				11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */,
+				1100594B1BA9B1A300D2563A /* User.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */,
@@ -458,6 +477,7 @@
 				11CFA4211BA1A882001FD262 /* UIViewController.swift in Sources */,
 				11E9EA3E1BA2129800108FFC /* PostTableViewCell.swift in Sources */,
 				113CE3DB1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift in Sources */,
+				112CF9B81BAA964C001BF796 /* Post.swift in Sources */,
 				1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */,
 				11CFA4281BA1B6CB001FD262 /* Array.swift in Sources */,
 				113CE3D91BA0D3A200ED434A /* EditNameTableViewController.swift in Sources */,
