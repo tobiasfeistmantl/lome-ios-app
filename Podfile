@@ -7,6 +7,8 @@ target 'Lome' do
 	pod 'Alamofire'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git', :branch => 'swift-2.0'
+    pod 'AlamofireImage'
+    pod 'DateTools'
 end
 
 target 'LomeTests' do

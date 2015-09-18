@@ -53,12 +53,16 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Lome/Alamofire.framework'
+  install_framework 'Pods-Lome/AlamofireImage.framework'
+  install_framework 'Pods-Lome/DateTools.framework'
   install_framework 'Pods-Lome/KeychainAccess.framework'
   install_framework 'Pods-Lome/Spring.framework'
   install_framework 'Pods-Lome/SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Lome/Alamofire.framework'
+  install_framework 'Pods-Lome/AlamofireImage.framework'
+  install_framework 'Pods-Lome/DateTools.framework'
   install_framework 'Pods-Lome/KeychainAccess.framework'
   install_framework 'Pods-Lome/Spring.framework'
   install_framework 'Pods-Lome/SwiftyJSON.framework'

@@ -9,7 +9,9 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-
+    
+    var post: Post!
+    
     @IBOutlet weak var userProfileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -19,5 +21,5 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     
-
+    
 }

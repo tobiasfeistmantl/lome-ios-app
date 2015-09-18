@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SwiftyJSON
-import Alamofire
 
 struct User {
     var id: Int
@@ -18,12 +17,12 @@ struct User {
     var username: String
     var email: String?
     var profileImage: UIImage?
-    var profileImageVersion: ProfileImageVersion?
+    var profileImageURLs: [String: AnyObject]?
     var followerCount: Int
     
     var fullName: String? {
         if firstname != nil && lastname != nil {
-            return "\(firstname!) \(lastname)"
+            return "\(firstname!) \(lastname!)"
         }
         
         return nil
@@ -38,24 +37,14 @@ struct User {
         self.followerCount = followerCount
     }
     
-    init(data: JSON, profileImageVersion: ProfileImageVersion? = nil) {
+    init(data: JSON) {
         self.id = data["id"].int!
         self.firstname = data["firstname"].string
         self.lastname = data["lastname"].string
         self.username = data["username"].string!
         self.email = data["email"].string
         self.followerCount = data["follower_count"].int!
-        self.profileImageVersion = profileImageVersion
-        
-        if let profileImageVersion = profileImageVersion {
-            if let imageURL = data["profile_image"][profileImageVersion.rawValue].string {
-                Alamofire.request(.GET, imageURL).responseJSON { (_, _, result) in
-                    if let value = result.value {
-                        self.profileImage = UIImage(data: value as! NSData)
-                    }
-                }
-            }
-        }
+        self.profileImageURLs = data["profile_image"].dictionaryObject
     }
 }
 

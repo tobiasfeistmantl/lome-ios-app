@@ -11,6 +11,8 @@
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
 		11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */; };
 		112CF9B81BAA964C001BF796 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CF9B71BAA964C001BF796 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
+		112CF9C91BAB1225001BF796 /* work.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C71BAB1225001BF796 /* work.gpx */; settings = {ASSET_TAGS = (); }; };
+		112CF9CA1BAB1225001BF796 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C81BAB1225001BF796 /* home.gpx */; settings = {ASSET_TAGS = (); }; };
 		11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */; };
 		11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE51BA0356D00BD1A64 /* UITextView.swift */; };
 		11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */; };
@@ -60,6 +62,8 @@
 		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
 		11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextFieldValidationError.swift; sourceTree = "<group>"; };
 		112CF9B71BAA964C001BF796 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		112CF9C71BAB1225001BF796 /* work.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = work.gpx; sourceTree = "<group>"; };
+		112CF9C81BAB1225001BF796 /* home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = home.gpx; sourceTree = "<group>"; };
 		11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposerViewController.swift; sourceTree = "<group>"; };
 		11355FE51BA0356D00BD1A64 /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsNavigationViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		11AB27311B9C6E8D00DF00E1 = {
 			isa = PBXGroup;
 			children = (
+				112CF9C71BAB1225001BF796 /* work.gpx */,
+				112CF9C81BAB1225001BF796 /* home.gpx */,
 				11AB273C1B9C6E8D00DF00E1 /* Lome */,
 				11AB27521B9C6E8E00DF00E1 /* LomeTests */,
 				11AB273B1B9C6E8D00DF00E1 /* Products */,
@@ -387,6 +393,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				11AB27601B9CB17400DF00E1 /* Login.storyboard in Resources */,
+				112CF9C91BAB1225001BF796 /* work.gpx in Resources */,
+				112CF9CA1BAB1225001BF796 /* home.gpx in Resources */,
 				11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */,
 				11AB274A1B9C6E8D00DF00E1 /* LaunchScreen.xib in Resources */,
 				11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */,
