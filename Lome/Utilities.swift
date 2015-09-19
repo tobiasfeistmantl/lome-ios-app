@@ -30,7 +30,6 @@ var railsDateFormatter: NSDateFormatter {
 
 
 
-
 let defaultSignedInParameters: [String: AnyObject] = [
     "sid": UserSession.id!
 ]

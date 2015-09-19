@@ -21,5 +21,4 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     
-    
 }

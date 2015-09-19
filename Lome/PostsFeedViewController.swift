@@ -107,9 +107,9 @@ extension PostsFeedViewController {
         
         cell.post = post
         
-        if let image = post.author.profileImage {
-            cell.userProfileImageView.image = image
-        }
+        let URL = NSURL(string: "http://localhost:3000/uploads/development/user/profile_image/2/thumb_adb078ac-e039-4fb3-8ac0-d86bedc9a20e.png")
+            
+        cell.userProfileImageView.af_setImageWithURL(URL!)
         
         if let name = post.author.fullName {
             cell.usersNameLabel.text = name
@@ -129,13 +129,11 @@ extension PostsFeedViewController {
         cell.distanceLabel.text = post.distanceText
         cell.likesLabel.text = "\(post.likesCount) Likes"
         
-        // TODO Example Image only!!
-        let URL = NSURL(string: "http://localhost:3000/uploads/development/post/image/1/adfac507-952b-4bb5-ac67-3ec5a18c27cc.png")
-        
-        cell.postImageView.af_setImageWithURL(
-            URL!,
-            imageTransition: .CrossDissolve(0.6)
-        )
+        Alamofire.request(.GET, "http://localhost:3000/uploads/development/post/image/1/adfac507-952b-4bb5-ac67-3ec5a18c27cc.png").responseImage { _, _, result in
+            if let value = result.value {
+                cell.postImageView.image = value
+            }
+        }
         
         return cell
     }
