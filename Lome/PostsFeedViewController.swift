@@ -22,6 +22,9 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var posts: [Post] = []
     
+    // To refresh the cell if the user clicked the like button
+    var indexPathOfVisitedPost: NSIndexPath?
+    
     // TODO Example Image only
     let exampleImage = UIImage(named: "Achenlake Example Image")!.af_imageWithAppliedCoreImageFilter("CIPhotoEffectInstant")
     
@@ -31,6 +34,19 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         setupNavigationItem(navigationItem)
         setupLocationManager(locationManager)
         setupTableView(postsTableView)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = indexPathOfVisitedPost {
+            let cell = postsTableView.cellForRowAtIndexPath(indexPath) as! PostTableViewCell
+            
+            cell.likeCountLabel.text = cell.post.likesCountText
+            cell.likeButton.setImage(cell.post.likeButtonImage, forState: .Normal)
+            
+            indexPathOfVisitedPost = nil
+        }
     }
     
     
@@ -67,20 +83,25 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return postTableViewCellAtIndexPath(indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
+        
+        cell.setupWithPost(posts[indexPath.row], indexPath: indexPath, viewController: self)
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
         let cell = tableView.cellForRowAtIndexPath(indexPath)
+        indexPathOfVisitedPost = indexPath
         
         performSegueWithIdentifier("showPost", sender: cell)
     }
     
-    
+    func userProfileButtonDidTouch(sender: TFCellButton) {
+        performSegueWithIdentifier("showUserProfileFromCell", sender: sender)
+    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -90,6 +111,19 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             let destinationViewController = segue.destinationViewController as! PostViewController
                 
             destinationViewController.post = post
+        }
+        
+        if segue.identifier == "showUserProfile" {
+            let destinationViewController = segue.destinationViewController as! ProfileTableViewController
+            destinationViewController.userId = UserSession.User.id!
+        }
+        
+        if segue.identifier == "showUserProfileFromCell" {
+            let button = sender as! TFCellButton
+            let post = posts[button.indexPath!.row]
+            
+            let destinationViewController = segue.destinationViewController as! ProfileTableViewController
+            destinationViewController.userId = post.author.id
         }
     }
 }
@@ -101,42 +135,6 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
 
 
 extension PostsFeedViewController {
-    func postTableViewCellAtIndexPath(indexPath: NSIndexPath) -> PostTableViewCell {
-        let cell = postsTableView.dequeueReusableCellWithIdentifier("postCell") as! PostTableViewCell
-        let post = posts[indexPath.row]
-        
-        cell.post = post
-        
-        let URL = NSURL(string: "http://localhost:3000/uploads/development/user/profile_image/2/thumb_adb078ac-e039-4fb3-8ac0-d86bedc9a20e.png")
-            
-        cell.userProfileImageView.af_setImageWithURL(URL!)
-        
-        if let name = post.author.fullName {
-            cell.usersNameLabel.text = name
-            cell.usernameLabel.text = post.author.username
-        } else {
-            cell.usersNameLabel.text = post.author.username
-            cell.usernameLabel.hidden = true
-        }
-        
-        if let message = post.message {
-            cell.contentLabel.text = message
-        } else {
-            cell.contentLabel.hidden = true
-        }
-        
-        cell.timestampLabel.text = "Posted \(post.createdAt.timeAgoSinceNow())"
-        cell.distanceLabel.text = post.distanceText
-        cell.likesLabel.text = "\(post.likesCount) Likes"
-        
-        Alamofire.request(.GET, "http://localhost:3000/uploads/development/post/image/1/adfac507-952b-4bb5-ac67-3ec5a18c27cc.png").responseImage { _, _, result in
-            if let value = result.value {
-                cell.postImageView.image = value
-            }
-        }
-        
-        return cell
-    }
     
     func setupLocationManager(locationManager: CLLocationManager) {
         locationManager.delegate = self
@@ -144,6 +142,7 @@ extension PostsFeedViewController {
     }
     
     func setupTableView(tableView: UITableView) {
+        postsTableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
         postsTableView.estimatedRowHeight = 301
         postsTableView.rowHeight = UITableViewAutomaticDimension
     }

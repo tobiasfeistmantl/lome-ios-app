@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
 let usernameRegex = "(?![-_.])(?!.*[-_.]{2})[a-zA-Z0-9._-]+(?<![-_.])"
 
 let baseURLString = "http://localhost:3000/v1" // "https://lome-staging.herokuapp.com/v1" // TODO Change for production
+
+let likeHeartImage = UIImage(named: "Like Heart")
+let likedHeartImage = UIImage(named: "Liked Heart")

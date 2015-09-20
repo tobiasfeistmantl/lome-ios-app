@@ -30,6 +30,8 @@
 		114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */; };
 		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
 		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; settings = {ASSET_TAGS = (); }; };
+		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
+		119617801BAECA5000BDE941 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
 		11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27431B9C6E8D00DF00E1 /* Main.storyboard */; };
 		11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27461B9C6E8D00DF00E1 /* Images.xcassets */; };
@@ -82,6 +84,8 @@
 		114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1196177A1BAD896C00BDE941 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
+		1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCellButton.swift; sourceTree = "<group>"; };
+		1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB273E1B9C6E8D00DF00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			children = (
 				11036EC91B9D6DE900319E6B /* TFTextField.swift */,
 				11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */,
+				1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 		11036ECE1B9E335600319E6B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				11AB27431B9C6E8D00DF00E1 /* Main.storyboard */,
 				113CE3D71BA0D37200ED434A /* Settings */,
 				113CE3D21BA0AF9000ED434A /* Cells */,
 				11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */,
@@ -183,6 +189,7 @@
 			children = (
 				113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */,
 				11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */,
+				1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -239,11 +246,9 @@
 				114C002A1B9CE9EA0053ECC4 /* Helper */,
 				11AB27611B9CB4F000DF00E1 /* Controller */,
 				11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */,
-				11AB27431B9C6E8D00DF00E1 /* Main.storyboard */,
 				11AB27461B9C6E8D00DF00E1 /* Images.xcassets */,
 				11AB27481B9C6E8D00DF00E1 /* LaunchScreen.xib */,
 				11AB273D1B9C6E8D00DF00E1 /* Supporting Files */,
-				11AB275F1B9CB17400DF00E1 /* Login.storyboard */,
 			);
 			path = Lome;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 		11AB27621B9CB50000DF00E1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				11AB275F1B9CB17400DF00E1 /* Login.storyboard */,
 				11AB27631B9CB51C00DF00E1 /* WelcomeViewController.swift */,
 				1135CB251B9CC3E000C6B78A /* SignInViewController.swift */,
 				114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */,
@@ -399,6 +405,7 @@
 				112CF9C91BAB1225001BF796 /* work.gpx in Resources */,
 				112CF9CA1BAB1225001BF796 /* home.gpx in Resources */,
 				11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */,
+				119617801BAECA5000BDE941 /* PostTableViewCell.xib in Resources */,
 				11AB274A1B9C6E8D00DF00E1 /* LaunchScreen.xib in Resources */,
 				11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */,
 			);
@@ -479,6 +486,7 @@
 				11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */,
 				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
 				113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */,
+				1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */,
 				11355FEA1BA0601F00BD1A64 /* PostsFeedViewController.swift in Sources */,
 				113CE3D11BA0AA1B00ED434A /* UserSearchTableViewController.swift in Sources */,
 				11355FEC1BA0784800BD1A64 /* UINavigationItem.swift in Sources */,

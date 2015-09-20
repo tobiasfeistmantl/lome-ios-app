@@ -16,9 +16,12 @@ struct User {
     var lastname: String?
     var username: String
     var email: String?
-    var profileImage: UIImage?
-    var profileImageURLs: [String: AnyObject]?
     var followerCount: Int
+    var profileImageURLs: [ProfileImageVersion: String?] = [
+        .StandardResolution: nil,
+        .Thumbnail: nil
+    ]
+    
     
     var fullName: String? {
         if firstname != nil && lastname != nil {
@@ -28,13 +31,13 @@ struct User {
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, profileImage: UIImage?, followerCount: Int) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageURLs: [ProfileImageVersion: String?]) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
-        self.profileImage = profileImage
         self.followerCount = followerCount
+        self.profileImageURLs = profileImageURLs
     }
     
     init(data: JSON) {
@@ -44,7 +47,9 @@ struct User {
         self.username = data["username"].string!
         self.email = data["email"].string
         self.followerCount = data["follower_count"].int!
-        self.profileImageURLs = data["profile_image"].dictionaryObject
+        
+        self.profileImageURLs[.StandardResolution] = data["profile_image"][ProfileImageVersion.StandardResolution.rawValue].string
+        self.profileImageURLs[.Thumbnail] = data["profile_image"][ProfileImageVersion.Thumbnail.rawValue].string
     }
 }
 

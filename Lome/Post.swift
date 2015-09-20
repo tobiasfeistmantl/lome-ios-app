@@ -14,7 +14,7 @@ import Alamofire
 import AlamofireImage
 import MapKit
 
-struct Post {
+class Post {
     var id: Int
     var message: String?
     var coordinates: CLLocationCoordinate2D
@@ -107,4 +107,52 @@ struct Post {
         
         return nil
     }
+    
+    func like(like: Bool, button: UIButton? = nil, barButton: UIBarButtonItem? = nil, likeCountLabel: UILabel? = nil) {
+        let URL = baseURLString + "/users/\(author.id)/posts/\(id)/likes"
+        
+        liked = like
+        
+        let method: Alamofire.Method
+        
+        if let button = button {
+            button.setImage(likeButtonImage, forState: .Normal)
+        }
+        
+        if let barButton = barButton {
+            barButton.image = likeButtonImage
+        }
+        
+        if like {
+            method = .POST
+            likesCount += 1
+        } else {
+            method = .DELETE
+            likesCount -= 1
+        }
+        
+        likeCountLabel?.text = likesCountText
+        
+        Alamofire.request(method, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders)
+    }
+    
+    var likeButtonImage: UIImage {
+        if liked {
+            return UIImage(named: "Liked Heart")!
+        }
+        
+        return UIImage(named: "Like Heart")!
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

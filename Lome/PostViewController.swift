@@ -27,9 +27,6 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postPositionMapView: MKMapView!
     @IBOutlet weak var likePostButton: UIBarButtonItem!
     
-    let likeHeartImage = UIImage(named: "Like Heart")
-    let likedHeartImage = UIImage(named: "Liked Heart")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,34 +62,11 @@ class PostViewController: UIViewController {
             distanceLabel.hidden = true
         }
         
-        if post.liked {
-            likePostButton.image = likedHeartImage
-        }
+        likePostButton.image = post.likeButtonImage
     }
     
     @IBAction func likePostButtonDidTouch(sender: UIBarButtonItem) {
-        let URL = baseURLString + "/users/\(post.author.id)/posts/\(post.id)/likes"
-        
-        let method: Alamofire.Method
-        
-        if !post.liked {
-            method = .POST
-            post.liked = true
-            post.likesCount += 1
-            
-            likePostButton.image = self.likedHeartImage
-        } else {
-            method = .DELETE
-            post.liked = false
-            post.likesCount -= 1
-            
-            likePostButton.image = self.likeHeartImage
-        }
-        
-        likesLabel.text = post.likesCountText
-        
-        Alamofire.request(method, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders)
-        
+        post.like(!post.liked, barButton: sender, likeCountLabel: likesLabel)
     }
     
     /*
