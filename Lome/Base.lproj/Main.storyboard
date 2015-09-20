@@ -71,6 +71,9 @@
                                             <color key="value" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="followButtonDidTouch:" destination="TS3-yZ-moZ" eventType="touchUpInside" id="yu5-Wl-7LB"/>
+                                    </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="y2M-5C-ddz" customClass="TFImageView" customModule="Lome" customModuleProvider="target">
                                     <rect key="frame" x="264" y="15" width="72" height="72"/>
@@ -125,6 +128,7 @@
                         <outlet property="profileSettingsButton" destination="sAs-10-FCN" id="4TZ-z9-AZO"/>
                         <outlet property="usernameLabel" destination="2O5-eO-k9B" id="7tV-yH-03e"/>
                         <outlet property="usersNameLabel" destination="DJP-K7-D04" id="3jK-vM-FVk"/>
+                        <segue destination="1TX-ot-2zV" kind="show" identifier="showPost" id="hZl-Rl-XYy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFg-gG-AEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1205,6 +1209,7 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
         <image name="Write Tab Background" width="90" height="49"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YzV-YB-DOp"/>
+        <segue reference="AYo-Oj-iL7"/>
+        <segue reference="hZl-Rl-XYy"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -164,6 +164,36 @@ func getPostsNearby(afterResponse: ([Post], Bool) -> Void) {
     }
 }
 
+func getUsersPosts(user: User, afterResponse: ([Post], Bool) -> Void) {
+    var posts: [Post] = []
+    var successful = false
+    
+    let URL = baseURLString + "/users/\(user.id)/posts"
+    
+    Alamofire.request(.GET, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+        switch result {
+        case .Success(let value):
+            for (_, data) in JSON(value) {
+                posts.append(Post(data: data))
+                
+                successful = true
+            }
+        case .Failure:
+            break
+        }
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            afterResponse(posts, successful)
+        }
+    }
+}
+
+
+
+
+
+
+
 
 
 

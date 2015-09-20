@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import Alamofire
 
-struct User {
+class User {
     var id: Int
     var firstname: String?
     var lastname: String?
@@ -21,6 +22,11 @@ struct User {
         .StandardResolution: nil,
         .Thumbnail: nil
     ]
+    var following: Bool
+    
+    var followerCountText: String {
+        return "\(followerCount) Follower"
+    }
     
     
     var fullName: String? {
@@ -31,13 +37,14 @@ struct User {
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageURLs: [ProfileImageVersion: String?]) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageURLs: [ProfileImageVersion: String?], following: Bool) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
         self.followerCount = followerCount
         self.profileImageURLs = profileImageURLs
+        self.following = following
     }
     
     init(data: JSON) {
@@ -50,6 +57,33 @@ struct User {
         
         self.profileImageURLs[.StandardResolution] = data["profile_image"][ProfileImageVersion.StandardResolution.rawValue].string
         self.profileImageURLs[.Thumbnail] = data["profile_image"][ProfileImageVersion.Thumbnail.rawValue].string
+        
+        self.following = data["following"].bool!
+    }
+    
+    
+    func follow(follow: Bool) {
+        following = follow
+        
+        var parameters = defaultSignedInParameters
+        
+        let URL = baseURLString + "/users/\(UserSession.User.id!)/relationships"
+        
+        parameters["relationship"] = [
+            "followed_id": id
+        ]
+        
+        let method: Alamofire.Method
+        
+        if follow {
+            followerCount += 1
+            method = .POST
+        } else {
+            followerCount -= 1
+            method = .DELETE
+        }
+        
+        Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders)
     }
 }
 

@@ -42,8 +42,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         if let indexPath = indexPathOfVisitedPost {
             let cell = postsTableView.cellForRowAtIndexPath(indexPath) as! PostTableViewCell
             
-            cell.likeCountLabel.text = cell.post.likesCountText
-            cell.likeButton.setImage(cell.post.likeButtonImage, forState: .Normal)
+            cell.refreshCell()
             
             indexPathOfVisitedPost = nil
         }

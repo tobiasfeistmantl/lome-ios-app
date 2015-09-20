@@ -17,6 +17,9 @@ class ProfileTableViewController: UITableViewController {
     var user: User?
     var posts: [Post] = []
     
+    // To refresh the cell if the user clicked the like button
+    var indexPathOfVisitedPost: NSIndexPath?
+    
     @IBOutlet weak var profileSettingsButton: UIBarButtonItem!
     @IBOutlet weak var profileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!
@@ -42,6 +45,85 @@ class ProfileTableViewController: UITableViewController {
             self.setupUserViews()
         }
         
+        setupTableView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = indexPathOfVisitedPost {
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! PostTableViewCell
+            
+            cell.refreshCell()
+            
+            indexPathOfVisitedPost = nil
+        }
+    }
+    
+    @IBAction func followButtonDidTouch(sender: DesignableButton) {
+        if !user!.following {
+            user?.follow(true)
+            sender.setTitle("Unfollow", forState: .Normal)
+            sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            sender.backgroundColor = UIColor(hex: "4A90E2")
+        } else {
+            user?.follow(false)
+            sender.setTitle("Follow", forState: .Normal)
+            sender.setTitleColor(UIColor(hex: "4A90E2"), forState: .Normal)
+            sender.backgroundColor = UIColor.whiteColor()
+        }
+        
+        followerLabel.text = user!.followerCountText
+    }
+    
+    
+    
+    
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
+        let post = posts[indexPath.row]
+        
+        cell.setupWithPost(post, indexPath: indexPath)
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        indexPathOfVisitedPost = indexPath
+        
+        performSegueWithIdentifier("showPost", sender: cell)
+    }
+    
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showPost" {
+            let cell = (sender as! PostTableViewCell)
+            let post = cell.post
+            let destinationViewController = segue.destinationViewController as! PostViewController
+            
+            destinationViewController.post = post
+        }
+    }
+    
+    
+    
+    
+    func setupTableView() {
+        tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
         tableView.estimatedRowHeight = 301
         tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -54,6 +136,14 @@ class ProfileTableViewController: UITableViewController {
                 profileImageView.af_setImageWithURL(URL!)
             }
         }
+        
+        
+        if user!.following {
+            followButton.backgroundColor = UIColor(hex: "4A90E2")
+            followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            followButton.setTitle("Unfollow", forState: .Normal)
+        }
+        
         
         if let fullName = user?.fullName {
             usersNameLabel.text = fullName
@@ -71,34 +161,15 @@ class ProfileTableViewController: UITableViewController {
         } else {
             navigationItem.rightBarButtonItem = nil
         }
+        
+        getUsersPosts(user!) { posts, successful in
+            if successful {
+                self.posts = posts
+                
+                self.tableView.reloadData()
+            } else {
+                self.simpleAlert(title: "Unable to load posts", message: "Please try again later")
+            }
+        }
     }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-    
-    // Configure the cell...
-    
-    return cell
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

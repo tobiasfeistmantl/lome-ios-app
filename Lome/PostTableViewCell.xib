@@ -10,14 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="nuY-2Q-bSh" customClass="PostTableViewCell" customModule="Lome" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" id="nuY-2Q-bSh" customClass="PostTableViewCell" customModule="Lome" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="561" height="361"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuY-2Q-bSh" id="8Fm-uo-x4A">
                 <rect key="frame" x="0.0" y="0.0" width="561" height="360.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-HK-m2T" userLabel="User Profile Image View" customClass="TFImageView" customModule="Lome" customModuleProvider="target">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-HK-m2T" userLabel="User Profile Image View" customClass="TFImageView" customModule="Lome" customModuleProvider="target">
                         <rect key="frame" x="15" y="15" width="35" height="35"/>
                         <animations/>
                         <constraints>

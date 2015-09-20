@@ -24,12 +24,15 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
-    func setupWithPost(post: Post, indexPath: NSIndexPath, viewController: UIViewController) {
+    func setupWithPost(post: Post, indexPath: NSIndexPath, viewController: UIViewController? = nil) {
         self.post = post
         
         
         userProfileButton.indexPath = indexPath
-        userProfileButton.addTarget(viewController, action: "userProfileButtonDidTouch:", forControlEvents: .TouchUpInside)
+        
+        if let viewController = viewController {
+            userProfileButton.addTarget(viewController, action: "userProfileButtonDidTouch:", forControlEvents: .TouchUpInside)
+        }
         
         // TODO Example Image Only
         let URL = NSURL(string: "http://localhost:3000/uploads/development/user/profile_image/2/thumb_adb078ac-e039-4fb3-8ac0-d86bedc9a20e.png")
@@ -57,6 +60,11 @@ class PostTableViewCell: UITableViewCell {
     
     @IBAction func likeButtonDidTouch(sender: UIButton) {
         post.like(!post.liked, button: sender, likeCountLabel: likeCountLabel)
+    }
+    
+    func refreshCell() {
+        likeCountLabel.text = post.likesCountText
+        likeButton.setImage(post.likeButtonImage, forState: .Normal)
     }
     
 }
