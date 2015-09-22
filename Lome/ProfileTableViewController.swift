@@ -17,9 +17,6 @@ class ProfileTableViewController: UITableViewController {
     var user: User?
     var posts: [Post] = []
     
-    // To refresh the cell if the user clicked the like button
-    var indexPathOfVisitedPost: NSIndexPath?
-    
     @IBOutlet weak var profileSettingsButton: UIBarButtonItem!
     @IBOutlet weak var profileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!
@@ -51,13 +48,7 @@ class ProfileTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let indexPath = indexPathOfVisitedPost {
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! PostTableViewCell
-            
-            cell.refreshCell()
-            
-            indexPathOfVisitedPost = nil
-        }
+        tableView.reloadData()
     }
     
     @IBAction func followButtonDidTouch(sender: DesignableButton) {
@@ -101,7 +92,6 @@ class ProfileTableViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        indexPathOfVisitedPost = indexPath
         
         performSegueWithIdentifier("showPost", sender: cell)
     }
@@ -117,6 +107,12 @@ class ProfileTableViewController: UITableViewController {
             
             destinationViewController.post = post
         }
+        
+        if segue.identifier == "showSettings" {
+            let destinationViewController = segue.destinationViewController as! ProfileDashboardTableViewController
+            
+            destinationViewController.user = user
+        }
     }
     
     
@@ -130,11 +126,9 @@ class ProfileTableViewController: UITableViewController {
     
     func setupUserViews() {
         if let imageURL = user?.profileImageURLs[.StandardResolution] {
-            if let imageURL = imageURL {
-                let URL = NSURL(string: imageURL)
-                
-                profileImageView.af_setImageWithURL(URL!)
-            }
+            let URL = NSURL(string: imageURL)
+            
+            profileImageView.af_setImageWithURL(URL!)
         }
         
         

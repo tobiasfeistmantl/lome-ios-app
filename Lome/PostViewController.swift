@@ -19,6 +19,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var userProfileButton: UIButton!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
@@ -37,7 +38,15 @@ class PostViewController: UIViewController {
         likesLabel.text = post.likesCountText
         timestampLabel.text = "Posted \(post.createdAt.timeAgoSinceNow())"
         postPositionMapView.addAnnotation(post.mapAnnotation)
-        postPositionMapView.zoomToPosition(post.coordinates)
+        postPositionMapView.zoomToPosition(post.location.coordinate)
+        
+        post.author.profileImage(version: .Thumbnail) { image, _ in
+            self.userProfileImageView.image = image
+        }
+        
+        post.image { image, _ in
+            self.postImageView.setImageAndAspectRatioForImageView(image)
+        }
         
         
         if let fullName = post.author.fullName {
@@ -47,7 +56,6 @@ class PostViewController: UIViewController {
             usersNameLabel.text = post.author.username
             usernameLabel.hidden = true
         }
-        
         
         if let attributedMessage = post.attributedMessage {
             contentLabel.attributedText = attributedMessage
@@ -69,14 +77,16 @@ class PostViewController: UIViewController {
         post.like(!post.liked, barButton: sender, likeCountLabel: likesLabel)
     }
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    @IBAction func userProfileButtonDidTouch(sender: UIButton) {
+        performSegueWithIdentifier("showUserProfile", sender: self)
     }
-    */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showUserProfile" {
+            let destinationViewController = segue.destinationViewController as! ProfileTableViewController
+            
+            destinationViewController.user = post.author
+        }
+    }
     
 }

@@ -41,7 +41,7 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
-        // TODO: IMPLEMENTATION PENDING
+        
     }
     
 }

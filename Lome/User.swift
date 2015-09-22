@@ -18,10 +18,7 @@ class User {
     var username: String
     var email: String?
     var followerCount: Int
-    var profileImageURLs: [ProfileImageVersion: String?] = [
-        .StandardResolution: nil,
-        .Thumbnail: nil
-    ]
+    var profileImageURLs: [ProfileImageVersion: String] = [:]
     var following: Bool
     
     var followerCountText: String {
@@ -37,7 +34,7 @@ class User {
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageURLs: [ProfileImageVersion: String?], following: Bool) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageURLs: [ProfileImageVersion: String], following: Bool) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
@@ -85,9 +82,42 @@ class User {
         
         Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders)
     }
+    
+    func profileImage(version profileImageVersion: ProfileImageVersion = .StandardResolution, afterResponse: (UIImage?, Bool) -> Void) {
+        var image: UIImage?
+        var successful = false
+        
+        if let imageURL = profileImageURLs[profileImageVersion] {
+            Alamofire.request(.GET, imageURL).responseImage { _, _, result in
+                if let value = result.value {
+                    image = value
+                    successful = true
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    afterResponse(image, successful)
+                }
+            }
+        }
+    }
 }
 
 enum ProfileImageVersion: String {
     case StandardResolution = "standard_resolution"
     case Thumbnail = "thumbnail"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

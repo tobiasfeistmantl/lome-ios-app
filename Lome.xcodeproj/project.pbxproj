@@ -26,12 +26,14 @@
 		113CE3D91BA0D3A200ED434A /* EditNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D81BA0D3A200ED434A /* EditNameTableViewController.swift */; };
 		113CE3DB1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DA1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift */; };
 		113CE3DD1BA0D6F100ED434A /* EditPasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DC1BA0D6F100ED434A /* EditPasswordTableViewController.swift */; };
-		113CE3DF1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DE1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift */; };
+		113CE3DF1BA0DD2F00ED434A /* ProfileDashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3DE1BA0DD2F00ED434A /* ProfileDashboardTableViewController.swift */; };
 		114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */; };
 		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
+		116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BEAF11BB1475D007ED1FB /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; settings = {ASSET_TAGS = (); }; };
 		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
 		119617801BAECA5000BDE941 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		119801271BB16D0C00DD145C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119801261BB16D0C00DD145C /* UIImage.swift */; settings = {ASSET_TAGS = (); }; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
 		11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27431B9C6E8D00DF00E1 /* Main.storyboard */; };
 		11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27461B9C6E8D00DF00E1 /* Images.xcassets */; };
@@ -80,12 +82,14 @@
 		113CE3D81BA0D3A200ED434A /* EditNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNameTableViewController.swift; sourceTree = "<group>"; };
 		113CE3DA1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmailAddressTableViewController.swift; sourceTree = "<group>"; };
 		113CE3DC1BA0D6F100ED434A /* EditPasswordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordTableViewController.swift; sourceTree = "<group>"; };
-		113CE3DE1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileDashboardTableViewController.swift; sourceTree = "<group>"; };
+		113CE3DE1BA0DD2F00ED434A /* ProfileDashboardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDashboardTableViewController.swift; sourceTree = "<group>"; };
 		114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		116BEAF11BB1475D007ED1FB /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		1196177A1BAD896C00BDE941 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
 		1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCellButton.swift; sourceTree = "<group>"; };
 		1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		119801261BB16D0C00DD145C /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB273E1B9C6E8D00DF00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				11CFA4231BA1AC5F001FD262 /* String.swift */,
 				11CFA4271BA1B6CB001FD262 /* Array.swift */,
 				1196177A1BAD896C00BDE941 /* MKMapView.swift */,
+				116BEAF11BB1475D007ED1FB /* UIImageView.swift */,
+				119801261BB16D0C00DD145C /* UIImage.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -200,7 +206,7 @@
 				113CE3D81BA0D3A200ED434A /* EditNameTableViewController.swift */,
 				113CE3DA1BA0D4D900ED434A /* EditEmailAddressTableViewController.swift */,
 				113CE3DC1BA0D6F100ED434A /* EditPasswordTableViewController.swift */,
-				113CE3DE1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift */,
+				113CE3DE1BA0DD2F00ED434A /* ProfileDashboardTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -481,9 +487,11 @@
 				11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */,
 				1100594B1BA9B1A300D2563A /* User.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
+				116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */,
 				11CFA42C1BA1B985001FD262 /* Constants.swift in Sources */,
+				119801271BB16D0C00DD145C /* UIImage.swift in Sources */,
 				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
 				113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */,
 				1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */,
@@ -502,7 +510,7 @@
 				11CFA4281BA1B6CB001FD262 /* Array.swift in Sources */,
 				113CE3D91BA0D3A200ED434A /* EditNameTableViewController.swift in Sources */,
 				11CFA4241BA1AC5F001FD262 /* String.swift in Sources */,
-				113CE3DF1BA0DD2F00ED434A /* EditProfileDashboardTableViewController.swift in Sources */,
+				113CE3DF1BA0DD2F00ED434A /* ProfileDashboardTableViewController.swift in Sources */,
 				114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

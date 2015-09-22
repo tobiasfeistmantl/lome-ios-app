@@ -24,8 +24,8 @@ struct UserSession {
             }
             
             set {
-                if let newValue = newValue {
-                    keychain["user_id"] = "\(newValue)"
+                if newValue != nil {
+                    keychain["user_id"] = "\(newValue!)"
                 } else {
                     keychain["user_id"] = nil
                 }
@@ -53,8 +53,8 @@ struct UserSession {
         }
         
         set {
-            if let newValue = newValue {
-                keychain["id"] = "\(newValue)"
+            if newValue != nil {
+                keychain["id"] = "\(newValue!)"
             } else {
                 keychain["id"] = nil
             }
@@ -72,7 +72,7 @@ struct UserSession {
     }
     
     static var signedIn: Bool {
-        return id != nil && token != nil
+        return id != nil && token != nil && User.id != nil && User.username != nil
     }
     
     static func delete() {
@@ -83,3 +83,7 @@ struct UserSession {
         User.username = nil
     }
 }
+
+
+
+

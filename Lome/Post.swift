@@ -17,11 +17,12 @@ import MapKit
 class Post {
     var id: Int
     var message: String?
-    var coordinates: CLLocationCoordinate2D
+    var location: CLLocation
     var author: User
     var createdAt: NSDate
     var likesCount: Int
     var liked: Bool
+    var imageURLs: [PostImageVersion: String] = [:]
     
     var likesCountText: String {
         let text: String
@@ -35,15 +36,13 @@ class Post {
         return text
     }
     
-    var distanceInKm: Float?
-    var distance: Int? {
-        if let distanceInKm = distanceInKm {
-            let distanceInMeters = Int(distanceInKm * 1000)
-            
-            return distanceInMeters
-        }
+    var distance: Double?
+    
+    func distanceFromLocation(location: CLLocation) -> CLLocationDistance {
+        let distance = location.distanceFromLocation(self.location)
+        self.distance = distance
         
-        return nil
+        return distance
     }
     
     var attributedMessage: NSAttributedString? {
@@ -64,31 +63,34 @@ class Post {
     var mapAnnotation: MKPointAnnotation {
         let annotation = MKPointAnnotation()
         
-        annotation.coordinate = coordinates
+        annotation.coordinate = location.coordinate
         
         return annotation
     }
     
-    init(id: Int, message: String?, coordinates: CLLocationCoordinate2D, author: User, createdAt: NSDate, likesCount: Int, liked: Bool) {
+    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, liked: Bool, imageURLs: [PostImageVersion: String]) {
         self.id = id
         self.message = message
-        self.coordinates = coordinates
+        self.location = location
         self.author = author
         self.likesCount = likesCount
         self.createdAt = createdAt
         self.liked = liked
+        self.imageURLs = imageURLs
     }
     
     init(data: JSON) {
         self.id = data["id"].int!
         self.message = data["message"].string
         self.likesCount = data["likes_count"].int!
-        self.coordinates = CLLocationCoordinate2D(latitude: data["latitude"].double!, longitude: data["longitude"].double!)
+        self.location = CLLocation(latitude: data["latitude"].double!, longitude: data["longitude"].double!)
         self.author = User(data: data["author"])
         self.createdAt = railsDateFormatter.dateFromString(data["created_at"].string!)!
         self.liked = data["liked"].bool!
         
-        self.distanceInKm = data["distance_in_km"].float
+        for (key, jsonURL) in data["image"] {
+            self.imageURLs[PostImageVersion(rawValue: key)!] = jsonURL.string
+        }
     }
     
     var distanceText: String? {
@@ -99,7 +101,7 @@ class Post {
             case 0...5:
                 text = "Placed exactly here"
             default:
-                text = "Placed in \(distance)m"
+                text = "Placed in \(Int(distance))m"
             }
             
             return text
@@ -109,7 +111,7 @@ class Post {
     }
     
     func like(like: Bool, button: UIButton? = nil, barButton: UIBarButtonItem? = nil, likeCountLabel: UILabel? = nil) {
-        let URL = baseURLString + "/users/\(author.id)/posts/\(id)/likes"
+        let URL = baseURLString + "/users/\(author.id)/posts/\(id)/like"
         
         liked = like
         
@@ -143,7 +145,34 @@ class Post {
         
         return UIImage(named: "Like Heart")!
     }
+    
+    func image(version postImageVersion: PostImageVersion = .StandardResolution, afterResponse: (UIImage?, Bool) -> Void) {
+        var image: UIImage?
+        var successful = false
+        
+        if let imageURL = imageURLs[postImageVersion] {
+            Alamofire.request(.GET, imageURL).responseImage { _, _, result in
+                if let value = result.value {
+                    image = value
+                    successful = true
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    afterResponse(image, successful)
+                }
+            }
+        }
+    }
 }
+
+enum PostImageVersion: String {
+    case LowResolution = "low_resolution"
+    case StandardResolution = "standard_resolution"
+    case HighResolution = "high_resolution"
+    case Thumbnail = "thumbnail"
+}
+
+
 
 
 

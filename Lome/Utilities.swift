@@ -30,12 +30,10 @@ var railsDateFormatter: NSDateFormatter {
 
 
 
-let defaultSignedInParameters: [String: AnyObject] = [
-    "sid": UserSession.id!
-]
+let defaultSignedInParameters: [String: AnyObject] = [:]
 
 let defaultSignedInHeaders: [String: String] = [
-    "Authorization": "Token token=\(UserSession.token!)"
+    "Authorization": "Token token=\(UserSession.id!):\(UserSession.token!)"
 ]
 
 
@@ -57,9 +55,7 @@ func signInUser(username: String, password: String, afterSignIn: (Bool) -> Void)
             UserSession.User.id = jsonData["user"]["id"].int
             UserSession.User.username = jsonData["user"]["username"].string
             
-            dispatch_async(dispatch_get_main_queue()) {
-                successful = true
-            }
+            successful = true
         case .Failure:
             break
         }
@@ -119,7 +115,7 @@ func signOutUser(afterSignOut: ((Bool) -> Void)?) {
 
 
 
-func updateUserPosition(coordinates: CLLocationCoordinate2D, afterUpdate: (Bool) -> Void) {
+func updateUserPosition(location: CLLocation, afterUpdate: (Bool) -> Void) {
     var successful = false
     
     let URL = "\(baseURLString)/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions"
@@ -127,8 +123,8 @@ func updateUserPosition(coordinates: CLLocationCoordinate2D, afterUpdate: (Bool)
     var parameters = defaultSignedInParameters
     
     parameters["position"] = [
-        "latitude": coordinates.latitude,
-        "longitude": coordinates.longitude
+        "latitude": location.coordinate.latitude,
+        "longitude": location.coordinate.longitude
     ]
     
     Alamofire.request(.POST, URL, parameters: parameters, headers: defaultSignedInHeaders).responseJSON { _, response, _ in
@@ -175,9 +171,9 @@ func getUsersPosts(user: User, afterResponse: ([Post], Bool) -> Void) {
         case .Success(let value):
             for (_, data) in JSON(value) {
                 posts.append(Post(data: data))
-                
-                successful = true
             }
+            
+            successful = true
         case .Failure:
             break
         }

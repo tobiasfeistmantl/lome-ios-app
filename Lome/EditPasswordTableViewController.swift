@@ -9,7 +9,6 @@
 import UIKit
 
 class EditPasswordTableViewController: UITableViewController, UITextFieldDelegate {
-    @IBOutlet weak var oldPasswordTextField: TFTextField!
     @IBOutlet weak var passwordTextField: TFTextField!
     @IBOutlet weak var passwordConfirmationTextField: TFTextField!
 
@@ -18,7 +17,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [oldPasswordTextField, passwordTextField, passwordConfirmationTextField].addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        [passwordTextField, passwordConfirmationTextField].addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -26,7 +25,6 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
         
         if textField.valid {
             switch textField {
-            case oldPasswordTextField: passwordTextField.becomeFirstResponder()
             case passwordTextField: passwordConfirmationTextField.becomeFirstResponder()
             case passwordConfirmationTextField: passwordConfirmationTextField.resignFirstResponder()
             default: textField.resignFirstResponder()
@@ -39,7 +37,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     func textFieldChanged(sender: TFTextField) {
-        saveButton.enabled = oldPasswordTextField.valid && passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
+        saveButton.enabled = passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
     }
     
     

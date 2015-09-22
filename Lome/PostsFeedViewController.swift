@@ -19,17 +19,18 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var newPostButton: DesignableButton!
     
     let locationManager = CLLocationManager()
+    let refreshControl = UIRefreshControl()
     
     var posts: [Post] = []
-    
-    // To refresh the cell if the user clicked the like button
-    var indexPathOfVisitedPost: NSIndexPath?
     
     // TODO Example Image only
     let exampleImage = UIImage(named: "Achenlake Example Image")!.af_imageWithAppliedCoreImageFilter("CIPhotoEffectInstant")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: .AllEvents)
+        postsTableView.addSubview(refreshControl)
         
         setupNavigationItem(navigationItem)
         setupLocationManager(locationManager)
@@ -39,13 +40,12 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let indexPath = indexPathOfVisitedPost {
-            let cell = postsTableView.cellForRowAtIndexPath(indexPath) as! PostTableViewCell
-            
-            cell.refreshCell()
-            
-            indexPathOfVisitedPost = nil
-        }
+        // Reload data to recognize if post has been liked
+        postsTableView.reloadData()
+    }
+    
+    func refreshPosts() {
+        locationManager.startUpdatingLocation()
     }
     
     
@@ -59,18 +59,25 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
-        updateUserPosition(locations[0].coordinate) { successful in
+        updateUserPosition(locations[0]) { successful in
             if successful {
                 getPostsNearby { posts, successful in
                     if successful {
+                        for post in posts {
+                            post.distanceFromLocation(locations[0])
+                        }
                         self.posts = posts
                         self.postsTableView.reloadData()
                     } else {
                         self.simpleAlert(title: "Unable to get posts", message: "Please try again later")
                     }
+                    
+                    self.refreshControl.endRefreshing()
                 }
             } else {
                 self.simpleAlert(title: "Unable to update your location", message: "Please try again later")
+                
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -93,7 +100,6 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        indexPathOfVisitedPost = indexPath
         
         performSegueWithIdentifier("showPost", sender: cell)
     }
