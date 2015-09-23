@@ -138,6 +138,29 @@ func updateUserPosition(location: CLLocation, afterUpdate: (Bool) -> Void) {
     }
 }
 
+
+func updateUser(parameters: [String: AnyObject], afterUpdate: (User?, Bool) -> Void) {
+    var user: User?
+    var successful = false
+    
+    let URL = baseURLString + "/users/\(UserSession.User.id!)"
+    
+    Alamofire.request(.PATCH, URL, parameters: parameters, headers: defaultSignedInHeaders).responseJSON { _, response, result in
+        if response?.statusCode == 200 {
+            if let value = result.value {
+                user = User(data: JSON(value))
+            }
+            
+            successful = true
+        }
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            afterUpdate(user, successful)
+        }
+    }
+}
+
+
 func getPostsNearby(afterResponse: ([Post], Bool) -> Void) {
     var posts: [Post] = []
     var successful = false

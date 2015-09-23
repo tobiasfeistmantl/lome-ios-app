@@ -11,7 +11,7 @@ import MapKit
 
 extension MKMapView {
     func zoomToPosition(coordinates: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegionMakeWithDistance(coordinates, 10000, 10000)
+        let region = MKCoordinateRegionMakeWithDistance(coordinates, 7500, 7500)
         self.setRegion(region, animated: true)
     }
 }

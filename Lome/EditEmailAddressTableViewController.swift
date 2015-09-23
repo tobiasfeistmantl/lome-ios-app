@@ -35,7 +35,20 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
     }
     
     @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
-        // TODO: IMPLEMENTATION PENDING
+        let parameters = [
+            "user": [
+                "email": emailAddressTextField.text!
+            ]
+        ]
+        
+        updateUser(parameters) { _, successful in
+            if successful {
+                NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.simpleAlert(title: "Unable to update email address", message: "Please try again later")
+            }
+        }
     }
     
 }

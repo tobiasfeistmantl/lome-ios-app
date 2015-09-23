@@ -146,7 +146,7 @@ class Post {
         return UIImage(named: "Like Heart")!
     }
     
-    func image(version postImageVersion: PostImageVersion = .StandardResolution, afterResponse: (UIImage?, Bool) -> Void) {
+    func image(version postImageVersion: PostImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
         var image: UIImage?
         var successful = false
         
@@ -166,9 +166,7 @@ class Post {
 }
 
 enum PostImageVersion: String {
-    case LowResolution = "low_resolution"
-    case StandardResolution = "standard_resolution"
-    case HighResolution = "high_resolution"
+    case Original = "original"
     case Thumbnail = "thumbnail"
 }
 

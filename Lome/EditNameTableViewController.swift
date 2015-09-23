@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var firstnameTextField: TFTextField!
@@ -41,7 +42,21 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
+        let parameters = [
+            "user": [
+                "firstname": firstnameTextField.text!,
+                "lastname": lastnameTextField.text!
+            ]
+        ]
         
+        updateUser(parameters) { user, successful in
+            if successful {
+                NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.simpleAlert(title: "Unable to update name", message: "Please try again later")
+            }
+        }
     }
     
 }

@@ -42,6 +42,18 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
     
     
     @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
-        // TODO: IMPEMENTATION PENDING
+        let parameters = [
+            "user": [
+                "password": passwordTextField.text!
+            ]
+        ]
+        
+        updateUser(parameters) { _, successful in
+            if successful {
+                self.navigationController?.popViewControllerAnimated(true)
+            } else {
+                self.simpleAlert(title: "Unable to update password", message: "Please try again later")
+            }
+        }
     }
 }

@@ -52,8 +52,9 @@ class User {
         self.email = data["email"].string
         self.followerCount = data["follower_count"].int!
         
-        self.profileImageURLs[.StandardResolution] = data["profile_image"][ProfileImageVersion.StandardResolution.rawValue].string
-        self.profileImageURLs[.Thumbnail] = data["profile_image"][ProfileImageVersion.Thumbnail.rawValue].string
+        for (key, jsonURL) in data["profile_image"] {
+            self.profileImageURLs[ProfileImageVersion(rawValue: key)!] = jsonURL.string
+        }
         
         self.following = data["following"].bool!
     }
@@ -83,7 +84,7 @@ class User {
         Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders)
     }
     
-    func profileImage(version profileImageVersion: ProfileImageVersion = .StandardResolution, afterResponse: (UIImage?, Bool) -> Void) {
+    func profileImage(version profileImageVersion: ProfileImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
         var image: UIImage?
         var successful = false
         
@@ -103,7 +104,7 @@ class User {
 }
 
 enum ProfileImageVersion: String {
-    case StandardResolution = "standard_resolution"
+    case Original = "original"
     case Thumbnail = "thumbnail"
 }
 

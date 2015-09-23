@@ -9,8 +9,10 @@
 import UIKit
 import MapKit
 import Spring
+import Alamofire
+import SwiftyJSON
 
-class MessageComposerViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MessageComposerViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     @IBOutlet weak var postPositionMapView: MKMapView!
     @IBOutlet weak var messageTextView: DesignableTextView!
     @IBOutlet weak var postButton: DesignableButton!
@@ -21,14 +23,18 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     @IBOutlet weak var takeImageButton: UIButton!
     
     @IBOutlet weak var chosenImageView: UIImageView!
-
-    var postImage: UIImage?
+    
+    @IBOutlet weak var postingActivityIndicator: UIActivityIndicatorView!
+    
+    var post: Post?
+    var imageUploading = false
+    var postButtonTouched = false
     
     var placeholderSetInMessageTextView = true
     var placeholderText = "Your message here..."
     
     let imagePicker = UIImagePickerController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,23 +48,36 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         messageTextView.placeholder = placeholderText
     }
     
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        mapView.zoomToPosition(userLocation.coordinate)
+    }
+    
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         if placeholderSetInMessageTextView {
             placeholderSetInMessageTextView = false
             messageTextView.placeholder = nil
         }
-    
+        
         return true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
-
+    
+    @IBAction func postButtonDidTouch(sender: DesignableButton) {
+        postingActivityIndicator.startAnimating()
+        postButtonTouched = true
+        
+        if !imageUploading {
+            publishPost()
+        }
+    }
     
     @IBAction func cancelButtonDidTouch(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     func keyboardWillShow() {
         moveMessageComposerView(up: true)
@@ -101,10 +120,96 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         dismissViewControllerAnimated(true, completion: nil)
-        postImage = image
-        chosenImageView.image = postImage
+        
+        imageUploading = true
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        chosenImageView.image = image
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            let fileManager = NSFileManager.defaultManager()
+            let cachePath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
+            let imagePath = cachePath + "/imageToUpload.jpg"
+            
+            let imageData = UIImageJPEGRepresentation(image, 0.8)
+            
+            fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil)
+            
+            let imageURL = NSURL.fileURLWithPath(imagePath)
+            let URL = baseURLString + "/users/\(UserSession.User.id!)/posts/image"
+            
+            Alamofire.upload(.POST, URL, headers: defaultSignedInHeaders, multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(fileURL: imageURL, name: "post[image]")
+                }, encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                    case .Success(let upload, _, _):
+                        upload.responseJSON { _, response, result in
+                            if let value = result.value {
+                                self.imageUploading = false
+                                self.post = Post(data: JSON(value)["post"])
+                                
+                                if self.postButtonTouched {
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        self.publishPost()
+                                    }
+                                }
+                            }
+                            
+                            do {
+                                try fileManager.removeItemAtPath(imagePath)
+                            } catch {
+                                print("Unable to delete temporary image")
+                            }
+                        }
+                    case .Failure:
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.simpleAlert(title: "Unable to upload image", message: "Please try again")
+                        }
+                    }
+            })
+        }
+    }
+    
+    func publishPost() {
+        let URL: String
+        let method: Alamofire.Method
+        
+        if let post = post {
+            URL = baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
+            method = .PATCH
+        } else {
+            URL = baseURLString + "/users/\(UserSession.User.id!)/posts"
+            method = .POST
+        }
+        
+        var message: String = ""
+        
+        if !placeholderSetInMessageTextView {
+            message = messageTextView.text
+        }
+        
+        let parameters = [
+            "post": [
+                "message": message,
+                "latitude": postPositionMapView.centerCoordinate.latitude,
+                "longitude": postPositionMapView.centerCoordinate.longitude,
+                "status": "published"
+            ]
+        ]
+        
+        Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+            dispatch_async(dispatch_get_main_queue()) {
+                switch result {
+                case .Success:
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                case .Failure:
+                    self.postingActivityIndicator.stopAnimating()
+                    self.simpleAlert(title: "Unable to post", message: "Please try again")
+                }
+            }
+        }
     }
     
     
@@ -113,4 +218,17 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import SwiftyJSON
 
 class ProfileDashboardTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -24,6 +25,25 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     override func viewDidLoad() {
         imagePicker.delegate = self
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "assignUpdatedUserAttributes", name: "userAttributesUpdated", object: nil)
+        
+        assignUserAttributes()
+    }
+    
+    func assignUpdatedUserAttributes() {
+        let URL = baseURLString + "/users/\(UserSession.User.id!)"
+        
+        Alamofire.request(.GET, URL, headers: defaultSignedInHeaders).responseJSON { _, _, result in
+            if let value = result.value {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.user = User(data: JSON(value))
+                    self.assignUserAttributes()
+                }
+            }
+        }
+    }
+    
+    func assignUserAttributes() {
         if let imageURLString = user.profileImageURLs[.Thumbnail] {
             let imageURL = NSURL(string: imageURLString)!
             
@@ -33,9 +53,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
         usersNameLabel.text = user.fullName
         emailLabel.text = user.email
         usernameLabel.text = user.username
-        
     }
-    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)

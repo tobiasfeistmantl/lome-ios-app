@@ -851,6 +851,9 @@
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="koi-UW-JyJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
                                                     <animations/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Oxg-zL-tKh" id="UMA-nZ-UYJ"/>
+                                                    </connections>
                                                 </mapView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pm6-b5-upv" customClass="DesignableTextView" customModule="Spring">
                                                     <rect key="frame" x="8" y="148" width="284" height="144"/>
@@ -877,6 +880,9 @@
                                                             <real key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="postButtonDidTouch:" destination="Oxg-zL-tKh" eventType="touchUpInside" id="lE3-xV-KIq"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nv9-7m-tti" userLabel="Line">
                                                     <rect key="frame" x="25" y="300" width="250" height="1"/>
@@ -932,6 +938,10 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Frv-AK-MXp">
+                                            <rect key="frame" x="290" y="524" width="20" height="20"/>
+                                            <animations/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -944,6 +954,8 @@
                                         <constraint firstAttribute="trailing" secondItem="3Hx-RL-ljZ" secondAttribute="trailing" id="diO-qi-kBL"/>
                                         <constraint firstAttribute="bottom" secondItem="3Hx-RL-ljZ" secondAttribute="bottom" id="lpb-L9-uVl"/>
                                         <constraint firstAttribute="bottom" secondItem="cHY-Xt-6JO" secondAttribute="bottom" id="mfe-vm-Vax"/>
+                                        <constraint firstItem="Frv-AK-MXp" firstAttribute="centerX" secondItem="QhJ-gB-rUA" secondAttribute="centerX" id="n8y-xA-gSr"/>
+                                        <constraint firstItem="Frv-AK-MXp" firstAttribute="top" secondItem="F2K-cS-cPH" secondAttribute="bottom" constant="24" id="pbo-vR-tGm"/>
                                         <constraint firstItem="cHY-Xt-6JO" firstAttribute="leading" secondItem="QhJ-gB-rUA" secondAttribute="leading" id="yzs-4n-Hwk"/>
                                     </constraints>
                                 </view>
@@ -967,6 +979,7 @@
                         <outlet property="messageTextView" destination="Pm6-b5-upv" id="aud-AU-WXD"/>
                         <outlet property="postButton" destination="FUp-yP-jsS" id="D7L-Fb-KXB"/>
                         <outlet property="postPositionMapView" destination="koi-UW-JyJ" id="D7z-pS-QcI"/>
+                        <outlet property="postingActivityIndicator" destination="Frv-AK-MXp" id="glS-7Q-alK"/>
                         <outlet property="takeImageButton" destination="nyk-LU-n2Z" id="CKP-oE-Rwg"/>
                     </connections>
                 </viewController>
