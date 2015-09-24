@@ -135,24 +135,18 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         chosenImageView.image = image
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            let fileManager = NSFileManager.defaultManager()
-            let cachePath = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
-            let imagePath = cachePath + "/imageToUpload.jpg"
-            
-            let imageData = UIImageJPEGRepresentation(image, 0.8)
-            
-            fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil)
-            
-            let imageURL = NSURL.fileURLWithPath(imagePath)
+            let imagePath = image.storeImage("tmpPostImage")
+            let imageURL = NSURL.fileURLWithPath(imagePath!)
             let URL = baseURLString + "/users/\(UserSession.User.id!)/posts/image"
             
             Alamofire.upload(.POST, URL, headers: defaultSignedInHeaders, multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(fileURL: imageURL, name: "post[image]")
-                }, encodingCompletion: { encodingResult in
+                }) { encodingResult in
                     switch encodingResult {
                     case .Success(let upload, _, _):
-                        upload.responseJSON { _, response, result in
-                            if let value = result.value {
+                        upload.validate().responseJSON { _, _, result in
+                            switch result {
+                            case .Success(let value):
                                 self.imageUploading = false
                                 self.post = Post(data: JSON(value)["post"])
                                 
@@ -161,20 +155,22 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
                                         self.publishPost()
                                     }
                                 }
+                            case .Failure:
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    self.simpleAlert(title: "Unable to upload image", message: "Please try again")
+                                }
                             }
                             
-                            do {
-                                try fileManager.removeItemAtPath(imagePath)
-                            } catch {
-                                print("Unable to delete temporary image")
-                            }
+                            UIImage.removeImage("tmpPostImage")
                         }
                     case .Failure:
                         dispatch_async(dispatch_get_main_queue()) {
-                            self.simpleAlert(title: "Unable to upload image", message: "Please try again")
+                            self.simpleAlert(title: "Unable to process image", message: "Upload cancelled")
                         }
                     }
-            })
+                    
+                    UIImage.removeImage("tmpPostImage")
+            }
         }
     }
     

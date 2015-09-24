@@ -10,6 +10,7 @@
 		1100594B1BA9B1A300D2563A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100594A1BA9B1A300D2563A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
 		11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */; };
+		111807201BB3FD6500C1470D /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118071F1BB3FD6500C1470D /* UIScrollView.swift */; settings = {ASSET_TAGS = (); }; };
 		112CF9B81BAA964C001BF796 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CF9B71BAA964C001BF796 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
 		112CF9C91BAB1225001BF796 /* work.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C71BAB1225001BF796 /* work.gpx */; settings = {ASSET_TAGS = (); }; };
 		112CF9CA1BAB1225001BF796 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C81BAB1225001BF796 /* home.gpx */; settings = {ASSET_TAGS = (); }; };
@@ -66,6 +67,7 @@
 		1100594A1BA9B1A300D2563A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
 		11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextFieldValidationError.swift; sourceTree = "<group>"; };
+		1118071F1BB3FD6500C1470D /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		112CF9B71BAA964C001BF796 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		112CF9C71BAB1225001BF796 /* work.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = work.gpx; sourceTree = "<group>"; };
 		112CF9C81BAB1225001BF796 /* home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = home.gpx; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				1196177A1BAD896C00BDE941 /* MKMapView.swift */,
 				116BEAF11BB1475D007ED1FB /* UIImageView.swift */,
 				119801261BB16D0C00DD145C /* UIImage.swift */,
+				1118071F1BB3FD6500C1470D /* UIScrollView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				119801271BB16D0C00DD145C /* UIImage.swift in Sources */,
 				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
 				113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */,
+				111807201BB3FD6500C1470D /* UIScrollView.swift in Sources */,
 				1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */,
 				11355FEA1BA0601F00BD1A64 /* PostsFeedViewController.swift in Sources */,
 				113CE3D11BA0AA1B00ED434A /* UserSearchTableViewController.swift in Sources */,

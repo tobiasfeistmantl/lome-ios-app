@@ -128,7 +128,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             let post = posts[button.indexPath!.row]
             
             let destinationViewController = segue.destinationViewController as! ProfileTableViewController
-            destinationViewController.user = post.author
+            destinationViewController.userId = post.author.id
         }
     }
 }

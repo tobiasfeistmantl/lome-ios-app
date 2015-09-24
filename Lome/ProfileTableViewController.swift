@@ -29,19 +29,26 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         
         if user == nil {
-            getUser(userId) { user, successful in
-                if successful {
-                    self.user = user
-                    self.setupUserViews()
-                } else {
-                    self.simpleAlert(title: "Unable to get User Information", message: "Please try again later")
-                }
-            }
+            setUser()
         } else {
+            userId = user.id
             self.setupUserViews()
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setUser", name: "userUpdated", object: nil)
+        
         setupTableView()
+    }
+    
+    func setUser() {
+        getUser(userId) { user, successful in
+            if successful {
+                self.user = user
+                self.setupUserViews()
+            } else {
+                self.simpleAlert(title: "Unable to get User Information", message: "Please try again later")
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -149,8 +156,10 @@ class ProfileTableViewController: UITableViewController {
         followerLabel.text = "\(user.followerCount) Follower"
         
         if UserSession.User.id == user.id {
-            followButton.hidden = true
-            profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))
+            if followButton.hidden == false {
+                followButton.hidden = true
+                profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))
+            }
         } else {
             navigationItem.rightBarButtonItem = nil
         }

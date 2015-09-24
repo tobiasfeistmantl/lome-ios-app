@@ -87,6 +87,37 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
         dismissViewControllerAnimated(true, completion: nil)
         
         userProfileImageView.image = image
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            let imagePath = image.storeImage("tmpProfileImage")
+            let imageURL = NSURL.fileURLWithPath(imagePath!)
+            
+            let URL = baseURLString + "/users/\(self.user.id)"
+            
+            Alamofire.upload(.PATCH, URL, headers: defaultSignedInHeaders, multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(fileURL: imageURL, name: "user[profile_image]")
+                }) { encodingResult in
+                    switch encodingResult {
+                    case .Success(let upload, _, _):
+                        upload.validate().responseJSON { _, _, result in
+                            switch result {
+                            case .Success:
+                                NSNotificationCenter.defaultCenter().postNotificationName("userUpdated", object: nil)
+                            case .Failure:
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    self.simpleAlert(title: "Unable to update profile image", message: "Please try again later")
+                                }
+                            }
+                        }
+                    case .Failure:
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.simpleAlert(title: "Unable to process profile image", message: "Upload cancelled")
+                        }
+                    }
+                    
+                    UIImage.removeImage("tmpProfileImage")
+            }
+        }
     }
     
     

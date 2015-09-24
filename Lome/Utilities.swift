@@ -229,7 +229,34 @@ func getUser(id: Int, afterResponse: (User?, Bool) -> Void) {
     }
 }
 
-
+func searchUserByUsername(q: String, page: Int = 1, afterResponse: ([User], Bool) -> Void) {
+    var users: [User] = []
+    var successful = false
+    
+    let URL = baseURLString + "/users"
+    
+    let parameters: [String: AnyObject] = [
+        "q": q,
+        "page": page
+    ]
+    
+    Alamofire.request(.GET, URL, parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+        switch result {
+        case .Success(let value):
+            for (_, json) in JSON(value) {
+                users.append(User(data: json))
+            }
+            
+            successful = true
+        case .Failure:
+            break
+        }
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            afterResponse(users, successful)
+        }
+    }
+}
 
 
 
