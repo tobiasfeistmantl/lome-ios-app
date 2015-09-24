@@ -14,28 +14,27 @@ import SwiftyJSON
 class ProfileTableViewController: UITableViewController {
     var userId: Int!
     
-    var user: User?
+    var user: User!
     var posts: [Post] = []
     
+    @IBOutlet weak var profileInformationView: UIView!
     @IBOutlet weak var profileSettingsButton: UIBarButtonItem!
     @IBOutlet weak var profileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followerLabel: UILabel!
     @IBOutlet weak var followButton: DesignableButton!
-    @IBOutlet weak var followButtonHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let URL = baseURLString + "/users/\(userId)"
-        
         if user == nil {
-            Alamofire.request(.GET, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders).responseJSON { _, _, result in
-                if let value = result.value {
-                    self.user = User(data: JSON(value))
-                    
+            getUser(userId) { user, successful in
+                if successful {
+                    self.user = user
                     self.setupUserViews()
+                } else {
+                    self.simpleAlert(title: "Unable to get User Information", message: "Please try again later")
                 }
             }
         } else {
@@ -52,13 +51,13 @@ class ProfileTableViewController: UITableViewController {
     }
     
     @IBAction func followButtonDidTouch(sender: DesignableButton) {
-        if !user!.following {
-            user?.follow(true)
+        if !user.following {
+            user.follow(true)
             sender.setTitle("Unfollow", forState: .Normal)
             sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             sender.backgroundColor = UIColor(hex: "4A90E2")
         } else {
-            user?.follow(false)
+            user.follow(false)
             sender.setTitle("Follow", forState: .Normal)
             sender.setTitleColor(UIColor(hex: "4A90E2"), forState: .Normal)
             sender.backgroundColor = UIColor.whiteColor()
@@ -125,38 +124,38 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func setupUserViews() {
-        if let imageURL = user?.profileImageURLs[.Original] {
+        if let imageURL = user.profileImageURLs[.Original] {
             let URL = NSURL(string: imageURL)
             
             profileImageView.af_setImageWithURL(URL!)
         }
         
         
-        if user!.following {
+        if user.following {
             followButton.backgroundColor = UIColor(hex: "4A90E2")
             followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             followButton.setTitle("Unfollow", forState: .Normal)
         }
         
         
-        if let fullName = user?.fullName {
+        if let fullName = user.fullName {
             usersNameLabel.text = fullName
-            usernameLabel.text = user!.username
+            usernameLabel.text = user.username
         } else {
-            usersNameLabel.text = user!.username
+            usersNameLabel.text = user.username
             usernameLabel.hidden = true
         }
         
-        followerLabel.text = "\(user!.followerCount) Follower"
+        followerLabel.text = "\(user.followerCount) Follower"
         
-        if UserSession.User.id == userId {
+        if UserSession.User.id == user.id {
             followButton.hidden = true
-            followButtonHeightConstraint.constant = 0
+            profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))
         } else {
             navigationItem.rightBarButtonItem = nil
         }
         
-        getUsersPosts(user!) { posts, successful in
+        getUsersPosts(user) { posts, successful in
             if successful {
                 self.posts = posts
                 

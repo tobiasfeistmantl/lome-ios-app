@@ -207,6 +207,33 @@ func getUsersPosts(user: User, afterResponse: ([Post], Bool) -> Void) {
     }
 }
 
+func getUser(id: Int, afterResponse: (User?, Bool) -> Void) {
+    var user: User?
+    var successful = false
+    
+    let URL = baseURLString + "/users/\(id)"
+    
+    Alamofire.request(.GET, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+        switch result {
+        case .Success(let value):
+            successful = true
+            
+            user = User(data: JSON(value))
+        case .Failure:
+            break
+        }
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            afterResponse(user, successful)
+        }
+    }
+}
+
+
+
+
+
+
 
 
 

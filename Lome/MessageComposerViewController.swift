@@ -76,6 +76,12 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     
     @IBAction func cancelButtonDidTouch(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
+        
+        if let post = post {
+            let URL = baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
+            
+            Alamofire.request(.DELETE, URL, headers: defaultSignedInHeaders)
+        }
     }
     
     
