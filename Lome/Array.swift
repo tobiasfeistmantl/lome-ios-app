@@ -9,14 +9,17 @@
 import Foundation
 import UIKit
 
-extension Array {
+extension Array where Element : UITextField {
     func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
         for textField in self {
-            if let textField = textField as? UITextField {
-                textField.addTarget(target, action: action, forControlEvents: controlEvents)
-            } else {
-                print("ERROR: Value not type of UITextField. Cannot add target!")
-            }
+            let textField = textField as UITextField
+            textField.addTarget(target, action: action, forControlEvents: controlEvents)
         }
+    }
+}
+
+extension Array {
+    var last: Element {
+        return self[self.endIndex - 1]
     }
 }

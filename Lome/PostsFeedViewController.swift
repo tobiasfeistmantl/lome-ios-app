@@ -29,8 +29,10 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: .AllEvents)
+        refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: .ValueChanged)
         postsTableView.addSubview(refreshControl)
+        
+        showLoadingView("Loading posts near your location")
         
         setupNavigationItem(navigationItem)
         setupLocationManager(locationManager)
@@ -59,14 +61,15 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
-        updateUserPosition(locations[0]) { successful in
+        updateUserPosition(locations.last) { successful in
             if successful {
                 getPostsNearby { posts, successful in
                     if successful {
                         for post in posts {
-                            post.distanceFromLocation(locations[0])
+                            post.distanceFromLocation(locations.last)
                         }
                         self.posts = posts
+                        self.hideLoadingView()
                         self.postsTableView.reloadData()
                     } else {
                         self.simpleAlert(title: "Unable to get posts", message: "Please try again later")
@@ -75,9 +78,8 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.refreshControl.endRefreshing()
                 }
             } else {
-                self.simpleAlert(title: "Unable to update your location", message: "Please try again later")
-                
                 self.refreshControl.endRefreshing()
+                self.simpleAlert(title: "Unable to update your location", message: "Please try again later")
             }
         }
     }
@@ -144,6 +146,7 @@ extension PostsFeedViewController {
     func setupLocationManager(locationManager: CLLocationManager) {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
     
     func setupTableView(tableView: UITableView) {

@@ -100,8 +100,10 @@ class Post {
             switch distance {
             case 0...5:
                 text = "Placed exactly here"
-            default:
+            case 5...1000:
                 text = "Placed in \(Int(distance))m"
+            default:
+                text = "Placed in \(Int(distance / 1000))km"
             }
             
             return text

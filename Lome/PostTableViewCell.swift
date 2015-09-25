@@ -24,21 +24,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
-    internal var postImageViewAspectConstraint: NSLayoutConstraint? {
-        didSet {
-            if oldValue != nil {
-                postImageView.removeConstraint(oldValue!)
-            }
-            
-            if postImageViewAspectConstraint != nil {
-                postImageView.addConstraint(postImageViewAspectConstraint!)
-            }
-        }
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
-        postImageViewAspectConstraint = nil
     }
     
     func setupWithPost(post: Post, indexPath: NSIndexPath, viewController: UIViewController? = nil) {
@@ -47,13 +34,6 @@ class PostTableViewCell: UITableViewCell {
         post.author.profileImage(version: .Thumbnail) { image, _ in
             self.userProfileImageView.image = image
         }
-        
-//        post.image { image, _ in
-//            if let image = image {
-//                self.postImageViewAspectConstraint = image.aspectRatioConstraintForImageView(self.postImageView)
-//                self.postImageView.image = image
-//            }
-//        }
         
         userProfileButton.indexPath = indexPath
         

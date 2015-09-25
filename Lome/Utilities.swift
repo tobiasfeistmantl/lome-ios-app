@@ -114,8 +114,16 @@ func signOutUser(afterSignOut: ((Bool) -> Void)?) {
 }
 
 
+var currentlyUpdatingLocation = false
 
 func updateUserPosition(location: CLLocation, afterUpdate: (Bool) -> Void) {
+    if currentlyUpdatingLocation {
+        print("Already updating position currently")
+        return
+    }
+    
+    currentlyUpdatingLocation = true
+    
     var successful = false
     
     let URL = "\(baseURLString)/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions"
@@ -133,6 +141,7 @@ func updateUserPosition(location: CLLocation, afterUpdate: (Bool) -> Void) {
         }
         
         dispatch_async(dispatch_get_main_queue()) {
+            currentlyUpdatingLocation = false
             afterUpdate(successful)
         }
     }
