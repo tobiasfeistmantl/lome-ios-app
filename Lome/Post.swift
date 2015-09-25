@@ -22,7 +22,7 @@ class Post {
     var createdAt: NSDate
     var likesCount: Int
     var liked: Bool
-    var imageURLs: [PostImageVersion: String] = [:]
+    var imageInfo: [ImageVersion: TFImageInfo] = [:]
     
     var likesCountText: String {
         let text: String
@@ -68,7 +68,7 @@ class Post {
         return annotation
     }
     
-    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, liked: Bool, imageURLs: [PostImageVersion: String]) {
+    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, liked: Bool, imageInfo: [ImageVersion: TFImageInfo]) {
         self.id = id
         self.message = message
         self.location = location
@@ -76,7 +76,7 @@ class Post {
         self.likesCount = likesCount
         self.createdAt = createdAt
         self.liked = liked
-        self.imageURLs = imageURLs
+        self.imageInfo = imageInfo
     }
     
     init(data: JSON) {
@@ -88,8 +88,12 @@ class Post {
         self.createdAt = railsDateFormatter.dateFromString(data["created_at"].string!)!
         self.liked = data["liked"].bool!
         
-        for (key, jsonURL) in data["image"] {
-            self.imageURLs[PostImageVersion(rawValue: key)!] = jsonURL.string
+        for (key, jsonInfo) in data["image"] {
+            let version = ImageVersion(rawValue: key)!
+            
+            if jsonInfo["url"].string != nil {
+                self.imageInfo[version] = TFImageInfo(url: jsonInfo["url"].string!, width: jsonInfo["width"].int!, height: jsonInfo["height"].int!, version: version)
+            }
         }
     }
     
@@ -148,11 +152,11 @@ class Post {
         return UIImage(named: "Like Heart")!
     }
     
-    func image(version postImageVersion: PostImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
+    func image(version postImageVersion: ImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
         var image: UIImage?
         var successful = false
         
-        if let imageURL = imageURLs[postImageVersion] {
+        if let imageURL = imageInfo[postImageVersion]?.url {
             Alamofire.request(.GET, imageURL).responseImage { _, _, result in
                 if let value = result.value {
                     image = value
@@ -166,13 +170,6 @@ class Post {
         }
     }
 }
-
-enum PostImageVersion: String {
-    case Original = "original"
-    case Thumbnail = "thumbnail"
-}
-
-
 
 
 

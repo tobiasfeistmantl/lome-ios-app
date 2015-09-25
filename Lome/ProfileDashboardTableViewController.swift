@@ -44,7 +44,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     }
     
     func assignUserAttributes() {
-        if let imageURLString = user.profileImageURLs[.Thumbnail] {
+        if let imageURLString = user.profileImageInfo[.Thumbnail]?.url {
             let imageURL = NSURL(string: imageURLString)!
             
             userProfileImageView.af_setImageWithURL(imageURL)

@@ -131,7 +131,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func setupUserViews() {
-        if let imageURL = user.profileImageURLs[.Original] {
+        if let imageURL = user.profileImageInfo[.Original]?.url {
             let URL = NSURL(string: imageURL)
             
             profileImageView.af_setImageWithURL(URL!)

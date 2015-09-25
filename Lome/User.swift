@@ -18,7 +18,7 @@ class User {
     var username: String
     var email: String?
     var followerCount: Int
-    var profileImageURLs: [ProfileImageVersion: String] = [:]
+    var profileImageInfo: [ImageVersion: TFImageInfo] = [:]
     var following: Bool
     
     var followerCountText: String {
@@ -34,13 +34,13 @@ class User {
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageURLs: [ProfileImageVersion: String], following: Bool) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageInfo: [ImageVersion: TFImageInfo], following: Bool) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
         self.followerCount = followerCount
-        self.profileImageURLs = profileImageURLs
+        self.profileImageInfo = profileImageInfo
         self.following = following
     }
     
@@ -52,8 +52,12 @@ class User {
         self.email = data["email"].string
         self.followerCount = data["follower_count"].int!
         
-        for (key, jsonURL) in data["profile_image"] {
-            self.profileImageURLs[ProfileImageVersion(rawValue: key)!] = jsonURL.string
+        for (key, jsonInfo) in data["profile_image"] {
+            let version = ImageVersion(rawValue: key)!
+            
+            if jsonInfo["url"].string != nil {
+                self.profileImageInfo[version] = TFImageInfo(url: jsonInfo["url"].string!, width: jsonInfo["width"].int!, height: jsonInfo["height"].int!, version: version)
+            }
         }
         
         self.following = data["following"].bool!
@@ -84,11 +88,11 @@ class User {
         Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders)
     }
     
-    func profileImage(version profileImageVersion: ProfileImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
+    func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
         var image: UIImage?
         var successful = false
         
-        if let imageURL = profileImageURLs[profileImageVersion] {
+        if let imageURL = profileImageInfo[profileImageVersion]?.url {
             Alamofire.request(.GET, imageURL).responseImage { _, _, result in
                 if let value = result.value {
                     image = value
@@ -102,12 +106,6 @@ class User {
         }
     }
 }
-
-enum ProfileImageVersion: String {
-    case Original = "original"
-    case Thumbnail = "thumbnail"
-}
-
 
 
 
