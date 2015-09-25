@@ -22,7 +22,8 @@ class Post {
     var createdAt: NSDate
     var likesCount: Int
     var liked: Bool
-    var imageInfo: [ImageVersion: TFImageInfo] = [:]
+    var imageAspectRatio: Double?
+    var imageURLs: [ImageVersion: String] = [:]
     
     var likesCountText: String {
         let text: String
@@ -68,7 +69,7 @@ class Post {
         return annotation
     }
     
-    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, liked: Bool, imageInfo: [ImageVersion: TFImageInfo]) {
+    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, liked: Bool, imageURLs: [ImageVersion: String]) {
         self.id = id
         self.message = message
         self.location = location
@@ -76,7 +77,7 @@ class Post {
         self.likesCount = likesCount
         self.createdAt = createdAt
         self.liked = liked
-        self.imageInfo = imageInfo
+        self.imageURLs = imageURLs
     }
     
     init(data: JSON) {
@@ -87,13 +88,10 @@ class Post {
         self.author = User(data: data["author"])
         self.createdAt = railsDateFormatter.dateFromString(data["created_at"].string!)!
         self.liked = data["liked"].bool!
+        self.imageAspectRatio = data["image"]["aspect_ratio"].double
         
-        for (key, jsonInfo) in data["image"] {
-            let version = ImageVersion(rawValue: key)!
-            
-            if jsonInfo["url"].string != nil {
-                self.imageInfo[version] = TFImageInfo(url: jsonInfo["url"].string!, width: jsonInfo["width"].int!, height: jsonInfo["height"].int!, version: version)
-            }
+        for (key, jsonData) in data["image"]["versions"] {
+            self.imageURLs[ImageVersion(rawValue: key)!] = jsonData.string
         }
     }
     
@@ -156,7 +154,7 @@ class Post {
         var image: UIImage?
         var successful = false
         
-        if let imageURL = imageInfo[postImageVersion]?.url {
+        if let imageURL = imageURLs[postImageVersion] {
             Alamofire.request(.GET, imageURL).responseImage { _, _, result in
                 if let value = result.value {
                     image = value

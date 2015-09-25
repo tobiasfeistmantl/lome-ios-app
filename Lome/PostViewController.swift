@@ -28,6 +28,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postPositionMapView: MKMapView!
     @IBOutlet weak var likePostButton: UIBarButtonItem!
     
+    @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,10 +46,13 @@ class PostViewController: UIViewController {
             self.userProfileImageView.image = image
         }
         
-        post.image { image, _ in
-            self.postImageView.setImageAndAspectRatioForImageView(image)
+        if let aspectRatio = post.imageAspectRatio {
+            postImageView.addConstraint(postImageView.constraintWithAspectRatio(aspectRatio))
         }
         
+        post.image { image, _ in
+            self.postImageView.image = image
+        }
         
         if let fullName = post.author.fullName {
             usersNameLabel.text = fullName
@@ -59,8 +64,11 @@ class PostViewController: UIViewController {
         
         if let attributedMessage = post.attributedMessage {
             contentLabel.attributedText = attributedMessage
+            contentLabel.hidden = false
         } else {
             contentLabel.hidden = true
+            contentLabel.attributedText = nil
+            constraintBetweenMessageLabelAndPostImageView.constant = 0
         }
         
         

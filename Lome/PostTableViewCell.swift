@@ -24,8 +24,23 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
+    
+    var postImageAspectConstraint: NSLayoutConstraint? {
+        didSet {
+            if let oldValue = oldValue {
+                postImageView.removeConstraint(oldValue)
+            }
+            if let postImageAspectConstraint = postImageAspectConstraint {
+                postImageView.addConstraint(postImageAspectConstraint)
+            }
+        }
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
+        
+        postImageAspectConstraint = nil
     }
     
     func setupWithPost(post: Post, indexPath: NSIndexPath, viewController: UIViewController? = nil) {
@@ -51,8 +66,22 @@ class PostTableViewCell: UITableViewCell {
         
         if let attributedMessage = post.attributedMessage {
             messageLabel.attributedText = attributedMessage
+            messageLabel.hidden = false
+            constraintBetweenMessageLabelAndPostImageView.constant = 15
         } else {
             messageLabel.hidden = true
+            messageLabel.attributedText = nil
+            constraintBetweenMessageLabelAndPostImageView.constant = 0
+        }
+        
+        if let aspectRatio = post.imageAspectRatio {
+            postImageAspectConstraint = postImageView.constraintWithAspectRatio(aspectRatio)
+        }
+        
+        post.image { image, _ in
+            if let image = image {
+                self.postImageView.image = image
+            }
         }
         
         timestampLabel.text = "Posted \(post.createdAt.timeAgoSinceNow())"

@@ -18,7 +18,8 @@ class User {
     var username: String
     var email: String?
     var followerCount: Int
-    var profileImageInfo: [ImageVersion: TFImageInfo] = [:]
+    var profileImageAspectRatio: Double?
+    var profileImageURLs: [ImageVersion: String] = [:]
     var following: Bool
     
     var followerCountText: String {
@@ -34,13 +35,14 @@ class User {
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageInfo: [ImageVersion: TFImageInfo], following: Bool) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageAspectRatio: Double, profileImageURLs: [ImageVersion: String], following: Bool) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
         self.followerCount = followerCount
-        self.profileImageInfo = profileImageInfo
+        self.profileImageAspectRatio = profileImageAspectRatio
+        self.profileImageURLs = profileImageURLs
         self.following = following
     }
     
@@ -51,13 +53,10 @@ class User {
         self.username = data["username"].string!
         self.email = data["email"].string
         self.followerCount = data["follower_count"].int!
+        self.profileImageAspectRatio = data["profile_image"]["aspect_ratio"].double
         
-        for (key, jsonInfo) in data["profile_image"] {
-            let version = ImageVersion(rawValue: key)!
-            
-            if jsonInfo["url"].string != nil {
-                self.profileImageInfo[version] = TFImageInfo(url: jsonInfo["url"].string!, width: jsonInfo["width"].int!, height: jsonInfo["height"].int!, version: version)
-            }
+        for (key, jsonData) in data["profile_image"]["versions"] {
+            self.profileImageURLs[ImageVersion(rawValue: key)!] = jsonData.string
         }
         
         self.following = data["following"].bool!
@@ -92,7 +91,7 @@ class User {
         var image: UIImage?
         var successful = false
         
-        if let imageURL = profileImageInfo[profileImageVersion]?.url {
+        if let imageURL = profileImageURLs[profileImageVersion] {
             Alamofire.request(.GET, imageURL).responseImage { _, _, result in
                 if let value = result.value {
                     image = value

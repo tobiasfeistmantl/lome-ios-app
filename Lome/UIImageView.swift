@@ -10,10 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func setImageAndAspectRatioForImageView(image: UIImage?) {
-        if let image = image {
-            self.image = image
-            self.addConstraint(image.aspectRatioConstraintForImageView(self))
-        }
+    func constraintWithAspectRatio(aspectRatio: Double) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Height, multiplier: CGFloat(aspectRatio), constant: 0)
     }
 }

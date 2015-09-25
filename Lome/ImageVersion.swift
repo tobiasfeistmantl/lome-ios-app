@@ -1,5 +1,5 @@
 //
-//  TFImageInfo.swift
+//  ImageVersion.swift
 //  Lome
 //
 //  Created by Tobias Feistmantl on 25/09/15.
@@ -7,13 +7,6 @@
 //
 
 import Foundation
-
-struct TFImageInfo {
-    var url: String
-    var width: Int
-    var height: Int
-    var version: ImageVersion?
-}
 
 enum ImageVersion: String {
     case Original = "original"

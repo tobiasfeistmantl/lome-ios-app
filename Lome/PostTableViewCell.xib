@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuY-2Q-bSh" id="8Fm-uo-x4A">
-                <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
+                <rect key="frame" x="0.0" y="0.0" width="561" height="366.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-HK-m2T" userLabel="User Profile Image View" customClass="TFImageView" customModule="Lome" customModuleProvider="target">
@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-LN-Rr6">
-                        <rect key="frame" x="63" y="35" width="46" height="15"/>
+                        <rect key="frame" x="63" y="35" width="45.5" height="14.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,14 +47,14 @@
                         <animations/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placed 10m away" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXv-B5-ehn">
-                        <rect key="frame" x="449" y="15" width="97" height="15"/>
+                        <rect key="frame" x="449" y="15" width="97" height="14.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZY-Mp-GSS">
-                        <rect key="frame" x="20" y="68" width="515" height="75"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="514.5" placeholderIntrinsicHeight="74.5" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZY-Mp-GSS">
+                        <rect key="frame" x="20" y="68" width="514.5" height="74.5"/>
                         <animations/>
                         <attributedString key="attributedText">
                             <fragment>
@@ -69,18 +69,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="y57-7O-sPJ">
-                        <rect key="frame" x="0.0" y="161" width="561" height="150"/>
+                        <rect key="frame" x="0.0" y="160.5" width="561" height="150"/>
                         <animations/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="14.921 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAv-sw-lfv">
-                        <rect key="frame" x="15" y="331" width="70" height="16"/>
+                        <rect key="frame" x="15" y="330.5" width="69.5" height="16.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHq-bF-NNx">
-                        <rect key="frame" x="268" y="327" width="24" height="24"/>
+                        <rect key="frame" x="268" y="327.5" width="24" height="24"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wHq-bF-NNx" secondAttribute="height" multiplier="1:1" id="Mhm-ay-niZ"/>
@@ -93,7 +93,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted 10 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiG-XO-ioe">
-                        <rect key="frame" x="436" y="332" width="110" height="14"/>
+                        <rect key="frame" x="436" y="332" width="110" height="14.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,6 +141,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="constraintBetweenMessageLabelAndPostImageView" destination="Wqm-Co-kBB" id="nTr-PL-0ou"/>
                 <outlet property="distanceLabel" destination="wXv-B5-ehn" id="nze-Vc-LLC"/>
                 <outlet property="likeButton" destination="wHq-bF-NNx" id="NiQ-Lq-XDh"/>
                 <outlet property="likeCountLabel" destination="PAv-sw-lfv" id="3vs-EM-20e"/>
