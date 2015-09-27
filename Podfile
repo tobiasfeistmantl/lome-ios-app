@@ -9,6 +9,7 @@ target 'Lome' do
     pod 'KeychainAccess', :git => 'https://github.com/kishikawakatsumi/KeychainAccess.git', :branch => 'swift-2.0'
     pod 'AlamofireImage'
     pod 'DateTools'
+    pod 'PureLayout'
 end
 
 target 'LomeTests' do

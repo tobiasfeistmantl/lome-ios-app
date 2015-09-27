@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Spring.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>298128B07404EE848BEE721208F6D7A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>40CD17C482F83313C19C9E8642AE8065</key>
+		<key>36BABC4997DD6957BD6EED3F5A02E7F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>745E3D4428E7065C2AF2173015BCEEA2</key>
+		<key>72F393A22C0126EF6B3D7AAE99365467</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F18C33380BF32AE98BF224C955587C0</key>
+		<key>7CD0476237F1FDCF64ECF7D41CE2DFDD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8240A687A12B3496C485DFBEB80E79E2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>926269BFA18164D2AA8C7165007DB40E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3C9D3FFAC79EC6DF30A8F2E5671E75F</key>
+		<key>D02AD7723AE12707E5172A7BE39EBBF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

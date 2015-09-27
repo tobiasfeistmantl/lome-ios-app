@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 2.0)
   - DateTools (1.7.0)
   - KeychainAccess (1.2.1)
+  - PureLayout (3.0.1)
   - Spring (1.0.3)
   - SwiftyJSON (2.2.1)
 
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - DateTools
   - KeychainAccess (from `https://github.com/kishikawakatsumi/KeychainAccess.git`,
     branch `swift-2.0`)
+  - PureLayout
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 0d181ae145f879ee2ebd204074eacbc659276ab3
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   KeychainAccess: 2ffa8b1b7130263bb7fe90b359d778696fc2d8ce
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
