@@ -26,10 +26,6 @@ var railsDateFormatter: NSDateFormatter {
 
 
 
-
-
-
-
 let defaultSignedInParameters: [String: AnyObject] = [:]
 
 let defaultSignedInHeaders: [String: String] = [
@@ -118,7 +114,6 @@ var currentlyUpdatingLocation = false
 
 func updateUserPosition(location: CLLocation, afterUpdate: (Bool) -> Void) {
     if currentlyUpdatingLocation {
-        print("Already updating position currently")
         return
     }
     
@@ -134,6 +129,7 @@ func updateUserPosition(location: CLLocation, afterUpdate: (Bool) -> Void) {
         "latitude": location.coordinate.latitude,
         "longitude": location.coordinate.longitude
     ]
+    
     
     Alamofire.request(.POST, URL, parameters: parameters, headers: defaultSignedInHeaders).responseJSON { _, response, _ in
         if response?.statusCode == 204 {

@@ -47,11 +47,13 @@ class PostViewController: UIViewController {
         }
         
         if let aspectRatio = post.imageAspectRatio {
-            postImageView.addConstraint(postImageView.constraintWithAspectRatio(aspectRatio))
+            postImageView.addConstraint(postImageView.aspectRatioConstraintForMultiplier(aspectRatio))
         }
         
-        post.image { image, _ in
-            self.postImageView.image = image
+        if let imageURL = post.imageURLs[.Original] {
+            let URL = NSURL(string: imageURL)!
+            
+            postImageView.af_setImageWithURL(URL)
         }
         
         if let fullName = post.author.fullName {

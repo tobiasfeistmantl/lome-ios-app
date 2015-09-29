@@ -14,7 +14,13 @@ import SwiftyJSON
 class ProfileTableViewController: UITableViewController {
     var userId: Int!
     
-    var user: User!
+    var user: User! {
+        didSet {
+            userId = user.id
+        }
+    }
+    
+    
     var posts: [Post] = []
     
     @IBOutlet weak var profileInformationView: UIView!
@@ -87,9 +93,8 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
-        let post = posts[indexPath.row]
         
-        cell.setupWithPost(post, indexPath: indexPath)
+        cell.post = posts[indexPath.row]
         
         return cell
     }

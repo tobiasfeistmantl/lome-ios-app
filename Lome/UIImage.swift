@@ -14,15 +14,11 @@ extension UIImage {
         return size.width / size.height
     }
     
-    func aspectRatioConstraintForImageView(imageView: UIImageView) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: imageView, attribute: .Height, multiplier: aspectRatio, constant: 0)
-    }
-    
     func storeImage(imageName: String) -> String? {
         let fileManager = NSFileManager.defaultManager()
         let imagePath = UIImage.cachePath + "/\(imageName).jpg"
         
-        let imageData = UIImageJPEGRepresentation(self, 0.8)
+        let imageData = UIImageJPEGRepresentation(UIImage.fixOrientation(self), 0.8)
         
         if fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil) {
             return imagePath
@@ -46,5 +42,21 @@ extension UIImage {
     
     class var cachePath: String {
         return NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
+    }
+    
+    class func fixOrientation(image: UIImage) -> UIImage {
+        
+        if (image.imageOrientation == UIImageOrientation.Up) {
+            return image;
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale);
+        let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        image.drawInRect(rect)
+        
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return normalizedImage;
+        
     }
 }

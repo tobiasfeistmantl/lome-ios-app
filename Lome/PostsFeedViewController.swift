@@ -93,7 +93,8 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
         
-        cell.setupWithPost(posts[indexPath.row], indexPath: indexPath, viewController: self)
+        cell.post = posts[indexPath.row]
+        cell.setupUserProfileButton(indexPath, viewController: self)
         
         return cell
     }

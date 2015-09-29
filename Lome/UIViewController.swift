@@ -16,4 +16,14 @@ extension UIViewController {
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
+    
+    class var topMost: UIViewController {
+        var topController = UIApplication.sharedApplication().keyWindow?.rootViewController
+        
+        while (topController?.presentedViewController != nil) {
+            topController = topController?.presentedViewController
+        }
+        
+        return topController!
+    }
 }
