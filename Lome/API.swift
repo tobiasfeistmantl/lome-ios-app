@@ -39,6 +39,10 @@ class API {
                     
                 if data["error"]["type"].string == "UNAUTHENTICATED" {
                     UserSession.delete()
+                    
+                    let welcomeViewController = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle()).instantiateInitialViewController()!
+                    
+                    UIViewController.topMost.presentViewController(welcomeViewController, animated: true, completion: nil)
                 }
             }
         }
@@ -149,7 +153,9 @@ class API {
             
             let headers = ["Authorization": "Basic \(base64Credentials)"]
             
-            Alamofire.request(.POST, "/users/sessions", headers: headers).validate().responseJSON { _, _, result in
+            let URL = API.baseURLString + "/users/sessions"
+            
+            Alamofire.request(.POST, URL, headers: headers).validate().responseJSON { _, _, result in
                 switch result {
                 case .Success(let value):
                     let jsonData = JSON(value)
@@ -178,7 +184,9 @@ class API {
                 "user": userParameters
             ]
             
-            Alamofire.request(.POST, "/users", parameters: parameters).responseJSON { _, response, result in
+            let URL = baseURLString + "/users"
+            
+            Alamofire.request(.POST, URL, parameters: parameters).responseJSON { _, response, result in
                 if response?.statusCode == 201 {
                     successful = true
                 } else {
