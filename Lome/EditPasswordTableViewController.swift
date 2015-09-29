@@ -48,7 +48,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
             ]
         ]
         
-        updateUser(parameters) { _, successful in
+        API.Users.update(parameters) { _, successful in
             if successful {
                 self.navigationController?.popViewControllerAnimated(true)
             } else {

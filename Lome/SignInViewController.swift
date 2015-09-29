@@ -35,7 +35,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInButtonDidTouch(sender: DesignableButton) {
-        signInUser(usernameTextField.text!, password: passwordTextField.text!) { successful in
+        API.Users.signIn(usernameTextField.text!, password: passwordTextField.text!) { successful in
             if successful {
                 let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
                 

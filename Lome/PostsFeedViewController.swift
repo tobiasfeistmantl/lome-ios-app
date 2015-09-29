@@ -61,9 +61,9 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
-        updateUserPosition(locations.last) { successful in
+        API.Users.Positions.update(locations.last) { successful in
             if successful {
-                getPostsNearby { posts, successful in
+                API.Posts.getPostsNearby { posts, successful in
                     if successful {
                         for post in posts {
                             post.distanceFromLocation(locations.last)

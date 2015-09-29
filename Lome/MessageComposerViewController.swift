@@ -80,7 +80,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         if let post = post {
             let URL = baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
             
-            Alamofire.request(.DELETE, URL, headers: defaultSignedInHeaders)
+            Alamofire.request(.DELETE, URL, headers: API.defaultSignedInHeaders)
         }
     }
     
@@ -137,9 +137,10 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             let imagePath = image.storeImage("tmpPostImage")
             let imageURL = NSURL.fileURLWithPath(imagePath!)
-            let URL = baseURLString + "/users/\(UserSession.User.id!)/posts/image"
             
-            Alamofire.upload(.POST, URL, headers: defaultSignedInHeaders, multipartFormData: { multipartFormData in
+            let URL = API.baseURLString + "/users/\(UserSession.User.id!)/posts/image"
+            
+            Alamofire.upload(.POST, URL, headers: API.defaultSignedInHeaders, multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(fileURL: imageURL, name: "post[image]")
                 }) { encodingResult in
                     switch encodingResult {
@@ -179,10 +180,10 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         let method: Alamofire.Method
         
         if let post = post {
-            URL = baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
+            URL = "/users/\(post.author.id)/posts/\(post.id)"
             method = .PATCH
         } else {
-            URL = baseURLString + "/users/\(UserSession.User.id!)/posts"
+            URL = "/users/\(UserSession.User.id!)/posts"
             method = .POST
         }
         
@@ -201,7 +202,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
             ]
         ]
         
-        Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+        API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
             dispatch_async(dispatch_get_main_queue()) {
                 switch result {
                 case .Success:

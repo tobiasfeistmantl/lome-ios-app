@@ -38,6 +38,7 @@
 		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
 		119617801BAECA5000BDE941 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		119801271BB16D0C00DD145C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119801261BB16D0C00DD145C /* UIImage.swift */; settings = {ASSET_TAGS = (); }; };
+		11A1427B1BBAEB8700FE2355 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1427A1BBAEB8700FE2355 /* API.swift */; settings = {ASSET_TAGS = (); }; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
 		11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27431B9C6E8D00DF00E1 /* Main.storyboard */; };
 		11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27461B9C6E8D00DF00E1 /* Images.xcassets */; };
@@ -98,6 +99,7 @@
 		1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCellButton.swift; sourceTree = "<group>"; };
 		1196177F1BAECA5000BDE941 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		119801261BB16D0C00DD145C /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		11A1427A1BBAEB8700FE2355 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AB273E1B9C6E8D00DF00E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				111C5C5E1BB57AC000217FB3 /* Partials */,
 				114C002B1B9CE9FC0053ECC4 /* Utilities.swift */,
 				11CFA42B1BA1B985001FD262 /* Constants.swift */,
+				11A1427A1BBAEB8700FE2355 /* API.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */,
 				1100594B1BA9B1A300D2563A /* User.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
+				11A1427B1BBAEB8700FE2355 /* API.swift in Sources */,
 				116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */,

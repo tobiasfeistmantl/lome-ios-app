@@ -66,12 +66,10 @@ class User {
     func follow(follow: Bool) {
         following = follow
         
-        var parameters = defaultSignedInParameters
-        
-        let URL = baseURLString + "/users/\(UserSession.User.id!)/relationships"
-        
-        parameters["relationship"] = [
-            "followed_id": id
+        let parameters = [
+            "relationship": [
+                "followed_id": id
+            ]
         ]
         
         let method: Alamofire.Method
@@ -84,7 +82,7 @@ class User {
             method = .DELETE
         }
         
-        Alamofire.request(method, URL, parameters: parameters, headers: defaultSignedInHeaders)
+        API.request(method, "/users/\(UserSession.User.id!)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders)
     }
     
     func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {

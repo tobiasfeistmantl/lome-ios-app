@@ -47,7 +47,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func setUser() {
-        getUser(userId) { user, successful in
+        API.Users.get(userId) { user, successful in
             if successful {
                 self.user = user
                 self.setupUserViews()
@@ -169,7 +169,7 @@ class ProfileTableViewController: UITableViewController {
             navigationItem.rightBarButtonItem = nil
         }
         
-        getUsersPosts(user) { posts, successful in
+        API.Users.Posts.get(user) { posts, successful in
             if successful {
                 self.posts = posts
                 

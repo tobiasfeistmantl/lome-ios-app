@@ -49,7 +49,7 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
             ]
         ]
         
-        updateUser(parameters) { user, successful in
+        API.Users.update(parameters) { user, successful in
             if successful {
                 NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
                 self.navigationController?.popViewControllerAnimated(true)

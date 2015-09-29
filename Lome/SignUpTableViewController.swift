@@ -74,9 +74,9 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
             "password": passwordTextField.text!
         ]
         
-        signUpUser(parameters) { successful, APIError in
+        API.Users.signUp(parameters) { successful, APIError in
             if successful {
-            signInUser(self.usernameTextField.text!, password: self.passwordTextField.text!) { successful in
+            API.Users.signIn(self.usernameTextField.text!, password: self.passwordTextField.text!) { successful in
                 if successful {
                     let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
                     

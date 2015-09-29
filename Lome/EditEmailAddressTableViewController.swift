@@ -41,7 +41,7 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
             ]
         ]
         
-        updateUser(parameters) { _, successful in
+        API.Users.update(parameters) { _, successful in
             if successful {
                 NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
                 self.navigationController?.popViewControllerAnimated(true)

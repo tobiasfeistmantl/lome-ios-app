@@ -139,7 +139,7 @@ class Post {
         
         likeCountLabel?.text = likesCountText
         
-        Alamofire.request(method, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders)
+        API.request(method, URL, headers: API.defaultSignedInHeaders)
     }
     
     var likeButtonImage: UIImage {

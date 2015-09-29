@@ -31,9 +31,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     }
     
     func assignUpdatedUserAttributes() {
-        let URL = baseURLString + "/users/\(UserSession.User.id!)"
-        
-        Alamofire.request(.GET, URL, headers: defaultSignedInHeaders).responseJSON { _, _, result in
+        API.request(.GET, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { _, _, result in
             if let value = result.value {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.user = User(data: JSON(value))
@@ -63,7 +61,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
             case "changeProfileImageCell":
                 changeProfileImage()
             case "deleteSessionCell":
-                signOutUser(nil)
+                API.Users.signOut(nil)
                 
                 let viewController = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
                 
@@ -94,7 +92,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
             
             let URL = baseURLString + "/users/\(self.user.id)"
             
-            Alamofire.upload(.PATCH, URL, headers: defaultSignedInHeaders, multipartFormData: { multipartFormData in
+            Alamofire.upload(.PATCH, URL, headers: API.defaultSignedInHeaders, multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(fileURL: imageURL, name: "user[profile_image]")
                 }) { encodingResult in
                     switch encodingResult {
@@ -135,9 +133,8 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     }
     
     func deleteUser(action: UIAlertAction) {
-        let URL = baseURLString + "/users/\(UserSession.User.id!)"
         
-        Alamofire.request(.DELETE, URL, parameters: defaultSignedInParameters, headers: defaultSignedInHeaders).responseJSON { _, response, _ in
+        API.request(.DELETE, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { _, response, _ in
             if response?.statusCode == 204 {
                 dispatch_async(dispatch_get_main_queue()) {
                     UserSession.delete()

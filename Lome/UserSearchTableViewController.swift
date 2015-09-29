@@ -83,7 +83,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate 
             nextPage = 1
         }
         
-        searchUserByUsername(userSearchBar.text!, page: nextPage) { users, successful in
+        API.Users.searchByUsername(userSearchBar.text!, page: nextPage) { users, successful in
             if successful {
                 if reload {
                     self.users = users
