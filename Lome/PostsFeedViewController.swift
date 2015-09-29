@@ -19,7 +19,12 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var newPostButton: DesignableButton!
     
     let locationManager = CLLocationManager()
+    var location: CLLocation?
     let refreshControl = UIRefreshControl()
+    
+    var nextPage = 1
+    var hasReachedTheEnd = false
+    var populatingPosts = false
     
     var posts: [Post] = []
     
@@ -61,26 +66,64 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
-        API.Users.Positions.update(locations.last) { successful in
+        location = locations.last
+        
+        API.Users.Positions.update(location!) { successful in
             if successful {
-                API.Posts.getPostsNearby { posts, successful in
-                    if successful {
-                        for post in posts {
-                            post.distanceFromLocation(locations.last)
-                        }
-                        self.posts = posts
-                        self.hideLoadingView()
-                        self.postsTableView.reloadData()
-                    } else {
-                        self.simpleAlert(title: "Unable to get posts", message: "Please try again later")
-                    }
-                    
-                    self.refreshControl.endRefreshing()
-                }
+                self.populatePosts(refresh: true, location: self.location)
             } else {
                 self.refreshControl.endRefreshing()
                 self.simpleAlert(title: "Unable to update your location", message: "Please try again later")
             }
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if hasReachedTheEnd || populatingPosts {
+            return
+        }
+        
+        if scrollView.almostAtTheEnd {
+            populatePosts(location: location)
+        }
+    }
+    
+    func populatePosts(refresh refresh: Bool = false, location: CLLocation? = nil) {
+        populatingPosts = true
+        
+        if refresh {
+            hasReachedTheEnd = false
+            nextPage = 1
+        }
+        
+        API.Posts.getPostsNearby(page: nextPage) { posts, successful in
+            if successful {
+                if let location = location {
+                    for post in posts {
+                        post.distanceFromLocation(location)
+                    }
+                }
+                
+                if refresh {
+                    self.posts = posts
+                } else {
+                    self.posts += posts
+                }
+                
+                self.hideLoadingView()
+                self.postsTableView.reloadData()
+            } else {
+                self.simpleAlert(title: "Unable to get posts", message: "Please try again later")
+            }
+            
+            if posts.count != 0 {
+                self.nextPage++
+            } else {
+                self.hasReachedTheEnd = true
+            }
+            
+            self.populatingPosts = false
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -117,7 +160,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             let cell = (sender as! PostTableViewCell)
             let post = cell.post
             let destinationViewController = segue.destinationViewController as! PostViewController
-                
+            
             destinationViewController.post = post
         }
         

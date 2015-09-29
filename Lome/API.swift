@@ -47,11 +47,15 @@ class API {
     }
     
     class Posts {
-        static func getPostsNearby(afterResponse: ([Post], Bool) -> Void) {
+        static func getPostsNearby(page page: Int = 1, afterResponse: ([Post], Bool) -> Void) {
             var posts: [Post] = []
             var successful = false
             
-            API.request(.GET, "/posts/nearby", headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+            let parameters: [String: AnyObject] = [
+                "page": page
+            ]
+            
+            API.request(.GET, "/posts/nearby", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
                 switch result {
                 case .Success(let value):
                     for (_, data) in JSON(value) {
