@@ -64,6 +64,8 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways {
             locationManager.startUpdatingLocation()
+        } else {
+            showNoLocationAccessAlert()
         }
     }
     
