@@ -69,18 +69,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="y57-7O-sPJ">
-                        <rect key="frame" x="0.0" y="160" width="561" height="150"/>
+                        <rect key="frame" x="0.0" y="161" width="561" height="150"/>
                         <animations/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="14.921 Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAv-sw-lfv">
-                        <rect key="frame" x="15" y="330" width="70" height="17"/>
+                        <rect key="frame" x="15" y="331" width="70" height="16"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHq-bF-NNx">
-                        <rect key="frame" x="268" y="327" width="24" height="24"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHq-bF-NNx">
+                        <rect key="frame" x="268" y="328" width="24" height="24"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wHq-bF-NNx" secondAttribute="height" multiplier="1:1" id="Mhm-ay-niZ"/>
@@ -93,12 +93,17 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted 10 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiG-XO-ioe">
-                        <rect key="frame" x="436" y="332" width="110" height="15"/>
+                        <rect key="frame" x="436" y="332" width="110" height="14"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2Ve-Ic-wZX">
+                        <rect key="frame" x="262" y="217" width="37" height="37"/>
+                        <animations/>
+                        <color key="color" red="0.78431372549019607" green="0.011764705882352941" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                    </activityIndicatorView>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -126,8 +131,10 @@
                     <constraint firstItem="hX6-hv-9Iu" firstAttribute="bottom" secondItem="EoU-HK-m2T" secondAttribute="bottom" id="fUQ-xG-YBg"/>
                     <constraint firstItem="vDq-Ue-lI0" firstAttribute="top" secondItem="8Fm-uo-x4A" secondAttribute="top" constant="15" id="feH-0F-ho1"/>
                     <constraint firstItem="wXv-B5-ehn" firstAttribute="top" secondItem="8Fm-uo-x4A" secondAttribute="top" constant="15" id="flE-96-LiH"/>
+                    <constraint firstItem="2Ve-Ic-wZX" firstAttribute="centerY" secondItem="y57-7O-sPJ" secondAttribute="centerY" id="gUz-7q-SGv"/>
                     <constraint firstItem="uZY-Mp-GSS" firstAttribute="top" secondItem="hX6-hv-9Iu" secondAttribute="bottom" constant="18" id="ilm-ZK-cNg"/>
                     <constraint firstItem="hX6-hv-9Iu" firstAttribute="bottom" secondItem="EoU-HK-m2T" secondAttribute="bottom" id="rdm-1n-nLz"/>
+                    <constraint firstItem="2Ve-Ic-wZX" firstAttribute="centerX" secondItem="y57-7O-sPJ" secondAttribute="centerX" id="rgC-DN-jSO"/>
                     <constraint firstItem="PAv-sw-lfv" firstAttribute="leading" secondItem="8Fm-uo-x4A" secondAttribute="leading" constant="15" id="waA-rD-VNC"/>
                     <constraint firstItem="wHq-bF-NNx" firstAttribute="centerY" secondItem="PAv-sw-lfv" secondAttribute="centerY" id="wke-mM-8Iu"/>
                 </constraints>
@@ -146,6 +153,7 @@
                 <outlet property="likeButton" destination="wHq-bF-NNx" id="NiQ-Lq-XDh"/>
                 <outlet property="likeCountLabel" destination="PAv-sw-lfv" id="3vs-EM-20e"/>
                 <outlet property="messageLabel" destination="uZY-Mp-GSS" id="9s8-7V-FkR"/>
+                <outlet property="postImageActivityIndicator" destination="2Ve-Ic-wZX" id="OYi-Uh-lNy"/>
                 <outlet property="postImageView" destination="y57-7O-sPJ" id="V5L-Rp-QFP"/>
                 <outlet property="timestampLabel" destination="NiG-XO-ioe" id="u7y-FB-N2H"/>
                 <outlet property="userProfileButton" destination="hX6-hv-9Iu" id="S7l-v9-f8W"/>

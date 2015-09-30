@@ -23,6 +23,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
     
+    @IBOutlet weak var postImageActivityIndicator: UIActivityIndicatorView!
+    
     var post: Post! {
         didSet {
             if let imageURL = post.author.profileImageURLs[.Thumbnail] {
@@ -54,7 +56,10 @@ class PostTableViewCell: UITableViewCell {
             if let imageURL = post.imageURLs[.Original] {
                 let URL = NSURL(string: imageURL)!
                 
-                postImageView.af_setImageWithURL(URL)
+                postImageActivityIndicator.startAnimating()
+                postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { _, _, _ in
+                    self.postImageActivityIndicator.stopAnimating()
+                }
             }
             
             post.likeItems[.Button] = likeButton
@@ -91,7 +96,10 @@ class PostTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         userProfileImageView.image = UIImage(named: "Background")
+        postImageView.image = nil
+        usernameLabel.hidden = false
         postImageAspectConstraint = nil
+        postImageActivityIndicator.stopAnimating()
     }
 }
 
