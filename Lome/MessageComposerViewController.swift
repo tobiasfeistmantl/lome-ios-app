@@ -29,6 +29,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     var post: Post?
     var imageUploading = false
     var postButtonTouched = false
+    var alreadyZoomedToUserLocation = false
     
     var placeholderSetInMessageTextView = true
     var placeholderText = "Your message here..."
@@ -49,7 +50,12 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     }
     
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        mapView.zoomToPosition(userLocation.coordinate)
+        if alreadyZoomedToUserLocation {
+            return
+        }
+        
+        mapView.zoomToPosition(userLocation.coordinate, 100, 100)
+        alreadyZoomedToUserLocation = true
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {

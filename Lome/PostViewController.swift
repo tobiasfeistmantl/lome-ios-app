@@ -73,6 +73,8 @@ class PostViewController: UIViewController {
             constraintBetweenMessageLabelAndPostImageView.constant = 0
         }
         
+        post.likeItems[.BarButton] = likePostButton
+        post.likeItems[.CountLabel] = likesLabel
         
         if let distanceText = post.distanceText {
             distanceLabel.text = distanceText
@@ -84,7 +86,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func likePostButtonDidTouch(sender: UIBarButtonItem) {
-        post.like(!post.liked, barButton: sender, likeCountLabel: likesLabel)
+        post.like = !post.like
     }
     
     @IBAction func userProfileButtonDidTouch(sender: UIButton) {

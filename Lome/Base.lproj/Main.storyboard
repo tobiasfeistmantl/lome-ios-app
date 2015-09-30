@@ -922,6 +922,10 @@
                                                         <action selector="chooseImageButtonDidTouch:" destination="Oxg-zL-tKh" eventType="touchUpInside" id="Q1O-c1-yNr"/>
                                                     </connections>
                                                 </button>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="MapPin" translatesAutoresizingMaskIntoConstraints="NO" id="0hp-Ep-Cxr">
+                                                    <rect key="frame" x="144" y="34" width="13" height="72"/>
+                                                    <animations/>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1206,6 +1210,7 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
         <image name="Image Icon" width="28" height="28"/>
         <image name="Like Heart" width="24" height="24"/>
         <image name="Lome Icon" width="35" height="27"/>
+        <image name="MapPin" width="13" height="72"/>
         <image name="Settings Icon" width="24" height="24"/>
         <image name="Write Tab Background" width="90" height="49"/>
     </resources>

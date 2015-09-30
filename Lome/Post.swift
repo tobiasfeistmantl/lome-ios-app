@@ -21,9 +21,35 @@ class Post {
     var author: User
     var createdAt: NSDate
     var likesCount: Int
-    var liked: Bool
     var imageAspectRatio: Double?
     var imageURLs: [ImageVersion: String] = [:]
+    var like: Bool {
+        didSet {
+            let method: Alamofire.Method
+            
+            if let button = likeItems[.Button] as? UIButton {
+                button.setImage(likeButtonImage, forState: .Normal)
+            }
+            
+            if let barButton = likeItems[.BarButton] as? UIBarButtonItem {
+                barButton.image = likeButtonImage
+            }
+            
+            if like {
+                method = .POST
+                likesCount++
+            } else {
+                method = .DELETE
+                likesCount--
+            }
+            
+            if let likeCountLabel = likeItems[.CountLabel] as? UILabel {
+                likeCountLabel.text = likesCountText
+            }
+            
+            API.request(method, "/users/\(author.id)/posts/\(id)/like", headers: API.defaultSignedInHeaders)
+        }
+    }
     
     var likesCountText: String {
         let text: String
@@ -64,14 +90,14 @@ class Post {
         return annotation
     }
     
-    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, liked: Bool, imageURLs: [ImageVersion: String]) {
+    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, like: Bool, imageURLs: [ImageVersion: String]) {
         self.id = id
         self.message = message
         self.location = location
         self.author = author
         self.likesCount = likesCount
         self.createdAt = createdAt
-        self.liked = liked
+        self.like = like
         self.imageURLs = imageURLs
     }
     
@@ -82,7 +108,7 @@ class Post {
         self.location = CLLocation(latitude: data["latitude"].double!, longitude: data["longitude"].double!)
         self.author = User(data: data["author"])
         self.createdAt = railsDateFormatter.dateFromString(data["created_at"].string!)!
-        self.liked = data["liked"].bool!
+        self.like = data["liked"].bool!
         self.imageAspectRatio = data["image"]["aspect_ratio"].double
         
         for (key, jsonData) in data["image"]["versions"] {
@@ -111,36 +137,10 @@ class Post {
         return nil
     }
     
-    func like(like: Bool, button: UIButton? = nil, barButton: UIBarButtonItem? = nil, likeCountLabel: UILabel? = nil) {
-        let URL = baseURLString + "/users/\(author.id)/posts/\(id)/like"
-        
-        liked = like
-        
-        let method: Alamofire.Method
-        
-        if let button = button {
-            button.setImage(likeButtonImage, forState: .Normal)
-        }
-        
-        if let barButton = barButton {
-            barButton.image = likeButtonImage
-        }
-        
-        if like {
-            method = .POST
-            likesCount++
-        } else {
-            method = .DELETE
-            likesCount--
-        }
-        
-        likeCountLabel?.text = likesCountText
-        
-        API.request(method, URL, headers: API.defaultSignedInHeaders)
-    }
+    var likeItems: [LikeItem: AnyObject] = [:]
     
     var likeButtonImage: UIImage {
-        if liked {
+        if like {
             return UIImage(named: "Liked Heart")!
         }
         
@@ -166,7 +166,11 @@ class Post {
     }
 }
 
-
+enum LikeItem {
+    case Button
+    case BarButton
+    case CountLabel
+}
 
 
 

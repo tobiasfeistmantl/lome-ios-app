@@ -10,8 +10,8 @@ import Foundation
 import MapKit
 
 extension MKMapView {
-    func zoomToPosition(coordinates: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegionMakeWithDistance(coordinates, 7500, 7500)
+    func zoomToPosition(coordinates: CLLocationCoordinate2D, _ latitudinalMeters: CLLocationDistance = 7500, _ longitudinalMeters: CLLocationDistance = 7500) {
+        let region = MKCoordinateRegionMakeWithDistance(coordinates, latitudinalMeters, longitudinalMeters)
         self.setRegion(region, animated: true)
     }
 }

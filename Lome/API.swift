@@ -24,9 +24,9 @@ class API {
         // TODO Change for production
     }
     
-    static let defaultSignedInHeaders: [String: String] = [
-        "Authorization": "Token token=\(UserSession.id!):\(UserSession.token!)"
-    ]
+    static var defaultSignedInHeaders: [String: String] {
+        return [ "Authorization": "Token token=\(UserSession.id!):\(UserSession.token!)" ]
+    }
     
     static func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil, encoding: ParameterEncoding = .URL, headers: [String: String]? = nil) -> Alamofire.Request {
         let URLString: URLStringConvertible = "\(API.baseURLString)\(path)"
@@ -41,8 +41,9 @@ class API {
                     UserSession.delete()
                     
                     let welcomeViewController = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle()).instantiateInitialViewController()!
-                    
                     UIViewController.topMost.presentViewController(welcomeViewController, animated: true, completion: nil)
+                    
+                    return
                 }
             }
         }
@@ -262,7 +263,6 @@ class API {
                         "longitude": location.coordinate.longitude
                     ]
                 ]
-                
                 
                 API.request(.POST, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions", parameters: parameters, headers: defaultSignedInHeaders).responseJSON { _, response, _ in
                     if response?.statusCode == 204 {

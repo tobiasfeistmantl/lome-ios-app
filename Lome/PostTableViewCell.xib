@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuY-2Q-bSh" id="8Fm-uo-x4A">
-                <rect key="frame" x="0.0" y="0.0" width="561" height="366.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-HK-m2T" userLabel="User Profile Image View" customClass="TFImageView" customModule="Lome" customModuleProvider="target">

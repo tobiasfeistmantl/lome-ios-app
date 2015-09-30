@@ -1,51 +1,35 @@
 PODS:
-  - Alamofire (2.0.0)
-  - AlamofireImage (1.0.0):
+  - Alamofire (2.0.2)
+  - AlamofireImage (1.1.2):
     - Alamofire (~> 2.0)
   - DateTools (1.7.0)
-  - KeychainAccess (1.2.1)
-  - PureLayout (3.0.1)
+  - KeychainAccess (2.0.0)
   - Spring (1.0.3)
-  - SwiftyJSON (2.2.1)
+  - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - DateTools
-  - KeychainAccess (from `https://github.com/kishikawakatsumi/KeychainAccess.git`,
-    branch `swift-2.0`)
-  - PureLayout
-  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - KeychainAccess
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
-  KeychainAccess:
-    :branch: swift-2.0
-    :git: https://github.com/kishikawakatsumi/KeychainAccess.git
   Spring:
-    :branch: swift2
     :git: https://github.com/MengTo/Spring.git
-  SwiftyJSON:
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  KeychainAccess:
-    :commit: d1799b703b6b58e2d6ad7becb3cde620a20fcce2
-    :git: https://github.com/kishikawakatsumi/KeychainAccess.git
   Spring:
-    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :commit: 29c1a2743451ba72a9992e2f750396701b1da6ad
     :git: https://github.com/MengTo/Spring.git
-  SwiftyJSON:
-    :commit: 50583adf21de1f84a4a06f6dff1b2bb09fe0b03b
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
-  AlamofireImage: 0d181ae145f879ee2ebd204074eacbc659276ab3
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  KeychainAccess: 2ffa8b1b7130263bb7fe90b359d778696fc2d8ce
-  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  KeychainAccess: 1e705665a234b3af69d653aaa3c8f696e4a992f1
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
 COCOAPODS: 0.38.2

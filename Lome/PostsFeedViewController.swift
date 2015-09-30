@@ -83,7 +83,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if hasReachedTheEnd || populatingPosts {
+        if location == nil || hasReachedTheEnd || populatingPosts {
             return
         }
         
@@ -141,7 +141,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
         
         cell.post = posts[indexPath.row]
-        cell.setupUserProfileButton(indexPath, viewController: self)
+//        cell.setupUserProfileButton(indexPath, viewController: self)
         
         return cell
     }

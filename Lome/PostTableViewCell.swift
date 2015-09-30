@@ -57,8 +57,11 @@ class PostTableViewCell: UITableViewCell {
             if let imageURL = post.imageURLs[.Original] {
                 let URL = NSURL(string: imageURL)!
                 
-                self.postImageView.af_setImageWithURL(URL)
+                postImageView.af_setImageWithURL(URL)
             }
+            
+            post.likeItems[.Button] = likeButton
+            post.likeItems[.CountLabel] = likeCountLabel
             
             timestampLabel.text = "Posted \(post.createdAt.timeAgoSinceNow())"
             distanceLabel.text = post.distanceText
@@ -91,7 +94,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @IBAction func likeButtonDidTouch(sender: UIButton) {
-        post.like(!post.liked, button: sender, likeCountLabel: likeCountLabel)
+        post.like = !post.like
     }
     
     func refreshCell() {
