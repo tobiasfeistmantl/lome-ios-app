@@ -15,16 +15,11 @@ import CoreLocation
 class API {
     
     static var baseURLString: String {
-        
-        return "https://lome-staging.herokuapp.com/v1"
-        
         if UIDevice.currentDevice().name == "iPhone Simulator" {
             return "http://localhost:3000/v1"
         } else {
             return "https://lome-staging.herokuapp.com/v1"
         }
-        
-        // TODO Change for production
     }
     
     static var defaultSignedInHeaders: [String: String] {
