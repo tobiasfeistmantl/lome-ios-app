@@ -62,7 +62,7 @@ class PostTableViewCell: UITableViewCell {
             
             timestampLabel.text = "Posted \(post.createdAt.timeAgoSinceNow())"
             distanceLabel.text = post.distanceText
-            likeCountLabel.text = "\(post.likesCount) Likes"
+            likeCountLabel.text = post.likesCountText
             likeButton.setImage(post.likeButtonImage, forState: .Normal)
         }
     }

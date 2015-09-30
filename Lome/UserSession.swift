@@ -9,9 +9,11 @@
 import Foundation
 import Alamofire
 import KeychainAccess
+import CoreLocation
 
 struct UserSession {
     static let keychain = Keychain(service: "com.lomeapp.session")
+    static var currentLocation: CLLocation?
     
     class User {
         static var id: Int? {

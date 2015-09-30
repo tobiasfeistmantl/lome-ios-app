@@ -19,7 +19,11 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var newPostButton: DesignableButton!
     
     let locationManager = CLLocationManager()
-    var location: CLLocation?
+    var location: CLLocation? {
+        didSet {
+            UserSession.currentLocation = location
+        }
+    }
     let refreshControl = UIRefreshControl()
     
     var nextPage = 1
@@ -174,7 +178,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             let post = posts[button.indexPath!.row]
             
             let destinationViewController = segue.destinationViewController as! ProfileTableViewController
-            destinationViewController.userId = post.author.id
+            destinationViewController.user = post.author
         }
     }
 }

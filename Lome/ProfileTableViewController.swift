@@ -64,7 +64,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     @IBAction func followButtonDidTouch(sender: DesignableButton) {
-        if !user.following {
+        if (user.following != nil && !user.following!) {
             user.follow(true)
             sender.setTitle("Unfollow", forState: .Normal)
             sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -143,7 +143,7 @@ class ProfileTableViewController: UITableViewController {
         }
         
         
-        if user.following {
+        if user.following != nil && user.following! {
             followButton.backgroundColor = UIColor(hex: "4A90E2")
             followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             followButton.setTitle("Unfollow", forState: .Normal)

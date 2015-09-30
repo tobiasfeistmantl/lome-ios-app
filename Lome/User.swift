@@ -20,16 +20,15 @@ class User {
     var followerCount: Int
     var profileImageAspectRatio: Double?
     var profileImageURLs: [ImageVersion: String] = [:]
-    var following: Bool
+    var following: Bool?
     
     var followerCountText: String {
         return "\(followerCount) Follower"
     }
     
-    
     var fullName: String? {
         if firstname != nil && lastname != nil {
-            return "\(firstname!) \(lastname!)"
+            return [firstname!, lastname!].joinWithSeparator(" ")
         }
         
         return nil
@@ -59,9 +58,8 @@ class User {
             self.profileImageURLs[ImageVersion(rawValue: key)!] = jsonData.string
         }
         
-        self.following = data["following"].bool!
+        self.following = data["following"].bool
     }
-    
     
     func follow(follow: Bool) {
         following = follow

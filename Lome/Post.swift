@@ -37,13 +37,8 @@ class Post {
         return text
     }
     
-    var distance: Double?
-    
     func distanceFromLocation(location: CLLocation) -> CLLocationDistance {
-        let distance = location.distanceFromLocation(self.location)
-        self.distance = distance
-        
-        return distance
+        return location.distanceFromLocation(self.location)
     }
     
     var attributedMessage: NSAttributedString? {
@@ -96,7 +91,9 @@ class Post {
     }
     
     var distanceText: String? {
-        if let distance = distance {
+        if let currentLocation = UserSession.currentLocation {
+            let distance = distanceFromLocation(currentLocation)
+            
             var text: String
             
             switch distance {
@@ -131,10 +128,10 @@ class Post {
         
         if like {
             method = .POST
-            likesCount += 1
+            likesCount++
         } else {
             method = .DELETE
-            likesCount -= 1
+            likesCount--
         }
         
         likeCountLabel?.text = likesCountText
