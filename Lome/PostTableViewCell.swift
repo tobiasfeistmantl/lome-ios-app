@@ -21,7 +21,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
-    
     @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
     
     var post: Post! {
@@ -50,9 +49,7 @@ class PostTableViewCell: UITableViewCell {
                 constraintBetweenMessageLabelAndPostImageView.constant = 0
             }
             
-            if let aspectRatio = post.imageAspectRatio {
-                postImageAspectConstraint = postImageView.aspectRatioConstraintForMultiplier(aspectRatio)
-            }
+            setNeedsUpdateConstraints()
             
             if let imageURL = post.imageURLs[.Original] {
                 let URL = NSURL(string: imageURL)!
@@ -70,11 +67,6 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    func setupUserProfileButton(indexPath: NSIndexPath, viewController: UIViewController) {
-        userProfileButton.indexPath = indexPath
-        userProfileButton.addTarget(viewController, action: "userProfileButtonDidTouch:", forControlEvents: .TouchUpInside)
-    }
-    
     var postImageAspectConstraint: NSLayoutConstraint? {
         didSet {
             if let oldValue = oldValue {
@@ -86,20 +78,38 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
+    
+    override func updateConstraints() {
+        if let aspectRatio = post.imageAspectRatio {
+            postImageAspectConstraint = postImageView.aspectRatioConstraintForMultiplier(aspectRatio)
+        }
+        
+        super.updateConstraints()
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
         userProfileImageView.image = UIImage(named: "Background")
         postImageAspectConstraint = nil
     }
+}
+
+
+
+
+
+
+
+
+extension PostTableViewCell {
+    func setupUserProfileButton(indexPath: NSIndexPath, viewController: UIViewController) {
+        userProfileButton.indexPath = indexPath
+        userProfileButton.addTarget(viewController, action: "userProfileButtonDidTouch:", forControlEvents: .TouchUpInside)
+    }
+    
     
     @IBAction func likeButtonDidTouch(sender: UIButton) {
         post.like = !post.like
     }
-    
-    func refreshCell() {
-        likeCountLabel.text = post.likesCountText
-        likeButton.setImage(post.likeButtonImage, forState: .Normal)
-    }
-    
 }
