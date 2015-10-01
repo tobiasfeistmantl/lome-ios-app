@@ -18,7 +18,7 @@ class API {
         if UIDevice.currentDevice().name == "iPhone Simulator" {
             return "http://localhost:3000/v1"
         } else {
-            return "https://lome-staging.herokuapp.com/v1"
+            return "https://lome.herokuapp.com/v1"      // Staging: "https://lome-staging.herokuapp.com/v1"
         }
     }
     
