@@ -32,7 +32,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     var alreadyZoomedToUserLocation = false
     
     var placeholderSetInMessageTextView = true
-    var placeholderText = "Your message here..."
+    var placeholderText = NSLocalizedString("Your message here...", comment: "Your message here...")
     
     let imagePicker = UIImagePickerController()
     
@@ -166,7 +166,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
                                 }
                             case .Failure:
                                 dispatch_async(dispatch_get_main_queue()) {
-                                    self.simpleAlert(title: "Unable to upload image", message: "Please try again")
+                                    self.simpleAlert(title: NSLocalizedString("Unable to upload image", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
                                 }
                             }
                             
@@ -174,7 +174,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
                         }
                     case .Failure:
                         dispatch_async(dispatch_get_main_queue()) {
-                            self.simpleAlert(title: "Unable to process image", message: "Upload cancelled")
+                            self.simpleAlert(title: NSLocalizedString("Unable to process image", comment: ""), message: NSLocalizedString("Upload cancelled", comment: ""))
                         }
                     }
                     
@@ -217,7 +217,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
                     self.dismissViewControllerAnimated(true, completion: nil)
                 case .Failure:
                     self.postingActivityIndicator.stopAnimating()
-                    self.simpleAlert(title: "Unable to post", message: "Please try again")
+                    self.simpleAlert(title: NSLocalizedString("Unable to post", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
                 }
             }
         }

@@ -1,0 +1,91 @@
+/* 
+  Settings.strings
+  Lome
+
+  Created by Tobias Feistmantl on 01/10/15.
+  Copyright © 2015 Tobias Feistmantl. All rights reserved.
+*/
+
+/* Unable to update alert */
+"Unable to update name" = "Unable to update name";
+
+/* Unable to update email address alert */
+"Unable to update email address" = "Unable to update email address";
+
+/* Subtitle many alerts */
+"Please try again later" = "Please try again later";
+
+/* Unable to update passwort alert */
+"Unable to update password" = "Unable to update password";
+
+/* Unable to update profile image alert */
+"Unable to update profile image" = "Unable to update profile image";
+
+/* Unable to process profile image alert */
+"Unable to process image" = "Unable to process image";
+
+/* Subtitle for unable to process profile image alert */
+"Upload cancelled" = "Upload cancelled";
+
+/* Headline for delete account alert */
+"Delete Account" = "Delete Account";
+
+/* Confirmation question if account should be deleted */
+"Do you really want to delete your account? This action is irreversible!" = "Do you really want to delete your account? This action is irreversible!";
+
+/* Delete Account Button */
+"Delete my Account" = "Delete my Account 😢";
+
+/* Cancel Button */
+"Cancel" = "Cancel";
+
+/* Unable to delete account alert */
+"Unable to delete account" = "Unable to delete account";
+
+/* Posted {n-time ago} */
+"Posted %@" = "Posted %@";
+
+/* Message Placeholder */
+"Your message here..." = "Your message here...";
+
+/* Unable to upload image alert */
+"Unable to upload image" = "Unable to upload image";
+
+/* Unable to post alert */
+"Unable to post" = "Unable to post";
+
+/* Loading posts near your location loading view */
+"Loading posts near your location" = "Loading posts near your location";
+
+/* Unable to update location alert */
+"Unable to update your location" = "Unable to update your location";
+
+/* Unable to get posts alert */
+"Unable to get posts" = "Unable to get posts";
+
+/* Unable to get user information alert */
+"Unable to get user information" = "Unable to get user information";
+
+/* Unfollow */
+"Unfollow" = "Unfollow";
+
+/* Follow */
+"Follow" = "Follow";
+
+/* {count} follower */
+"%@ Follower" = "%@ Follower";
+
+/* An error occurred alert */
+"An error occurred!" = "An error occurred!";
+
+/* Subtitle for an error occurred alert */
+"Please check your entered data" = "Please check your entered data";
+
+/* Placed exactly here label */
+"Placed exactly here" = "Placed exactly here";
+
+/* Placed in {n} meters */
+"Placed in %@m" = "Placed in %@m";
+
+/* Placed in {n} kilometers */
+"Placed in %@km" = "Placed in %@km";

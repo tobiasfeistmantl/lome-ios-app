@@ -28,7 +28,7 @@ extension UIViewController {
     }
     
     func showNoLocationAccessAlert() {
-        let alert = UIAlertController(title: "We don't have access to your location!", message: "To show posts near your location we need to have your current location.", preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("We don't have access to your location!", comment: ""), message: NSLocalizedString("To show posts near your location we need to have your current location.", comment: ""), preferredStyle: .ActionSheet)
         
         alert.addAction(
             UIAlertAction(title: "Settings", style: .Default) { (action: UIAlertAction!) in
@@ -36,7 +36,7 @@ extension UIViewController {
             }
         )
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
         
         self.presentViewController(alert, animated: true, completion: nil)
     }

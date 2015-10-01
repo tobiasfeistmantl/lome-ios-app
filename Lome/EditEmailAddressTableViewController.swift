@@ -46,7 +46,7 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
                 NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
                 self.navigationController?.popViewControllerAnimated(true)
             } else {
-                self.simpleAlert(title: "Unable to update email address", message: "Please try again later")
+                self.simpleAlert(title: NSLocalizedString("Unable to update email address", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }

@@ -23,7 +23,7 @@ class User {
     var following: Bool?
     
     var followerCountText: String {
-        return "\(followerCount) Follower"
+        return String(format: NSLocalizedString("%@ Follower", comment: "{count} Follower"), "\(followerCount)")
     }
     
     var fullName: String? {

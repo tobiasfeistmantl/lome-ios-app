@@ -67,6 +67,9 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpButtonDidTouch(sender: UIBarButtonItem) {
+        usernameTextField.becomeFirstResponder()
+        usernameTextField.resignFirstResponder()
+        
         let parameters = [
             "firstname": firstnameTextField.text!,
             "lastname": lastnameTextField.text!,
@@ -89,7 +92,7 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
                         self.usernameTextField.setInlineErrorMessage(usernameError)
                     }
                 } else {
-                    self.simpleAlert(title: "An error occurred!", message: "Please check your inserted data")
+                    self.simpleAlert(title: NSLocalizedString("An error occurred!", comment: ""), message: NSLocalizedString("Please check your entered data", comment: ""))
                 }
             }
         }

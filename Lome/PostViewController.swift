@@ -38,7 +38,7 @@ class PostViewController: UIViewController {
     
     func setupView() {
         likesLabel.text = post.likesCountText
-        timestampLabel.text = "Posted \(post.createdAt.timeAgoSinceNow())"
+        timestampLabel.text = NSString(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), post.createdAt.timeAgoSinceNow()) as String
         postPositionMapView.addAnnotation(post.mapAnnotation)
         postPositionMapView.zoomToPosition(post.location.coordinate)
         

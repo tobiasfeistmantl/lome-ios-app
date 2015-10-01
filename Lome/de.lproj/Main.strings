@@ -1,0 +1,117 @@
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "06g-vX-2Ns"; */
+"06g-vX-2Ns.placeholder" = "E-Mail Adresse";
+
+/* Class = "UIButton"; normalTitle = "Follow"; ObjectID = "11N-Eg-Gg9"; */
+"11N-Eg-Gg9.normalTitle" = "Folgen";
+
+/* Class = "UILabel"; text = "johndoe"; ObjectID = "2O5-eO-k9B"; */
+"2O5-eO-k9B.text" = "maxmustermann";
+
+/* Class = "UINavigationItem"; title = "Email Address"; ObjectID = "4TY-ec-A5s"; */
+"4TY-ec-A5s.title" = "E-Mail Adresse";
+
+/* Class = "UILabel"; text = "johndoe"; ObjectID = "5qz-zW-geE"; */
+"5qz-zW-geE.text" = "maxmustermann";
+
+/* Class = "UILabel"; text = "Profile Image"; ObjectID = "62h-Bm-rh7"; */
+"62h-Bm-rh7.text" = "Profilbild";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "6Ld-8R-tMN"; */
+"6Ld-8R-tMN.placeholder" = "Passwort";
+
+/* Class = "UITableViewSection"; headerTitle = "New Password"; ObjectID = "6t5-Ww-ByS"; */
+"6t5-Ww-ByS.headerTitle" = "Neues Passwort";
+
+/* Class = "UINavigationItem"; title = "Password"; ObjectID = "7bm-CP-9gl"; */
+"7bm-CP-9gl.title" = "Passwort";
+
+/* Class = "UITableViewSection"; headerTitle = "Personal Information"; ObjectID = "8jP-cw-2ip"; */
+"8jP-cw-2ip.headerTitle" = "Persönliche Informationen";
+
+/* Class = "UITableViewSection"; headerTitle = "Security"; ObjectID = "Ain-p2-8fy"; */
+"Ain-p2-8fy.headerTitle" = "Sicherheit";
+
+/* Class = "UILabel"; text = "First- and Lastname"; ObjectID = "AsY-nc-QdW"; */
+"AsY-nc-QdW.text" = "Vor- und Nachname";
+
+/* Class = "UILabel"; text = "Email Address"; ObjectID = "Bp5-hP-GhS"; */
+"Bp5-hP-GhS.text" = "E-Mail Adresse";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "Bsu-3e-S1d"; */
+"Bsu-3e-S1d.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "John Doe"; ObjectID = "DJP-K7-D04"; */
+"DJP-K7-D04.text" = "Max Mustermann";
+
+/* Class = "UISearchBar"; placeholder = "Type in the username of another user"; ObjectID = "Dfr-V1-lDH"; */
+"Dfr-V1-lDH.placeholder" = "Benutzername eines anderen Benutzers";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "Dh9-6S-Bqs"; */
+"Dh9-6S-Bqs.text" = "Benutzername";
+
+/* Class = "UIButton"; normalTitle = "Post"; ObjectID = "FUp-yP-jsS"; */
+"FUp-yP-jsS.normalTitle" = "Posten";
+
+/* Class = "UITableViewSection"; headerTitle = "Change your Email Address"; ObjectID = "JCw-l5-ViY"; */
+"JCw-l5-ViY.headerTitle" = "E-Mail Adresse ändern";
+
+/* Class = "UILabel"; text = "13.023 Follower"; ObjectID = "Miu-Tw-hnl"; */
+"Miu-Tw-hnl.text" = "10.234 Follower";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Pm6-b5-upv"; */
+"Pm6-b5-upv.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITableViewSection"; headerTitle = "Danger Zone"; ObjectID = "Ppp-ga-Ilk"; */
+"Ppp-ga-Ilk.headerTitle" = "Gefährliche Zone";
+
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "UtK-SW-6aR"; */
+"UtK-SW-6aR.normalTitle" = "Schreiben";
+
+/* Class = "UITextField"; placeholder = "Password Confirmation"; ObjectID = "V53-nM-qCp"; */
+"V53-nM-qCp.placeholder" = "Passwort Bestätigung";
+
+/* Class = "UITextField"; placeholder = "Lastname"; ObjectID = "VIu-oH-oAv"; */
+"VIu-oH-oAv.placeholder" = "Nachname";
+
+/* Class = "UILabel"; text = "123.323 Follower"; ObjectID = "ViC-oW-66u"; */
+"ViC-oW-66u.text" = "122.123 Follower";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "W7Q-rX-1Me"; */
+"W7Q-rX-1Me.text" = "Abmelden";
+
+/* Class = "UILabel"; text = "11.200 Likes"; ObjectID = "cZe-P8-VCs"; */
+"cZe-P8-VCs.text" = "12.122 Likes";
+
+/* Class = "UITableViewSection"; headerTitle = "Session"; ObjectID = "ceF-Q2-ggu"; */
+"ceF-Q2-ggu.headerTitle" = "Sitzung";
+
+/* Class = "UILabel"; text = "Placed in 15m"; ObjectID = "eHQ-ZP-aYH"; */
+"eHQ-ZP-aYH.text" = "In 15m platziert";
+
+/* Class = "UINavigationItem"; title = "Name"; ObjectID = "fvB-Ni-EDX"; */
+"fvB-Ni-EDX.title" = "Name";
+
+/* Class = "UITableViewSection"; headerTitle = "Change your Name"; ObjectID = "gcZ-bs-Gxs"; */
+"gcZ-bs-Gxs.headerTitle" = "Namen ändern";
+
+/* Class = "UILabel"; text = "John Doe"; ObjectID = "hW2-ZT-iyI"; */
+"hW2-ZT-iyI.text" = "Max Mustermann";
+
+/* Class = "UILabel"; text = "Delete Account"; ObjectID = "la0-FY-2uA"; */
+"la0-FY-2uA.text" = "Benutzer löschen";
+
+/* Class = "UILabel"; text = "johndoe"; ObjectID = "nYB-kT-nUe"; */
+"nYB-kT-nUe.text" = "Max Mustermann";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "oTR-Un-3aB"; */
+"oTR-Un-3aB.text" = "Passwort";
+
+/* Class = "UILabel"; text = "Posted 14h ago"; ObjectID = "tlg-sT-ZiI"; */
+"tlg-sT-ZiI.text" = "Vor 15h gepostet";
+
+/* Class = "UILabel"; text = "John Doe"; ObjectID = "urX-ys-HmS"; */
+"urX-ys-HmS.text" = "Max Mustermann";
+
+/* Class = "UITextField"; placeholder = "Firstname"; ObjectID = "zBq-fh-NKw"; */
+"zBq-fh-NKw.placeholder" = "Vorname";

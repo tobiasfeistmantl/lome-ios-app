@@ -54,7 +54,7 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
                 NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
                 self.navigationController?.popViewControllerAnimated(true)
             } else {
-                self.simpleAlert(title: "Unable to update name", message: "Please try again later")
+                self.simpleAlert(title: NSLocalizedString("Unable to update name", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }

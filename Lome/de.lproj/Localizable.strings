@@ -1,0 +1,91 @@
+/* 
+  Settings.strings
+  Lome
+
+  Created by Tobias Feistmantl on 01/10/15.
+  Copyright © 2015 Tobias Feistmantl. All rights reserved.
+*/
+
+/* Unable to update alert */
+"Unable to update name" = "Name kann nicht aktualisiert werden";
+
+/* Unable to update email address alert */
+"Unable to update email address" = "E-Mail Adresse kann nicht aktualisiert werden";
+
+/* Subtitle many alerts */
+"Please try again later" = "Bitte versuche es später erneut";
+
+/* Unable to update passwort alert */
+"Unable to update password" = "Passwort kann nicht aktualisiert werden";
+
+/* Unable to update profile image alert */
+"Unable to update profile image" = "Profilbild kann nicht aktualisiert werden";
+
+/* Unable to process profile image alert */
+"Unable to process image" = "Bild kann nicht verarbeitet werden";
+
+/* Subtitle for unable to process profile image alert */
+"Upload cancelled" = "Hochladen abgebrochen";
+
+/* Headline for delete account alert */
+"Delete Account" = "Benutzer löschen";
+
+/* Confirmation question if account should be deleted */
+"Do you really want to delete your account? This action is irreversible!" = "Möchtest du deinen Benutzer wirklich löschen? Dieser Vorgang ist unwiederruflich!";
+
+/* Delete Account Button */
+"Delete my Account" = "Lösche meinen Benutzer 😢";
+
+/* Cancel Button */
+"Cancel" = "Abbrechen";
+
+/* Unable to delete account alert */
+"Unable to delete account" = "Benutzer kann nicht gelöscht werden";
+
+/* Posted {n-time ago} */
+"Posted %@" = "%@ gepostet";
+
+/* Message Placeholder */
+"Your message here..." = "Deine Nachricht hier...";
+
+/* Unable to upload image alert */
+"Unable to upload image" = "Bild kann nicht hochgeladen werden";
+
+/* Unable to post alert */
+"Unable to post" = "Posten nicht möglich";
+
+/* Loading posts near your location loading view */
+"Loading posts near your location" = "Lade posts in deiner Nähe";
+
+/* Unable to update location alert */
+"Unable to update your location" = "Dein Standort kann nicht aktualisiert werden";
+
+/* Unable to get posts alert */
+"Unable to get posts" = "Posts können nicht geladen werden";
+
+/* Unable to get user information alert */
+"Unable to get user information" = "Benutzerinformationen können nicht geladen werden";
+
+/* Unfollow */
+"Unfollow" = "Nicht mehr folgen";
+
+/* Follow */
+"Follow" = "Folgen";
+
+/* {count} follower */
+"%@ Follower" = "%@ Follower";
+
+/* An error occurred alert */
+"An error occurred!" = "Ein fehler ist aufgetreten!";
+
+/* Subtitle for an error occurred alert */
+"Please check your entered data" = "Bitte überprüfe deine eingegebenen Daten";
+
+/* Placed exactly here label */
+"Placed exactly here" = "Genau hier platziert";
+
+/* Placed in {n} meters */
+"Placed in %@m" = "Platziert in %@m";
+
+/* Placed in {n} kilometers */
+"Placed in %@km" = "Platziert in %@km";

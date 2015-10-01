@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "4Ib-J0-VQ9"; */
+"4Ib-J0-VQ9.normalTitle" = "Sign In";
+
+/* Class = "UITextField"; placeholder = "Lastname"; ObjectID = "5Wx-ew-Upm"; */
+"5Wx-ew-Upm.placeholder" = "Lastname";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "66G-UU-Jbq"; */
+"66G-UU-Jbq.normalTitle" = "Sign Up";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Dr5-jY-oJO"; */
+"Dr5-jY-oJO.title" = "Cancel";
+
+/* Class = "UITextField"; placeholder = "Firstname"; ObjectID = "Fex-3X-QKs"; */
+"Fex-3X-QKs.placeholder" = "Firstname";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "JLL-eB-ROr"; */
+"JLL-eB-ROr.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "With signing up for Lome, you accept our terms of service."; ObjectID = "M1U-O6-ze7"; */
+"M1U-O6-ze7.text" = "With signing up for Lome, you accept our terms of service.";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "a4d-Y9-0qe"; */
+"a4d-Y9-0qe.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Email address"; ObjectID = "jKE-zn-dJ8"; */
+"jKE-zn-dJ8.placeholder" = "Email address";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "lHk-Gf-zOW"; */
+"lHk-Gf-zOW.normalTitle" = "Start";
+
+/* Class = "UITableViewSection"; headerTitle = "Optional"; ObjectID = "lxZ-Jw-QRm"; */
+"lxZ-Jw-QRm.headerTitle" = "Optional";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "nzM-TR-cMg"; */
+"nzM-TR-cMg.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password confirmation"; ObjectID = "suk-Qo-qyg"; */
+"suk-Qo-qyg.placeholder" = "Password confirmation";
+
+/* Class = "UIBarButtonItem"; title = "Join"; ObjectID = "v0X-Rv-HYd"; */
+"v0X-Rv-HYd.title" = "Join";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "yBk-G4-cW8"; */
+"yBk-G4-cW8.placeholder" = "Username";

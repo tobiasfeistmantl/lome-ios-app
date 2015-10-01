@@ -124,11 +124,11 @@ class Post {
             
             switch distance {
             case 0...5:
-                text = "Placed exactly here"
+                text = NSLocalizedString("Placed exactly here", comment: "")
             case 5...1000:
-                text = "Placed in \(Int(distance))m"
+                text = String(format: NSLocalizedString("Placed in %@m", comment: "Placed in {n} meters"), "\(Int(distance))")
             default:
-                text = "Placed in \(Int(distance / 1000))km"
+                text = String(format: NSLocalizedString("Placed in %@km", comment: "Placed in {n} kilometers"), "\(Int(distance / 1000))") as String
             }
             
             return text

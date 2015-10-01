@@ -52,7 +52,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
             if successful {
                 self.navigationController?.popViewControllerAnimated(true)
             } else {
-                self.simpleAlert(title: "Unable to update password", message: "Please try again later")
+                self.simpleAlert(title: NSLocalizedString("Unable to update password", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }

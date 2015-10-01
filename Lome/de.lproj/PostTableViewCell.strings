@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Posted 10 days ago"; ObjectID = "NiG-XO-ioe"; */
+"NiG-XO-ioe.text" = "Vor 10 Tagen gepostet";
+
+/* Class = "UILabel"; text = "14.921 Likes"; ObjectID = "PAv-sw-lfv"; */
+"PAv-sw-lfv.text" = "14.921 Likes";
+
+/* Class = "UILabel"; text = "johndoe"; ObjectID = "aOu-LN-Rr6"; */
+"aOu-LN-Rr6.text" = "maxmustermann";
+
+/* Class = "UILabel"; text = "John Doe"; ObjectID = "vDq-Ue-lI0"; */
+"vDq-Ue-lI0.text" = "Max Mustermann";
+
+/* Class = "UILabel"; text = "Placed 10m away"; ObjectID = "wXv-B5-ehn"; */
+"wXv-B5-ehn.text" = "In 15m platziert";

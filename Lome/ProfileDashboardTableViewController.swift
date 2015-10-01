@@ -103,13 +103,13 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
                                 NSNotificationCenter.defaultCenter().postNotificationName("userUpdated", object: nil)
                             case .Failure:
                                 dispatch_async(dispatch_get_main_queue()) {
-                                    self.simpleAlert(title: "Unable to update profile image", message: "Please try again later")
+                                    self.simpleAlert(title: NSLocalizedString("Unable to update profile image", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
                                 }
                             }
                         }
                     case .Failure:
                         dispatch_async(dispatch_get_main_queue()) {
-                            self.simpleAlert(title: "Unable to process profile image", message: "Upload cancelled")
+                            self.simpleAlert(title: NSLocalizedString("Unable to process image", comment: ""), message: NSLocalizedString("Upload cancelled", comment: ""))
                         }
                     }
                     
@@ -120,10 +120,10 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     
     
     var destroyAccountAlertController: UIAlertController {
-        let alert = UIAlertController(title: "Delete Account", message: "Do you really want to delete your account? This action is irreversible!", preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("Delete Account", comment: ""), message: NSLocalizedString("Do you really want to delete your account? This action is irreversible!", comment: ""), preferredStyle: .ActionSheet)
         
-        let deleteAction = UIAlertAction(title: "Delete my Account 😢", style: .Destructive, handler: deleteUser)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: NSLocalizedString("Delete my Account", comment: ""), style: .Destructive, handler: deleteUser)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil)
         
         for action in [deleteAction, cancelAction] {
             alert.addAction(action)
@@ -142,12 +142,10 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
                     let viewController = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
                     
                     self.presentViewController(viewController!, animated: true, completion: nil)
-                    
-                    self.simpleAlert(title: "Bye Bye", message: nil)
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.simpleAlert(title: "Unable to delete account", message: "Please try again later")
+                    self.simpleAlert(title: NSLocalizedString("Unable to delete account", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
                 }
             }
         }

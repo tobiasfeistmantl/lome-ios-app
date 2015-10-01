@@ -38,7 +38,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: .ValueChanged)
         postsTableView.addSubview(refreshControl)
         
-        showLoadingView("Loading posts near your location")
+        showLoadingView(NSLocalizedString("Loading posts near your location", comment: ""))
         
         navigationItem.setTitleImage(UIImage(named: "Lome for white Background without Shadow")!)
         setupLocationManager(locationManager)
@@ -78,7 +78,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.populate(reload: true)
             } else {
                 self.refreshControl.endRefreshing()
-                self.simpleAlert(title: "Unable to update your location", message: "Please try again later")
+                self.simpleAlert(title: NSLocalizedString("Unable to update your location", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }
@@ -118,7 +118,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.hideLoadingView()
                 self.postsTableView.reloadData()
             } else {
-                self.simpleAlert(title: "Unable to get posts", message: "Please try again later")
+                self.simpleAlert(title: NSLocalizedString("Unable to get posts", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
             
             if posts.count != 0 {
