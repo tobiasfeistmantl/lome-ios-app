@@ -36,6 +36,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cleanView()
         
         if user == nil {
             setUser()
@@ -100,6 +101,10 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
             nextPage = 1
         }
         
+        if user == nil {
+            return
+        }
+        
         API.Users.Posts.get(user, page: nextPage) { posts, successful in
             if successful {
                 if reload {
@@ -122,35 +127,6 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         }
     }
     
-    
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
-        
-        cell.post = posts[indexPath.row]
-        
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        performSegueWithIdentifier("showPost", sender: cell)
-    }
-    
-    
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPost" {
             let cell = (sender as! PostTableViewCell)
@@ -166,16 +142,11 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
             destinationViewController.user = user
         }
     }
-    
-    
-    
-    
-    func setupTableView() {
-        tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
-        tableView.estimatedRowHeight = 301
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
+}
+
+
+
+extension ProfileTableViewController {
     func setupUserViews() {
         if let imageURL = user.profileImageURLs[.Original] {
             let URL = NSURL(string: imageURL)
@@ -211,5 +182,41 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         }
         
         populate(reload: true)
+    }
+    
+    func cleanView() {
+        usersNameLabel.text = ""
+        usernameLabel.text = ""
+        followerLabel.text = ""
+    }
+}
+
+
+
+extension ProfileTableViewController {
+    func setupTableView() {
+        tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
+        tableView.estimatedRowHeight = 301
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
+        
+        cell.post = posts[indexPath.row]
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        performSegueWithIdentifier("showPost", sender: cell)
     }
 }

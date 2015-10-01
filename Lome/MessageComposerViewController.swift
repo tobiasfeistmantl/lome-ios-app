@@ -84,7 +84,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         dismissViewControllerAnimated(true, completion: nil)
         
         if let post = post {
-            let URL = baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
+            let URL = API.baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
             
             Alamofire.request(.DELETE, URL, headers: API.defaultSignedInHeaders)
         }

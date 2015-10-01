@@ -90,7 +90,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
             let imagePath = image.storeImage("tmpProfileImage")
             let imageURL = NSURL.fileURLWithPath(imagePath!)
             
-            let URL = baseURLString + "/users/\(self.user.id)"
+            let URL = API.baseURLString + "/users/\(self.user.id)"
             
             Alamofire.upload(.PATCH, URL, headers: API.defaultSignedInHeaders, multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(fileURL: imageURL, name: "user[profile_image]")
