@@ -22,22 +22,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-0J-wa9">
-                                <rect key="frame" x="217" y="50" width="165" height="126"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="Cbc-OY-FeK"/>
-                                    <constraint firstAttribute="height" constant="126" id="s1q-34-YfJ"/>
-                                </constraints>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Lome" translatesAutoresizingMaskIntoConstraints="NO" id="bnz-oC-Uwp">
-                                <rect key="frame" x="178" y="206" width="244" height="73"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="VhO-Ot-XTg"/>
-                                    <constraint firstAttribute="width" constant="244" id="b61-ib-s3m"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66G-UU-Jbq" customClass="DesignableButton" customModule="Spring">
                                 <rect key="frame" x="20" y="515" width="560" height="55"/>
                                 <animations/>
@@ -47,7 +31,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.10196078431372549" green="0.31764705882352939" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -82,25 +66,38 @@
                                     <segue destination="DP0-38-VZz" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="G9y-h8-lDH"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Mail" translatesAutoresizingMaskIntoConstraints="NO" id="Bjv-L2-E17">
+                                <rect key="frame" x="220" y="60" width="160" height="125"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="ZT7-U4-3pw"/>
+                                    <constraint firstAttribute="width" constant="160" id="khq-Kc-EHO"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Lome for colored Background" translatesAutoresizingMaskIntoConstraints="NO" id="Aaa-tv-eyr">
+                                <rect key="frame" x="171" y="241" width="259" height="75"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="05C-dS-xta"/>
+                                    <constraint firstAttribute="height" constant="75" id="b78-87-Pa0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8AV-0J-wa9" firstAttribute="top" secondItem="RIV-dp-TGh" secondAttribute="bottom" constant="30" id="0vF-77-Ias">
-                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="45"/>
-                            </constraint>
                             <constraint firstItem="4Ib-J0-VQ9" firstAttribute="height" secondItem="66G-UU-Jbq" secondAttribute="height" id="4JL-Ey-fZx"/>
                             <constraint firstItem="nUA-nL-yZw" firstAttribute="leading" secondItem="hxo-MD-7Sx" secondAttribute="leading" id="6Qu-PR-eJh"/>
+                            <constraint firstItem="Bjv-L2-E17" firstAttribute="top" secondItem="RIV-dp-TGh" secondAttribute="bottom" constant="40" id="6VD-ho-qGZ"/>
                             <constraint firstItem="4Ib-J0-VQ9" firstAttribute="leading" secondItem="hxo-MD-7Sx" secondAttribute="leadingMargin" id="9VV-4S-WQ9"/>
-                            <constraint firstAttribute="centerX" secondItem="8AV-0J-wa9" secondAttribute="centerX" id="EWA-TA-cLa"/>
                             <constraint firstAttribute="bottom" secondItem="nUA-nL-yZw" secondAttribute="bottom" id="Ibf-xU-BhC"/>
                             <constraint firstItem="66G-UU-Jbq" firstAttribute="trailing" secondItem="hxo-MD-7Sx" secondAttribute="trailingMargin" id="OWg-kN-Q97"/>
                             <constraint firstItem="66G-UU-Jbq" firstAttribute="leading" secondItem="hxo-MD-7Sx" secondAttribute="leadingMargin" id="Ob5-IY-IoZ"/>
-                            <constraint firstItem="bnz-oC-Uwp" firstAttribute="top" secondItem="8AV-0J-wa9" secondAttribute="bottom" constant="30" id="XaF-vk-dgf"/>
                             <constraint firstItem="ZLL-Zm-sdV" firstAttribute="top" secondItem="66G-UU-Jbq" secondAttribute="bottom" constant="30" id="c0e-qu-L1I"/>
+                            <constraint firstItem="Aaa-tv-eyr" firstAttribute="centerX" secondItem="hxo-MD-7Sx" secondAttribute="centerX" id="cEr-3R-Iez"/>
+                            <constraint firstItem="Bjv-L2-E17" firstAttribute="centerX" secondItem="hxo-MD-7Sx" secondAttribute="centerX" id="hb2-fF-SmV"/>
                             <constraint firstAttribute="trailing" secondItem="nUA-nL-yZw" secondAttribute="trailing" id="idS-pW-FzS"/>
-                            <constraint firstAttribute="centerX" secondItem="bnz-oC-Uwp" secondAttribute="centerX" id="m3y-Hq-EOs"/>
+                            <constraint firstItem="Aaa-tv-eyr" firstAttribute="top" secondItem="Bjv-L2-E17" secondAttribute="bottom" constant="56" id="miJ-gi-M5N"/>
                             <constraint firstItem="4Ib-J0-VQ9" firstAttribute="trailing" secondItem="hxo-MD-7Sx" secondAttribute="trailingMargin" id="rgZ-kz-2TU"/>
                             <constraint firstItem="nUA-nL-yZw" firstAttribute="top" secondItem="hxo-MD-7Sx" secondAttribute="top" id="xNI-L2-glZ"/>
                             <constraint firstItem="66G-UU-Jbq" firstAttribute="top" secondItem="4Ib-J0-VQ9" secondAttribute="bottom" constant="8" id="zhQ-Sq-LE6"/>
@@ -403,7 +400,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHk-Gf-zOW" customClass="DesignableButton" customModule="Spring">
                                                     <rect key="frame" x="8" y="237" width="294" height="55"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="z4t-8t-hOf"/>
                                                     </constraints>
@@ -427,13 +424,13 @@
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                            <color key="value" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="4"/>
@@ -454,13 +451,13 @@
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                            <color key="value" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="4"/>
@@ -550,7 +547,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="tintColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -563,9 +560,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="414" height="736"/>
-        <image name="Icon" width="186" height="143"/>
-        <image name="Lome" width="359" height="109"/>
-        <image name="Sign In" width="410" height="125"/>
+        <image name="Background" width="375" height="667"/>
+        <image name="Lome for colored Background" width="353" height="103"/>
+        <image name="Mail" width="127" height="98"/>
+        <image name="Sign In" width="406" height="119"/>
     </resources>
 </document>

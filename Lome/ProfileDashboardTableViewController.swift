@@ -51,8 +51,6 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
         usersNameLabel.text = user.fullName
         emailLabel.text = user.email
         usernameLabel.text = user.username
-        
-        print(user.email)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

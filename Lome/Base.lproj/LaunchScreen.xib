@@ -15,12 +15,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-4H-30D">
-                    <rect key="frame" x="170" y="100" width="260" height="199"/>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Mail" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-4H-30D">
+                    <rect key="frame" x="211" y="131" width="179" height="138"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="199" id="FEO-1H-ymN"/>
-                        <constraint firstAttribute="width" constant="260" id="lTh-7k-OBc"/>
+                        <constraint firstAttribute="height" constant="138" id="R8c-wr-ogi"/>
+                        <constraint firstAttribute="width" constant="179" id="kLV-6h-Ho3"/>
+                    </constraints>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Lome for colored Background" translatesAutoresizingMaskIntoConstraints="NO" id="ZgD-KH-jUE">
+                    <rect key="frame" x="175" y="352" width="250" height="72"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="5UM-4X-stC"/>
+                        <constraint firstAttribute="height" constant="72" id="LhF-OW-WVr"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -30,18 +38,21 @@
                 <constraint firstAttribute="centerX" secondItem="nyt-4H-30D" secondAttribute="centerX" id="8IK-ph-7RR"/>
                 <constraint firstAttribute="bottom" secondItem="T7Q-zZ-WOC" secondAttribute="bottom" id="Fb7-Te-N0m"/>
                 <constraint firstItem="T7Q-zZ-WOC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T7o-Ah-pQ5"/>
+                <constraint firstItem="ZgD-KH-jUE" firstAttribute="top" secondItem="nyt-4H-30D" secondAttribute="bottom" constant="83" id="Wgz-pa-DrF"/>
                 <constraint firstItem="T7Q-zZ-WOC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cZa-X6-Sbh"/>
                 <constraint firstAttribute="centerY" secondItem="nyt-4H-30D" secondAttribute="centerY" constant="100" id="ery-GS-sV1">
                     <variation key="heightClass=compact" constant="0.0"/>
                 </constraint>
+                <constraint firstItem="ZgD-KH-jUE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kYb-Mf-hYH"/>
                 <constraint firstAttribute="trailing" secondItem="T7Q-zZ-WOC" secondAttribute="trailing" id="mdL-dl-Cna"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <point key="canvasLocation" x="564.5" y="434.5"/>
+            <point key="canvasLocation" x="564" y="434"/>
         </view>
     </objects>
     <resources>
-        <image name="Background" width="414" height="736"/>
-        <image name="Icon" width="186" height="143"/>
+        <image name="Background" width="375" height="667"/>
+        <image name="Lome for colored Background" width="353" height="103"/>
+        <image name="Mail" width="127" height="98"/>
     </resources>
 </document>

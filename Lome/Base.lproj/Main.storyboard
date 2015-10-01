@@ -752,15 +752,15 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-SW-6aR" customClass="DesignableButton" customModule="Spring">
-                                <rect key="frame" x="255" y="545" width="90" height="55"/>
+                                <rect key="frame" x="258" y="556" width="85" height="44"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="B6O-4e-oJi"/>
-                                    <constraint firstAttribute="width" constant="90" id="c0I-jM-Emy"/>
+                                    <constraint firstAttribute="height" constant="44" id="B6O-4e-oJi"/>
+                                    <constraint firstAttribute="width" constant="85" id="c0I-jM-Emy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="3" minY="3" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="4" maxX="3" maxY="0.0"/>
                                 <state key="normal" title="Write" image="Lome Icon" backgroundImage="Write Tab Background">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -796,7 +796,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hyf-h4-ynT">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="FUf-Y6-oq9">
-                            <color key="tintColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="2L9-eQ-biC" kind="show" id="SoZ-IJ-8rk"/>
                             </connections>
@@ -1191,7 +1190,7 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="tintColor" red="0.66666666669999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.10196078431372549" green="0.31764705882352939" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1205,17 +1204,17 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
     </scenes>
     <resources>
         <image name="Avatar Icon" width="25" height="25"/>
-        <image name="Background" width="414" height="736"/>
+        <image name="Background" width="375" height="667"/>
         <image name="Camera Icon" width="25" height="22"/>
         <image name="Image Icon" width="28" height="28"/>
         <image name="Like Heart" width="24" height="24"/>
         <image name="Lome Icon" width="35" height="27"/>
         <image name="MapPin" width="13" height="72"/>
         <image name="Settings Icon" width="24" height="24"/>
-        <image name="Write Tab Background" width="90" height="49"/>
+        <image name="Write Tab Background" width="85" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pkZ-Xh-um1"/>
         <segue reference="SG5-PQ-IHQ"/>
+        <segue reference="pkZ-Xh-um1"/>
     </inferredMetricsTieBreakers>
 </document>

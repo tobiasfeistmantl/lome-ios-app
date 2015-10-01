@@ -10,8 +10,12 @@ import Foundation
 import UIKit
 
 extension UINavigationItem {
-    func setTitleImage(with image: UIImage, rect: CGRect) {
-        let navigationRectangle = rect
+    func setTitleImage(image: UIImage, height: CGFloat = 27) {
+        let imageAspectRatio = image.size.width / image.size.height
+        
+        let width = height * imageAspectRatio
+        
+        let navigationRectangle = CGRect(x: 0, y: 0, width: width, height: height)
         
         let navigationImage = UIImageView(frame: navigationRectangle)
         navigationImage.image = image

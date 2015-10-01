@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Liked Heart.pdf"
+      "filename" : "Liked Heart.pdf",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

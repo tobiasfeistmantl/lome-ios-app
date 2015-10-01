@@ -32,9 +32,6 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var posts: [Post] = []
     
-    // TODO Example Image only
-    let exampleImage = UIImage(named: "Achenlake Example Image")!.af_imageWithAppliedCoreImageFilter("CIPhotoEffectInstant")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +40,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         showLoadingView("Loading posts near your location")
         
-        setupNavigationItem(navigationItem)
+        navigationItem.setTitleImage(UIImage(named: "Lome for white Background without Shadow")!)
         setupLocationManager(locationManager)
         setupTableView(postsTableView)
     }
@@ -205,10 +202,6 @@ extension PostsFeedViewController {
         postsTableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
         postsTableView.estimatedRowHeight = 301
         postsTableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
-    func setupNavigationItem(navigationItem: UINavigationItem) {
-        navigationItem.setTitleImage(with: UIImage(named: "Lome Red")!, rect: CGRectMake(0, 0, 91, 32))
     }
 }
 
