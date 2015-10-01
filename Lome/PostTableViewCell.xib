@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuY-2Q-bSh" id="8Fm-uo-x4A">
-                <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
+                <rect key="frame" x="0.0" y="0.0" width="561" height="366.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="EoU-HK-m2T" userLabel="User Profile Image View" customClass="TFImageView" customModule="Lome" customModuleProvider="target">
@@ -102,7 +102,7 @@
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2Ve-Ic-wZX">
                         <rect key="frame" x="262" y="217" width="37" height="37"/>
                         <animations/>
-                        <color key="color" red="0.78431372549019607" green="0.011764705882352941" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="color" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     </activityIndicatorView>
                 </subviews>
                 <animations/>
@@ -165,7 +165,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Background" width="414" height="736"/>
+        <image name="Background" width="375" height="667"/>
         <image name="Like Heart" width="24" height="24"/>
     </resources>
 </document>

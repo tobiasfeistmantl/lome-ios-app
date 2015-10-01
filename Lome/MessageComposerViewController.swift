@@ -73,6 +73,8 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     
     @IBAction func postButtonDidTouch(sender: DesignableButton) {
         postingActivityIndicator.startAnimating()
+        messageTextView.resignFirstResponder()
+        
         postButtonTouched = true
         
         if !imageUploading {
