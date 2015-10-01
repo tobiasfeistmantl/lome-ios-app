@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class UserSearchTableViewController: UITableViewController, UISearchBarDelegate {
+class UserSearchTableViewController: UITableViewController, UISearchBarDelegate, TFInfiniteScroll {
     
     @IBOutlet weak var userSearchBar: UISearchBar!
     
@@ -18,7 +18,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate 
     
     var nextPage = 1
     var hasReachedTheEnd = false
-    var populatingUsers = false
+    var populatingAtTheMoment = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +37,16 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        populateUsers(reload: true)
+        populate(reload: true)
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        if populatingUsers || hasReachedTheEnd {
+        if populatingAtTheMoment || hasReachedTheEnd {
             return
         }
         
         if scrollView.almostAtTheEnd {
-            populateUsers()
+            populate()
         }
     }
 
@@ -75,8 +75,8 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate 
         return cell
     }
     
-    func populateUsers(reload reload: Bool = false) {
-        populatingUsers = true
+    func populate(reload reload: Bool = false) {
+        populatingAtTheMoment = true
         
         if reload {
             hasReachedTheEnd = false
@@ -98,7 +98,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate 
                 }
                 
                 self.tableView.reloadData()
-                self.populatingUsers = false
+                self.populatingAtTheMoment = false
             }
         }
     }

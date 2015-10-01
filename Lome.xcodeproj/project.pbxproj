@@ -53,6 +53,7 @@
 		11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */; };
 		11E9EA3E1BA2129800108FFC /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */; };
 		11E9EA401BA2147E00108FFC /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9EA3F1BA2147E00108FFC /* PostViewController.swift */; };
+		11FD63B51BBD7892001C24FB /* TFInfiniteScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */; settings = {ASSET_TAGS = (); }; };
 		8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,7 @@
 		11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFImageView.swift; sourceTree = "<group>"; };
 		11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		11E9EA3F1BA2147E00108FFC /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFInfiniteScroll.swift; sourceTree = "<group>"; };
 		3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.release.xcconfig"; sourceTree = "<group>"; };
 		78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -275,6 +277,7 @@
 		11AB273C1B9C6E8D00DF00E1 /* Lome */ = {
 			isa = PBXGroup;
 			children = (
+				11FD63B31BBD7878001C24FB /* Protocols */,
 				111C5C671BB5B18900217FB3 /* Structs */,
 				110059491BA9B18800D2563A /* Model */,
 				11355FE41BA0355800BD1A64 /* Extensions */,
@@ -333,6 +336,14 @@
 				114C00251B9CE7FD0053ECC4 /* SignUpTableViewController.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		11FD63B31BBD7878001C24FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		80EF483C39A78F043D9DDBE7 /* Pods */ = {
@@ -547,6 +558,7 @@
 				11CFA4241BA1AC5F001FD262 /* String.swift in Sources */,
 				113CE3DF1BA0DD2F00ED434A /* ProfileDashboardTableViewController.swift in Sources */,
 				114C00261B9CE7FD0053ECC4 /* SignUpTableViewController.swift in Sources */,
+				11FD63B51BBD7892001C24FB /* TFInfiniteScroll.swift in Sources */,
 				111C5C641BB57B1600217FB3 /* TFLoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

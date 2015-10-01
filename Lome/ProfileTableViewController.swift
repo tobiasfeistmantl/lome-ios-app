@@ -11,7 +11,7 @@ import Spring
 import Alamofire
 import SwiftyJSON
 
-class ProfileTableViewController: UITableViewController {
+class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     var userId: Int!
     
     var user: User! {
@@ -20,6 +20,9 @@ class ProfileTableViewController: UITableViewController {
         }
     }
     
+    var nextPage = 1
+    var hasReachedTheEnd = false
+    var populatingAtTheMoment = false
     
     var posts: [Post] = []
     
@@ -63,6 +66,16 @@ class ProfileTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if populatingAtTheMoment || hasReachedTheEnd {
+            return
+        }
+        
+        if scrollView.almostAtTheEnd {
+            populate()
+        }
+    }
+    
     @IBAction func followButtonDidTouch(sender: DesignableButton) {
         if (user.following != nil && !user.following!) {
             user.follow(true)
@@ -79,7 +92,35 @@ class ProfileTableViewController: UITableViewController {
         followerLabel.text = user!.followerCountText
     }
     
-    
+    func populate(reload reload: Bool = false) {
+        populatingAtTheMoment = true
+        
+        if reload {
+            hasReachedTheEnd = false
+            nextPage = 1
+        }
+        
+        API.Users.Posts.get(user, page: nextPage) { posts, successful in
+            if successful {
+                if reload {
+                    self.posts = posts
+                } else {
+                    self.posts += posts
+                }
+                
+                if posts.count != 0 {
+                    self.nextPage++
+                } else {
+                    self.hasReachedTheEnd = true
+                }
+                
+                self.tableView.reloadData()
+                self.populatingAtTheMoment = false
+            } else {
+                self.simpleAlert(title: "Unable to load posts", message: "Please try again later")
+            }
+        }
+    }
     
     
     
@@ -169,14 +210,6 @@ class ProfileTableViewController: UITableViewController {
             navigationItem.rightBarButtonItem = nil
         }
         
-        API.Users.Posts.get(user) { posts, successful in
-            if successful {
-                self.posts = posts
-                
-                self.tableView.reloadData()
-            } else {
-                self.simpleAlert(title: "Unable to load posts", message: "Please try again later")
-            }
-        }
+        populate(reload: true)
     }
 }

@@ -14,7 +14,7 @@ import AlamofireImage
 import SwiftyJSON
 import DateTools
 
-class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, CLLocationManagerDelegate, TFInfiniteScroll {
     @IBOutlet weak var postsTableView: UITableView!
     @IBOutlet weak var newPostButton: DesignableButton!
     
@@ -28,7 +28,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var nextPage = 1
     var hasReachedTheEnd = false
-    var populatingPosts = false
+    var populatingAtTheMoment = false
     
     var posts: [Post] = []
     
@@ -75,7 +75,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         API.Users.Positions.update(location!) { successful in
             if successful {
-                self.populatePosts(refresh: true, location: self.location)
+                self.populate(reload: true)
             } else {
                 self.refreshControl.endRefreshing()
                 self.simpleAlert(title: "Unable to update your location", message: "Please try again later")
@@ -84,32 +84,32 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if location == nil || hasReachedTheEnd || populatingPosts {
+        if location == nil || hasReachedTheEnd || populatingAtTheMoment {
             return
         }
         
         if scrollView.almostAtTheEnd {
-            populatePosts(location: location)
+            populate()
         }
     }
     
-    func populatePosts(refresh refresh: Bool = false, location: CLLocation? = nil) {
-        populatingPosts = true
+    func populate(reload reload: Bool = false) {
+        populatingAtTheMoment = true
         
-        if refresh {
+        if reload {
             hasReachedTheEnd = false
             nextPage = 1
         }
         
         API.Posts.getPostsNearby(page: nextPage) { posts, successful in
             if successful {
-                if let location = location {
+                if let location = self.location {
                     for post in posts {
                         post.distanceFromLocation(location)
                     }
                 }
                 
-                if refresh {
+                if reload {
                     self.posts = posts
                 } else {
                     self.posts += posts
@@ -127,7 +127,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.hasReachedTheEnd = true
             }
             
-            self.populatingPosts = false
+            self.populatingAtTheMoment = false
             self.refreshControl.endRefreshing()
         }
     }

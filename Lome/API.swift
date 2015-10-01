@@ -220,11 +220,15 @@ class API {
         }
         
         class Posts {
-            static func get(user: User, afterResponse: ([Post], Bool) -> Void) {
+            static func get(user: User, page: Int = 1, afterResponse: ([Post], Bool) -> Void) {
                 var posts: [Post] = []
                 var successful = false
                 
-                API.request(.GET, "/users/\(user.id)/posts", headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                let parameters = [
+                    "page": page
+                ]
+                
+                API.request(.GET, "/users/\(user.id)/posts", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
                     switch result {
                     case .Success(let value):
                         for (_, data) in JSON(value) {
