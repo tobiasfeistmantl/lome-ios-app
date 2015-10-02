@@ -73,6 +73,8 @@
 		1100594A1BA9B1A300D2563A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		11036EC91B9D6DE900319E6B /* TFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextField.swift; sourceTree = "<group>"; };
 		11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextFieldValidationError.swift; sourceTree = "<group>"; };
+		1105803B1BBED7E10021690E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1105803D1BBED8060021690E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		1118071F1BB3FD6500C1470D /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		111C5C611BB57AEC00217FB3 /* TFLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TFLoadingView.xib; sourceTree = "<group>"; };
 		111C5C631BB57B1600217FB3 /* TFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFLoadingView.swift; sourceTree = "<group>"; };
@@ -98,7 +100,6 @@
 		114C002B1B9CE9FC0053ECC4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		116561811BBDC6450068A460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Login.strings; sourceTree = "<group>"; };
 		116561831BBDC6460068A460 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Login.strings; sourceTree = "<group>"; };
-		116561851BBDC7090068A460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		116561871BBDC94F0068A460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PostTableViewCell.xib; sourceTree = "<group>"; };
 		1165618A1BBDC9530068A460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PostTableViewCell.strings; sourceTree = "<group>"; };
 		1165618C1BBDC9530068A460 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PostTableViewCell.strings; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		116561961BBDDF5A0068A460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		116561971BBDDF5B0068A460 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		116BEAF11BB1475D007ED1FB /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		117A34BF1BBDC4D2002BEF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		117A34C01BBDC4D2002BEF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		117A34C21BBDC50B002BEF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		1196177A1BAD896C00BDE941 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
@@ -630,8 +630,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				11AB27441B9C6E8D00DF00E1 /* Base */,
-				117A34BF1BBDC4D2002BEF22 /* de */,
-				116561851BBDC7090068A460 /* en */,
+				1105803B1BBED7E10021690E /* en */,
+				1105803D1BBED8060021690E /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
