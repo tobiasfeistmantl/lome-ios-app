@@ -22,8 +22,6 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.setTitleImage(UIImage(named: "Search")!, height: 22)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

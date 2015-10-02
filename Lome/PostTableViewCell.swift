@@ -44,7 +44,7 @@ class PostTableViewCell: UITableViewCell {
             if let attributedMessage = post.attributedMessage {
                 messageLabel.attributedText = attributedMessage
                 messageLabel.hidden = false
-                constraintBetweenMessageLabelAndPostImageView.constant = 15
+                constraintBetweenMessageLabelAndPostImageView.constant = 18
             } else {
                 messageLabel.hidden = true
                 messageLabel.attributedText = nil

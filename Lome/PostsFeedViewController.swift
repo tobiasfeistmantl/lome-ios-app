@@ -40,7 +40,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         showLoadingView(NSLocalizedString("Loading posts near your location", comment: ""))
         
-        navigationItem.setTitleImage(UIImage(named: "Lome for white Background without Shadow")!)
+        navigationItem.titleView = UIImageView(image: UIImage(named: "Lome for colored Background without Shadow iOS Navbar")!)
         setupLocationManager(locationManager)
         setupTableView(postsTableView)
     }

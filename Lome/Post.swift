@@ -71,10 +71,14 @@ class Post {
         if let message = message {
             let attributedMessage = NSMutableAttributedString(string: message)
             
+            let fontStyle = UIFont.systemFontOfSize(UIFont.systemFontSize(), weight: UIFontWeightRegular)
+            
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 6
             
             attributedMessage.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedMessage.length))
+            attributedMessage.addAttribute(NSFontAttributeName, value: fontStyle, range: NSMakeRange(0, attributedMessage.length))
+            attributedMessage.addAttribute(NSForegroundColorAttributeName, value: UIColor(hex: "3A3A3A"), range: NSMakeRange(0, attributedMessage.length))
             
             return attributedMessage
         }
