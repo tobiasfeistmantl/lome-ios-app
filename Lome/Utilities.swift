@@ -16,6 +16,7 @@ import CoreLocation
 var railsDateFormatter: NSDateFormatter {
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    dateFormatter.timeZone = NSTimeZone(name: "UTC")
     
     return dateFormatter
 }
