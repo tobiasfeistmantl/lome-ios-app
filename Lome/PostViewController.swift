@@ -27,6 +27,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var postPositionMapView: MKMapView!
     @IBOutlet weak var likePostButton: UIBarButtonItem!
+    @IBOutlet weak var postImageButton: TFImageButton!
     
     @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
     
@@ -53,6 +54,7 @@ class PostViewController: UIViewController {
         if let imageURL = post.imageURLs[.Original] {
             let URL = NSURL(string: imageURL)!
             
+            postImageButton.hidden = false
             postImageView.af_setImageWithURL(URL)
         }
         
@@ -83,6 +85,12 @@ class PostViewController: UIViewController {
         }
         
         likePostButton.image = post.likeButtonImage
+    }
+    
+    @IBAction func postImageButtonDidTouch(sender: TFImageButton) {
+        if let postImage = postImageView.image {
+            postImageButton.showImage(postImage)
+        }
     }
     
     @IBAction func likePostButtonDidTouch(sender: UIBarButtonItem) {

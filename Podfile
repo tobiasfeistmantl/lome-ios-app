@@ -9,6 +9,7 @@ target 'Lome' do
     pod 'KeychainAccess'
     pod 'AlamofireImage'
     pod 'DateTools'
+    pod 'JTSImageViewController'
 end
 
 target 'LomeTests' do

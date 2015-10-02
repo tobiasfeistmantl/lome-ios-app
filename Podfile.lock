@@ -3,6 +3,7 @@ PODS:
   - AlamofireImage (1.1.2):
     - Alamofire (~> 2.0)
   - DateTools (1.7.0)
+  - JTSImageViewController (1.5.1)
   - KeychainAccess (2.0.0)
   - Spring (1.0.3)
   - SwiftyJSON (2.3.0)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - DateTools
+  - JTSImageViewController
   - KeychainAccess
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SwiftyJSON
@@ -28,6 +30,7 @@ SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   KeychainAccess: 1e705665a234b3af69d653aaa3c8f696e4a992f1
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4

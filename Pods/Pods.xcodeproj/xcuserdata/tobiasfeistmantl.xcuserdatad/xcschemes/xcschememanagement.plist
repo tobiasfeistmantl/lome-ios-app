@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTSImageViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KeychainAccess.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,27 +47,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>12FA7104F1E63342CBD4A8516E958C40</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>145BA73434538293490DEF7A5CD587AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4ADDC830F1F3957A877DC0A28F0CBD4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E1D618227D3191A6B3F4A3CD895461C</key>
+		<key>4C72656CA3BB4482C6F5E3A96C2A83F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C4CEB460F482C740A35B176DB5E1C67</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7C78E0426246046EA82C546A5EFAE7B6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9E930354613E7B7F4DC4E518C84A1917</key>
+		<key>A76F629D028C713FFB013B11E485EFE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3C9D3FFAC79EC6DF30A8F2E5671E75F</key>
+		<key>D9D08B941A56E1D5039F5806125048E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED4454A527AC1FD2C22D0488E47AFE77</key>
 		<dict>
 			<key>primary</key>
 			<true/>

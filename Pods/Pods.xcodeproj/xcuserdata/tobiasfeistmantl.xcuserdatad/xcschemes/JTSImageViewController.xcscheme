@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C54F0F9691AF364ED9D68B1"
-               BuildableName = "KeychainAccess.framework"
-               BlueprintName = "KeychainAccess"
+               BlueprintIdentifier = "B0AD8603AC0048F0207B1194"
+               BuildableName = "JTSImageViewController.framework"
+               BlueprintName = "JTSImageViewController"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -10,6 +10,7 @@
 		1100594B1BA9B1A300D2563A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100594A1BA9B1A300D2563A /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
 		11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */; };
+		110580411BBF22C00021690E /* TFImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110580401BBF22C00021690E /* TFImageButton.swift */; settings = {ASSET_TAGS = (); }; };
 		111807201BB3FD6500C1470D /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118071F1BB3FD6500C1470D /* UIScrollView.swift */; settings = {ASSET_TAGS = (); }; };
 		111C5C621BB57AEC00217FB3 /* TFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111C5C611BB57AEC00217FB3 /* TFLoadingView.xib */; settings = {ASSET_TAGS = (); }; };
 		111C5C641BB57B1600217FB3 /* TFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C5C631BB57B1600217FB3 /* TFLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -75,6 +76,7 @@
 		11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTextFieldValidationError.swift; sourceTree = "<group>"; };
 		1105803B1BBED7E10021690E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1105803D1BBED8060021690E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		110580401BBF22C00021690E /* TFImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFImageButton.swift; sourceTree = "<group>"; };
 		1118071F1BB3FD6500C1470D /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		111C5C611BB57AEC00217FB3 /* TFLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TFLoadingView.xib; sourceTree = "<group>"; };
 		111C5C631BB57B1600217FB3 /* TFLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFLoadingView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				11036EC91B9D6DE900319E6B /* TFTextField.swift */,
 				11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */,
 				1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */,
+				110580401BBF22C00021690E /* TFImageButton.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				111C5C6B1BB5B78900217FB3 /* ImageVersion.swift in Sources */,
 				11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */,
 				11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */,
+				110580411BBF22C00021690E /* TFImageButton.swift in Sources */,
 				11E9EA401BA2147E00108FFC /* PostViewController.swift in Sources */,
 				11CFA4211BA1A882001FD262 /* UIViewController.swift in Sources */,
 				11E9EA3E1BA2129800108FFC /* PostTableViewCell.swift in Sources */,

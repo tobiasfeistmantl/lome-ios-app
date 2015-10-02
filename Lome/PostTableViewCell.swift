@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import JTSImageViewController
 
 class PostTableViewCell: UITableViewCell {
     
@@ -22,8 +23,15 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
+    @IBOutlet weak var postImageButton: UIButton!
     
     @IBOutlet weak var postImageActivityIndicator: UIActivityIndicatorView!
+    
+    var postImage: UIImage? {
+        didSet {
+            postImageButton.hidden = postImage == nil
+        }
+    }
     
     var post: Post! {
         didSet {
@@ -57,9 +65,15 @@ class PostTableViewCell: UITableViewCell {
                 let URL = NSURL(string: imageURL)!
                 
                 postImageActivityIndicator.startAnimating()
-                postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { _, _, _ in
+                postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { _, _, result in
                     self.postImageActivityIndicator.stopAnimating()
+                    
+                    if let image = result.value {
+                        self.postImage = image
+                    }
                 }
+            } else {
+                constraintBetweenMessageLabelAndPostImageView.constant = 0
             }
             
             post.likeItems[.Button] = likeButton
@@ -83,6 +97,11 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func postImageButtonDidTouch(sender: TFImageButton) {
+        if let postImage = postImage {
+            sender.showImage(postImage)
+        }
+    }
     
     override func updateConstraints() {
         if let aspectRatio = post.imageAspectRatio {
