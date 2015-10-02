@@ -72,13 +72,14 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     }
     
     @IBAction func postButtonDidTouch(sender: DesignableButton) {
-        postingActivityIndicator.startAnimating()
         messageTextView.resignFirstResponder()
         
         postButtonTouched = true
         
         if !imageUploading {
             publishPost()
+        } else {
+            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -210,17 +211,20 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
             ]
         ]
         
-        API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
-            dispatch_async(dispatch_get_main_queue()) {
-                switch result {
-                case .Success:
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                case .Failure:
-                    self.postingActivityIndicator.stopAnimating()
-                    self.simpleAlert(title: NSLocalizedString("Unable to post", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                dispatch_async(dispatch_get_main_queue()) {
+                    switch result {
+                    case .Success:
+                        break
+                    case .Failure:
+                        UIApplication.sharedApplication().keyWindow?.rootViewController!.simpleAlert(title: NSLocalizedString("Unable to post", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                    }
                 }
             }
         }
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
