@@ -114,6 +114,7 @@ extension PostTableViewCell {
     func setupUserProfileButton(indexPath: NSIndexPath, viewController: UIViewController) {
         userProfileButton.indexPath = indexPath
         userProfileButton.addTarget(viewController, action: "userProfileButtonDidTouch:", forControlEvents: .TouchUpInside)
+        userProfileButton.hidden = false
     }
     
     
