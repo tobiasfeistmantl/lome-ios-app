@@ -119,6 +119,7 @@ class PostTableViewCell: UITableViewCell {
         usernameLabel.hidden = false
         postImageAspectConstraint = nil
         postImageActivityIndicator.stopAnimating()
+        postImageButton.hidden = true
     }
 }
 
