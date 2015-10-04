@@ -247,6 +247,36 @@ class API {
             }
         }
         
+        class Relationships {
+            static func get(partner_id: Int, afterResponse: (Bool, Bool, Bool) -> Void) {
+                var following = false
+                var followed = false
+                var successful = false
+                
+                let parameters = [
+                    "partner_id": partner_id
+                ]
+                
+                API.request(.GET, "/users/\(UserSession.User.id!)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                    switch result {
+                    case .Success(let value):
+                        successful = true
+                        
+                        let JSONValue = JSON(value)
+                        
+                        following = JSONValue["active_relationship"].bool!
+                        followed = JSONValue["passive_relationship"].bool!
+                    case .Failure:
+                        print("Error: Unable to get relationship")
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        afterResponse(following, followed, successful)
+                    }
+                }
+            }
+        }
+        
         static var currentlyUpdatingLocation = false
         
         class Positions {
@@ -266,7 +296,7 @@ class API {
                     ]
                 ]
                 
-                API.request(.POST, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions", parameters: parameters, headers: defaultSignedInHeaders).responseJSON { _, response, _ in
+                API.request(.POST, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions", parameters: parameters, headers: API.defaultSignedInHeaders).responseJSON { _, response, _ in
                     if response?.statusCode == 204 {
                         successful = true
                     }

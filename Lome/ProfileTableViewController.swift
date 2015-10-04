@@ -34,6 +34,20 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     @IBOutlet weak var followerLabel: UILabel!
     @IBOutlet weak var followButton: DesignableButton!
     
+    var followsUser: Bool = false {
+        didSet {
+            if followsUser {
+                followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), forState: .Normal)
+                followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+                followButton.backgroundColor = UIColor(hex: "4A90E2")
+            } else {
+                followButton.setTitle(NSLocalizedString("Follow", comment: ""), forState: .Normal)
+                followButton.setTitleColor(UIColor(hex: "4A90E2"), forState: .Normal)
+                followButton.backgroundColor = UIColor.whiteColor()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cleanView()
@@ -42,6 +56,12 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
             setUser()
         } else {
             userId = user.id
+            
+            API.Users.Relationships.get(userId) { following, _, successful in
+                self.user.following = following
+                self.followsUser = following
+            }
+            
             self.setupUserViews()
         }
         
@@ -78,16 +98,12 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     }
     
     @IBAction func followButtonDidTouch(sender: DesignableButton) {
-        if (user.following != nil && !user.following!) {
+        if user.following != nil && !user.following! {
             user.follow(true)
-            sender.setTitle(NSLocalizedString("Unfollow", comment: ""), forState: .Normal)
-            sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            sender.backgroundColor = UIColor(hex: "4A90E2")
+            followsUser = true
         } else {
             user.follow(false)
-            sender.setTitle(NSLocalizedString("Follow", comment: ""), forState: .Normal)
-            sender.setTitleColor(UIColor(hex: "4A90E2"), forState: .Normal)
-            sender.backgroundColor = UIColor.whiteColor()
+            followsUser = false
         }
         
         followerLabel.text = user.followerCountText
