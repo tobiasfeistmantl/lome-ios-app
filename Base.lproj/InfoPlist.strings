@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Lome
+
+  Created by Tobias Feistmantl on 04/10/15.
+  Copyright © 2015 Tobias Feistmantl. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription" = "We need your current position to show you interesting Posts near your location!";

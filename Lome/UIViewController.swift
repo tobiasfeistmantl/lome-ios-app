@@ -28,10 +28,10 @@ extension UIViewController {
     }
     
     func showNoLocationAccessAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("We don't have access to your location!", comment: ""), message: NSLocalizedString("To show posts near your location we need to have your current location.", comment: ""), preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("We don't have access to your location!", comment: ""), message: NSLocalizedString("To show posts near your location we need to have access to your current location.", comment: ""), preferredStyle: .ActionSheet)
         
         alert.addAction(
-            UIAlertAction(title: "Settings", style: .Default) { (action: UIAlertAction!) in
+            UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: .Default) { (action: UIAlertAction!) in
                 UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
             }
         )

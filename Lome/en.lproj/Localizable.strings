@@ -1,5 +1,5 @@
 /* 
-  Settings.strings
+  Localizable.strings
   Lome
 
   Created by Tobias Feistmantl on 01/10/15.
@@ -89,3 +89,12 @@
 
 /* Placed in {n} kilometers */
 "Placed in %@km" = "Placed in %@km";
+
+/* No location access title alert */
+"We don't have access to your location!" = "We don't have access to your location!";
+
+/* No location access description alert */
+"To show posts near your location we need to have access to your current location." = "To show posts near your location we need to have access to your current location.";
+
+/* Settings */
+"Settings" = "Settings";

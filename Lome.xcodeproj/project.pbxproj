@@ -40,6 +40,7 @@
 		117A34C11BBDC50B002BEF22 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117A34C31BBDC50B002BEF22 /* Login.storyboard */; };
 		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; settings = {ASSET_TAGS = (); }; };
 		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
+		1197080C1BC1C2C300CF8F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1197080E1BC1C2C300CF8F3C /* InfoPlist.strings */; };
 		119801271BB16D0C00DD145C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119801261BB16D0C00DD145C /* UIImage.swift */; settings = {ASSET_TAGS = (); }; };
 		11A1427B1BBAEB8700FE2355 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1427A1BBAEB8700FE2355 /* API.swift */; settings = {ASSET_TAGS = (); }; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
@@ -106,13 +107,15 @@
 		1165618A1BBDC9530068A460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PostTableViewCell.strings; sourceTree = "<group>"; };
 		1165618C1BBDC9530068A460 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PostTableViewCell.strings; sourceTree = "<group>"; };
 		116561901BBDD67D0068A460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		116561961BBDDF5A0068A460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		116561971BBDDF5B0068A460 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		116BEAF11BB1475D007ED1FB /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		117A34C01BBDC4D2002BEF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		117A34C21BBDC50B002BEF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		1196177A1BAD896C00BDE941 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
 		1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCellButton.swift; sourceTree = "<group>"; };
+		1197080D1BC1C2C300CF8F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		119708101BC1C2C600CF8F3C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		119708121BC1C53C00CF8F3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119801261BB16D0C00DD145C /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		11A1427A1BBAEB8700FE2355 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		11AB273A1B9C6E8D00DF00E1 /* Lome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +314,7 @@
 		11AB273D1B9C6E8D00DF00E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1197080E1BC1C2C300CF8F3C /* InfoPlist.strings */,
 				11AB273E1B9C6E8D00DF00E1 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -474,6 +478,7 @@
 				111C5C621BB57AEC00217FB3 /* TFLoadingView.xib in Resources */,
 				11AB274A1B9C6E8D00DF00E1 /* LaunchScreen.xib in Resources */,
 				11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */,
+				1197080C1BC1C2C300CF8F3C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,8 +619,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				116561901BBDD67D0068A460 /* Base */,
-				116561961BBDDF5A0068A460 /* en */,
 				116561971BBDDF5B0068A460 /* de */,
+				119708121BC1C53C00CF8F3C /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -628,6 +633,16 @@
 				116561831BBDC6460068A460 /* de */,
 			);
 			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		1197080E1BC1C2C300CF8F3C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1197080D1BC1C2C300CF8F3C /* Base */,
+				119708101BC1C2C600CF8F3C /* de */,
+			);
+			name = InfoPlist.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		11AB27431B9C6E8D00DF00E1 /* Main.storyboard */ = {

@@ -89,3 +89,12 @@
 
 /* Placed in {n} kilometers */
 "Placed in %@km" = "Platziert in %@km";
+
+/* No location access title alert */
+"We don't have access to your location!" = "Wir haben keinen Zugriff auf deinen Standort!";
+
+/* No location access description alert */
+"To show posts near your location we need to have access to your current location." = "Um dir Posts in deiner Umgebung anzuzeigen, benötigen wir Zugriff auf deinen Standort.";
+
+/* Settings */
+"Settings" = "Einstellungen";

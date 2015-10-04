@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Lome
+
+  Created by Tobias Feistmantl on 04/10/15.
+  Copyright © 2015 Tobias Feistmantl. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription" = "Wir brauchen deinen Standort, um dir interessante Dinge in deiner Nähe zu zeigen!";
