@@ -23,7 +23,7 @@ class Post {
     var likesCount: Int
     var imageAspectRatio: Double?
     var imageURLs: [ImageVersion: String] = [:]
-    var like: Bool {
+    var like: Bool = false {
         didSet {
             let method: Alamofire.Method
             
@@ -94,7 +94,7 @@ class Post {
         return annotation
     }
     
-    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, like: Bool, imageURLs: [ImageVersion: String]) {
+    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, like: Bool = false, imageURLs: [ImageVersion: String]) {
         self.id = id
         self.message = message
         self.location = location
@@ -112,7 +112,9 @@ class Post {
         self.location = CLLocation(latitude: data["latitude"].double!, longitude: data["longitude"].double!)
         self.author = User(data: data["author"])
         self.createdAt = railsDateFormatter.dateFromString(data["created_at"].string!)!
-        self.like = data["liked"].bool!
+        if let likedAttr = data["liked"].bool {
+            self.like = likedAttr
+        }
         self.imageAspectRatio = data["image"]["aspect_ratio"].double
         
         for (key, jsonData) in data["image"]["versions"] {
