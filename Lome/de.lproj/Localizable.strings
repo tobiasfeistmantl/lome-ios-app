@@ -82,13 +82,13 @@
 "Please check your entered data" = "Bitte überprüfe deine eingegebenen Daten";
 
 /* Placed exactly here label */
-"Placed exactly here" = "Genau hier platziert";
+"Exactly here" = "Genau hier platziert";
 
 /* Placed in {n} meters */
-"Placed in %@m" = "Platziert in %@m";
+"In %@m" = "In %@ Meter";
 
 /* Placed in {n} kilometers */
-"Placed in %@km" = "Platziert in %@km";
+"In %@km" = "In %@ Kilometer";
 
 /* No location access title alert */
 "We don't have access to your location!" = "Wir haben keinen Zugriff auf deinen Standort!";

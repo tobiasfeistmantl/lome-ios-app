@@ -81,14 +81,14 @@
 /* Subtitle for an error occurred alert */
 "Please check your entered data" = "Please check your entered data";
 
-/* Placed exactly here label */
-"Placed exactly here" = "Placed exactly here";
+/* exactly here label */
+"exactly here" = "exactly here";
 
-/* Placed in {n} meters */
-"Placed in %@m" = "Placed in %@m";
+/* in {n} meters */
+"In %@m" = "In %@ meters";
 
-/* Placed in {n} kilometers */
-"Placed in %@km" = "Placed in %@km";
+/* in {n} kilometers */
+"In %@km" = "In %@ kilometers";
 
 /* No location access title alert */
 "We don't have access to your location!" = "We don't have access to your location!";
