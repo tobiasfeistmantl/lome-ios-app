@@ -83,8 +83,8 @@ class User {
         API.request(method, "/users/\(UserSession.User.id!)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders)
     }
     
-    func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
-        var image: UIImage?
+    func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: (UIImage, Bool) -> Void) {
+        var image: UIImage = profileFallbackImage
         var successful = false
         
         if let imageURL = profileImageURLs[profileImageVersion] {
@@ -97,6 +97,10 @@ class User {
                 dispatch_async(dispatch_get_main_queue()) {
                     afterResponse(image, successful)
                 }
+            }
+        } else {
+            dispatch_async(dispatch_get_main_queue()) {
+                afterResponse(image, successful)
             }
         }
     }

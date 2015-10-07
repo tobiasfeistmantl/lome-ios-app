@@ -9,7 +9,23 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
-    var user: User!
+    var user: User! {
+        didSet {
+            if let name = user.fullName {
+                usersNameLabel.text = name
+                usernameLabel.text = user.username
+            } else {
+                usersNameLabel.text = user.username
+                usernameLabel.hidden = true
+            }
+            
+            followerCountLabel.text = user.followerCountText
+            
+            user.profileImage(version: .Thumbnail) { image, _ in
+                self.userProfileImageView.image = image
+            }
+        }
+    }
     
     @IBOutlet weak var userProfileImageView: TFImageView!
     @IBOutlet weak var usersNameLabel: UILabel!

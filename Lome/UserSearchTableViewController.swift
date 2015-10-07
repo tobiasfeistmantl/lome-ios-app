@@ -50,25 +50,8 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
-        let user = users[indexPath.row]
         
-        cell.user = user
-
-        if let name = user.fullName {
-            cell.usersNameLabel.text = name
-            cell.usernameLabel.text = user.username
-        } else {
-            cell.usersNameLabel.text = user.username
-            cell.usernameLabel.hidden = true
-        }
-        
-        cell.followerCountLabel.text = user.followerCountText
-        
-        user.profileImage(version: .Thumbnail) { image, _ in
-            if let image = image {
-                cell.userProfileImageView.image = image
-            }
-        }
+        cell.user = users[indexPath.row]
         
         return cell
     }

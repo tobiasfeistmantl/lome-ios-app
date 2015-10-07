@@ -36,9 +36,11 @@ class PostTableViewCell: UITableViewCell {
     var post: Post! {
         didSet {
             if let imageURL = post.author.profileImageURLs[.Thumbnail] {
-                let URL = NSURL(string: imageURL)!
-                
-                userProfileImageView.af_setImageWithURL(URL)
+                if let URL = NSURL(string: imageURL) {
+                    userProfileImageView.af_setImageWithURL(URL)
+                }
+            } else {
+                userProfileImageView.image = profileFallbackImage
             }
             
             if let name = post.author.fullName {
@@ -114,7 +116,6 @@ class PostTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        userProfileImageView.image = UIImage(named: "Background")
         postImageView.image = nil
         usernameLabel.hidden = false
         postImageAspectConstraint = nil
