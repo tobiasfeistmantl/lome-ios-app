@@ -22,6 +22,8 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        populate(reload: true)
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
