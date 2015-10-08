@@ -38,6 +38,7 @@
 		1165618F1BBDD67D0068A460 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 116561911BBDD67D0068A460 /* Localizable.strings */; };
 		116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BEAF11BB1475D007ED1FB /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		117A34C11BBDC50B002BEF22 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117A34C31BBDC50B002BEF22 /* Login.storyboard */; };
+		11856C801BC6C2E50029A3FE /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; settings = {ASSET_TAGS = (); }; };
 		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
 		1197080C1BC1C2C300CF8F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1197080E1BC1C2C300CF8F3C /* InfoPlist.strings */; };
@@ -112,6 +113,7 @@
 		117A34C01BBDC4D2002BEF22 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		117A34C21BBDC50B002BEF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		117E3C9D1BC479DE008AD53C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		1196177A1BAD896C00BDE941 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
 		1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCellButton.swift; sourceTree = "<group>"; };
 		1197080D1BC1C2C300CF8F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -240,9 +242,10 @@
 		113CE3D21BA0AF9000ED434A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */,
 				11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */,
 				116561881BBDC94F0068A460 /* PostTableViewCell.xib */,
+				113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */,
+				11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				1165618F1BBDD67D0068A460 /* Localizable.strings in Resources */,
 				117A34C11BBDC50B002BEF22 /* Login.storyboard in Resources */,
 				112CF9C91BAB1225001BF796 /* work.gpx in Resources */,
+				11856C801BC6C2E50029A3FE /* UserTableViewCell.xib in Resources */,
 				112CF9CA1BAB1225001BF796 /* home.gpx in Resources */,
 				11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */,
 				116561861BBDC94F0068A460 /* PostTableViewCell.xib in Resources */,

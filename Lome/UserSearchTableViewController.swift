@@ -23,6 +23,8 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.registerNib(UINib(nibName: "UserTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "userCell")
+        
         populate(reload: true)
     }
 
@@ -41,7 +43,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        if populatingAtTheMoment || hasReachedTheEnd {
+        if hasReachedTheEnd {
             return
         }
         
@@ -59,6 +61,10 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
     }
     
     func populate(reload reload: Bool = false) {
+        if populatingAtTheMoment {
+            true
+        }
+        
         populatingAtTheMoment = true
         
         if reload {

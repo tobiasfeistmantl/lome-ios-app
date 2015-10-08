@@ -19,7 +19,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var likeCountLabel: UILabel!
+    @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
@@ -79,11 +79,11 @@ class PostTableViewCell: UITableViewCell {
             }
             
             post.likeItems[.Button] = likeButton
-            post.likeItems[.CountLabel] = likeCountLabel
+            post.likeItems[.CountLabel] = likeCountButton.titleLabel
             
             timestampLabel.text = String(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), post.createdAt.timeAgoSinceNow())
             distanceLabel.text = post.distanceText
-            likeCountLabel.text = post.likesCountText
+            likeCountButton.titleLabel?.text = post.likesCountText
             likeButton.setImage(post.likeButtonImage, forState: .Normal)
         }
     }
@@ -111,6 +111,15 @@ class PostTableViewCell: UITableViewCell {
         }
         
         super.updateConstraints()
+    }
+    
+    @IBAction func likeCountButtonDidTouch(sender: UIButton) {
+        let viewController = UIApplication.sharedApplication().keyWindow?.rootViewController!
+        
+        let likesViewController = LikesViewController()
+        likesViewController.post = post
+        
+        viewController?.presentViewController(likesViewController, animated: true, completion: nil)
     }
     
     override func prepareForReuse() {

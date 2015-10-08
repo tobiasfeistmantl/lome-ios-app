@@ -245,6 +245,34 @@ class API {
                     }
                 }
             }
+            
+            class Likes {
+                static func getUsers(post: Post, page: Int = 1, afterResponse: ([User], Bool) -> Void) {
+                    var users: [User] = []
+                    var successful = false
+                    
+                    let parameters = [
+                        "page": page
+                    ]
+                    
+                    API.request(.GET, "/users/\(post.author.id)/post/\(post.id)/likes)", parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                        switch result {
+                        case .Success(let value):
+                            successful = true
+                            
+                            for (_, data) in JSON(value)["likes"] {
+                                users.append(User(data: data["user"]))
+                            }
+                        case .Failure:
+                            break
+                        }
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            afterResponse(users, successful)
+                        }
+                    }
+                }
+            }
         }
         
         class Relationships {
