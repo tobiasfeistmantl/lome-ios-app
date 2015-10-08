@@ -113,15 +113,6 @@ class PostTableViewCell: UITableViewCell {
         super.updateConstraints()
     }
     
-    @IBAction func likeCountButtonDidTouch(sender: UIButton) {
-        let viewController = UIApplication.sharedApplication().keyWindow?.rootViewController!
-        
-        let likesViewController = LikesViewController()
-        likesViewController.post = post
-        
-        viewController?.presentViewController(likesViewController, animated: true, completion: nil)
-    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         

@@ -113,9 +113,6 @@
                         <state key="normal" title="14,921 Likes">
                             <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
-                        <connections>
-                            <action selector="likeCountButtonDidTouch:" destination="af7-B8-Efg" eventType="touchUpInside" id="t0l-fl-LtF"/>
-                        </connections>
                     </button>
                 </subviews>
                 <animations/>
