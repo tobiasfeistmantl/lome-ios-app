@@ -39,6 +39,7 @@
 		116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BEAF11BB1475D007ED1FB /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		117A34C11BBDC50B002BEF22 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117A34C31BBDC50B002BEF22 /* Login.storyboard */; };
 		11856C801BC6C2E50029A3FE /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		11856C821BC6E9570029A3FE /* TFSocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11856C811BC6E9570029A3FE /* TFSocialButton.swift */; settings = {ASSET_TAGS = (); }; };
 		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; settings = {ASSET_TAGS = (); }; };
 		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
 		1197080C1BC1C2C300CF8F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1197080E1BC1C2C300CF8F3C /* InfoPlist.strings */; };
@@ -114,6 +115,7 @@
 		117A34C21BBDC50B002BEF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		117E3C9D1BC479DE008AD53C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		11856C811BC6E9570029A3FE /* TFSocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFSocialButton.swift; sourceTree = "<group>"; };
 		1196177A1BAD896C00BDE941 /* MKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
 		1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFCellButton.swift; sourceTree = "<group>"; };
 		1197080D1BC1C2C300CF8F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */,
 				1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */,
 				110580401BBF22C00021690E /* TFImageButton.swift */,
+				11856C811BC6E9570029A3FE /* TFSocialButton.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				119801271BB16D0C00DD145C /* UIImage.swift in Sources */,
 				11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */,
 				113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */,
+				11856C821BC6E9570029A3FE /* TFSocialButton.swift in Sources */,
 				111807201BB3FD6500C1470D /* UIScrollView.swift in Sources */,
 				1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */,
 				11355FEA1BA0601F00BD1A64 /* PostsFeedViewController.swift in Sources */,

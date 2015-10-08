@@ -11,6 +11,8 @@ target 'Lome' do
     pod 'DateTools'
     pod 'JTSImageViewController'
     pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
 end
 
 target 'LomeTests' do

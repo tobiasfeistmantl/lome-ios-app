@@ -11,6 +11,7 @@ import MapKit
 import Spring
 import Alamofire
 import SwiftyJSON
+import FBSDKShareKit
 
 class MessageComposerViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     @IBOutlet weak var postPositionMapView: MKMapView!
@@ -26,6 +27,8 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     
     @IBOutlet weak var postingActivityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var facebookShareButton: TFSocialButton!
+    
     var post: Post?
     var imageUploading = false
     var postButtonTouched = false
@@ -38,6 +41,8 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        facebookShareButton.viewController = self
         
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             takeImageButton.enabled = true
@@ -210,6 +215,18 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
                 "status": "published"
             ]
         ]
+        
+        if facebookShareButton.postOnNetwork && FBSDKAccessToken.currentAccessToken() != nil {
+            let photo = FBSDKSharePhoto(image: chosenImageView.image, userGenerated: true)
+            
+            let content = FBSDKSharePhotoContent()
+            content.photos = [photo]
+
+            let fbAPI = FBSDKShareAPI()
+            fbAPI.message = messageTextView.text
+            fbAPI.shareContent = content
+            fbAPI.share()
+        }
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
