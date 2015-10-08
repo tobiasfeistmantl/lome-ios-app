@@ -662,6 +662,7 @@
                     <navigationItem key="navigationItem" title="Search" id="O9A-Am-ayA"/>
                     <connections>
                         <outlet property="userSearchBar" destination="Dfr-V1-lDH" id="WrR-M9-Y1V"/>
+                        <segue destination="TS3-yZ-moZ" kind="show" identifier="showUserProfile" id="JZ1-L3-7LL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6U4-m2-isH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1165,7 +1166,7 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
         <image name="Write Tab Background" width="85" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pkZ-Xh-um1"/>
-        <segue reference="SG5-PQ-IHQ"/>
+        <segue reference="JZ1-L3-7LL"/>
+        <segue reference="hZl-Rl-XYy"/>
     </inferredMetricsTieBreakers>
 </document>

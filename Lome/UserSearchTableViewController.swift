@@ -60,6 +60,14 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        performSegueWithIdentifier("showUserProfile", sender: cell)
+    }
+    
     func populate(reload reload: Bool = false) {
         if populatingAtTheMoment {
             true
