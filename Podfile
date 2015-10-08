@@ -10,6 +10,7 @@ target 'Lome' do
     pod 'AlamofireImage'
     pod 'DateTools'
     pod 'JTSImageViewController'
+    pod 'FBSDKCoreKit'
 end
 
 target 'LomeTests' do
