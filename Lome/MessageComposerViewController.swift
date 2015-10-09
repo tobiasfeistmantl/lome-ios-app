@@ -223,7 +223,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
             content.photos = [photo]
 
             let fbAPI = FBSDKShareAPI()
-            fbAPI.message = messageTextView.text
+            fbAPI.message = message
             fbAPI.shareContent = content
             fbAPI.share()
         }
