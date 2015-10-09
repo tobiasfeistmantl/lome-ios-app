@@ -227,7 +227,6 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
                 fbAPI.message = message
                 fbAPI.shareContent = content
                 fbAPI.share()
-                
             } else {
                 let graphRequest = FBSDKGraphRequest(graphPath: "me/feed", parameters: ["message": message], HTTPMethod: "POST")
                 graphRequest.startWithCompletionHandler(nil)
