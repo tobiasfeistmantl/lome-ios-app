@@ -216,16 +216,22 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
             ]
         ]
         
-        if facebookShareButton.postOnNetwork && FBSDKAccessToken.currentAccessToken() != nil {
-            let photo = FBSDKSharePhoto(image: chosenImageView.image, userGenerated: true)
-            
-            let content = FBSDKSharePhotoContent()
-            content.photos = [photo]
-
-            let fbAPI = FBSDKShareAPI()
-            fbAPI.message = message
-            fbAPI.shareContent = content
-            fbAPI.share()
+        if facebookShareButton.postOnNetwork && FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
+            if let image = chosenImageView.image {
+                let photo = FBSDKSharePhoto(image: image, userGenerated: true)
+                
+                let content = FBSDKSharePhotoContent()
+                content.photos = [photo]
+                
+                let fbAPI = FBSDKShareAPI()
+                fbAPI.message = message
+                fbAPI.shareContent = content
+                fbAPI.share()
+                
+            } else {
+                let graphRequest = FBSDKGraphRequest(graphPath: "me/feed", parameters: ["message": message], HTTPMethod: "POST")
+                graphRequest.startWithCompletionHandler(nil)
+            }
         }
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
