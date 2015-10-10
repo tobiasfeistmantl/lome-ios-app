@@ -14,7 +14,7 @@ import SwiftyJSON
 import FBSDKShareKit
 import imglyKit
 
-class MessageComposerViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
+class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMapViewDelegate {
     @IBOutlet weak var postPositionMapView: MKMapView!
     @IBOutlet weak var messageTextView: DesignableTextView!
     @IBOutlet weak var postButton: DesignableButton!
@@ -38,18 +38,10 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     var placeholderSetInMessageTextView = true
     var placeholderText = NSLocalizedString("Your message here...", comment: "Your message here...")
     
-    let imagePicker = UIImagePickerController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         facebookShareButton.viewController = self
-        
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            takeImageButton.enabled = true
-        }
-        
-        imagePicker.delegate = self
         
         setupObserversForKeyboard()
         messageTextView.placeholder = placeholderText
@@ -167,62 +159,6 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
         }
         
         presentViewController(cameraViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func chooseImageButtonDidTouch(sender: UIButton) {
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print("abc")
-        dismissViewControllerAnimated(true, completion: nil)
-        
-        imageUploading = true
-        
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        chosenImageView.image = image
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            let imagePath = image.storeImage("tmpPostImage")
-            let imageURL = NSURL.fileURLWithPath(imagePath!)
-            
-            let URL = API.baseURLString + "/users/\(UserSession.User.id!)/posts/image"
-            
-            Alamofire.upload(.POST, URL, headers: API.defaultSignedInHeaders, multipartFormData: { multipartFormData in
-                multipartFormData.appendBodyPart(fileURL: imageURL, name: "post[image]")
-                }) { encodingResult in
-                    switch encodingResult {
-                    case .Success(let upload, _, _):
-                        upload.validate().responseJSON { _, _, result in
-                            switch result {
-                            case .Success(let value):
-                                self.imageUploading = false
-                                self.post = Post(data: JSON(value)["post"])
-                                
-                                if self.postButtonTouched {
-                                    dispatch_async(dispatch_get_main_queue()) {
-                                        self.publishPost()
-                                    }
-                                }
-                            case .Failure:
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    self.simpleAlert(title: NSLocalizedString("Unable to upload image", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
-                                }
-                            }
-                            
-                            UIImage.removeImage("tmpPostImage")
-                        }
-                    case .Failure:
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.simpleAlert(title: NSLocalizedString("Unable to process image", comment: ""), message: NSLocalizedString("Upload cancelled", comment: ""))
-                        }
-                    }
-                    
-                    UIImage.removeImage("tmpPostImage")
-            }
-        }
     }
     
     func publishPost() {

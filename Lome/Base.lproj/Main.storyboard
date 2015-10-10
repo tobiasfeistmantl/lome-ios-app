@@ -832,31 +832,15 @@
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qES-x0-M60">
-                                                    <rect key="frame" x="150" y="300" width="1" height="44"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyk-LU-n2Z">
-                                                    <rect key="frame" x="8" y="300" width="143" height="44"/>
+                                                    <rect key="frame" x="8" y="300" width="284" height="44"/>
                                                     <animations/>
                                                     <inset key="imageEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" image="Camera Icon">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="takePhotoButtonDidTouch:" destination="Oxg-zL-tKh" eventType="touchUpInside" id="Ene-Nu-B8j"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-l5-g2U">
-                                                    <rect key="frame" x="150" y="300" width="142" height="44"/>
-                                                    <animations/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                                     <state key="normal" image="Image Icon">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="chooseImageButtonDidTouch:" destination="Oxg-zL-tKh" eventType="touchUpInside" id="Q1O-c1-yNr"/>
+                                                        <action selector="takePhotoButtonDidTouch:" destination="Oxg-zL-tKh" eventType="touchUpInside" id="Ene-Nu-B8j"/>
                                                     </connections>
                                                 </button>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="MapPin" translatesAutoresizingMaskIntoConstraints="NO" id="0hp-Ep-Cxr">
@@ -1173,7 +1157,6 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
     <resources>
         <image name="Avatar Icon" width="25" height="25"/>
         <image name="Background" width="375" height="667"/>
-        <image name="Camera Icon" width="25" height="22"/>
         <image name="Facebook Deactivated" width="27" height="27"/>
         <image name="Image Icon" width="28" height="28"/>
         <image name="Like Heart" width="24" height="24"/>
