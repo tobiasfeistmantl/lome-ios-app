@@ -34,7 +34,7 @@ class API {
         request.responseJSON { request, response, result in
             if let value = result.value {
                 let data = JSON(value)
-                    
+                
                 if data["error"]["type"].string == "UNAUTHENTICATED" {
                     UserSession.delete()
                     
@@ -242,6 +242,45 @@ class API {
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         afterResponse(posts, successful)
+                    }
+                }
+            }
+            
+            static func uploadImage(image: UIImage, afterResponse: (Post?, Bool) -> Void) {
+                var post: Post?
+                var successful = false
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+                    let imagePath = image.storeImage("tmpPostImage")
+                    let imageURL = NSURL.fileURLWithPath(imagePath!)
+                    
+                    let URL = API.baseURLString + "/users/\(UserSession.User.id!)/posts/image"
+                    
+                    Alamofire.upload(.POST, URL, headers: API.defaultSignedInHeaders, multipartFormData: { multipartFormData in
+                        multipartFormData.appendBodyPart(fileURL: imageURL, name: "post[image]")
+                        }) { encodingResult in
+                            switch encodingResult {
+                            case .Success(let upload, _, _):
+                                upload.validate().responseJSON { _, _, result in
+                                    switch result {
+                                    case .Success(let value):
+                                        post = Post(data: JSON(value)["post"])
+                                        successful = true
+                                    case .Failure:
+                                        break
+                                    }
+                                    
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        afterResponse(post, successful)
+                                    }
+                                }
+                            case .Failure:
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    afterResponse(post, successful)
+                                }
+                            }
+                            
+                            UIImage.removeImage("tmpPostImage")
                     }
                 }
             }

@@ -13,6 +13,7 @@ target 'Lome' do
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'FBSDKShareKit'
+    pod 'imglyKit'
 end
 
 target 'LomeTests' do

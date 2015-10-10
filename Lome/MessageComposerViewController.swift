@@ -12,6 +12,7 @@ import Spring
 import Alamofire
 import SwiftyJSON
 import FBSDKShareKit
+import imglyKit
 
 class MessageComposerViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     @IBOutlet weak var postPositionMapView: MKMapView!
@@ -129,9 +130,43 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     }
     
     @IBAction func takePhotoButtonDidTouch(sender: UIButton) {
-        imagePicker.sourceType = .Camera
+        let cameraViewController = IMGLYCameraViewController(recordingModes: [.Photo])
+        cameraViewController.completionBlock = { image, url in
+            let editorViewController = IMGLYMainEditorViewController()
+            editorViewController.highResolutionImage = image
+            editorViewController.completionBlock = { result, image in
+                self.chosenImageView.image = image
+                
+                if let image = image {
+                    self.imageUploading = true
+
+                    API.Users.Posts.uploadImage(image) { post, successful in
+                        self.post = post
+                        self.imageUploading = false
+                        
+                        if successful {
+                            if self.postButtonTouched {
+                                self.publishPost()
+                            }
+                        } else {
+                            self.simpleAlert(title: NSLocalizedString("Unable to upload image", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                        }
+                        
+                    }
+                }
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+            let navigationController = IMGLYNavigationController(rootViewController: editorViewController)
+            navigationController.navigationBar.barStyle = .Black
+            navigationController.navigationBar.translucent = false
+            navigationController.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName : UIColor.whiteColor() ]
+            
+            cameraViewController.presentViewController(navigationController, animated: true, completion: nil)
+        }
         
-        presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(cameraViewController, animated: true, completion: nil)
     }
     
     @IBAction func chooseImageButtonDidTouch(sender: UIButton) {
@@ -141,6 +176,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, UIIma
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        print("abc")
         dismissViewControllerAnimated(true, completion: nil)
         
         imageUploading = true

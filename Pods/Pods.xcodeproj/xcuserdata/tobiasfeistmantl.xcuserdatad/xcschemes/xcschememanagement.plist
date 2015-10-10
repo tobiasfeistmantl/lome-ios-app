@@ -64,15 +64,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>imglyKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0771C19D9639C4F330CF958F5CAAC332</key>
+		<key>0E892DD781E09EEFE111DDDBE2F9526F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24D28FFBF88909EE6E65D09F1CE86F7F</key>
+		<key>1B19FD4F77FC518C485A0BBAECC146A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A1EDC1176132281D33D08FBC320D0D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3CEC40E6659FF3F7434B629D63A2C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,22 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51256AB18A04420D7F6380FD1EF68870</key>
+		<key>57272EBAFD458FD20E56BECA72E1CE2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7015A628C2343E9B61143961555E867D</key>
+		<key>737AB916C0437C8EC404212A5837435E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0BFDB4A514BB1F4E8A01E76F9C6A6B1</key>
+		<key>84A4513F3A25859DD29E6A1D7167CE33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A120C8406C1898F764B5FE3FFCF5F578</key>
+		<key>B59A3D0A8ED4919055A4D8349E71B1BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9E4354F8736CFDF5BD9CE305AE5A548</key>
+		<key>C210684728B27107EBA4D63F27FA6D74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D3F796A4FACC84FFBEC68ACA7C86A066</key>
+		<key>D1C29D99AA30BC5F73FCDB774C87E9FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4656DDC21CB8B79B9392655015EB029</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F30E4AA27BBD58A3663E38EE676EA6FA</key>
+		<key>D6A93B52B828D9C6509F81912559C57F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

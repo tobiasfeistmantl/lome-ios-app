@@ -63,6 +63,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Lome/KeychainAccess.framework'
   install_framework 'Pods-Lome/Spring.framework'
   install_framework 'Pods-Lome/SwiftyJSON.framework'
+  install_framework 'Pods-Lome/imglyKit.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Lome/Alamofire.framework'
@@ -76,4 +77,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Lome/KeychainAccess.framework'
   install_framework 'Pods-Lome/Spring.framework'
   install_framework 'Pods-Lome/SwiftyJSON.framework'
+  install_framework 'Pods-Lome/imglyKit.framework'
 fi

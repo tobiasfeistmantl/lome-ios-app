@@ -443,6 +443,11 @@
 					11AB27391B9C6E8D00DF00E1 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 44TXR88BY8;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					11AB274E1B9C6E8E00DF00E1 = {
 						CreatedOnToolsVersion = 6.4;

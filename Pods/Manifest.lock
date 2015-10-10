@@ -22,6 +22,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.7.0):
     - FBSDKCoreKit
+  - imglyKit (2.4.0)
   - JTSImageViewController (1.5.1)
   - KeychainAccess (2.0.1)
   - Spring (1.0.3)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - imglyKit
   - JTSImageViewController
   - KeychainAccess
   - Spring (from `https://github.com/MengTo/Spring.git`)
@@ -56,6 +58,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: eb580bfc2040ad44f4c0b4f4d0befb1d35bce59c
   FBSDKLoginKit: 01bce8dd3f3a26a023b0ba4ffdde7ef5062889fe
   FBSDKShareKit: 1f927bb05e4d36a99d5d5bf2f4b1ff294ce3e15c
+  imglyKit: 0cad9283d29806902f3f60c7799e29dba74d806d
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   KeychainAccess: 4f43261905701098847f6995a2de3fe8b90284df
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
