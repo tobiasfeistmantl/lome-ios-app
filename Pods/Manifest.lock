@@ -24,7 +24,7 @@ PODS:
     - FBSDKCoreKit
   - imglyKit (2.4.0)
   - JTSImageViewController (1.5.1)
-  - KeychainAccess (2.0.1)
+  - KeychainAccess (2.2.0)
   - Spring (1.0.3)
   - SwiftyJSON (2.3.0)
 
@@ -60,7 +60,7 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 1f927bb05e4d36a99d5d5bf2f4b1ff294ce3e15c
   imglyKit: 0cad9283d29806902f3f60c7799e29dba74d806d
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
-  KeychainAccess: 4f43261905701098847f6995a2de3fe8b90284df
+  KeychainAccess: c14a391a45bb3efbd63ab9f5a95b5b4e8753a506
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
