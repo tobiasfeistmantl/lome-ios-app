@@ -23,6 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>lome</string>
 				<string>fb520223104808157</string>
 			</array>
 		</dict>
