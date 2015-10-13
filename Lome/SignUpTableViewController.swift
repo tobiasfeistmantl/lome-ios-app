@@ -89,7 +89,7 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
             } else {
                 if let error = APIError {
                     if let usernameError = error["error"]["specific"]["username"][0].string {
-                        self.usernameTextField.setInlineErrorMessage(usernameError)
+                        self.usernameTextField.inlineErrorMessage = usernameError
                     }
                 } else {
                     self.simpleAlert(title: NSLocalizedString("An error occurred!", comment: ""), message: NSLocalizedString("Please check your entered data", comment: ""))

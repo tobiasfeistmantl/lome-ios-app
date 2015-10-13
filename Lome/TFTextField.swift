@@ -46,8 +46,8 @@ import Spring
     var valid: Bool {
         if validationError == nil {
             // Always remove error messages if value is valid
-            resetError()
-        
+            inlineErrorMessage = nil
+            
             return true
         } else {
             return false
@@ -58,40 +58,41 @@ import Spring
         return validationError != nil
     }
     
-    
-    func setInlineErrorMessage(value: String) {
-        if errorLabel == nil {
-            let errorColor = UIColor(hex: "AA0000")
-            
-            self.textColor = errorColor
-            
-            self.errorLabel = UILabel()
-            errorLabel!.textColor = errorColor
-            errorLabel!.font = self.font
-            errorLabel!.textAlignment = .Right
-            errorLabel!.translatesAutoresizingMaskIntoConstraints = false
-            
-            errorLabel!.text = value
-            
-            self.addSubview(errorLabel!)
-            
-            let centerConstraint = NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: errorLabel, attribute: .CenterY, multiplier: 1, constant: 0)
-            let rightConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: errorLabel, attribute: .Trailing, multiplier: 1, constant: 0)
-            
-            self.addConstraints([centerConstraint, rightConstraint])
+    var inlineErrorMessage: String? {
+        didSet {
+            if inlineErrorMessage != nil {
+                if errorLabel == nil {
+                    let errorColor = UIColor(hex: "AA0000")
+                    
+                    self.textColor = errorColor
+                    
+                    self.errorLabel = UILabel()
+                    errorLabel!.textColor = errorColor
+                    errorLabel!.font = self.font
+                    errorLabel!.textAlignment = .Right
+                    errorLabel!.translatesAutoresizingMaskIntoConstraints = false
+                    
+                    errorLabel!.text = inlineErrorMessage
+                    
+                    self.addSubview(errorLabel!)
+                    
+                    let centerConstraint = NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: errorLabel, attribute: .CenterY, multiplier: 1, constant: 0)
+                    let rightConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: errorLabel, attribute: .Trailing, multiplier: 1, constant: 0)
+                    
+                    self.addConstraints([centerConstraint, rightConstraint])
+                }
+            } else {
+                textColor = .blackColor()
+                errorLabel?.removeFromSuperview()
+                errorLabel = nil
+            }
         }
     }
     
     func setInlineErrorMessageByValidationError() {
         if let error = validationError {
-            setInlineErrorMessage(error.rawValue)
+            inlineErrorMessage = error.rawValue
         }
-    }
-    
-    func resetError() {
-        self.textColor = .blackColor()
-        errorLabel?.removeFromSuperview()
-        errorLabel = nil
     }
     
     
