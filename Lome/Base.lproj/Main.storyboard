@@ -57,7 +57,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                     <state key="normal" title="Follow">
-                                        <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" red="0.10196078431372549" green="0.37647058823529411" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -68,7 +68,7 @@
                                             <real key="value" value="2"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="value" red="0.10196078431372549" green="0.37647058823529411" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -86,6 +86,16 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="circularImage" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkg-lg-xIG" customClass="TFImageButton" customModule="Lome" customModuleProvider="target">
+                                    <rect key="frame" x="264" y="15" width="72" height="72"/>
+                                    <animations/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="circularButton" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="showProfileImageButtonDidTouch:" destination="TS3-yZ-moZ" eventType="touchUpInside" id="oEx-fZ-UcG"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,10 +104,14 @@
                                 <constraint firstAttribute="centerX" secondItem="ViC-oW-66u" secondAttribute="centerX" id="4m9-bS-nhf"/>
                                 <constraint firstAttribute="trailing" secondItem="le2-rE-IqY" secondAttribute="trailing" constant="25" id="5Rr-mo-eZc"/>
                                 <constraint firstAttribute="centerX" secondItem="DJP-K7-D04" secondAttribute="centerX" id="7ul-eY-JAv"/>
+                                <constraint firstItem="gkg-lg-xIG" firstAttribute="bottom" secondItem="y2M-5C-ddz" secondAttribute="bottom" id="HdG-Zo-E2q"/>
                                 <constraint firstItem="11N-Eg-Gg9" firstAttribute="top" secondItem="ViC-oW-66u" secondAttribute="bottom" constant="15" id="IcH-Lv-tIw"/>
                                 <constraint firstItem="DJP-K7-D04" firstAttribute="top" secondItem="y2M-5C-ddz" secondAttribute="bottom" constant="12" id="OSr-z4-70F"/>
                                 <constraint firstItem="y2M-5C-ddz" firstAttribute="top" secondItem="au3-SY-L4t" secondAttribute="top" constant="15" id="SLQ-xe-sJR"/>
+                                <constraint firstItem="gkg-lg-xIG" firstAttribute="top" secondItem="y2M-5C-ddz" secondAttribute="top" id="V66-pW-sUr"/>
                                 <constraint firstAttribute="centerX" secondItem="2O5-eO-k9B" secondAttribute="centerX" id="fz6-J6-9Md"/>
+                                <constraint firstItem="gkg-lg-xIG" firstAttribute="leading" secondItem="y2M-5C-ddz" secondAttribute="leading" id="gCs-aK-2Xy"/>
+                                <constraint firstItem="gkg-lg-xIG" firstAttribute="trailing" secondItem="y2M-5C-ddz" secondAttribute="trailing" id="la2-Rr-uY1"/>
                                 <constraint firstItem="2O5-eO-k9B" firstAttribute="top" secondItem="DJP-K7-D04" secondAttribute="bottom" constant="2" id="mMm-MN-LAd"/>
                                 <constraint firstAttribute="trailing" secondItem="11N-Eg-Gg9" secondAttribute="trailing" constant="8" id="ovb-73-cS6"/>
                                 <constraint firstAttribute="centerX" secondItem="y2M-5C-ddz" secondAttribute="centerX" id="ris-eh-6Dw"/>
@@ -126,6 +140,7 @@
                         <outlet property="profileImageView" destination="y2M-5C-ddz" id="OhK-KK-7LG"/>
                         <outlet property="profileInformationView" destination="au3-SY-L4t" id="UHn-sG-1Gk"/>
                         <outlet property="profileSettingsButton" destination="sAs-10-FCN" id="4TZ-z9-AZO"/>
+                        <outlet property="showProfileImageButton" destination="gkg-lg-xIG" id="5CQ-n3-4qK"/>
                         <outlet property="usernameLabel" destination="2O5-eO-k9B" id="7tV-yH-03e"/>
                         <outlet property="usersNameLabel" destination="DJP-K7-D04" id="3jK-vM-FVk"/>
                         <segue destination="1TX-ot-2zV" kind="show" identifier="showPost" id="hZl-Rl-XYy"/>
@@ -1167,6 +1182,6 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pkZ-Xh-um1"/>
-        <segue reference="SG5-PQ-IHQ"/>
+        <segue reference="hZl-Rl-XYy"/>
     </inferredMetricsTieBreakers>
 </document>

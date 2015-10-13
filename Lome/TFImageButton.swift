@@ -11,11 +11,23 @@ import UIKit
 import JTSImageViewController
 
 class TFImageButton: UIButton {
+    @IBInspectable var circularButton: Bool = false {
+        didSet {
+            if circularButton {
+                layer.cornerRadius = frame.size.width / 2
+            }
+        }
+    }
+    
     func showImage(image: UIImage) {
         let imageInfo = JTSImageInfo()
         imageInfo.image = image
-        imageInfo.referenceRect = self.frame;
-        imageInfo.referenceView = self.superview;
+        imageInfo.referenceRect = self.frame
+        imageInfo.referenceView = self.superview
+        
+        if circularButton {
+            imageInfo.referenceCornerRadius = frame.size.width / 2
+        }
         
         let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: JTSImageViewControllerMode.Image, backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
         

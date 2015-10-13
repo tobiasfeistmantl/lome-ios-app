@@ -10,6 +10,7 @@ import UIKit
 import Spring
 import Alamofire
 import SwiftyJSON
+import JTSImageViewController
 
 class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     var userId: Int!
@@ -33,16 +34,17 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followerLabel: UILabel!
     @IBOutlet weak var followButton: DesignableButton!
+    @IBOutlet weak var showProfileImageButton: TFImageButton!
     
     var followsUser: Bool = false {
         didSet {
             if followsUser {
                 followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), forState: .Normal)
                 followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-                followButton.backgroundColor = UIColor(hex: "4A90E2")
+                followButton.backgroundColor = UIColor(hex: "1A6099")
             } else {
                 followButton.setTitle(NSLocalizedString("Follow", comment: ""), forState: .Normal)
-                followButton.setTitleColor(UIColor(hex: "4A90E2"), forState: .Normal)
+                followButton.setTitleColor(UIColor(hex: "1A6099"), forState: .Normal)
                 followButton.backgroundColor = UIColor.whiteColor()
             }
         }
@@ -143,6 +145,10 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         }
     }
     
+    @IBAction func showProfileImageButtonDidTouch(sender: TFImageButton) {
+        sender.showImage(profileImageView.image!)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPost" {
             let cell = (sender as! PostTableViewCell)
@@ -172,7 +178,7 @@ extension ProfileTableViewController {
         
         
         if user.following != nil && user.following! {
-            followButton.backgroundColor = UIColor(hex: "4A90E2")
+            followButton.backgroundColor = UIColor(hex: "1A6099")
             followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), forState: .Normal)
         }
