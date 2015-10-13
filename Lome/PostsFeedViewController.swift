@@ -78,10 +78,9 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.populate(reload: true)
             } else {
                 self.simpleAlert(title: NSLocalizedString("Unable to update your location", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                self.refreshControl.endRefreshing()
+                self.hideLoadingView()
             }
-            
-            self.refreshControl.endRefreshing()
-            self.hideLoadingView()
         }
     }
     
@@ -117,7 +116,6 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.posts += posts
                 }
                 
-                self.hideLoadingView()
                 self.postsTableView.reloadData()
             } else {
                 self.simpleAlert(title: NSLocalizedString("Unable to get posts", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
