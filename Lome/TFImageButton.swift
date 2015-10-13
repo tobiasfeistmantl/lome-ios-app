@@ -29,7 +29,7 @@ class TFImageButton: UIButton {
             imageInfo.referenceCornerRadius = frame.size.width / 2
         }
         
-        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: JTSImageViewControllerMode.Image, backgroundStyle: JTSImageViewControllerBackgroundOptions.Blurred)
+        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: .Image, backgroundStyle: .Blurred)
         
         imageViewer.showFromViewController(UIApplication.sharedApplication().keyWindow?.rootViewController, transition: JTSImageViewControllerTransition.FromOriginalPosition)
     }

@@ -195,12 +195,11 @@ extension ProfileTableViewController {
         followerLabel.text = user.followerCountText
         
         if UserSession.User.id == user.id {
-            if followButton.hidden == false {
                 followButton.hidden = true
-                profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))
-            }
+                profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))  
         } else {
             navigationItem.rightBarButtonItem = nil
+            followButton.hidden = false
         }
         
         populate(reload: true)
