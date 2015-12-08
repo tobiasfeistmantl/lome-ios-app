@@ -25,6 +25,8 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var constraintBetweenMessageLabelAndPostImageView: NSLayoutConstraint!
     @IBOutlet weak var postImageButton: UIButton!
     
+    @IBOutlet weak var reportAbuseButton: UIButton!
+    
     @IBOutlet weak var postImageActivityIndicator: UIActivityIndicatorView!
     
     var postImage: UIImage? {
@@ -106,6 +108,23 @@ class PostTableViewCell: UITableViewCell {
         if let postImage = postImage {
             sender.showImage(postImage)
         }
+    }
+    
+    @IBAction func reportAbuseButtonDidTouch(sender: UIButton) {
+        let alert = UIAlertController(title: "Report Abuse", message: "Do you really want to report this post?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let reportAction = UIAlertAction(title: "Yes report!", style: UIAlertActionStyle.Destructive) { _ in
+            API.Users.Posts.reportAbuse(self.post) { successful in
+                if successful {
+                    UIViewController.topMost.simpleAlert(title: "Post reported!", message: "Thank you for your help!")
+                } else {
+                    UIViewController.topMost.simpleAlert(title: "Unable to report!", message: "There was a problem while report the post!")
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addAction(reportAction)
+        alert.addAction(cancelAction)
+        UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
     }
     
     override func updateConstraints() {

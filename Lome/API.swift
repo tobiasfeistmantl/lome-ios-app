@@ -273,6 +273,20 @@ class API {
                 }
             }
             
+            static func reportAbuse(post: Post, afterResponse: (Bool) -> Void) {
+                var successful = false
+                
+                API.request(.POST, "/users/\(post.author.id)/posts/\(post.id)/abuse_report", headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                    if serverResponse.response?.statusCode == 201 {
+                        successful = true
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        afterResponse(successful)
+                    }
+                }
+            }
+            
             static func uploadImage(image: UIImage, afterResponse: (Post?, Bool) -> Void) {
                 var post: Post?
                 var successful = false
