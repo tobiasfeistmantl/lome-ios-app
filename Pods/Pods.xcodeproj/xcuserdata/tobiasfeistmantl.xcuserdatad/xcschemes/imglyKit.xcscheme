@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEEF032EE0ED90E51027B31F"
+               BlueprintIdentifier = "549939769CD2750F5C0E7FA6"
                BuildableName = "imglyKit.framework"
                BlueprintName = "imglyKit"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -31,7 +31,10 @@ class API {
         
         let request = Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: headers)
         
-        request.responseJSON { request, response, result in
+        request.responseJSON { serverResponse in
+            let request = serverResponse.request
+            let response = serverResponse.response
+            let result = serverResponse.result
             if let value = result.value {
                 let data = JSON(value)
                 
@@ -58,7 +61,10 @@ class API {
                 "page": page
             ]
             
-            API.request(.GET, "/posts/nearby", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+            API.request(.GET, "/posts/nearby", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 switch result {
                 case .Success(let value):
                     for (_, data) in JSON(value) {
@@ -87,7 +93,10 @@ class API {
                 "page": page
             ]
             
-            API.request(.GET, "/users", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+            API.request(.GET, "/users", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 switch result {
                 case .Success(let value):
                     for (_, json) in JSON(value) {
@@ -109,7 +118,10 @@ class API {
             var user: User?
             var successful = false
             
-            API.request(.GET, "/users/\(id)", headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+            API.request(.GET, "/users/\(id)", headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 switch result {
                 case .Success(let value):
                     successful = true
@@ -129,7 +141,10 @@ class API {
             var user: User?
             var successful = false
             
-            API.request(.PATCH, "/users/\(UserSession.User.id!)", parameters: parameters, headers: defaultSignedInHeaders).responseJSON { _, response, result in
+            API.request(.PATCH, "/users/\(UserSession.User.id!)", parameters: parameters, headers: defaultSignedInHeaders).responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 if response?.statusCode == 200 {
                     if let value = result.value {
                         user = User(data: JSON(value))
@@ -154,7 +169,10 @@ class API {
             
             let URL = API.baseURLString + "/users/sessions"
             
-            Alamofire.request(.POST, URL, headers: headers).validate().responseJSON { _, _, result in
+            Alamofire.request(.POST, URL, headers: headers).validate().responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 switch result {
                 case .Success(let value):
                     let jsonData = JSON(value)
@@ -185,7 +203,10 @@ class API {
             
             let URL = baseURLString + "/users"
             
-            Alamofire.request(.POST, URL, parameters: parameters).responseJSON { _, response, result in
+            Alamofire.request(.POST, URL, parameters: parameters).responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 if response?.statusCode == 201 {
                     successful = true
                 } else {
@@ -204,7 +225,10 @@ class API {
         static func signOut(afterSignOut: ((Bool) -> Void)?) {
             var successful = false
             
-            API.request(.DELETE, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)", headers: defaultSignedInHeaders).responseJSON { _, response, _ in
+            API.request(.DELETE, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)", headers: defaultSignedInHeaders).responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 UserSession.delete()
                 
                 if response?.statusCode == 204 {
@@ -228,7 +252,10 @@ class API {
                     "page": page
                 ]
                 
-                API.request(.GET, "/users/\(user.id)/posts", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                API.request(.GET, "/users/\(user.id)/posts", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                    let request = serverResponse.request
+                    let response = serverResponse.response
+                    let result = serverResponse.result
                     switch result {
                     case .Success(let value):
                         for (_, data) in JSON(value) {
@@ -261,7 +288,10 @@ class API {
                         }) { encodingResult in
                             switch encodingResult {
                             case .Success(let upload, _, _):
-                                upload.validate().responseJSON { _, _, result in
+                                upload.validate().responseJSON { serverResponse in
+                                    let request = serverResponse.request
+                                    let response = serverResponse.response
+                                    let result = serverResponse.result
                                     switch result {
                                     case .Success(let value):
                                         post = Post(data: JSON(value)["post"])
@@ -294,7 +324,10 @@ class API {
                         "page": page
                     ]
                     
-                    API.request(.GET, "/users/\(post.author.id)/post/\(post.id)/likes)", parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                    API.request(.GET, "/users/\(post.author.id)/post/\(post.id)/likes)", parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                        let request = serverResponse.request
+                        let response = serverResponse.response
+                        let result = serverResponse.result
                         switch result {
                         case .Success(let value):
                             successful = true
@@ -324,7 +357,10 @@ class API {
                     "partner_id": partner_id
                 ]
                 
-                API.request(.GET, "/users/\(UserSession.User.id!)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
+                API.request(.GET, "/users/\(UserSession.User.id!)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                    let request = serverResponse.request
+                    let response = serverResponse.response
+                    let result = serverResponse.result
                     switch result {
                     case .Success(let value):
                         successful = true
@@ -363,7 +399,10 @@ class API {
                     ]
                 ]
                 
-                API.request(.POST, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions", parameters: parameters, headers: API.defaultSignedInHeaders).responseJSON { _, response, _ in
+                API.request(.POST, "/users/\(UserSession.User.id!)/sessions/\(UserSession.id!)/positions", parameters: parameters, headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
+                    let request = serverResponse.request
+                    let response = serverResponse.response
+                    let result = serverResponse.result
                     if response?.statusCode == 204 {
                         successful = true
                     }

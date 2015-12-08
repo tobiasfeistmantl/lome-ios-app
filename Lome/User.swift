@@ -88,7 +88,10 @@ class User {
         var successful = false
         
         if let imageURL = profileImageURLs[profileImageVersion] {
-            Alamofire.request(.GET, imageURL).responseImage { _, _, result in
+            Alamofire.request(.GET, imageURL).responseImage { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 if let value = result.value {
                     image = value
                     successful = true

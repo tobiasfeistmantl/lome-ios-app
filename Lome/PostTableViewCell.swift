@@ -67,7 +67,10 @@ class PostTableViewCell: UITableViewCell {
                 let URL = NSURL(string: imageURL)!
                 
                 postImageActivityIndicator.startAnimating()
-                postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { _, _, result in
+                postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { serverResponse in
+                    let request = serverResponse.request
+                    let response = serverResponse.response
+                    let result = serverResponse.result
                     self.postImageActivityIndicator.stopAnimating()
                     
                     if let image = result.value {

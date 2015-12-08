@@ -206,7 +206,10 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         }
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { _, _, result in
+            API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { serverResponse in
+                let request = serverResponse.request
+                let response = serverResponse.response
+                let result = serverResponse.result
                 dispatch_async(dispatch_get_main_queue()) {
                     switch result {
                     case .Success:

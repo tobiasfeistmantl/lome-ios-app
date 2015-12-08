@@ -31,7 +31,10 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     }
     
     func assignUpdatedUserAttributes() {
-        API.request(.GET, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { _, _, result in
+        API.request(.GET, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
+            let request = serverResponse.request
+            let response = serverResponse.response
+            let result = serverResponse.result
             if let value = result.value {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.user = User(data: JSON(value))
@@ -97,7 +100,10 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
                 }) { encodingResult in
                     switch encodingResult {
                     case .Success(let upload, _, _):
-                        upload.validate().responseJSON { _, _, result in
+                        upload.validate().responseJSON { serverResponse in
+                            let request = serverResponse.request
+                            let response = serverResponse.response
+                            let result = serverResponse.result
                             switch result {
                             case .Success:
                                 NSNotificationCenter.defaultCenter().postNotificationName("userUpdated", object: nil)
@@ -134,7 +140,10 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     
     func deleteUser(action: UIAlertAction) {
         
-        API.request(.DELETE, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { _, response, _ in
+        API.request(.DELETE, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
+            let request = serverResponse.request
+            let response = serverResponse.response
+            let result = serverResponse.result
             if response?.statusCode == 204 {
                 dispatch_async(dispatch_get_main_queue()) {
                     UserSession.delete()
