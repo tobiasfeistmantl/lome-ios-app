@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1100594B1BA9B1A300D2563A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100594A1BA9B1A300D2563A /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		1100594B1BA9B1A300D2563A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100594A1BA9B1A300D2563A /* User.swift */; };
 		11036ECA1B9D6DE900319E6B /* TFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036EC91B9D6DE900319E6B /* TFTextField.swift */; };
 		11036ECD1B9D719D00319E6B /* TFTextFieldValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */; };
-		110580411BBF22C00021690E /* TFImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110580401BBF22C00021690E /* TFImageButton.swift */; settings = {ASSET_TAGS = (); }; };
-		111807201BB3FD6500C1470D /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118071F1BB3FD6500C1470D /* UIScrollView.swift */; settings = {ASSET_TAGS = (); }; };
-		111C5C621BB57AEC00217FB3 /* TFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111C5C611BB57AEC00217FB3 /* TFLoadingView.xib */; settings = {ASSET_TAGS = (); }; };
-		111C5C641BB57B1600217FB3 /* TFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C5C631BB57B1600217FB3 /* TFLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
-		111C5C6B1BB5B78900217FB3 /* ImageVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C5C6A1BB5B78900217FB3 /* ImageVersion.swift */; settings = {ASSET_TAGS = (); }; };
-		112CF9B81BAA964C001BF796 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CF9B71BAA964C001BF796 /* Post.swift */; settings = {ASSET_TAGS = (); }; };
-		112CF9C91BAB1225001BF796 /* work.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C71BAB1225001BF796 /* work.gpx */; settings = {ASSET_TAGS = (); }; };
-		112CF9CA1BAB1225001BF796 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C81BAB1225001BF796 /* home.gpx */; settings = {ASSET_TAGS = (); }; };
+		110580411BBF22C00021690E /* TFImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110580401BBF22C00021690E /* TFImageButton.swift */; };
+		111807201BB3FD6500C1470D /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118071F1BB3FD6500C1470D /* UIScrollView.swift */; };
+		111C5C621BB57AEC00217FB3 /* TFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111C5C611BB57AEC00217FB3 /* TFLoadingView.xib */; };
+		111C5C641BB57B1600217FB3 /* TFLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C5C631BB57B1600217FB3 /* TFLoadingView.swift */; };
+		111C5C6B1BB5B78900217FB3 /* ImageVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C5C6A1BB5B78900217FB3 /* ImageVersion.swift */; };
+		112CF9B81BAA964C001BF796 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CF9B71BAA964C001BF796 /* Post.swift */; };
+		112CF9C91BAB1225001BF796 /* work.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C71BAB1225001BF796 /* work.gpx */; };
+		112CF9CA1BAB1225001BF796 /* home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 112CF9C81BAB1225001BF796 /* home.gpx */; };
 		11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE21BA031FD00BD1A64 /* MessageComposerViewController.swift */; };
 		11355FE61BA0356D00BD1A64 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE51BA0356D00BD1A64 /* UITextView.swift */; };
 		11355FE81BA05A6600BD1A64 /* PostsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE71BA05A6600BD1A64 /* PostsNavigationViewController.swift */; };
 		11355FEA1BA0601F00BD1A64 /* PostsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FE91BA0601F00BD1A64 /* PostsFeedViewController.swift */; };
 		11355FEC1BA0784800BD1A64 /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11355FEB1BA0784800BD1A64 /* UINavigationItem.swift */; };
 		1135CB261B9CC3E000C6B78A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1135CB251B9CC3E000C6B78A /* SignInViewController.swift */; };
-		1138D1811BA9FC3B00AA1CB1 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1138D1801BA9FC3B00AA1CB1 /* UserSession.swift */; settings = {ASSET_TAGS = (); }; };
+		1138D1811BA9FC3B00AA1CB1 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1138D1801BA9FC3B00AA1CB1 /* UserSession.swift */; };
 		113CE3D11BA0AA1B00ED434A /* UserSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D01BA0AA1B00ED434A /* UserSearchTableViewController.swift */; };
 		113CE3D41BA0AFA900ED434A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D31BA0AFA900ED434A /* UserTableViewCell.swift */; };
 		113CE3D61BA0BD8300ED434A /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113CE3D51BA0BD8300ED434A /* ProfileTableViewController.swift */; };
@@ -36,15 +36,15 @@
 		114C002C1B9CE9FC0053ECC4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C002B1B9CE9FC0053ECC4 /* Utilities.swift */; };
 		116561861BBDC94F0068A460 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116561881BBDC94F0068A460 /* PostTableViewCell.xib */; };
 		1165618F1BBDD67D0068A460 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 116561911BBDD67D0068A460 /* Localizable.strings */; };
-		116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BEAF11BB1475D007ED1FB /* UIImageView.swift */; settings = {ASSET_TAGS = (); }; };
+		116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BEAF11BB1475D007ED1FB /* UIImageView.swift */; };
 		117A34C11BBDC50B002BEF22 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117A34C31BBDC50B002BEF22 /* Login.storyboard */; };
-		11856C801BC6C2E50029A3FE /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		11856C821BC6E9570029A3FE /* TFSocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11856C811BC6E9570029A3FE /* TFSocialButton.swift */; settings = {ASSET_TAGS = (); }; };
-		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; settings = {ASSET_TAGS = (); }; };
-		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; settings = {ASSET_TAGS = (); }; };
+		11856C801BC6C2E50029A3FE /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11856C7F1BC6C2E50029A3FE /* UserTableViewCell.xib */; };
+		11856C821BC6E9570029A3FE /* TFSocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11856C811BC6E9570029A3FE /* TFSocialButton.swift */; };
+		1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177A1BAD896C00BDE941 /* MKMapView.swift */; };
+		1196177E1BAEAC5D00BDE941 /* TFCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196177D1BAEAC5D00BDE941 /* TFCellButton.swift */; };
 		1197080C1BC1C2C300CF8F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1197080E1BC1C2C300CF8F3C /* InfoPlist.strings */; };
-		119801271BB16D0C00DD145C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119801261BB16D0C00DD145C /* UIImage.swift */; settings = {ASSET_TAGS = (); }; };
-		11A1427B1BBAEB8700FE2355 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1427A1BBAEB8700FE2355 /* API.swift */; settings = {ASSET_TAGS = (); }; };
+		119801271BB16D0C00DD145C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119801261BB16D0C00DD145C /* UIImage.swift */; };
+		11A1427B1BBAEB8700FE2355 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1427A1BBAEB8700FE2355 /* API.swift */; };
 		11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB273F1B9C6E8D00DF00E1 /* AppDelegate.swift */; };
 		11AB27451B9C6E8D00DF00E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27431B9C6E8D00DF00E1 /* Main.storyboard */; };
 		11AB27471B9C6E8D00DF00E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AB27461B9C6E8D00DF00E1 /* Images.xcassets */; };
@@ -58,7 +58,7 @@
 		11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */; };
 		11E9EA3E1BA2129800108FFC /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */; };
 		11E9EA401BA2147E00108FFC /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9EA3F1BA2147E00108FFC /* PostViewController.swift */; };
-		11FD63B51BBD7892001C24FB /* TFInfiniteScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */; settings = {ASSET_TAGS = (); }; };
+		11FD63B51BBD7892001C24FB /* TFInfiniteScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */; };
 		8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
