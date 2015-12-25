@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -14,12 +14,11 @@
             <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="af7-B8-Efg" id="b6I-5j-0rP">
-                <rect key="frame" x="0.0" y="0.0" width="561" height="367"/>
+                <rect key="frame" x="0.0" y="0.0" width="561" height="366"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="kyX-NR-vdT" userLabel="User Profile Image View" customClass="TFImageView" customModule="Lome" customModuleProvider="target">
                         <rect key="frame" x="15" y="15" width="35" height="35"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="0Cr-hm-NU7"/>
                             <constraint firstAttribute="height" constant="35" id="tjt-DZ-dmE"/>
@@ -30,32 +29,27 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwP-SV-Jne">
                         <rect key="frame" x="60" y="15" width="69" height="18"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzD-Zh-etz">
                         <rect key="frame" x="63" y="35" width="46" height="15"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6l-cN-X2F" userLabel="User Profile" customClass="TFCellButton" customModule="Lome" customModuleProvider="target">
                         <rect key="frame" x="15" y="15" width="114" height="35"/>
-                        <animations/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placed 10m away" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFf-2P-YYO">
                         <rect key="frame" x="449" y="15" width="97" height="15"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="514.5" placeholderIntrinsicHeight="74.5" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Ue-Tav">
                         <rect key="frame" x="20" y="68" width="515" height="75"/>
-                        <animations/>
                         <attributedString key="attributedText">
                             <fragment>
                                 <string key="content">Quam similique et aliquid totam. Nulla sit voluptatibus laboriosam esse ut sed. Alias sunt accusamus inventore aliquid iste. Est porro ut eum velit modi quae tempora. Et corporis provident eaque modi dolore voluptas.</string>
@@ -70,25 +64,21 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-tR-znc">
-                        <rect key="frame" x="0.0" y="161" width="561" height="149"/>
-                        <animations/>
+                        <rect key="frame" x="0.0" y="161" width="561" height="148"/>
                     </imageView>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gDQ-kz-C7E">
-                        <rect key="frame" x="262" y="217" width="37" height="37"/>
-                        <animations/>
+                        <rect key="frame" x="262" y="216" width="37" height="37"/>
                         <color key="color" red="0.1019607843" green="0.31764705879999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     </activityIndicatorView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRU-Nz-wNl" customClass="TFImageButton" customModule="Lome" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="161" width="561" height="149"/>
-                        <animations/>
+                        <rect key="frame" x="0.0" y="161" width="561" height="148"/>
                         <fontDescription key="fontDescription" type="system" pointSize="1"/>
                         <connections>
                             <action selector="postImageButtonDidTouch:" destination="af7-B8-Efg" eventType="touchUpInside" id="Djo-q2-G1H"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWa-BJ-62p">
-                        <rect key="frame" x="268" y="327" width="24" height="24"/>
-                        <animations/>
+                        <rect key="frame" x="268" y="326" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="MWa-BJ-62p" secondAttribute="height" multiplier="1:1" id="HxP-Jw-T3S"/>
                             <constraint firstAttribute="height" constant="24" id="WlK-6r-OoH"/>
@@ -100,34 +90,30 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QB-ti-K4e">
-                        <rect key="frame" x="15" y="325" width="70" height="27"/>
-                        <animations/>
+                        <rect key="frame" x="15" y="324" width="70" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="14,921 Likes">
                             <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-Ar-dqN">
-                        <rect key="frame" x="519" y="328" width="27" height="23"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="27" id="1uh-zb-A3S"/>
-                            <constraint firstAttribute="height" constant="23" id="cMO-fG-MoQ"/>
-                        </constraints>
-                        <state key="normal" image="Abuse Report Icon"/>
-                        <connections>
-                            <action selector="reportAbuseButtonDidTouch:" destination="af7-B8-Efg" eventType="touchUpInside" id="sdO-vw-2YQ"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Posted 10 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDJ-cV-Lv0">
-                        <rect key="frame" x="401" y="332" width="110" height="14"/>
-                        <animations/>
+                        <rect key="frame" x="406" y="331" width="110" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-Ar-dqN">
+                        <rect key="frame" x="526" y="332" width="20" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="06n-Tn-ol9"/>
+                            <constraint firstAttribute="width" constant="20" id="sEB-Nr-bb5"/>
+                        </constraints>
+                        <state key="normal" image="More Arrow Icon"/>
+                        <connections>
+                            <action selector="moreButtonDidTouch:" destination="af7-B8-Efg" eventType="touchUpInside" id="xbb-lH-bxG"/>
+                        </connections>
+                    </button>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="e6l-cN-X2F" firstAttribute="trailing" secondItem="PwP-SV-Jne" secondAttribute="trailing" id="0co-kk-2r3"/>
                     <constraint firstItem="HrG-tR-znc" firstAttribute="top" secondItem="Jhy-Ue-Tav" secondAttribute="bottom" constant="18" id="1Lt-K8-60H"/>
@@ -141,7 +127,7 @@
                     <constraint firstItem="YRU-Nz-wNl" firstAttribute="trailing" secondItem="HrG-tR-znc" secondAttribute="trailing" id="Fjw-U1-U9r"/>
                     <constraint firstItem="YRU-Nz-wNl" firstAttribute="bottom" secondItem="HrG-tR-znc" secondAttribute="bottom" id="JJc-Jw-dc1"/>
                     <constraint firstItem="QDJ-cV-Lv0" firstAttribute="centerY" secondItem="MWa-BJ-62p" secondAttribute="centerY" id="JtM-gF-f8p"/>
-                    <constraint firstItem="PPd-Ar-dqN" firstAttribute="leading" secondItem="QDJ-cV-Lv0" secondAttribute="trailing" constant="8" id="MAM-IN-fpz"/>
+                    <constraint firstItem="PPd-Ar-dqN" firstAttribute="leading" secondItem="QDJ-cV-Lv0" secondAttribute="trailing" constant="10" id="MAM-IN-fpz"/>
                     <constraint firstItem="YRU-Nz-wNl" firstAttribute="top" secondItem="HrG-tR-znc" secondAttribute="top" id="Sx1-yX-7g8"/>
                     <constraint firstItem="YRU-Nz-wNl" firstAttribute="leading" secondItem="HrG-tR-znc" secondAttribute="leading" id="TYi-gW-DWT"/>
                     <constraint firstItem="PPd-Ar-dqN" firstAttribute="centerY" secondItem="QDJ-cV-Lv0" secondAttribute="centerY" id="Uuq-BD-MNu"/>
@@ -175,7 +161,6 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <animations/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
                 <outlet property="constraintBetweenMessageLabelAndPostImageView" destination="1Lt-K8-60H" id="ouS-B1-PYE"/>
@@ -186,7 +171,6 @@
                 <outlet property="postImageActivityIndicator" destination="gDQ-kz-C7E" id="ESf-bY-TUX"/>
                 <outlet property="postImageButton" destination="YRU-Nz-wNl" id="rtd-x7-TPC"/>
                 <outlet property="postImageView" destination="HrG-tR-znc" id="MHf-X0-dWA"/>
-                <outlet property="reportAbuseButton" destination="PPd-Ar-dqN" id="Q2q-NV-4Za"/>
                 <outlet property="timestampLabel" destination="QDJ-cV-Lv0" id="Lv0-BG-Xk1"/>
                 <outlet property="userProfileButton" destination="e6l-cN-X2F" id="asL-nf-C1k"/>
                 <outlet property="userProfileImageView" destination="kyX-NR-vdT" id="KzK-Fe-EGG"/>
@@ -197,8 +181,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Abuse Report Icon" width="247" height="203"/>
         <image name="Background" width="375" height="667"/>
         <image name="Like Heart" width="24" height="24"/>
+        <image name="More Arrow Icon" width="470" height="279"/>
     </resources>
 </document>

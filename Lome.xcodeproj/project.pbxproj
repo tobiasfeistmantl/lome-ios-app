@@ -58,6 +58,7 @@
 		11CFA42E1BA1D9EF001FD262 /* TFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */; };
 		11E9EA3E1BA2129800108FFC /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */; };
 		11E9EA401BA2147E00108FFC /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9EA3F1BA2147E00108FFC /* PostViewController.swift */; };
+		11F96D331C2CA3390047137B /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F96D321C2CA3390047137B /* UserRole.swift */; };
 		11FD63B51BBD7892001C24FB /* TFInfiniteScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */; };
 		8B45C3F1AA9C285C71AA9FE2 /* Pods_Lome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -139,6 +140,7 @@
 		11CFA42D1BA1D9EF001FD262 /* TFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFImageView.swift; sourceTree = "<group>"; };
 		11E9EA3D1BA2129800108FFC /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		11E9EA3F1BA2147E00108FFC /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		11F96D321C2CA3390047137B /* UserRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
 		11FD63B41BBD7892001C24FB /* TFInfiniteScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFInfiniteScroll.swift; sourceTree = "<group>"; };
 		3A72E035F15434EB45502A82 /* Pods-Lome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lome.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lome/Pods-Lome.release.xcconfig"; sourceTree = "<group>"; };
 		78F0EDDA60BE56B5FA275C0A /* Pods_Lome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				11036ECC1B9D719D00319E6B /* TFTextFieldValidationError.swift */,
+				11F96D321C2CA3390047137B /* UserRole.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				1100594B1BA9B1A300D2563A /* User.swift in Sources */,
 				11355FE31BA031FD00BD1A64 /* MessageComposerViewController.swift in Sources */,
 				11A1427B1BBAEB8700FE2355 /* API.swift in Sources */,
+				11F96D331C2CA3390047137B /* UserRole.swift in Sources */,
 				116BEAF21BB1475D007ED1FB /* UIImageView.swift in Sources */,
 				11AB27401B9C6E8D00DF00E1 /* AppDelegate.swift in Sources */,
 				1196177B1BAD896C00BDE941 /* MKMapView.swift in Sources */,

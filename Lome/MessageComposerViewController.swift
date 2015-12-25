@@ -169,7 +169,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
             URL = "/users/\(post.author.id)/posts/\(post.id)"
             method = .PATCH
         } else {
-            URL = "/users/\(UserSession.User.id!)/posts"
+            URL = "/users/\(UserSession.currentUser!.id)/posts"
             method = .POST
         }
         
@@ -207,8 +207,6 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { serverResponse in
-                let request = serverResponse.request
-                let response = serverResponse.response
                 let result = serverResponse.result
                 dispatch_async(dispatch_get_main_queue()) {
                     switch result {

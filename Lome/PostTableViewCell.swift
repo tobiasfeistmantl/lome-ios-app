@@ -70,8 +70,6 @@ class PostTableViewCell: UITableViewCell {
                 
                 postImageActivityIndicator.startAnimating()
                 postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { serverResponse in
-                    let request = serverResponse.request
-                    let response = serverResponse.response
                     let result = serverResponse.result
                     self.postImageActivityIndicator.stopAnimating()
                     
@@ -110,8 +108,30 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func reportAbuseButtonDidTouch(sender: UIButton) {
-        let alert = UIAlertController(title: "Report Abuse", message: "Do you really want to report this post?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    @IBAction func moreButtonDidTouch(sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let reportAction = UIAlertAction(title: "Report Post", style: .Destructive) { _ in
+            self.reportPost()
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+            self.deletePost()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alert.addAction(reportAction)
+        alert.addAction(cancelAction)
+        
+        if UserSession.currentUser!.isAllowedToChangePost(post) {
+            alert.addAction(deleteAction)
+        }
+        
+        UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func reportPost() {
+        let alert = UIAlertController(title: "Report Abuse", message: "Do you really want to report this post?", preferredStyle: .Alert)
         let reportAction = UIAlertAction(title: "Yes report!", style: UIAlertActionStyle.Destructive) { _ in
             API.Users.Posts.reportAbuse(self.post) { successful in
                 if successful {
@@ -124,6 +144,26 @@ class PostTableViewCell: UITableViewCell {
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alert.addAction(reportAction)
         alert.addAction(cancelAction)
+        UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func deletePost() {
+        let alert = UIAlertController(title: "Delete Post", message: "Do you really want to delete this post?", preferredStyle: .Alert)
+        let deleteAction = UIAlertAction(title: "Yes", style: .Default) { _ in
+            API.Users.Posts.delete(self.post) { successful in
+                if successful {
+                    UIViewController.topMost.simpleAlert(title: "Post deleted!", message: "Post was successfully deleted")
+                } else {
+                    UIViewController.topMost.simpleAlert(title: "Unable to delete post!", message: nil)
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
         UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
     }
     

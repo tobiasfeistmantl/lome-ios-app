@@ -15,32 +15,38 @@ struct UserSession {
     static let keychain = Keychain(service: "com.lomeapp.session")
     static var currentLocation: CLLocation?
     
-    class User {
-        static var id: Int? {
-            get {
-                if let id = keychain["user_id"] {
-                    return Int(id)
-                }
-                
-                return nil
+    static var currentUser: Lome.User? {
+        get {
+            var id: Int? = nil
+            let username = keychain["user_username"]
+            var role: UserRole? = nil
+        
+            if let userId = keychain["user_id"] {
+                id = Int(userId)
             }
-            
-            set {
-                if newValue != nil {
-                    keychain["user_id"] = "\(newValue!)"
-                } else {
-                    keychain["user_id"] = nil
-                }
+        
+            if let userRole = keychain["user_role"] {
+                role = UserRole(rawValue: Int(userRole)!)
             }
+        
+            if id != nil && username != nil && role != nil {
+                return Lome.User(id: id!, firstname: nil, lastname: nil, username: username!, followerCount: 0, profileImageAspectRatio: 0, profileImageURLs: [:], following: false, role: role!)
+            }
+        
+            return nil
         }
         
-        static var username: String? {
-            get {
-                return keychain["user_username"]
-            }
+        set {
+            let u = newValue
             
-            set {
-                keychain["user_username"] = newValue
+            if let u = u {
+                keychain["user_id"] = "\(u.id)"
+                keychain["user_username"] = u.username
+                keychain["user_role"] = "\(u.role.rawValue)"
+            } else {
+                keychain["user_id"] = nil
+                keychain["user_username"] = nil
+                keychain["user_role"] = nil
             }
         }
     }
@@ -74,15 +80,13 @@ struct UserSession {
     }
     
     static var signedIn: Bool {
-        return id != nil && token != nil && User.id != nil && User.username != nil
+        return id != nil && token != nil && currentUser != nil
     }
     
     static func delete() {
         id = nil
         token = nil
-        
-        User.id = nil
-        User.username = nil
+        currentUser = nil
     }
 }
 

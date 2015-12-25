@@ -194,7 +194,7 @@ extension ProfileTableViewController {
         
         followerLabel.text = user.followerCountText
         
-        if UserSession.User.id == user.id {
+        if UserSession.currentUser?.id == user.id {
                 followButton.hidden = true
                 profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))  
         } else {

@@ -172,7 +172,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if segue.identifier == "showUserProfile" {
             let destinationViewController = segue.destinationViewController as! ProfileTableViewController
-            destinationViewController.userId = UserSession.User.id!
+            destinationViewController.userId = UserSession.currentUser!.id
         }
         
         if segue.identifier == "showUserProfileFromCell" {

@@ -11,6 +11,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
+
 class User {
     var id: Int
     var firstname: String?
@@ -21,6 +22,7 @@ class User {
     var profileImageAspectRatio: Double?
     var profileImageURLs: [ImageVersion: String] = [:]
     var following: Bool?
+    var role: UserRole = .User
     
     var followerCountText: String {
         return String(format: NSLocalizedString("%@ Follower", comment: "{count} Follower"), "\(followerCount)")
@@ -34,7 +36,7 @@ class User {
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageAspectRatio: Double, profileImageURLs: [ImageVersion: String], following: Bool) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageAspectRatio: Double, profileImageURLs: [ImageVersion: String], following: Bool, role: UserRole = .User) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
@@ -43,6 +45,7 @@ class User {
         self.profileImageAspectRatio = profileImageAspectRatio
         self.profileImageURLs = profileImageURLs
         self.following = following
+        self.role = role
     }
     
     init(data: JSON) {
@@ -53,6 +56,12 @@ class User {
         self.email = data["email"].string
         self.followerCount = data["follower_count"].int!
         self.profileImageAspectRatio = data["profile_image"]["aspect_ratio"].double
+        
+        if let role = data["role"].int {
+            if let role = UserRole(rawValue: role) {
+                self.role = role
+            }
+        }
         
         for (key, jsonData) in data["profile_image"]["versions"] {
             self.profileImageURLs[ImageVersion(rawValue: key)!] = jsonData.string
@@ -80,7 +89,7 @@ class User {
             method = .DELETE
         }
         
-        API.request(method, "/users/\(UserSession.User.id!)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders)
+        API.request(method, "/users/\(UserSession.currentUser!.id)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders)
     }
     
     func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: (UIImage, Bool) -> Void) {
@@ -89,8 +98,6 @@ class User {
         
         if let imageURL = profileImageURLs[profileImageVersion] {
             Alamofire.request(.GET, imageURL).responseImage { serverResponse in
-                let request = serverResponse.request
-                let response = serverResponse.response
                 let result = serverResponse.result
                 if let value = result.value {
                     image = value
@@ -106,6 +113,18 @@ class User {
                 afterResponse(image, successful)
             }
         }
+    }
+    
+    func isModerator() -> Bool {
+        return self.role == UserRole.Moderator
+    }
+    
+    func isAdmin() -> Bool {
+        return self.role == UserRole.Admin
+    }
+    
+    func isAllowedToChangePost(post: Post) -> Bool {
+        return isModerator() || isAdmin() || self.id == post.author.id
     }
 }
 

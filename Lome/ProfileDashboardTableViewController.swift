@@ -31,9 +31,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     }
     
     func assignUpdatedUserAttributes() {
-        API.request(.GET, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
-            let request = serverResponse.request
-            let response = serverResponse.response
+        API.request(.GET, "/users/\(UserSession.currentUser!.id)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
             let result = serverResponse.result
             if let value = result.value {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -101,8 +99,6 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
                     switch encodingResult {
                     case .Success(let upload, _, _):
                         upload.validate().responseJSON { serverResponse in
-                            let request = serverResponse.request
-                            let response = serverResponse.response
                             let result = serverResponse.result
                             switch result {
                             case .Success:
@@ -140,10 +136,8 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     
     func deleteUser(action: UIAlertAction) {
         
-        API.request(.DELETE, "/users/\(UserSession.User.id!)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
-            let request = serverResponse.request
+        API.request(.DELETE, "/users/\(UserSession.currentUser!.id)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
             let response = serverResponse.response
-            let result = serverResponse.result
             if response?.statusCode == 204 {
                 dispatch_async(dispatch_get_main_queue()) {
                     UserSession.delete()
