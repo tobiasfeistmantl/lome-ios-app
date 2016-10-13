@@ -18,7 +18,7 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [firstnameTextField, lastnameTextField].addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        [firstnameTextField, lastnameTextField].addTarget(self, action: #selector(EditNameTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

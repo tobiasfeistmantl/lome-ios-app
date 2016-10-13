@@ -37,10 +37,10 @@ class Post {
             
             if like {
                 method = .POST
-                likesCount++
+                likesCount += 1
             } else {
                 method = .DELETE
-                likesCount--
+                likesCount -= 1
             }
             
             if let likeCountLabel = likeItems[.CountLabel] as? UILabel {

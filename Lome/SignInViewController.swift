@@ -24,10 +24,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignInViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignInViewController.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
-        [usernameTextField, passwordTextField].addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        [usernameTextField, passwordTextField].addTarget(self, action: #selector(SignInViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

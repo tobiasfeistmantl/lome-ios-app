@@ -82,10 +82,10 @@ class User {
         let method: Alamofire.Method
         
         if follow {
-            followerCount++
+            followerCount += 1
             method = .POST
         } else {
-            followerCount--
+            followerCount -= 1
             method = .DELETE
         }
         

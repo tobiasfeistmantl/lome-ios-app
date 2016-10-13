@@ -29,7 +29,7 @@ class TFSocialButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        addTarget(self, action: "touched", forControlEvents: .TouchUpInside)
+        addTarget(self, action: #selector(TFSocialButton.touched), forControlEvents: .TouchUpInside)
     }
     
     func touched() {

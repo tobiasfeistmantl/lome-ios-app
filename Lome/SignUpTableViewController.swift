@@ -26,8 +26,8 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         navigationItem.setTitleImage(UIImage(named: "Sign Up")!, height: 27.5)
         
-        [usernameTextField, passwordTextField, passwordConfirmationTextField].addTarget(self, action: "requiredTextFieldChanged:", forControlEvents: .EditingChanged)
-        [firstnameTextField, lastnameTextField, emailAddressTextField].addTarget(self, action: "optionalTextFieldChanged:", forControlEvents: .EditingChanged)
+        [usernameTextField, passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(SignUpTableViewController.requiredTextFieldChanged(_:)), forControlEvents: .EditingChanged)
+        [firstnameTextField, lastnameTextField, emailAddressTextField].addTarget(self, action: #selector(SignUpTableViewController.optionalTextFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
     func requiredTextFieldChanged(textField: DesignableTextField) {

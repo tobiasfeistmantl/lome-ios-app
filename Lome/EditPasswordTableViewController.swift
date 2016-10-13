@@ -17,7 +17,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [passwordTextField, passwordConfirmationTextField].addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        [passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(EditPasswordTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

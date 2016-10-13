@@ -67,7 +67,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
             self.setupUserViews()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setUser", name: "userUpdated", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileTableViewController.setUser), name: "userUpdated", object: nil)
         
         setupTableView()
     }
@@ -132,7 +132,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
                 }
                 
                 if posts.count != 0 {
-                    self.nextPage++
+                    self.nextPage += 1
                 } else {
                     self.hasReachedTheEnd = true
                 }

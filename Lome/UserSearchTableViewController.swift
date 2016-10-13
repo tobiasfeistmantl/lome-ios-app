@@ -89,7 +89,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
                 }
                 
                 if users.count != 0 {
-                    self.nextPage++
+                    self.nextPage += 1
                 } else {
                     self.hasReachedTheEnd = true
                 }

@@ -23,5 +23,7 @@ var profileFallbackImage: UIImage {
         count = 0
     }
     
-    return UIImage(named: "\(profileFallbackImages[count++]) Fallback")!
+    count += 1
+    
+    return UIImage(named: "\(profileFallbackImages[count]) Fallback")!
 }

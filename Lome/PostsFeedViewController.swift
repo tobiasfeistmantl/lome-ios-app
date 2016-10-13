@@ -35,7 +35,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(PostsFeedViewController.refreshPosts), forControlEvents: .ValueChanged)
         postsTableView.addSubview(refreshControl)
         
         showLoadingView(NSLocalizedString("Loading posts near your location", comment: ""))
@@ -122,7 +122,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             
             if posts.count != 0 {
-                self.nextPage++
+                self.nextPage += 1
             } else {
                 self.hasReachedTheEnd = true
             }

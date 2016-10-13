@@ -224,8 +224,8 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
     
     
     func setupObserversForKeyboard() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MessageComposerViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MessageComposerViewController.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
     }
 }
 

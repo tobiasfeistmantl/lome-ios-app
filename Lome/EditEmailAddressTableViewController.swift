@@ -15,7 +15,7 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailAddressTextField.addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        emailAddressTextField.addTarget(self, action: #selector(EditEmailAddressTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
