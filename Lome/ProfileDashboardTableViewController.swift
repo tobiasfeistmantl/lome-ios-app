@@ -25,7 +25,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     override func viewDidLoad() {
         imagePicker.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "assignUpdatedUserAttributes", name: "userAttributesUpdated", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileDashboardTableViewController.assignUpdatedUserAttributes), name: "userAttributesUpdated", object: nil)
         
         assignUserAttributes()
     }
