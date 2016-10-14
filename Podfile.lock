@@ -1,32 +1,25 @@
 PODS:
-  - Alamofire (3.1.3)
-  - AlamofireImage (2.1.1):
-    - Alamofire (~> 3.1)
-  - Bolts (1.5.0):
-    - Bolts/AppLinks (= 1.5.0)
-    - Bolts/Tasks (= 1.5.0)
-  - Bolts/AppLinks (1.5.0):
+  - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.5.0)
+  - Bolts/Tasks (1.8.4)
   - DateTools (1.7.0)
-  - FBSDKCoreKit (4.8.0):
-    - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.8.0)
-    - FBSDKCoreKit/no-arc (= 4.8.0)
-  - FBSDKCoreKit/arc (4.8.0):
-    - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.8.0):
-    - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.8.0):
+  - FBSDKCoreKit (4.16.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.16.1):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.8.0):
+  - FBSDKShareKit (4.16.1):
     - FBSDKCoreKit
-  - imglyKit (2.4.1)
+  - imglyKit (5.0.1)
   - JTSImageViewController (1.5.1)
-  - KeychainAccess (2.3.2)
+  - KeychainAccess (3.0.0)
   - Spring (1.0.3)
-  - SwiftyJSON (2.3.2)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -47,21 +40,23 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Spring:
-    :commit: 266690fb6c072f6fdadf8a2a7cb2e148acb5aa4c
+    :commit: 76cc3dec8be64285f93f52d42d3c331f5724b946
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
-  AlamofireImage: 31f7c4e9f516183e0ef2d2da18318de28a4628b8
-  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
-  FBSDKLoginKit: d893fcbb98d854496925e9ff73c67b896982d3c4
-  FBSDKShareKit: e7577ee3adf80fc04fb656dd133fbb522250672b
-  imglyKit: f30ce863024e3d711520e422197711dc42f8c1e3
+  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
+  FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
+  FBSDKShareKit: 53af0239b5bd2ebf191f32f75991245a208cc982
+  imglyKit: 870cfcd0d4d9c6a9d3a27d7e120ae5edbbe6294a
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
-  KeychainAccess: 96575483583f4640739a5cc26551803d0d34e0dd
+  KeychainAccess: 412bf2650d9aebfc8135a58103b90ec38caad7f8
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: 5db1991ed0944d6ab97d59035155cce5b46d2725
+
+COCOAPODS: 1.1.0.rc.3

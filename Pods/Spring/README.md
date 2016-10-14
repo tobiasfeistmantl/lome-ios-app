@@ -1,7 +1,7 @@
-![](http://cl.ly/image/012R0D3R3x2g/download/springswift2.jpg)
+![](https://dl.dropboxusercontent.com/u/7990919/Crawler/SpringSwift3.jpg)
 
-## Updated for Swift 2
-Requires Xcode 7 and Swift 2.
+## Updated for Swift 3.0
+Requires Xcode 8 and Swift 3.
 
 ## Installation
 Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
@@ -9,7 +9,7 @@ Drop in the Spring folder to your Xcode project (make sure to enable "Copy items
 Or via CocoaPods:
 ```
 use_frameworks!
-pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 ```
 
 ## Usage with Storyboard
@@ -88,7 +88,7 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
 
 
 ## Autostart
-Allows you to animate without code. Don't need to use this is if you plan to start the animation in code.
+Allows you to animate without code. Don't need to use this if you plan to start the animation in code.
 
 ## Autohide
 Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
