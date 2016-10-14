@@ -17,7 +17,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(EditPasswordTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
+        [passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(EditPasswordTableViewController.textFieldChanged(_:)), forControlEvents: .editingChanged)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -37,7 +37,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     func textFieldChanged(_ sender: TFTextField) {
-        saveButton.enabled = passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
+        saveButton.isEnabled = passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
     }
     
     
@@ -48,11 +48,11 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
             ]
         ]
         
-        API.Users.update(parameters) { _, successful in
+        API.Users.update(parameters as [String : AnyObject]) { _, successful in
             if successful {
-                self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popViewController(animated: true)
             } else {
-                self.simpleAlert(title: NSLocalizedString("Unable to update password", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                self.simpleAlert(NSLocalizedString("Unable to update password", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }

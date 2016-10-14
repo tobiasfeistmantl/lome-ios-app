@@ -26,8 +26,8 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         navigationItem.setTitleImage(UIImage(named: "Sign Up")!, height: 27.5)
         
-        [usernameTextField, passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(SignUpTableViewController.requiredTextFieldChanged(_:)), forControlEvents: .EditingChanged)
-        [firstnameTextField, lastnameTextField, emailAddressTextField].addTarget(self, action: #selector(SignUpTableViewController.optionalTextFieldChanged(_:)), forControlEvents: .EditingChanged)
+        [usernameTextField, passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(SignUpTableViewController.requiredTextFieldChanged(_:)), forControlEvents: .editingChanged)
+        [firstnameTextField, lastnameTextField, emailAddressTextField].addTarget(self, action: #selector(SignUpTableViewController.optionalTextFieldChanged(_:)), forControlEvents: .editingChanged)
     }
     
     func requiredTextFieldChanged(_ textField: DesignableTextField) {
@@ -81,9 +81,9 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
             if successful {
             API.Users.signIn(self.usernameTextField.text!, password: self.passwordTextField.text!) { successful in
                 if successful {
-                    let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                    let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
                     
-                    self.presentViewController(viewController!, animated: true, completion: nil)
+                    self.present(viewController!, animated: true, completion: nil)
                 }
             }
             } else {

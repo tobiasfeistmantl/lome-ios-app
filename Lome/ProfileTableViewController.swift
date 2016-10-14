@@ -39,13 +39,13 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
     var followsUser: Bool = false {
         didSet {
             if followsUser {
-                followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), forState: .Normal)
-                followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+                followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), for: .normal)
+                followButton.setTitleColor(UIColor.white, for: .normal)
                 followButton.backgroundColor = UIColor(hex: "1A6099")
             } else {
-                followButton.setTitle(NSLocalizedString("Follow", comment: ""), forState: .Normal)
-                followButton.setTitleColor(UIColor(hex: "1A6099"), forState: .Normal)
-                followButton.backgroundColor = UIColor.whiteColor()
+                followButton.setTitle(NSLocalizedString("Follow", comment: ""), for: .normal)
+                followButton.setTitleColor(UIColor(hex: "1A6099"), for: .normal)
+                followButton.backgroundColor = UIColor.white
             }
         }
     }
@@ -78,7 +78,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
                 self.user = user
                 self.setupUserViews()
             } else {
-                self.simpleAlert(title: NSLocalizedString("Unable to get user information", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                self.simpleAlert(NSLocalizedString("Unable to get user information", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }
@@ -111,7 +111,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         followerLabel.text = user.followerCountText
     }
     
-    func populate(reload: Bool = false) {
+    func populate(_ reload: Bool = false) {
         populatingAtTheMoment = true
         
         if reload {
@@ -140,7 +140,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
                 self.tableView.reloadData()
                 self.populatingAtTheMoment = false
             } else {
-                self.simpleAlert(title: NSLocalizedString("Unable to get posts", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                self.simpleAlert(NSLocalizedString("Unable to get posts", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }
         }
     }
@@ -179,8 +179,8 @@ extension ProfileTableViewController {
         
         if user.following != nil && user.following! {
             followButton.backgroundColor = UIColor(hex: "1A6099")
-            followButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), forState: .Normal)
+            followButton.setTitleColor(UIColor.white, for: .normal)
+            followButton.setTitle(NSLocalizedString("Unfollow", comment: ""), for: .normal)
         }
         
         
@@ -195,14 +195,14 @@ extension ProfileTableViewController {
         followerLabel.text = user.followerCountText
         
         if UserSession.currentUser?.id == user.id {
-                followButton.hidden = true
+                followButton.isHidden = true
                 profileInformationView.frame = CGRect(x: profileInformationView.frame.origin.x, y: profileInformationView.frame.origin.y, width: profileInformationView.frame.size.width, height: (profileInformationView.frame.size.height - followButton.frame.size.height - 10))  
         } else {
             navigationItem.rightBarButtonItem = nil
-            followButton.hidden = false
+            followButton.isHidden = false
         }
         
-        populate(reload: true)
+        populate(true)
     }
     
     func cleanView() {

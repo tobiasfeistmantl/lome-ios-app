@@ -111,7 +111,7 @@ class Post {
         self.likesCount = data["likes_count"].int!
         self.location = CLLocation(latitude: data["latitude"].double!, longitude: data["longitude"].double!)
         self.author = User(data: data["author"])
-        self.createdAt = railsDateFormatter.dateFromString(data["created_at"].string!)!
+        self.createdAt = railsDateFormatter.date(from: data["created_at"].string!)!
         if let likedAttr = data["liked"].bool {
             self.like = likedAttr
         }

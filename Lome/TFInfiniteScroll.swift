@@ -13,5 +13,5 @@ protocol TFInfiniteScroll {
     var hasReachedTheEnd: Bool { get set }
     var populatingAtTheMoment: Bool { get set }
     
-    func populate(reload: Bool)
+    func populate(_ reload: Bool)
 }

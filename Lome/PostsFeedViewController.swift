@@ -75,9 +75,9 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         API.Users.Positions.update(location!) { successful in
             if successful {
-                self.populate(reload: true)
+                self.populate(true)
             } else {
-                self.simpleAlert(title: NSLocalizedString("Unable to update your location", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
+                self.simpleAlert(NSLocalizedString("Unable to update your location", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
                 self.refreshControl.endRefreshing()
                 self.hideLoadingView()
             }
@@ -94,7 +94,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func populate(reload: Bool = false) {
+    func populate(_ reload: Bool = false) {
         populatingAtTheMoment = true
         
         if reload {
@@ -177,7 +177,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if segue.identifier == "showUserProfileFromCell" {
             let button = sender as! TFCellButton
-            let post = posts[(button.indexPath! as NSIndexPath).row]
+            let post = posts[(button.indexPath! as IndexPath).row]
             
             let destinationViewController = segue.destination as! ProfileTableViewController
             destinationViewController.user = post.author

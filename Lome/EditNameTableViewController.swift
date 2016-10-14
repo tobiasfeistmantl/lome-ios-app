@@ -18,7 +18,7 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        [firstnameTextField, lastnameTextField].addTarget(self, action: #selector(EditNameTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
+        [firstnameTextField, lastnameTextField].addTarget(self, action: #selector(EditNameTableViewController.textFieldChanged(_:)), forControlEvents: .editingChanged)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -49,10 +49,10 @@ class EditNameTableViewController: UITableViewController, UITextFieldDelegate {
             ]
         ]
         
-        API.Users.update(parameters) { user, successful in
+        API.Users.update(parameters as [String : AnyObject]) { user, successful in
             if successful {
-                NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
-                self.navigationController?.popViewControllerAnimated(true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userAttributesUpdated"), object: nil)
+                self.navigationController?.popViewController(animated: true)
             } else {
                 self.simpleAlert(title: NSLocalizedString("Unable to update name", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }

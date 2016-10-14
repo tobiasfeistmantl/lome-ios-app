@@ -33,7 +33,7 @@ extension UIViewController {
         
         view.addSubview(loadingView)
         
-        UIView.animateWithDuration(0.3) {
+        UIView.animate(withDuration: 0.3) {
             loadingView.alpha = 1
         }
     }

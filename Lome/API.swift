@@ -51,7 +51,7 @@ class API {
     }
     
     class Posts {
-        static func getPostsNearby(page: Int = 1, afterResponse: @escaping ([Post], Bool) -> Void) {
+        static func getPostsNearby(_ page: Int = 1, afterResponse: @escaping ([Post], Bool) -> Void) {
             var posts: [Post] = []
             var successful = false
             
@@ -154,7 +154,7 @@ class API {
             var successful = false
             
             let credentialData = "\(username):\(password)".data(using: String.Encoding.utf8)!
-            let base64Credentials = credentialData.base64EncodedString(options: NSData.Base64EncodingOptions.endLineWithCarriageReturn)
+            let base64Credentials = credentialData.base64EncodedString(options: Data.Base64EncodingOptions.endLineWithCarriageReturn)
             
             let headers = ["Authorization": "Basic \(base64Credentials)"]
             

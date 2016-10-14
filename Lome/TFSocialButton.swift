@@ -17,10 +17,10 @@ class TFSocialButton: UIButton {
     var postOnNetwork = false {
         didSet {
             if postOnNetwork {
-                setTitleColor(UIColor(hex: "3B5998"), for: .Normal)
+                setTitleColor(UIColor(hex: "3B5998"), for: .normal)
                 setImage(UIImage(named: "Facebook Activated"), for: UIControlState())
             } else {
-                setTitleColor(UIColor(hex: "9B9B9B"), for: .Normal)
+                setTitleColor(UIColor(hex: "9B9B9B"), for: .normal)
                 setImage(UIImage(named: "Facebook Deactivated"), for: UIControlState())
             }
         }

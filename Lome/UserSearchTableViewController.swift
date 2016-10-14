@@ -25,7 +25,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
         
         tableView.register(UINib(nibName: "UserTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "userCell")
         
-        populate(reload: true)
+        populate(true)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +39,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        populate(reload: true)
+        populate(true)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -68,7 +68,7 @@ class UserSearchTableViewController: UITableViewController, UISearchBarDelegate,
         performSegue(withIdentifier: "showUserProfile", sender: cell)
     }
     
-    func populate(reload: Bool = false) {
+    func populate(_ reload: Bool = false) {
         if populatingAtTheMoment {
             true
         }

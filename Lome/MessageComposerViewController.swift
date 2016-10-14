@@ -93,14 +93,14 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
     
     
     func keyboardWillShow() {
-        moveMessageComposerView(up: true)
+        moveMessageComposerView(true)
     }
     
     func keyboardWillHide() {
-        moveMessageComposerView(up: false)
+        moveMessageComposerView(false)
     }
     
-    func moveMessageComposerView(up: Bool) {
+    func moveMessageComposerView(_ up: Bool) {
         view.layoutIfNeeded()
         
         if up {

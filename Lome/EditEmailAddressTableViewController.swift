@@ -15,7 +15,7 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailAddressTextField.addTarget(self, action: #selector(EditEmailAddressTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
+        emailAddressTextField.addTarget(self, action: #selector(EditEmailAddressTableViewController.textFieldChanged(_:)), for: .editingChanged)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -41,10 +41,10 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
             ]
         ]
         
-        API.Users.update(parameters) { _, successful in
+        API.Users.update(parameters as [String : AnyObject]) { _, successful in
             if successful {
-                NSNotificationCenter.defaultCenter().postNotificationName("userAttributesUpdated", object: nil)
-                self.navigationController?.popViewControllerAnimated(true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userAttributesUpdated"), object: nil)
+                self.navigationController?.popViewController(animated: true)
             } else {
                 self.simpleAlert(title: NSLocalizedString("Unable to update email address", comment: ""), message: NSLocalizedString("Please try again later", comment: ""))
             }

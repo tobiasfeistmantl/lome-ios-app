@@ -84,7 +84,7 @@ class PostTableViewCell: UITableViewCell {
             post.likeItems[.button] = likeButton
             post.likeItems[.countLabel] = likeCountButton.titleLabel
             
-            timestampLabel.text = String(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), (post.createdAt as NSDate).timeAgoSinceNow())
+            timestampLabel.text = String(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), (post.createdAt as Date).timeAgoSinceNow())
             distanceLabel.text = post.distanceText
             likeCountButton.setTitle(post.likesCountText, for: UIControlState())
             likeButton.setImage(post.likeButtonImage, for: UIControlState())

@@ -89,7 +89,7 @@ class User {
             method = .DELETE
         }
         
-        API.request(method, "/users/\(UserSession.currentUser!.id)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders)
+        API.request(method, "/users/\(UserSession.currentUser!.id)/relationships", parameters: parameters as [String : AnyObject]?, headers: API.defaultSignedInHeaders)
     }
     
     func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: @escaping (UIImage, Bool) -> Void) {

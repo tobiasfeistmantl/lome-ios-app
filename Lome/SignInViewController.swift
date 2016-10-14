@@ -27,7 +27,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        [usernameTextField, passwordTextField].addTarget(self, action: #selector(SignInViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
+        [usernameTextField, passwordTextField].addTarget(self, action: #selector(SignInViewController.textFieldChanged(_:)), forControlEvents: .editingChanged)
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -37,9 +37,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signInButtonDidTouch(_ sender: DesignableButton) {
         API.Users.signIn(usernameTextField.text!, password: passwordTextField.text!) { successful in
             if successful {
-                let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
                 
-                self.presentViewController(viewController!, animated: true, completion: nil)
+                self.present(viewController!, animated: true, completion: nil)
             } else {
                 self.shakeSignInView()
             }
@@ -48,9 +48,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldChanged(_ textField: DesignableTextField) {
         if usernameTextField.valid && passwordTextField.valid {
-            signInButton.enabled = true
+            signInButton.isEnabled = true
         } else {
-            signInButton.enabled = false
+            signInButton.isEnabled = false
         }
     }
     
@@ -68,14 +68,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     
     func keyboardWillShow() {
-        moveSignInView(up: true)
+        moveSignInView(true)
     }
     
     func keyboardWillHide() {
-        moveSignInView(up: false)
+        moveSignInView(false)
     }
 
-    func moveSignInView(up: Bool) {
+    func moveSignInView(_ up: Bool) {
         view.layoutIfNeeded()
         
         if up {

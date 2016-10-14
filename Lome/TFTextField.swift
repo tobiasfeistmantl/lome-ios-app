@@ -69,15 +69,15 @@ import Spring
                     self.errorLabel = UILabel()
                     errorLabel!.textColor = errorColor
                     errorLabel!.font = self.font
-                    errorLabel!.textAlignment = .Right
+                    errorLabel!.textAlignment = .right
                     errorLabel!.translatesAutoresizingMaskIntoConstraints = false
                     
                     errorLabel!.text = inlineErrorMessage
                     
                     self.addSubview(errorLabel!)
                     
-                    let centerConstraint = NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: errorLabel, attribute: .CenterY, multiplier: 1, constant: 0)
-                    let rightConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: errorLabel, attribute: .Trailing, multiplier: 1, constant: 0)
+                    let centerConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: errorLabel, attribute: .centerY, multiplier: 1, constant: 0)
+                    let rightConstraint = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: errorLabel, attribute: .trailing, multiplier: 1, constant: 0)
                     
                     self.addConstraints([centerConstraint, rightConstraint])
                 }
