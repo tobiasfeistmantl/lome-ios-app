@@ -24,17 +24,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignInViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignInViewController.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignInViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         [usernameTextField, passwordTextField].addTarget(self, action: #selector(SignInViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    @IBAction func signInButtonDidTouch(sender: DesignableButton) {
+    @IBAction func signInButtonDidTouch(_ sender: DesignableButton) {
         API.Users.signIn(usernameTextField.text!, password: passwordTextField.text!) { successful in
             if successful {
                 let viewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
@@ -46,7 +46,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldChanged(textField: DesignableTextField) {
+    func textFieldChanged(_ textField: DesignableTextField) {
         if usernameTextField.valid && passwordTextField.valid {
             signInButton.enabled = true
         } else {
@@ -54,7 +54,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case usernameTextField: passwordTextField.becomeFirstResponder()
         case passwordTextField:
@@ -75,11 +75,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         moveSignInView(up: false)
     }
 
-    func moveSignInView(up up: Bool) {
+    func moveSignInView(up: Bool) {
         view.layoutIfNeeded()
         
         if up {
-            let screen = UIScreen.mainScreen().bounds
+            let screen = UIScreen.main.bounds
             
             switch screen.height {
             case 480: signInViewCenterYConstraint.constant = 135
@@ -91,9 +91,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             signInViewCenterYConstraint.constant = 0
         }
         
-        UIView.animateWithDuration(1) {
+        UIView.animate(withDuration: 1, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
     
     func shakeSignInView() {

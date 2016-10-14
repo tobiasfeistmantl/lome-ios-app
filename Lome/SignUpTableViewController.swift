@@ -30,23 +30,23 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
         [firstnameTextField, lastnameTextField, emailAddressTextField].addTarget(self, action: #selector(SignUpTableViewController.optionalTextFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
-    func requiredTextFieldChanged(textField: DesignableTextField) {
-        signUpButton.enabled = requiredFieldsValid
+    func requiredTextFieldChanged(_ textField: DesignableTextField) {
+        signUpButton.isEnabled = requiredFieldsValid
     }
     
-    func optionalTextFieldChanged(textField: DesignableTextField) {
+    func optionalTextFieldChanged(_ textField: DesignableTextField) {
         if requiredFieldsValid {
             if firstnameTextField.filled {
-                signUpButton.enabled = firstnameTextField.valid && lastnameTextField.filled && lastnameTextField.valid && emailAddressTextField.valid
+                signUpButton.isEnabled = firstnameTextField.valid && lastnameTextField.filled && lastnameTextField.valid && emailAddressTextField.valid
             } else if lastnameTextField.filled {
-                signUpButton.enabled = firstnameTextField.valid && firstnameTextField.filled && lastnameTextField.valid && emailAddressTextField.valid
+                signUpButton.isEnabled = firstnameTextField.valid && firstnameTextField.filled && lastnameTextField.valid && emailAddressTextField.valid
             } else {
-                signUpButton.enabled = firstnameTextField.valid && lastnameTextField.valid && emailAddressTextField.valid
+                signUpButton.isEnabled = firstnameTextField.valid && lastnameTextField.valid && emailAddressTextField.valid
             }
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textField = textField as! TFTextField
         
         if textField.valid {
@@ -66,7 +66,7 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func signUpButtonDidTouch(sender: UIBarButtonItem) {
+    @IBAction func signUpButtonDidTouch(_ sender: UIBarButtonItem) {
         usernameTextField.becomeFirstResponder()
         usernameTextField.resignFirstResponder()
         
@@ -102,7 +102,7 @@ class SignUpTableViewController: UITableViewController, UITextFieldDelegate {
         return usernameTextField.valid && passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
     }
     
-    @IBAction func cancelButtonDidTouch(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonDidTouch(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
 }

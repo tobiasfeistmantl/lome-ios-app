@@ -12,7 +12,7 @@ import UIKit
 extension UITextView {
     var placeholder: String? {
         get {
-            if textColor == UIColor.grayColor() {
+            if textColor == UIColor.gray {
                 return text
             }
             
@@ -22,10 +22,10 @@ extension UITextView {
         set {
             if let newValue = newValue {
                 text = newValue
-                textColor = .grayColor()
+                textColor = .gray()
             } else {
                 text = ""
-                textColor = .blackColor()
+                textColor = .black()
             }
         }
     }

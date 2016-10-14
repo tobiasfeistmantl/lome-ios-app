@@ -14,25 +14,25 @@ extension UIImage {
         return size.width / size.height
     }
     
-    func storeImage(imageName: String) -> String? {
-        let fileManager = NSFileManager.defaultManager()
+    func storeImage(_ imageName: String) -> String? {
+        let fileManager = FileManager.default
         let imagePath = UIImage.cachePath + "/\(imageName).jpg"
         
         let imageData = UIImageJPEGRepresentation(UIImage.fixOrientation(self), 0.8)
         
-        if fileManager.createFileAtPath(imagePath, contents: imageData, attributes: nil) {
+        if fileManager.createFile(atPath: imagePath, contents: imageData, attributes: nil) {
             return imagePath
         }
         
         return nil
     }
     
-    class func removeImage(imageName: String) -> Bool {
-        let fileManager = NSFileManager.defaultManager()
+    class func removeImage(_ imageName: String) -> Bool {
+        let fileManager = FileManager.default
         let imagePath = cachePath + "/\(imageName).jpg"
         
         do {
-            try fileManager.removeItemAtPath(imagePath)
+            try fileManager.removeItem(atPath: imagePath)
         } catch {
             return false
         }
@@ -41,36 +41,36 @@ extension UIImage {
     }
     
     class var cachePath: String {
-        return NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
+        return NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
     }
     
-    class func fixOrientation(image: UIImage) -> UIImage {
+    class func fixOrientation(_ image: UIImage) -> UIImage {
         
-        if (image.imageOrientation == UIImageOrientation.Up) {
+        if (image.imageOrientation == UIImageOrientation.up) {
             return image;
         }
         
         UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale);
         let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        image.drawInRect(rect)
+        image.draw(in: rect)
         
-        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext();
         return normalizedImage;
         
     }
     
-    class func imageWithColor(color: UIColor) -> UIImage {
-        let rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+    class func imageWithColor(_ color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
 }

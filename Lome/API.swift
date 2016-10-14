@@ -15,7 +15,7 @@ import CoreLocation
 class API {
     
     static var baseURLString: String {
-        if UIDevice.currentDevice().name == "iPhone Simulator" {
+        if UIDevice.current.name == "iPhone Simulator" {
             return "http://localhost:3000/v1"
         } else {
             return "https://lome.herokuapp.com/v1"      // Staging: "https://lome-staging.herokuapp.com/v1"
@@ -26,7 +26,7 @@ class API {
         return [ "Authorization": "Token token=\(UserSession.id!):\(UserSession.token!)" ]
     }
     
-    static func request(method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil, encoding: ParameterEncoding = .URL, headers: [String: String]? = nil) -> Alamofire.Request {
+    static func request(_ method: Alamofire.Method, _ path: String, parameters: [String: AnyObject]? = nil, encoding: ParameterEncoding = .URL, headers: [String: String]? = nil) -> Alamofire.Request {
         let URLString: URLStringConvertible = "\(API.baseURLString)\(path)"
         
         let request = Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: headers)
@@ -51,12 +51,12 @@ class API {
     }
     
     class Posts {
-        static func getPostsNearby(page page: Int = 1, afterResponse: ([Post], Bool) -> Void) {
+        static func getPostsNearby(page: Int = 1, afterResponse: @escaping ([Post], Bool) -> Void) {
             var posts: [Post] = []
             var successful = false
             
             let parameters: [String: AnyObject] = [
-                "page": page
+                "page": page as AnyObject
             ]
             
             API.request(.GET, "/posts/nearby", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
@@ -80,13 +80,13 @@ class API {
     }
     
     class Users {
-        static func searchByUsername(q: String, page: Int = 1, afterResponse: ([User], Bool) -> Void) {
+        static func searchByUsername(_ q: String, page: Int = 1, afterResponse: @escaping ([User], Bool) -> Void) {
             var users: [User] = []
             var successful = false
             
             let parameters: [String: AnyObject] = [
-                "q": q,
-                "page": page
+                "q": q as AnyObject,
+                "page": page as AnyObject
             ]
             
             API.request(.GET, "/users", parameters: parameters, headers: defaultSignedInHeaders).validate().responseJSON { serverResponse in
@@ -108,7 +108,7 @@ class API {
             }
         }
         
-        static func get(id: Int, afterResponse: (User?, Bool) -> Void) {
+        static func get(_ id: Int, afterResponse: @escaping (User?, Bool) -> Void) {
             var user: User?
             var successful = false
             
@@ -129,7 +129,7 @@ class API {
             }
         }
         
-        static func update(parameters: [String: AnyObject], afterUpdate: (User?, Bool) -> Void) {
+        static func update(_ parameters: [String: AnyObject], afterUpdate: @escaping (User?, Bool) -> Void) {
             var user: User?
             var successful = false
             
@@ -150,11 +150,11 @@ class API {
             }
         }
         
-        static func signIn(username: String, password: String, afterSignIn: (Bool) -> Void) {
+        static func signIn(_ username: String, password: String, afterSignIn: @escaping (Bool) -> Void) {
             var successful = false
             
-            let credentialData = "\(username):\(password)".dataUsingEncoding(NSUTF8StringEncoding)!
-            let base64Credentials = credentialData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithCarriageReturn)
+            let credentialData = "\(username):\(password)".data(using: String.Encoding.utf8)!
+            let base64Credentials = credentialData.base64EncodedString(options: NSData.Base64EncodingOptions.endLineWithCarriageReturn)
             
             let headers = ["Authorization": "Basic \(base64Credentials)"]
             
@@ -183,12 +183,12 @@ class API {
             }
         }
         
-        static func signUp(userParameters: [String: String], afterSignUp: (Bool, JSON?) -> Void) {
+        static func signUp(_ userParameters: [String: String], afterSignUp: @escaping (Bool, JSON?) -> Void) {
             var successful = false
             var APIError: JSON?
             
             let parameters: [String: AnyObject] = [
-                "user": userParameters
+                "user": userParameters as AnyObject
             ]
             
             let URL = baseURLString + "/users"
@@ -211,7 +211,7 @@ class API {
             
         }
         
-        static func signOut(afterSignOut: ((Bool) -> Void)?) {
+        static func signOut(_ afterSignOut: ((Bool) -> Void)?) {
             var successful = false
             
             API.request(.DELETE, "/users/\(UserSession.currentUser!.id)/sessions/\(UserSession.id!)", headers: defaultSignedInHeaders).responseJSON { serverResponse in
@@ -231,7 +231,7 @@ class API {
         }
         
         class Posts {
-            static func get(user: User, page: Int = 1, afterResponse: ([Post], Bool) -> Void) {
+            static func get(_ user: User, page: Int = 1, afterResponse: @escaping ([Post], Bool) -> Void) {
                 var posts: [Post] = []
                 var successful = false
                 
@@ -258,7 +258,7 @@ class API {
                 }
             }
             
-            static func reportAbuse(post: Post, afterResponse: (Bool) -> Void) {
+            static func reportAbuse(_ post: Post, afterResponse: @escaping (Bool) -> Void) {
                 var successful = false
                 
                 API.request(.POST, "/users/\(post.author.id)/posts/\(post.id)/abuse_report", headers: defaultSignedInHeaders).responseJSON { serverResponse in
@@ -272,13 +272,13 @@ class API {
                 }
             }
             
-            static func uploadImage(image: UIImage, afterResponse: (Post?, Bool) -> Void) {
+            static func uploadImage(_ image: UIImage, afterResponse: @escaping (Post?, Bool) -> Void) {
                 var post: Post?
                 var successful = false
                 
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+                DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async {
                     let imagePath = image.storeImage("tmpPostImage")
-                    let imageURL = NSURL.fileURLWithPath(imagePath!)
+                    let imageURL = URL(fileURLWithPath: imagePath!)
                     
                     let URL = API.baseURLString + "/users/\(UserSession.currentUser!.id)/posts/image"
                     
@@ -312,7 +312,7 @@ class API {
                 }
             }
             
-            static func delete(post: Post, afterResponse: (Bool) -> Void) {
+            static func delete(_ post: Post, afterResponse: @escaping (Bool) -> Void) {
                 var successful = false
                 
                 API.request(.DELETE, "/users/\(post.author.id)/posts/\(post.id)", headers: defaultSignedInHeaders).responseJSON { serverResponse in
@@ -327,7 +327,7 @@ class API {
             }
             
             class Likes {
-                static func getUsers(post: Post, page: Int = 1, afterResponse: ([User], Bool) -> Void) {
+                static func getUsers(_ post: Post, page: Int = 1, afterResponse: @escaping ([User], Bool) -> Void) {
                     var users: [User] = []
                     var successful = false
                     
@@ -357,7 +357,7 @@ class API {
         }
         
         class Relationships {
-            static func get(partner_id: Int, afterResponse: (Bool, Bool, Bool) -> Void) {
+            static func get(_ partner_id: Int, afterResponse: @escaping (Bool, Bool, Bool) -> Void) {
                 var following = false
                 var followed = false
                 var successful = false
@@ -390,7 +390,7 @@ class API {
         static var currentlyUpdatingLocation = false
         
         class Positions {
-            static func update(location: CLLocation, afterUpdate: (Bool) -> Void) {
+            static func update(_ location: CLLocation, afterUpdate: @escaping (Bool) -> Void) {
                 if currentlyUpdatingLocation {
                     return
                 }

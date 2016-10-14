@@ -18,7 +18,7 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
         emailAddressTextField.addTarget(self, action: #selector(EditEmailAddressTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textField = textField as! TFTextField
         
         if textField.valid {
@@ -30,11 +30,11 @@ class EditEmailAddressTableViewController: UITableViewController, UITextFieldDel
         return true
     }
     
-    func textFieldChanged(sender: TFTextField) {
-        saveButton.enabled = emailAddressTextField.valid
+    func textFieldChanged(_ sender: TFTextField) {
+        saveButton.isEnabled = emailAddressTextField.valid
     }
     
-    @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
+    @IBAction func saveButtonDidTouch(_ sender: UIBarButtonItem) {
         let parameters = [
             "user": [
                 "email": emailAddressTextField.text!

@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func simpleAlert(title title: String?, message: String?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+    func simpleAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     class var topMost: UIViewController {
-        var topController = UIApplication.sharedApplication().keyWindow?.rootViewController
+        var topController = UIApplication.shared.keyWindow?.rootViewController
         
         while (topController?.presentedViewController != nil) {
             topController = topController?.presentedViewController
@@ -28,16 +28,16 @@ extension UIViewController {
     }
     
     func showNoLocationAccessAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("We don't have access to your location!", comment: ""), message: NSLocalizedString("To show posts near your location we need to have access to your current location.", comment: ""), preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("We don't have access to your location!", comment: ""), message: NSLocalizedString("To show posts near your location we need to have access to your current location.", comment: ""), preferredStyle: .actionSheet)
         
         alert.addAction(
-            UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: .Default) { (action: UIAlertAction!) in
-                UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: .default) { (action: UIAlertAction!) in
+                UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
             }
         )
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 }

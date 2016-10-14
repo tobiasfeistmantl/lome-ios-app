@@ -9,7 +9,7 @@
 import Foundation
 
 enum UserRole: Int {
-    case User = 0
-    case Moderator = 1
-    case Admin = 2
+    case user = 0
+    case moderator = 1
+    case admin = 2
 }

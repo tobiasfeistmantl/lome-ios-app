@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 extension Array where Element : UITextField {
-    func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
+    func addTarget(_ target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
         for textField in self {
             let textField = textField as UITextField
-            textField.addTarget(target, action: action, forControlEvents: controlEvents)
+            textField.addTarget(target, action: action, for: controlEvents)
         }
     }
 }

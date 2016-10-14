@@ -35,7 +35,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl.addTarget(self, action: #selector(PostsFeedViewController.refreshPosts), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(PostsFeedViewController.refreshPosts), for: .valueChanged)
         postsTableView.addSubview(refreshControl)
         
         showLoadingView(NSLocalizedString("Loading posts near your location", comment: ""))
@@ -45,7 +45,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         setupTableView(postsTableView)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Reload data to recognize if post has been liked
@@ -58,17 +58,17 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     // Location Manager Delegates
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways {
             locationManager.startUpdatingLocation()
         } else {
-            if CLLocationManager.authorizationStatus() != .NotDetermined {
+            if CLLocationManager.authorizationStatus() != .notDetermined {
                 showNoLocationAccessAlert()
             }
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()
         
         location = locations.last
@@ -84,7 +84,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if location == nil || hasReachedTheEnd || populatingAtTheMoment {
             return
         }
@@ -94,7 +94,7 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func populate(reload reload: Bool = false) {
+    func populate(reload: Bool = false) {
         populatingAtTheMoment = true
         
         if reload {
@@ -135,51 +135,51 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     // Table View Delegates
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
         
-        cell.post = posts[indexPath.row]
+        cell.post = posts[(indexPath as NSIndexPath).row]
         cell.setupUserProfileButton(indexPath, viewController: self)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRow(at: indexPath)
         
-        performSegueWithIdentifier("showPost", sender: cell)
+        performSegue(withIdentifier: "showPost", sender: cell)
     }
     
-    func userProfileButtonDidTouch(sender: TFCellButton) {
-        performSegueWithIdentifier("showUserProfileFromCell", sender: sender)
+    func userProfileButtonDidTouch(_ sender: TFCellButton) {
+        performSegue(withIdentifier: "showUserProfileFromCell", sender: sender)
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPost" {
             let cell = (sender as! PostTableViewCell)
             let post = cell.post
-            let destinationViewController = segue.destinationViewController as! PostViewController
+            let destinationViewController = segue.destination as! PostViewController
             
             destinationViewController.post = post
         }
         
         if segue.identifier == "showUserProfile" {
-            let destinationViewController = segue.destinationViewController as! ProfileTableViewController
+            let destinationViewController = segue.destination as! ProfileTableViewController
             destinationViewController.userId = UserSession.currentUser!.id
         }
         
         if segue.identifier == "showUserProfileFromCell" {
             let button = sender as! TFCellButton
-            let post = posts[button.indexPath!.row]
+            let post = posts[(button.indexPath! as NSIndexPath).row]
             
-            let destinationViewController = segue.destinationViewController as! ProfileTableViewController
+            let destinationViewController = segue.destination as! ProfileTableViewController
             destinationViewController.user = post.author
         }
     }
@@ -193,14 +193,14 @@ class PostsFeedViewController: UIViewController, UITableViewDelegate, UITableVie
 
 extension PostsFeedViewController {
     
-    func setupLocationManager(locationManager: CLLocationManager) {
+    func setupLocationManager(_ locationManager: CLLocationManager) {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
     
-    func setupTableView(tableView: UITableView) {
-        postsTableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
+    func setupTableView(_ tableView: UITableView) {
+        postsTableView.register(UINib(nibName: "PostTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "postCell")
         postsTableView.estimatedRowHeight = 301
         postsTableView.rowHeight = UITableViewAutomaticDimension
     }

@@ -96,7 +96,7 @@ import Spring
     }
     
     
-    func hasEqualValue(textField: UITextField) -> Bool {
+    func hasEqualValue(_ textField: UITextField) -> Bool {
         return text == textField.text
     }
     

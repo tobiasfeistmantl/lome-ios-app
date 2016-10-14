@@ -67,7 +67,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
             self.setupUserViews()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileTableViewController.setUser), name: "userUpdated", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileTableViewController.setUser), name: NSNotification.Name(rawValue: "userUpdated"), object: nil)
         
         setupTableView()
     }
@@ -83,13 +83,13 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
     }
     
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if populatingAtTheMoment || hasReachedTheEnd {
             return
         }
@@ -99,7 +99,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         }
     }
     
-    @IBAction func followButtonDidTouch(sender: DesignableButton) {
+    @IBAction func followButtonDidTouch(_ sender: DesignableButton) {
         if user.following != nil && !user.following! {
             user.follow(true)
             followsUser = true
@@ -111,7 +111,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         followerLabel.text = user.followerCountText
     }
     
-    func populate(reload reload: Bool = false) {
+    func populate(reload: Bool = false) {
         populatingAtTheMoment = true
         
         if reload {
@@ -145,21 +145,21 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
         }
     }
     
-    @IBAction func showProfileImageButtonDidTouch(sender: TFImageButton) {
+    @IBAction func showProfileImageButtonDidTouch(_ sender: TFImageButton) {
         sender.showImage(profileImageView.image!)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPost" {
             let cell = (sender as! PostTableViewCell)
             let post = cell.post
-            let destinationViewController = segue.destinationViewController as! PostViewController
+            let destinationViewController = segue.destination as! PostViewController
             
             destinationViewController.post = post
         }
         
         if segue.identifier == "showSettings" {
-            let destinationViewController = segue.destinationViewController as! ProfileDashboardTableViewController
+            let destinationViewController = segue.destination as! ProfileDashboardTableViewController
             
             destinationViewController.user = user
         }
@@ -171,7 +171,7 @@ class ProfileTableViewController: UITableViewController, TFInfiniteScroll {
 extension ProfileTableViewController {
     func setupUserViews() {
         if let imageURL = user.profileImageURLs[.Original] {
-            let URL = NSURL(string: imageURL)
+            let URL = Foundation.URL(string: imageURL)
             
             profileImageView.af_setImageWithURL(URL!)
         }
@@ -189,14 +189,14 @@ extension ProfileTableViewController {
             usernameLabel.text = user.username
         } else {
             usersNameLabel.text = user.username
-            usernameLabel.hidden = true
+            usernameLabel.isHidden = true
         }
         
         followerLabel.text = user.followerCountText
         
         if UserSession.currentUser?.id == user.id {
                 followButton.hidden = true
-                profileInformationView.frame = CGRectMake(profileInformationView.frame.origin.x, profileInformationView.frame.origin.y, profileInformationView.frame.size.width, (profileInformationView.frame.size.height - followButton.frame.size.height - 10))  
+                profileInformationView.frame = CGRect(x: profileInformationView.frame.origin.x, y: profileInformationView.frame.origin.y, width: profileInformationView.frame.size.width, height: (profileInformationView.frame.size.height - followButton.frame.size.height - 10))  
         } else {
             navigationItem.rightBarButtonItem = nil
             followButton.hidden = false
@@ -216,28 +216,28 @@ extension ProfileTableViewController {
 
 extension ProfileTableViewController {
     func setupTableView() {
-        tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "postCell")
+        tableView.register(UINib(nibName: "PostTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "postCell")
         tableView.estimatedRowHeight = 301
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! PostTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
         
-        cell.post = posts[indexPath.row]
+        cell.post = posts[(indexPath as NSIndexPath).row]
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let cell = tableView.cellForRow(at: indexPath)
         
-        performSegueWithIdentifier("showPost", sender: cell)
+        performSegue(withIdentifier: "showPost", sender: cell)
     }
 }

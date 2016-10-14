@@ -47,7 +47,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         messageTextView.placeholder = placeholderText
     }
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if alreadyZoomedToUserLocation {
             return
         }
@@ -56,7 +56,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         alreadyZoomedToUserLocation = true
     }
     
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if placeholderSetInMessageTextView {
             placeholderSetInMessageTextView = false
             messageTextView.placeholder = nil
@@ -65,11 +65,11 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         return true
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    @IBAction func postButtonDidTouch(sender: DesignableButton) {
+    @IBAction func postButtonDidTouch(_ sender: DesignableButton) {
         messageTextView.resignFirstResponder()
         
         postButtonTouched = true
@@ -77,12 +77,12 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         if !imageUploading {
             publishPost()
         } else {
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func cancelButtonDidTouch(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonDidTouch(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
         
         if let post = post {
             let URL = API.baseURLString + "/users/\(post.author.id)/posts/\(post.id)"
@@ -100,11 +100,11 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
         moveMessageComposerView(up: false)
     }
     
-    func moveMessageComposerView(up up: Bool) {
+    func moveMessageComposerView(up: Bool) {
         view.layoutIfNeeded()
         
         if up {
-            let screen = UIScreen.mainScreen().bounds
+            let screen = UIScreen.main.bounds
             
             switch screen.height {
             case 480: messageComposerViewCenterYConstraint.constant = 180
@@ -116,13 +116,13 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
             messageComposerViewCenterYConstraint.constant = 0
         }
         
-        UIView.animateWithDuration(1) {
+        UIView.animate(withDuration: 1, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
     
-    @IBAction func takePhotoButtonDidTouch(sender: UIButton) {
-        let cameraViewController = IMGLYCameraViewController(recordingModes: [.Photo])
+    @IBAction func takePhotoButtonDidTouch(_ sender: UIButton) {
+        let cameraViewController = CameraViewController(recordingModes: [.Photo])
         cameraViewController.completionBlock = { image, url in
             let editorViewController = IMGLYMainEditorViewController()
             editorViewController.highResolutionImage = image
@@ -188,7 +188,7 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
             ]
         ]
         
-        if facebookShareButton.postOnNetwork && FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
+        if facebookShareButton.postOnNetwork && FBSDKAccessToken.current().hasGranted("publish_actions") {
             if let image = chosenImageView.image {
                 let photo = FBSDKSharePhoto(image: image, userGenerated: true)
                 
@@ -200,12 +200,12 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
                 fbAPI.shareContent = content
                 fbAPI.share()
             } else {
-                let graphRequest = FBSDKGraphRequest(graphPath: "me/feed", parameters: ["message": message], HTTPMethod: "POST")
-                graphRequest.startWithCompletionHandler(nil)
+                let graphRequest = FBSDKGraphRequest(graphPath: "me/feed", parameters: ["message": message], httpMethod: "POST")
+                graphRequest?.start(completionHandler: nil)
             }
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+        dispatch_get_global_queue(DispatchQueue.GlobalQueuePriority.background, 0).async {
             API.request(method, URL, parameters: parameters, headers: API.defaultSignedInHeaders).validate().responseJSON { serverResponse in
                 let result = serverResponse.result
                 dispatch_async(dispatch_get_main_queue()) {
@@ -219,13 +219,13 @@ class MessageComposerViewController: UIViewController, UITextViewDelegate, MKMap
             }
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
     func setupObserversForKeyboard() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MessageComposerViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MessageComposerViewController.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MessageComposerViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MessageComposerViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 }
 

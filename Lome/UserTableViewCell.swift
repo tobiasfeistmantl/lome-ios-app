@@ -16,7 +16,7 @@ class UserTableViewCell: UITableViewCell {
                 usernameLabel.text = user.username
             } else {
                 usersNameLabel.text = user.username
-                usernameLabel.hidden = true
+                usernameLabel.isHidden = true
             }
             
             followerCountLabel.text = user.followerCountText
@@ -36,7 +36,7 @@ class UserTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 

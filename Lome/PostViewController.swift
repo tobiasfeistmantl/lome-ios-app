@@ -39,7 +39,7 @@ class PostViewController: UIViewController {
     
     func setupView() {
         likesLabel.text = post.likesCountText
-        timestampLabel.text = NSString(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), post.createdAt.timeAgoSinceNow()) as String
+        timestampLabel.text = NSString(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}") as NSString, (post.createdAt as NSDate).timeAgoSinceNow()) as String
         postPositionMapView.addAnnotation(post.mapAnnotation)
         postPositionMapView.zoomToPosition(post.location.coordinate)
         
@@ -52,9 +52,9 @@ class PostViewController: UIViewController {
         }
         
         if let imageURL = post.imageURLs[.Original] {
-            let URL = NSURL(string: imageURL)!
+            let URL = Foundation.URL(string: imageURL)!
             
-            postImageButton.hidden = false
+            postImageButton.isHidden = false
             postImageView.af_setImageWithURL(URL)
         }
         
@@ -63,47 +63,47 @@ class PostViewController: UIViewController {
             usernameLabel.text = post.author.username
         } else {
             usersNameLabel.text = post.author.username
-            usernameLabel.hidden = true
+            usernameLabel.isHidden = true
         }
         
         if let attributedMessage = post.attributedMessage {
             contentLabel.attributedText = attributedMessage
-            contentLabel.hidden = false
+            contentLabel.isHidden = false
         } else {
-            contentLabel.hidden = true
+            contentLabel.isHidden = true
             contentLabel.attributedText = nil
             constraintBetweenMessageLabelAndPostImageView.constant = 0
         }
         
-        post.likeItems[.BarButton] = likePostButton
-        post.likeItems[.CountLabel] = likesLabel
+        post.likeItems[.barButton] = likePostButton
+        post.likeItems[.countLabel] = likesLabel
         
         if let distanceText = post.distanceText {
             distanceLabel.text = distanceText
         } else {
-            distanceLabel.hidden = true
+            distanceLabel.isHidden = true
         }
         
         likePostButton.image = post.likeButtonImage
     }
     
-    @IBAction func postImageButtonDidTouch(sender: TFImageButton) {
+    @IBAction func postImageButtonDidTouch(_ sender: TFImageButton) {
         if let postImage = postImageView.image {
             postImageButton.showImage(postImage)
         }
     }
     
-    @IBAction func likePostButtonDidTouch(sender: UIBarButtonItem) {
+    @IBAction func likePostButtonDidTouch(_ sender: UIBarButtonItem) {
         post.like = !post.like
     }
     
-    @IBAction func userProfileButtonDidTouch(sender: UIButton) {
-        performSegueWithIdentifier("showUserProfile", sender: self)
+    @IBAction func userProfileButtonDidTouch(_ sender: UIButton) {
+        performSegue(withIdentifier: "showUserProfile", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUserProfile" {
-            let destinationViewController = segue.destinationViewController as! ProfileTableViewController
+            let destinationViewController = segue.destination as! ProfileTableViewController
             
             destinationViewController.user = post.author
         }

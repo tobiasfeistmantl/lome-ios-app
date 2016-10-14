@@ -17,11 +17,11 @@ class TFSocialButton: UIButton {
     var postOnNetwork = false {
         didSet {
             if postOnNetwork {
-                setTitleColor(UIColor(hex: "3B5998"), forState: .Normal)
-                setImage(UIImage(named: "Facebook Activated"), forState: .Normal)
+                setTitleColor(UIColor(hex: "3B5998"), for: .Normal)
+                setImage(UIImage(named: "Facebook Activated"), for: UIControlState())
             } else {
-                setTitleColor(UIColor(hex: "9B9B9B"), forState: .Normal)
-                setImage(UIImage(named: "Facebook Deactivated"), forState: .Normal)
+                setTitleColor(UIColor(hex: "9B9B9B"), for: .Normal)
+                setImage(UIImage(named: "Facebook Deactivated"), for: UIControlState())
             }
         }
     }
@@ -29,14 +29,14 @@ class TFSocialButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        addTarget(self, action: #selector(TFSocialButton.touched), forControlEvents: .TouchUpInside)
+        addTarget(self, action: #selector(TFSocialButton.touched), for: .touchUpInside)
     }
     
     func touched() {
         postOnNetwork = !postOnNetwork
         
-        if FBSDKAccessToken.currentAccessToken() == nil {
-            FBSDKLoginManager().logInWithPublishPermissions(["publish_actions"], fromViewController: viewController) { result, _ in
+        if FBSDKAccessToken.current() == nil {
+            FBSDKLoginManager().logIn(withPublishPermissions: ["publish_actions"], from: viewController) { result, _ in
                 self.postOnNetwork = false
             }
         }

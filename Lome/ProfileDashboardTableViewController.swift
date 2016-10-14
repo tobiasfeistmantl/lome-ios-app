@@ -25,7 +25,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     override func viewDidLoad() {
         imagePicker.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileDashboardTableViewController.assignUpdatedUserAttributes), name: "userAttributesUpdated", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ProfileDashboardTableViewController.assignUpdatedUserAttributes), name: NSNotification.Name(rawValue: "userAttributesUpdated"), object: nil)
         
         assignUserAttributes()
     }
@@ -44,7 +44,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     
     func assignUserAttributes() {
         if let imageURLString = user.profileImageURLs[.Thumbnail] {
-            let imageURL = NSURL(string: imageURLString)!
+            let imageURL = URL(string: imageURLString)!
             
             userProfileImageView.af_setImageWithURL(imageURL)
         }
@@ -54,8 +54,8 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
         usernameLabel.text = user.username
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
         
         if let identifier = cell?.reuseIdentifier {
             switch identifier {
@@ -64,32 +64,32 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
             case "deleteSessionCell":
                 API.Users.signOut(nil)
                 
-                let viewController = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle()).instantiateInitialViewController()
+                let viewController = UIStoryboard(name: "Login", bundle: Bundle.main).instantiateInitialViewController()
                 
-                presentViewController(viewController!, animated: true, completion: nil)
+                present(viewController!, animated: true, completion: nil)
             case "deleteAccountCell":
-                presentViewController(destroyAccountAlertController, animated: true, completion: nil)
+                present(destroyAccountAlertController, animated: true, completion: nil)
             default: break
             }
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func changeProfileImage() {
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .photoLibrary
         
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        dismiss(animated: true, completion: nil)
         
         userProfileImageView.image = image
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async {
             let imagePath = image.storeImage("tmpProfileImage")
-            let imageURL = NSURL.fileURLWithPath(imagePath!)
+            let imageURL = URL(fileURLWithPath: imagePath!)
             
             let URL = API.baseURLString + "/users/\(self.user.id)"
             
@@ -122,10 +122,10 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
     
     
     var destroyAccountAlertController: UIAlertController {
-        let alert = UIAlertController(title: NSLocalizedString("Delete Account", comment: ""), message: NSLocalizedString("Do you really want to delete your account? This action is irreversible!", comment: ""), preferredStyle: .ActionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("Delete Account", comment: ""), message: NSLocalizedString("Do you really want to delete your account? This action is irreversible!", comment: ""), preferredStyle: .actionSheet)
         
-        let deleteAction = UIAlertAction(title: NSLocalizedString("Delete my Account", comment: ""), style: .Destructive, handler: deleteUser)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: NSLocalizedString("Delete my Account", comment: ""), style: .destructive, handler: deleteUser)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         
         for action in [deleteAction, cancelAction] {
             alert.addAction(action)
@@ -134,7 +134,7 @@ class ProfileDashboardTableViewController: UITableViewController, UIImagePickerC
         return alert
     }
     
-    func deleteUser(action: UIAlertAction) {
+    func deleteUser(_ action: UIAlertAction) {
         
         API.request(.DELETE, "/users/\(UserSession.currentUser!.id)", headers: API.defaultSignedInHeaders).responseJSON { serverResponse in
             let response = serverResponse.response

@@ -31,14 +31,14 @@ class PostTableViewCell: UITableViewCell {
     
     var postImage: UIImage? {
         didSet {
-            postImageButton.hidden = postImage == nil
+            postImageButton.isHidden = postImage == nil
         }
     }
     
     var post: Post! {
         didSet {
             if let imageURL = post.author.profileImageURLs[.Thumbnail] {
-                if let URL = NSURL(string: imageURL) {
+                if let URL = URL(string: imageURL) {
                     userProfileImageView.af_setImageWithURL(URL)
                 }
             } else {
@@ -50,15 +50,15 @@ class PostTableViewCell: UITableViewCell {
                 usernameLabel.text = post.author.username
             } else {
                 usersNameLabel.text = post.author.username
-                usernameLabel.hidden = true
+                usernameLabel.isHidden = true
             }
             
             if let attributedMessage = post.attributedMessage {
                 messageLabel.attributedText = attributedMessage
-                messageLabel.hidden = false
+                messageLabel.isHidden = false
                 constraintBetweenMessageLabelAndPostImageView.constant = 18
             } else {
-                messageLabel.hidden = true
+                messageLabel.isHidden = true
                 messageLabel.attributedText = nil
                 constraintBetweenMessageLabelAndPostImageView.constant = 0
             }
@@ -66,7 +66,7 @@ class PostTableViewCell: UITableViewCell {
             setNeedsUpdateConstraints()
             
             if let imageURL = post.imageURLs[.Original] {
-                let URL = NSURL(string: imageURL)!
+                let URL = Foundation.URL(string: imageURL)!
                 
                 postImageActivityIndicator.startAnimating()
                 postImageView.af_setImageWithURL(URL, placeholderImage: nil, filter: nil, imageTransition: .None) { serverResponse in
@@ -81,13 +81,13 @@ class PostTableViewCell: UITableViewCell {
                 constraintBetweenMessageLabelAndPostImageView.constant = 0
             }
             
-            post.likeItems[.Button] = likeButton
-            post.likeItems[.CountLabel] = likeCountButton.titleLabel
+            post.likeItems[.button] = likeButton
+            post.likeItems[.countLabel] = likeCountButton.titleLabel
             
-            timestampLabel.text = String(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), post.createdAt.timeAgoSinceNow())
+            timestampLabel.text = String(format: NSLocalizedString("Posted %@", comment: "Posted {n-time ago}"), (post.createdAt as NSDate).timeAgoSinceNow())
             distanceLabel.text = post.distanceText
-            likeCountButton.setTitle(post.likesCountText, forState: .Normal)
-            likeButton.setImage(post.likeButtonImage, forState: .Normal)
+            likeCountButton.setTitle(post.likesCountText, for: UIControlState())
+            likeButton.setImage(post.likeButtonImage, for: UIControlState())
         }
     }
     
@@ -102,23 +102,23 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func postImageButtonDidTouch(sender: TFImageButton) {
+    @IBAction func postImageButtonDidTouch(_ sender: TFImageButton) {
         if let postImage = postImage {
             sender.showImage(postImage)
         }
     }
     
-    @IBAction func moreButtonDidTouch(sender: UIButton) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        let reportAction = UIAlertAction(title: "Report Post", style: .Destructive) { _ in
+    @IBAction func moreButtonDidTouch(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let reportAction = UIAlertAction(title: "Report Post", style: .destructive) { _ in
             self.reportPost()
         }
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { _ in
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             self.deletePost()
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(reportAction)
         alert.addAction(cancelAction)
@@ -127,12 +127,12 @@ class PostTableViewCell: UITableViewCell {
             alert.addAction(deleteAction)
         }
         
-        UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
+        UIViewController.topMost.present(alert, animated: true, completion: nil)
     }
     
     func reportPost() {
-        let alert = UIAlertController(title: "Report Abuse", message: "Do you really want to report this post?", preferredStyle: .Alert)
-        let reportAction = UIAlertAction(title: "Yes report!", style: UIAlertActionStyle.Destructive) { _ in
+        let alert = UIAlertController(title: "Report Abuse", message: "Do you really want to report this post?", preferredStyle: .alert)
+        let reportAction = UIAlertAction(title: "Yes report!", style: UIAlertActionStyle.destructive) { _ in
             API.Users.Posts.reportAbuse(self.post) { successful in
                 if successful {
                     UIViewController.topMost.simpleAlert(title: "Post reported!", message: "Thank you for your help!")
@@ -141,15 +141,15 @@ class PostTableViewCell: UITableViewCell {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(reportAction)
         alert.addAction(cancelAction)
-        UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
+        UIViewController.topMost.present(alert, animated: true, completion: nil)
     }
     
     func deletePost() {
-        let alert = UIAlertController(title: "Delete Post", message: "Do you really want to delete this post?", preferredStyle: .Alert)
-        let deleteAction = UIAlertAction(title: "Yes", style: .Default) { _ in
+        let alert = UIAlertController(title: "Delete Post", message: "Do you really want to delete this post?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Yes", style: .default) { _ in
             API.Users.Posts.delete(self.post) { successful in
                 if successful {
                     UIViewController.topMost.simpleAlert(title: "Post deleted!", message: "Post was successfully deleted")
@@ -159,12 +159,12 @@ class PostTableViewCell: UITableViewCell {
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
         
-        UIViewController.topMost.presentViewController(alert, animated: true, completion: nil)
+        UIViewController.topMost.present(alert, animated: true, completion: nil)
     }
     
     override func updateConstraints() {
@@ -179,10 +179,10 @@ class PostTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         postImageView.image = nil
-        usernameLabel.hidden = false
+        usernameLabel.isHidden = false
         postImageAspectConstraint = nil
         postImageActivityIndicator.stopAnimating()
-        postImageButton.hidden = true
+        postImageButton.isHidden = true
     }
 }
 
@@ -194,14 +194,14 @@ class PostTableViewCell: UITableViewCell {
 
 
 extension PostTableViewCell {
-    func setupUserProfileButton(indexPath: NSIndexPath, viewController: UIViewController) {
+    func setupUserProfileButton(_ indexPath: IndexPath, viewController: UIViewController) {
         userProfileButton.indexPath = indexPath
-        userProfileButton.addTarget(viewController, action: Selector("userProfileButtonDidTouch:"), forControlEvents: .TouchUpInside)
-        userProfileButton.hidden = false
+        userProfileButton.addTarget(viewController, action: Selector("userProfileButtonDidTouch:"), for: .touchUpInside)
+        userProfileButton.isHidden = false
     }
     
     
-    @IBAction func likeButtonDidTouch(sender: UIButton) {
+    @IBAction func likeButtonDidTouch(_ sender: UIButton) {
         post.like = !post.like
     }
 }

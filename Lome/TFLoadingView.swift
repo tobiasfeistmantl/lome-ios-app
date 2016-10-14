@@ -25,9 +25,9 @@ class TFLoadingView: DesignableView {
 
 extension UIViewController {
     
-    func showLoadingView(loadingInfo: String? = nil) {
-        let loadingView = NSBundle.mainBundle().loadNibNamed("TFLoadingView", owner: self, options: nil)[0] as! TFLoadingView
-        loadingView.center = CGPointMake(view.frame.size.width/2, view.frame.size.height/2)
+    func showLoadingView(_ loadingInfo: String? = nil) {
+        let loadingView = Bundle.main.loadNibNamed("TFLoadingView", owner: self, options: nil)?[0] as! TFLoadingView
+        loadingView.center = CGPoint(x: view.frame.size.width/2, y: view.frame.size.height/2)
         loadingView.loadingLabel.text = loadingInfo
         loadingView.alpha = 0
         
@@ -40,8 +40,8 @@ extension UIViewController {
     
     func hideLoadingView() {
         for aView in view.subviews {
-            if aView.isKindOfClass(TFLoadingView) {
-                UIView.animateWithDuration(0.5, animations: {
+            if aView.isKind(of: TFLoadingView.self) {
+                UIView.animate(withDuration: 0.5, animations: {
                     aView.alpha = 0
                 }, completion: { finished in
                     if finished {

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UINavigationItem {
-    func setTitleImage(image: UIImage, height: CGFloat = 27) {
+    func setTitleImage(_ image: UIImage, height: CGFloat = 27) {
         let imageAspectRatio = image.size.width / image.size.height
         
         let width = height * imageAspectRatio

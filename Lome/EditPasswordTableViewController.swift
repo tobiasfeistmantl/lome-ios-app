@@ -20,7 +20,7 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
         [passwordTextField, passwordConfirmationTextField].addTarget(self, action: #selector(EditPasswordTableViewController.textFieldChanged(_:)), forControlEvents: .EditingChanged)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let textField = textField as! TFTextField
         
         if textField.valid {
@@ -36,12 +36,12 @@ class EditPasswordTableViewController: UITableViewController, UITextFieldDelegat
         return true
     }
     
-    func textFieldChanged(sender: TFTextField) {
+    func textFieldChanged(_ sender: TFTextField) {
         saveButton.enabled = passwordTextField.valid && passwordConfirmationTextField.hasEqualValue(passwordTextField)
     }
     
     
-    @IBAction func saveButtonDidTouch(sender: UIBarButtonItem) {
+    @IBAction func saveButtonDidTouch(_ sender: UIBarButtonItem) {
         let parameters = [
             "user": [
                 "password": passwordTextField.text!

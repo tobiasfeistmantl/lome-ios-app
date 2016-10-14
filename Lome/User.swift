@@ -22,7 +22,7 @@ class User {
     var profileImageAspectRatio: Double?
     var profileImageURLs: [ImageVersion: String] = [:]
     var following: Bool?
-    var role: UserRole = .User
+    var role: UserRole = .user
     
     var followerCountText: String {
         return String(format: NSLocalizedString("%@ Follower", comment: "{count} Follower"), "\(followerCount)")
@@ -30,13 +30,13 @@ class User {
     
     var fullName: String? {
         if firstname != nil && lastname != nil {
-            return [firstname!, lastname!].joinWithSeparator(" ")
+            return [firstname!, lastname!].joined(separator: " ")
         }
         
         return nil
     }
     
-    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageAspectRatio: Double, profileImageURLs: [ImageVersion: String], following: Bool, role: UserRole = .User) {
+    init(id: Int, firstname: String?, lastname: String?, username: String, followerCount: Int, profileImageAspectRatio: Double, profileImageURLs: [ImageVersion: String], following: Bool, role: UserRole = .user) {
         self.id = id
         self.firstname = firstname
         self.lastname = lastname
@@ -70,7 +70,7 @@ class User {
         self.following = data["following"].bool
     }
     
-    func follow(follow: Bool) {
+    func follow(_ follow: Bool) {
         following = follow
         
         let parameters = [
@@ -92,7 +92,7 @@ class User {
         API.request(method, "/users/\(UserSession.currentUser!.id)/relationships", parameters: parameters, headers: API.defaultSignedInHeaders)
     }
     
-    func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: (UIImage, Bool) -> Void) {
+    func profileImage(version profileImageVersion: ImageVersion = .Original, afterResponse: @escaping (UIImage, Bool) -> Void) {
         var image: UIImage = profileFallbackImage
         var successful = false
         
@@ -109,21 +109,21 @@ class User {
                 }
             }
         } else {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 afterResponse(image, successful)
             }
         }
     }
     
     func isModerator() -> Bool {
-        return self.role == UserRole.Moderator
+        return self.role == UserRole.moderator
     }
     
     func isAdmin() -> Bool {
-        return self.role == UserRole.Admin
+        return self.role == UserRole.admin
     }
     
-    func isAllowedToChangePost(post: Post) -> Bool {
+    func isAllowedToChangePost(_ post: Post) -> Bool {
         return isModerator() || isAdmin() || self.id == post.author.id
     }
 }

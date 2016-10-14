@@ -12,11 +12,11 @@ extension String {
     
     // Returns true if the string is an email address
     var emailFormat: Bool {
-        return NSPredicate(format:"SELF MATCHES %@", emailRegex).evaluateWithObject(self)
+        return NSPredicate(format:"SELF MATCHES %@", emailRegex).evaluate(with: self)
     }
     
     // Returns true if the string is an username
     var usernameFormat: Bool {
-        return NSPredicate(format: "SELF MATCHES %@", usernameRegex).evaluateWithObject(self)
+        return NSPredicate(format: "SELF MATCHES %@", usernameRegex).evaluate(with: self)
     }
 }

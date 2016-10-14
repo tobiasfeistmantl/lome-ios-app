@@ -19,7 +19,7 @@ class TFImageButton: UIButton {
         }
     }
     
-    func showImage(image: UIImage) {
+    func showImage(_ image: UIImage) {
         let imageInfo = JTSImageInfo()
         imageInfo.image = image
         imageInfo.referenceRect = self.frame
@@ -29,8 +29,8 @@ class TFImageButton: UIButton {
             imageInfo.referenceCornerRadius = frame.size.width / 2
         }
         
-        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: .Image, backgroundStyle: .Blurred)
+        let imageViewer = JTSImageViewController(imageInfo: imageInfo, mode: .image, backgroundStyle: .blurred)
         
-        imageViewer.showFromViewController(UIApplication.sharedApplication().keyWindow?.rootViewController, transition: JTSImageViewControllerTransition.FromOriginalPosition)
+        imageViewer?.show(from: UIApplication.shared.keyWindow?.rootViewController, transition: JTSImageViewControllerTransition.fromOriginalPosition)
     }
 }

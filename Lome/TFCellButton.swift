@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TFCellButton: UIButton {
-    var indexPath: NSIndexPath?
+    var indexPath: IndexPath?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -19,7 +19,7 @@ class Post {
     var message: String?
     var location: CLLocation
     var author: User
-    var createdAt: NSDate
+    var createdAt: Date
     var likesCount: Int
     var imageAspectRatio: Double?
     var imageURLs: [ImageVersion: String] = [:]
@@ -27,11 +27,11 @@ class Post {
         didSet {
             let method: Alamofire.Method
             
-            if let button = likeItems[.Button] as? UIButton {
-                button.setImage(likeButtonImage, forState: .Normal)
+            if let button = likeItems[.button] as? UIButton {
+                button.setImage(likeButtonImage, for: UIControlState())
             }
             
-            if let barButton = likeItems[.BarButton] as? UIBarButtonItem {
+            if let barButton = likeItems[.barButton] as? UIBarButtonItem {
                 barButton.image = likeButtonImage
             }
             
@@ -43,7 +43,7 @@ class Post {
                 likesCount -= 1
             }
             
-            if let likeCountLabel = likeItems[.CountLabel] as? UILabel {
+            if let likeCountLabel = likeItems[.countLabel] as? UILabel {
                 likeCountLabel.text = likesCountText
             }
             
@@ -63,15 +63,15 @@ class Post {
         return text
     }
     
-    func distanceFromLocation(location: CLLocation) -> CLLocationDistance {
-        return location.distanceFromLocation(self.location)
+    func distanceFromLocation(_ location: CLLocation) -> CLLocationDistance {
+        return location.distance(from: self.location)
     }
     
     var attributedMessage: NSAttributedString? {
         if let message = message {
             let attributedMessage = NSMutableAttributedString(string: message)
             
-            let fontStyle = UIFont.systemFontOfSize(UIFont.systemFontSize(), weight: UIFontWeightRegular)
+            let fontStyle = UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: UIFontWeightRegular)
             
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 6
@@ -94,7 +94,7 @@ class Post {
         return annotation
     }
     
-    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: NSDate, likesCount: Int, like: Bool = false, imageURLs: [ImageVersion: String]) {
+    init(id: Int, message: String?, location: CLLocation, author: User, createdAt: Date, likesCount: Int, like: Bool = false, imageURLs: [ImageVersion: String]) {
         self.id = id
         self.message = message
         self.location = location
@@ -153,7 +153,7 @@ class Post {
         return UIImage(named: "Like Heart")!
     }
     
-    func image(version postImageVersion: ImageVersion = .Original, afterResponse: (UIImage?, Bool) -> Void) {
+    func image(version postImageVersion: ImageVersion = .Original, afterResponse: @escaping (UIImage?, Bool) -> Void) {
         var image: UIImage?
         var successful = false
         
@@ -174,9 +174,9 @@ class Post {
 }
 
 enum LikeItem {
-    case Button
-    case BarButton
-    case CountLabel
+    case button
+    case barButton
+    case countLabel
 }
 
 
